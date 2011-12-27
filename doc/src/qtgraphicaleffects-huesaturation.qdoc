@@ -1,0 +1,205 @@
+/****************************************************************************
+**
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+** All rights reserved.
+** Contact: Nokia Corporation (qt-info@nokia.com)
+**
+** This file is part of the documentation of the Qt Graphical Effects module.
+**
+** $QT_BEGIN_LICENSE:FDL$
+** GNU Free Documentation License
+** Alternatively, this file may be used under the terms of the GNU Free
+** Documentation License version 1.3 as published by the Free Software
+** Foundation and appearing in the file included in the packaging of
+** this file.
+**
+** Other Usage
+** Alternatively, this file may be used in accordance with the terms
+** and conditions contained in a signed written agreement between you
+** and Nokia.
+**
+**
+**
+**
+** $QT_END_LICENSE$
+**
+****************************************************************************/
+
+/*!
+    \qmlclass HueSaturation
+    \inqmlmodule QtGraphicalEffects
+    \brief Alters the source item colors in the HSL color space.
+
+    HueSaturation is similar to the \l Colorize effect, but the hue and
+    saturation property values are handled differently. The HueSaturation effect
+    always shifts the hue, saturation, and lightness from the original, instead
+    of setting them.
+
+    \table
+    \header
+        \o Source
+        \o Effect applied
+    \row
+        \o \image Original_bug.png
+        \o \image HueSaturation_bug.png
+    \endtable
+
+    \section1 Example
+
+    The following example shows how to apply the effect.
+    \snippet snippets/HueSaturation-example.qml example
+
+    \section1 Memory Consumption
+
+    The internal memory consumption is small.
+    If source item is not Image or ShaderEffectSource, then effect internally creates one ShaderEffectSource item per source.
+    The ShaderEffectSource memory consumption is approximately the same as the memory consumption of the the
+    source item area in pixels.
+    Enabling the effect cache increases the memory consumption.
+
+    \table
+    \header
+        \o Estimated memory usage for an effect with a size of 640x480 pixels with 32 bits per pixel (bpp)
+        \o
+    \row
+        \o Effect internal
+        \o 0 MB
+    \row
+        \o ShaderEffectSource (if used)
+        \o 1.2 MB
+    \row
+        \o Effect internal cache (if enabled)
+        \o 1.2 MB
+    \row
+        \o TOTAL (max)
+        \o 2.4 MB
+    \endtable
+
+*/
+
+/*!
+    \qmlproperty variant QtGraphicalEffects::HueSaturation::source
+
+    This property defines the source item that provides the source pixels for
+    the effect.
+
+*/
+
+/*!
+    \qmlproperty real QtGraphicalEffects::HueSaturation::hue
+
+    This property defines the hue value which is added to the source hue value.
+
+    The value ranges from -1.0 (decrease) to 1.0 (increase). By default, the
+    property is set to \c 0.0 (no change).
+
+    \table
+    \header
+    \o Output examples with different hue values
+    \o
+    \o
+    \row
+        \o \image HueSaturation_hue1.png
+        \o \image HueSaturation_hue2.png
+        \o \image HueSaturation_hue3.png
+    \row
+        \o \bold { hue: -0.3 }
+        \o \bold { hue: 0.0 }
+        \o \bold { hue: 0.3 }
+    \row
+        \o \l saturation: 0
+        \o \l saturation: 0
+        \o \l saturation: 0
+    \row
+        \o \l lightness: 0
+        \o \l lightness: 0
+        \o \l lightness: 0
+    \endtable
+
+*/
+
+/*!
+    \qmlproperty real QtGraphicalEffects::HueSaturation::saturation
+
+    This property defines the saturation value value which is added to the
+    source saturation value.
+
+    The value ranges from -1.0 (decrease) to 1.0 (increase). By default, the
+    property is set to \c 0.0 (no change).
+
+    \table
+    \header
+    \o Output examples with different saturation values
+    \o
+    \o
+    \row
+        \o \image HueSaturation_saturation1.png
+        \o \image HueSaturation_saturation2.png
+        \o \image HueSaturation_saturation3.png
+    \row
+        \o \bold { saturation: -0.8 }
+        \o \bold { saturation: 0.0 }
+        \o \bold { saturation: 1.0 }
+    \row
+        \o \l hue: 0
+        \o \l hue: 0
+        \o \l hue: 0
+    \row
+        \o \l lightness: 0
+        \o \l lightness: 0
+        \o \l lightness: 0
+    \endtable
+
+*/
+
+/*!
+    \qmlproperty real QtGraphicalEffects::HueSaturation::lightness
+
+    This property defines the lightness value which is added to the source
+    saturation value.
+
+    The value ranges from -1.0 (decrease) to 1.0 (increase). By default, the
+    property is set to \c 0.0 (no change).
+
+    \table
+    \header
+    \o Output examples with different lightness values
+    \o
+    \o
+    \row
+        \o \image HueSaturation_lightness1.png
+        \o \image HueSaturation_lightness2.png
+        \o \image HueSaturation_lightness3.png
+    \row
+        \o \bold { lightness: -0.5 }
+        \o \bold { lightness: 0.0 }
+        \o \bold { lightness: 0.5 }
+    \row
+        \o \l hue: 0
+        \o \l hue: 0
+        \o \l hue: 0
+    \row
+        \o \l saturation: 0
+        \o \l saturation: 0
+        \o \l saturation: 0
+    \endtable
+
+*/
+
+/*!
+    \qmlproperty bool QtGraphicalEffects::HueSaturation::cached
+
+    This property allows the effect output pixels to be cached in order to
+    improve the rendering performance.
+
+    Every time the source or effect properties are changed, the pixels in the
+    cache must be updated. Memory consumption is increased, because an extra
+    buffer of memory is required for storing the effect output.
+
+    It is recommended to disable the cache when the source or the effect
+    properties are animated.
+
+    By default, the property is set to \c false.
+
+*/
+

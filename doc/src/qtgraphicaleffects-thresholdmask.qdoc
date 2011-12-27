@@ -1,0 +1,187 @@
+/****************************************************************************
+**
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+** All rights reserved.
+** Contact: Nokia Corporation (qt-info@nokia.com)
+**
+** This file is part of the documentation of the Qt Graphical Effects module.
+**
+** $QT_BEGIN_LICENSE:FDL$
+** GNU Free Documentation License
+** Alternatively, this file may be used under the terms of the GNU Free
+** Documentation License version 1.3 as published by the Free Software
+** Foundation and appearing in the file included in the packaging of
+** this file.
+**
+** Other Usage
+** Alternatively, this file may be used in accordance with the terms
+** and conditions contained in a signed written agreement between you
+** and Nokia.
+**
+**
+**
+**
+** $QT_END_LICENSE$
+**
+****************************************************************************/
+
+/*!
+    \qmlclass ThresholdMask
+    \inqmlmodule QtGraphicalEffects
+    \brief Masks the source item with another item and applies a threshold value.
+
+    The masking behavior can be controlled with the \l threshold value for the
+    mask pixels.
+
+    \table
+    \header
+        \o Source
+        \o MaskSource
+        \o Effect applied
+    \row
+        \o \image Original_bug.png
+        \o \image ThresholdMask_mask.png
+        \o \image ThresholdMask_bug.png
+    \endtable
+
+    \section1 Example
+
+    The following example shows how to apply the effect.
+    \snippet snippets/ThresholdMask-example.qml example
+
+    \section1 Memory Consumption
+
+    The memory consumption is small.
+    The internal memory consumption is approximately the same as the memory
+    consumption of the the source item area in pixels.
+    If source item is not Image or ShaderEffectSource, then effect internally creates one ShaderEffectSource item per source.
+    Enabling the effect cache increases the memory consumption.
+
+    \table
+    \header
+        \o Estimated memory usage for 640x480 pixels size effect in 32 bits per pixel (bpp)
+        \o
+    \row
+        \o Effect internal
+        \o 0 MB
+    \row
+        \o ShaderEffectSource (if used)
+        \o 1.2 MB
+    \row
+        \o ShaderEffectSource for maskSource (if used)
+        \o 1.2 MB
+    \row
+        \o Effect internal cache (if enabled)
+        \o 1.2 MB
+    \row
+        \o TOTAL (max)
+        \o 3.6 MB
+    \endtable
+
+*/
+
+/*!
+    \qmlproperty variant QtGraphicalEffects::ThresholdMask::source
+
+    This property defines the source item that is going to be masked.
+
+*/
+
+/*!
+    \qmlproperty variant QtGraphicalEffects::ThresholdMask::maskSource
+
+    This property defines the item that is going to be used as the mask. Mask item gets rendered into an intermediate pixel buffer and
+    the alpha values from the result are used to determine the source item's pixels visibility in the display.
+
+    \table
+    \header
+        \o Original
+        \o Mask
+        \o Effect applied
+    \row
+        \o \image Original_bug.png
+        \o \image ThresholdMask_mask.png
+        \o \image ThresholdMask_bug.png
+    \endtable
+
+*/
+
+/*!
+    \qmlproperty real QtGraphicalEffects::ThresholdMask::threshold
+
+    This property defines a threshold value for the mask pixels. The mask pixels that have an alpha value
+    below this property are used to completely mask away the corresponding pixels from the source item.
+    The mask pixels that have a higher alpha value are used to alphablend the source item to the display.
+
+    The value ranges from 0.0 (alpha value 0) to 1.0 (alpha value 255). By default, the property is set to \c 0.0.
+
+    \table
+    \header
+    \o Output examples with different threshold values
+    \o
+    \o
+    \row
+        \o \image ThresholdMask_threshold1.png
+        \o \image ThresholdMask_threshold2.png
+        \o \image ThresholdMask_threshold3.png
+    \row
+        \o \bold { threshold: 0.0 }
+        \o \bold { threshold: 0.5 }
+        \o \bold { threshold: 0.7 }
+    \row
+        \o \l spread: 0.2
+        \o \l spread: 0.2
+        \o \l spread: 0.2
+    \endtable
+
+*/
+
+/*!
+    \qmlproperty real QtGraphicalEffects::ThresholdMask::spread
+
+    This property defines the smoothness of the mask edges near the \l threshold
+    alpha value. Setting spread to 0.0 uses mask normally with the specified
+    threshold. Setting higher spread values softens the transition from the
+    transparent mask pixels towards opaque mask pixels by adding interpolated
+    values between them.
+
+    The value ranges from 0.0 (sharp mask edge) to 1.0 (smooth mask edge). By default, the property is set to \c 0.0.
+
+    \table
+    \header
+    \o Output examples with different spread values
+    \o
+    \o
+    \row
+        \o \image ThresholdMask_spread1.png
+        \o \image ThresholdMask_spread2.png
+        \o \image ThresholdMask_spread3.png
+    \row
+        \o \bold { spread: 0.0 }
+        \o \bold { spread: 0.2 }
+        \o \bold { spread: 0.8 }
+    \row
+        \o \l threshold: 0.4
+        \o \l threshold: 0.4
+        \o \l threshold: 0.4
+    \endtable
+
+*/
+
+
+/*!
+    \qmlproperty bool QtGraphicalEffects::ThresholdMask::cached
+
+    This property allows the effect output pixels to be cached in order to
+    improve the rendering performance.
+
+    Every time the source or effect properties are changed, the pixels in the
+    cache must be updated. Memory consumption is increased, because an extra
+    buffer of memory is required for storing the effect output.
+
+    It is recommended to disable the cache when the source or the effect
+    properties are animated.
+
+    By default, the property is set to \c false.
+
+*/

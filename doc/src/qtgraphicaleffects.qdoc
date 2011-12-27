@@ -1,0 +1,108 @@
+/****************************************************************************
+**
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+** All rights reserved.
+** Contact: Nokia Corporation (qt-info@nokia.com)
+**
+** This file is part of the documentation of the Qt Graphical Effects module.
+**
+** $QT_BEGIN_LICENSE:FDL$
+** GNU Free Documentation License
+** Alternatively, this file may be used under the terms of the GNU Free
+** Documentation License version 1.3 as published by the Free Software
+** Foundation and appearing in the file included in the packaging of
+** this file.
+**
+** Other Usage
+** Alternatively, this file may be used in accordance with the terms
+** and conditions contained in a signed written agreement between you
+** and Nokia.
+**
+**
+**
+**
+** $QT_END_LICENSE$
+**
+****************************************************************************/
+
+/*!
+\title Qt Graphical Effects
+\page qml-graphicaleffects-index.html
+\brief Qt Graphical Effects module is a Qt Quick Add-On module.
+
+The Qt Graphical Effects module provides a set of QML components for building
+visually impressive user interfaces. You can implement the effects inside QML applications with QML and GLSL.
+
+\section1 Getting started
+Install the Qt Graphical Effects module, and simply add the following import statement to your .qml file:
+\snippet snippets/Blend-example.qml import
+
+\section1 Elements
+
+The following list presents the functional division of components that are part of Qt Graphical Effects:
+
+Blend
+\list
+\o \l {QtGraphicalEffects::Blend}{Blend} - merges two source items by using a blend mode
+\endlist
+
+Color
+\list
+\o \l {QtGraphicalEffects::BrightnessContrast}{BrightnessContrast} - adjusts brightness and contrast
+\o \l {QtGraphicalEffects::Colorize}{Colorize} - sets color in the HSL color space
+\o \l {QtGraphicalEffects::ColorOverlay}{ColorOverlay} - applies a color layer
+\o \l {QtGraphicalEffects::Desaturate}{Desaturate} - reduces color saturation
+\o \l {QtGraphicalEffects::GammaAdjust}{GammaAdjust} - adjusts luminance
+\o \l {QtGraphicalEffects::HueSaturation}{HueSaturation} - adjusts colors in the HSL color space
+\endlist
+
+Gradient
+\list
+\o \l {QtGraphicalEffects::ConicalGradient}{ConicalGradient} - draws a conical gradient
+\o \l {QtGraphicalEffects::LinearGradient}{LinearGradient} - draws a linear gradient
+\o \l {QtGraphicalEffects::RadialGradient}{RadialGradient} - draws a radial gradient
+\endlist
+
+Distortion
+\list
+\o \l {QtGraphicalEffects::Displace}{Displace} - moves the pixels of the source item according to the specified displacement source
+\endlist
+
+Drop Shadow
+\list
+\o \l {QtGraphicalEffects::DropShadow}{DropShadow} - draws a higher quality drop shadow
+\o \l {QtGraphicalEffects::FastDropShadow}{FastDropShadow} - draws a fast drop shadow
+\endlist
+
+Blur
+\list
+\o \l {QtGraphicalEffects::FastBlur}{FastBlur} - applies a fast blur effect
+\o \l {QtGraphicalEffects::GaussianBlur}{GaussianBlur} - applies a higher quality blur effect
+\o \l {QtGraphicalEffects::RecursiveBlur}{RecursiveBlur} - blurs repeatedly, providing a strong blur effect
+\endlist
+
+Motion Blur
+\list
+\o \l {QtGraphicalEffects::DirectionalBlur}{DirectionalBlur} - applies a directional motion blur effect
+\o \l {QtGraphicalEffects::RadialBlur}{RadialBlur} - applies a radial motion blur effect
+\o \l {QtGraphicalEffects::ZoomBlur}{ZoomBlur} - applies a zoom motion blur effect
+\endlist
+
+Glow
+\list
+\o \l {QtGraphicalEffects::FastGlow}{FastGlow} - draws a fast glow effect
+\o \l {QtGraphicalEffects::Glow}{Glow} - draws a higher quality glow effect
+\o \l {QtGraphicalEffects::RectangularGlow}{RectangularGlow} - draws a rectangular glow effect
+\endlist
+
+Mask
+\list
+\o \l {QtGraphicalEffects::OpacityMask}{OpacityMask} - masks the source item with another item
+\o \l {QtGraphicalEffects::ThresholdMask}{ThresholdMask} - masks the source item with another item and applies a threshold value
+\endlist
+
+\section1 Examples
+
+Will be added here later.
+
+*/

@@ -1,0 +1,26 @@
+Blend 0.1 Blend.qml
+BrightnessContrast 0.1 BrightnessContrast.qml
+Colorize 0.1 Colorize.qml
+ColorOverlay 0.1 ColorOverlay.qml
+ConicalGradient 0.1 ConicalGradient.qml
+Desaturate 0.1 Desaturate.qml
+DirectionalBlur 0.1 DirectionalBlur.qml
+Displace 0.1 Displace.qml
+DropShadow 0.1 DropShadow.qml
+FastBlur 0.1 FastBlur.qml
+FastDropShadow 0.1 FastDropShadow.qml
+FastGlow 0.1 FastGlow.qml
+GammaAdjust 0.1 GammaAdjust.qml
+GaussianBlur 0.1 GaussianBlur.qml
+Glow 0.1 Glow.qml
+HueSaturation 0.1 HueSaturation.qml
+LinearGradient 0.1 LinearGradient.qml
+OpacityMask 0.1 OpacityMask.qml
+RadialBlur 0.1 RadialBlur.qml
+RadialGradient 0.1 RadialGradient.qml
+RecursiveBlur 0.1 RecursiveBlur.qml
+RectangularGlow 0.1 RectangularGlow.qml
+ThresholdMask 0.1 ThresholdMask.qml
+SourceProxy 0.1 SourceProxy.qml
+ZoomBlur 0.1 ZoomBlur.qml
+

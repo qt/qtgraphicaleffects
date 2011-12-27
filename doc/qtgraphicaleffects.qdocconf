@@ -1,0 +1,64 @@
+# Name of the project.
+project = QtGraphicalEffects
+
+# Directories in which to search for files to document.
+# Paths are relative to the location of this file.
+exampledirs += ./src
+#headerdirs += ./src ../src
+imagedirs += ./src/images
+sourcedirs += ./src 
+
+# The following parameters are for creating a qhp file, the qhelpgenerator
+# program can convert the qhp file into a qch file which can be opened in
+# Qt Assistant and/or Qt Creator.
+
+# Defines the name of the project. You cannot use operators (+, =, -) in
+# the name. Properties for this project are set using a qhp.<projectname>.property
+# format.
+qhp.projects = QtGraphicalEffects
+
+# Sets the name of the output qhp file.
+qhp.QtGraphicalEffects.file = QtGraphicalEffects.qhp
+
+# Namespace for the output file. This namespace is used to distinguish between
+# different documentation files in Creator/Assistant. The namespace ends with
+# a version being a number containing a major, minor and revision element.
+# E.g. version 1.0 becomes 100.
+qhp.QtGraphicalEffects.namespace = QtGraphicalEffects.100
+
+# Title for the package, will be the main title for the package in
+# Assistant/Creator.
+qhp.QtGraphicalEffects.indexTitle = Qt Graphical Effects Reference Documentation
+
+# Extra files to add to the output which are not linked to from anywhere
+# using a qdoc \l command.
+qhp.QtGraphicalEffects.extraFiles = style/style.css
+#                        index.html
+
+# Only updtae the name of the project for the next variables.
+qhp.QtGraphicalEffects.virtualFolder  = qdoc
+qhp.QtGraphicalEffects.subprojects = classes
+qhp.QtGraphicalEffects.subprojects.classes.title = Classes
+qhp.QtGraphicalEffects.subprojects.classes.selectors = class fake:headerfile
+qhp.QtGraphicalEffects.subprojects.classes.sortPages = true
+
+
+
+
+# Do NOT change the variables after this line unless you know what you are doing.
+
+outputdir = html
+outputformats = HTML
+
+examples.fileextensions = "*.cpp *.h *.js *.svg *.xml *.ui *.qml" 
+examples.imageextensions = "*.png *.jpeg *.jpg *.gif *.mng" 
+headers.fileextensions = "*.h *.ch *.h++ *.hh *.hpp *.hxx"
+sources.fileextensions = "*.cpp *.qdoc *.mm *.qml"
+
+HTML.nobreadcrumbs = "true"
+
+HTML.templatedir = .
+HTML.stylesheets = style/style.css
+
+HTML.headerstyles = "  <link rel=\"stylesheet\" type=\"text/css\" href=\"style/style.css\" />\n"
+HTML.endheader = "</head>\n"

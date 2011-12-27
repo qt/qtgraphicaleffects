@@ -1,0 +1,187 @@
+/****************************************************************************
+**
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+** All rights reserved.
+** Contact: Nokia Corporation (qt-info@nokia.com)
+**
+** This file is part of the documentation of the Qt Graphical Effects module.
+**
+** $QT_BEGIN_LICENSE:FDL$
+** GNU Free Documentation License
+** Alternatively, this file may be used under the terms of the GNU Free
+** Documentation License version 1.3 as published by the Free Software
+** Foundation and appearing in the file included in the packaging of
+** this file.
+**
+** Other Usage
+** Alternatively, this file may be used in accordance with the terms
+** and conditions contained in a signed written agreement between you
+** and Nokia.
+**
+**
+**
+**
+** $QT_END_LICENSE$
+**
+****************************************************************************/
+
+/*!
+    \qmlclass Blend
+    \inqmlmodule QtGraphicalEffects
+    \brief Merges two source items by using a blend mode.
+
+    Blend mode can be selected with the \l mode property.
+
+    \table
+    \header
+        \o backgroundSource
+        \o foregroundSource
+        \o Effect applied
+    \row
+        \o \image Original_bug.png
+        \o \image Original_butterfly.png
+        \o \image Blend_bug_and_butterfly.png
+    \endtable
+
+    \section1 Example
+
+    The following example shows how to apply the effect.
+    \snippet snippets/Blend-example.qml example
+
+    \section1 Memory Consumption
+
+    The internal memory consumption is small.
+    If source item is not Image or ShaderEffectSource, then effect internally creates one ShaderEffectSource item per source.
+    The ShaderEffectSource memory consumption is approximately the same as the memory consumption of the the source item area in pixels.
+    Enabling the effect cache increases the memory consumption.
+
+    \table
+    \header
+        \o Estimated memory usage for an effect with a size of 640x480 pixels with 32 bits per pixel (bpp)
+        \o
+    \row
+        \o Effect internal
+        \o 0 MB
+    \row
+        \o ShaderEffectSource for backgroundSource (if used)
+        \o 1.2 MB
+    \row
+        \o ShaderEffectSource for foregroundSource (if used)
+        \o 1.2 MB
+    \row
+        \o Effect internal cache (if enabled)
+        \o 1.2 MB
+    \row
+        \o TOTAL (max)
+        \o 3.6 MB
+    \endtable
+
+*/
+
+/*!
+    \qmlproperty variant QtGraphicalEffects::Blend::backgroundSource
+
+    This property defines the source item that is going to be the base when \l foregroundSource is blended over it.
+
+*/
+
+/*!
+    \qmlproperty variant QtGraphicalEffects::Blend::foregroundSource
+
+    This property defines the item that is going to be blended over the \l backgroundSource.
+
+*/
+
+/*!
+    \qmlproperty string QtGraphicalEffects::Blend::mode
+
+    This property defines the mode which is used when foregroundSource is blended over backgroundSource.
+
+    \table
+    \header
+        \o mode
+        \o description
+    \row
+        \o normal
+        \o The pixel component values from foregroundSource are written over backgroundSource by using alpha blending.
+    \row
+        \o addition
+        \o The pixel component values from backgroundSource and foregroundSource are added together and written.
+    \row
+        \o darken
+        \o The darkest pixel component value from backgroundSource and foregroundSource is written.
+    \row
+        \o difference
+        \o The absolute pixel component value difference between backgroundSource and foregroundSource is written.
+    \row
+        \o divide
+        \o The pixel component values from backgroundSource is divided by the value from foregroundSource and written.
+    \row
+        \o multiply
+        \o The pixel component values from backgroundSource and foregroundSource are multiplied together and written.
+    \row
+        \o lighten
+        \o The lightest pixel component value from backgroundSource and foregroundSource is written.
+    \row
+        \o screen
+        \o The pixel values from backgroundSource and foregroundSource are negated, then multiplied, negated again, and written.
+    \row
+        \o subtract
+        \o Pixel value from foregroundSource is subracted from backgroundSource and written.
+    \endtable
+
+    \table
+    \header
+        \o Example backgroundSource
+        \o Example foregroundSource
+    \row
+        \o \image Original_bug.png
+        \o \image Original_butterfly.png
+    \endtable
+
+    \table
+    \header
+    \o Output examples with different mode values
+    \o
+    \o
+    \row
+        \o \image Blend_mode1.png
+        \o \image Blend_mode2.png
+        \o \image Blend_mode3.png
+    \row
+        \o \bold { mode: normal }
+        \o \bold { mode: addition }
+        \o \bold { mode: darken }
+    \row
+        \o \image Blend_mode4.png
+        \o \image Blend_mode5.png
+        \o \image Blend_mode6.png
+    \row
+        \o \bold { mode: difference }
+        \o \bold { mode: divide }
+        \o \bold { mode: lighten }
+    \row
+        \o \image Blend_mode7.png
+        \o \image Blend_mode8.png
+        \o \image Blend_mode9.png
+    \row
+        \o \bold { mode: multiply }
+        \o \bold { mode: screen }
+        \o \bold { mode: subtract }
+    \endtable
+
+*/
+
+/*!
+    \qmlproperty bool QtGraphicalEffects::Blend::cached
+
+    This property allows the effect output pixels to be cached in order to improve the rendering performance.
+
+    Every time the source or effect properties are changed, the pixels in the cache must be updated.
+    Memory consumption is increased, because an extra buffer of memory is required for storing the effect output.
+
+    It is recommended to disable the cache when the source or the effect properties are animated.
+
+    By default, the property is set to false.
+
+*/

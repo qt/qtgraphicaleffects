@@ -1,0 +1,121 @@
+/****************************************************************************
+**
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+** All rights reserved.
+** Contact: Nokia Corporation (qt-info@nokia.com)
+**
+** This file is part of the documentation of the Qt Graphical Effects module.
+**
+** $QT_BEGIN_LICENSE:FDL$
+** GNU Free Documentation License
+** Alternatively, this file may be used under the terms of the GNU Free
+** Documentation License version 1.3 as published by the Free Software
+** Foundation and appearing in the file included in the packaging of
+** this file.
+**
+** Other Usage
+** Alternatively, this file may be used in accordance with the terms
+** and conditions contained in a signed written agreement between you
+** and Nokia.
+**
+**
+**
+**
+** $QT_END_LICENSE$
+**
+****************************************************************************/
+
+/*!
+    \qmlclass OpacityMask
+    \inqmlmodule QtGraphicalEffects
+    \brief Masks the source item with another item.
+
+    \table
+    \header
+        \o Source
+        \o MaskSource
+        \o Effect applied
+    \row
+        \o \image Original_bug.png
+        \o \image OpacityMask_mask.png
+        \o \image OpacityMask_bug.png
+    \endtable
+
+    \section1 Example
+
+    The following example shows how to apply the effect.
+    \snippet snippets/OpacityMask-example.qml example
+
+    \section1 Memory Consumption
+
+    The internal memory consumption is small.
+    If source item is not Image or ShaderEffectSource, then effect internally creates one ShaderEffectSource item per source.
+    The ShaderEffectSource memory consumption is approximately the same as the
+    memory consumption of the the source item area in pixels.
+    Enabling the effect cache increases the memory consumption.
+
+    \table
+    \header
+        \o Estimated memory usage for 640x480 pixels size effect in 32 bits per pixel (bpp)
+        \o
+    \row
+        \o Effect internal
+        \o 0 MB
+    \row
+        \o ShaderEffectSource (if used)
+        \o 1.2 MB
+    \row
+        \o ShaderEffectSource for maskSource (if used)
+        \o 1.2 MB
+    \row
+        \o Effect internal cache (if enabled)
+        \o 1.2 MB
+    \row
+        \o TOTAL (max)
+        \o 3.6 MB
+    \endtable
+
+*/
+
+/*!
+    \qmlproperty variant QtGraphicalEffects::OpacityMask::source
+
+    This property defines the source item that is going to be masked.
+
+*/
+
+/*!
+    \qmlproperty variant QtGraphicalEffects::OpacityMask::maskSource
+
+    This property defines the item that is going to be used as the mask. The mask item gets rendered into an intermediate pixel buffer and
+    the alpha values from the result are used to determine the source item's pixels visibility in the display.
+
+    \table
+    \header
+        \o Original
+        \o Mask
+        \o Effect applied
+    \row
+        \o \image Original_bug.png
+        \o \image OpacityMask_mask.png
+        \o \image OpacityMask_bug.png
+    \endtable
+
+*/
+
+/*!
+    \qmlproperty bool QtGraphicalEffects::OpacityMask::cached
+
+    This property allows the effect output pixels to be cached in order to
+    improve the rendering performance.
+
+    Every time the source or effect properties are changed, the pixels in the
+    cache must be updated. Memory consumption is increased, because an extra
+    buffer of memory is required for storing the effect output.
+
+    It is recommended to disable the cache when the source or the effect
+    properties are animated.
+
+    By default, the property is set to \c false.
+
+*/

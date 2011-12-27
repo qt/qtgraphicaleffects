@@ -1,0 +1,220 @@
+/****************************************************************************
+**
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+** All rights reserved.
+** Contact: Nokia Corporation (qt-info@nokia.com)
+**
+** This file is part of the documentation of the Qt Graphical Effects module.
+**
+** $QT_BEGIN_LICENSE:FDL$
+** GNU Free Documentation License
+** Alternatively, this file may be used under the terms of the GNU Free
+** Documentation License version 1.3 as published by the Free Software
+** Foundation and appearing in the file included in the packaging of
+** this file.
+**
+** Other Usage
+** Alternatively, this file may be used in accordance with the terms
+** and conditions contained in a signed written agreement between you
+** and Nokia.
+**
+**
+**
+**
+** $QT_END_LICENSE$
+**
+****************************************************************************/
+
+/*!
+    \qmlclass RecursiveBlur
+    \inqmlmodule QtGraphicalEffects
+    \brief Blurs repeatedly, providing a strong blur effect.
+
+    The RecursiveBlur effect softens the image by blurring it with an algorithm
+    that uses a recursive feedback loop to blur the source multiple times. The
+    effect may give more blurry results than \l {QtGraphicalEffects::GaussianBlur} {GaussianBlur} or \l FastBlur,
+    but the result is produced asynchronously and takes more time.
+
+    \table
+    \header
+        \o Source
+        \o Effect applied
+    \row
+        \o \image Original_bug.png
+        \o \image RecursiveBlur_bug.png
+    \endtable
+
+    \section1 Example
+
+    The following example shows how to apply the effect.
+    \snippet snippets/RecursiveBlur-example.qml example
+
+    \section1 Memory Consumption
+
+    The internal memory consumption is approximately twice the memory
+    consumption of the the source item area in pixels.
+    The effect uses one double-buffered ShaderEffectSource to store the result
+    between iterations.
+    If source item is not Image or ShaderEffectSource, then effect internally creates one ShaderEffectSource item per source.
+    Enabling the effect cache increases the memory consumption.
+
+    \table
+    \header
+        \o Estimated memory usage for an effect with a size of 640x480 pixels with 32 bits per pixel (bpp)
+        \o
+    \row
+        \o Effect internal
+        \o 2.4 MB
+    \row
+        \o ShaderEffectSource (if used)
+        \o 1.2 MB
+    \row
+        \o Effect internal cache (if enabled)
+        \o 1.2 MB
+    \row
+        \o TOTAL (max)
+        \o 4.8 MB
+    \endtable
+
+*/
+
+/*!
+    \qmlproperty variant QtGraphicalEffects::RecursiveBlur::source
+
+    This property defines the source item that is going to be blurred.
+
+*/
+/*!
+    \qmlproperty real QtGraphicalEffects::RecursiveBlur::radius
+
+    This property defines the distance of neighboring pixels which influence
+    the blurring of individual pixels. A larger radius provides better quality,
+    but is slower to render.
+
+    \bold Note: The radius value in this effect is not intended to be changed or
+    animated frequently. The correct way to use it is to set the correct value
+    and keep it unchanged for the whole duration of the iterative blur sequence.
+
+    The value ranges from (no blur) to 16.0 (maximum blur step). By default, the
+    property is set to \c 0.0 (no blur).
+
+    \table
+    \header
+    \o Output examples with different radius values
+    \o
+    \o
+    \row
+        \o \image RecursiveBlur_radius1.png
+        \o \image RecursiveBlur_radius2.png
+        \o \image RecursiveBlur_radius3.png
+    \row
+        \o \bold { radius: 2.5 }
+        \o \bold { radius: 4.5 }
+        \o \bold { radius: 7.5 }
+    \row
+        \o \l loops: 20
+        \o \l loops: 20
+        \o \l loops: 20
+    \endtable
+
+*/
+
+/*!
+    \qmlproperty bool QtGraphicalEffects::RecursiveBlur::transparentBorder
+
+    This property defines the blur behavior near the edges of teh item, where
+    the pixel blurring is affected by the pixels utside the source edges.
+
+    If the transparentBorder property is set to \c false, the pixels outside the
+    item are interpreted according to the ShaderEffectSource wrapMode property.
+    If the source item is Image, the pixels are intrepreted according to the
+    fillMode property.
+
+    If the property is set to \c true, the pixels outside the item are
+    interpreted to be transparent, which is similar to OpenGL clamp-to-border
+    extension. The blur is expanded slightly outside the effect item area.
+
+    By default, the property is set to \c false.
+
+    \table
+    \header
+    \o Output examples with different transparentBorder values
+    \o
+    \o
+    \row
+        \o \image RecursiveBlur_transparentBorder1.png
+        \o \image RecursiveBlur_transparentBorder2.png
+    \row
+        \o \bold { transparentBorder: false }
+        \o \bold { transparentBorder: true }
+    \row
+        \o \l loops: 20
+        \o \l loops: 20
+    \row
+        \o \l radius: 7.5
+        \o \l radius: 7.5
+    \endtable
+
+*/
+
+/*!
+    \qmlproperty bool QtGraphicalEffects::RecursiveBlur::cached
+
+    This property allows the effect output pixels to be cached in order to
+    improve the rendering performance.
+
+    Every time the source or effect properties are changed, the pixels in the
+    cache must be updated. Memory consumption is increased, because an extra
+    buffer of memory is required for storing the effect output.
+
+    It is recommended to disable the cache when the source or the effect
+    properties are animated.
+
+    By default, the property is set to \c false
+
+*/
+
+/*!
+    \qmlproperty real QtGraphicalEffects::RecursiveBlur::progress
+
+    This property holds the progress of asynchronous source blurring process, from 0.0 (nothing blurred) to 1.0 (finished).
+
+*/
+
+/*!
+    \qmlproperty int QtGraphicalEffects::RecursiveBlur::loops
+
+    This property defines the amount of blur iterations that are going to be
+    performed for the source. When the property changes, the iterative blurring
+    process starts. If the value is decreased or if the value changes from zero
+    to non-zero, a snapshot is taken from the source. The snapshot is used as a
+    starting point for the process.
+
+    The iteration loop tries to run as fast as possible. The speed might be
+    limited by the VSYNC or the time needed for one blur step, or both.
+    Sometimes it may be desirable to perform the blurring with a slower pace. In
+    that case, it may be convenient to control the property with Animation which
+    increases the value.
+
+    The value ranges from 0 to inf. By default, the property is set to \c 0.
+
+    \table
+    \header
+    \o Output examples with different loops values
+    \o
+    \o
+    \row
+        \o \image RecursiveBlur_loops1.png
+        \o \image RecursiveBlur_loops2.png
+        \o \image RecursiveBlur_loops3.png
+    \row
+        \o \bold { loops: 4 }
+        \o \bold { loops: 20 }
+        \o \bold { loops: 70 }
+    \row
+        \o \l radius: 7.5
+        \o \l radius: 7.5
+        \o \l radius: 7.5
+    \endtable
+
+*/

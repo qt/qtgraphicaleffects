@@ -1,0 +1,220 @@
+/****************************************************************************
+**
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+** All rights reserved.
+** Contact: Nokia Corporation (qt-info@nokia.com)
+**
+** This file is part of the documentation of the Qt Graphical Effects module.
+**
+** $QT_BEGIN_LICENSE:FDL$
+** GNU Free Documentation License
+** Alternatively, this file may be used under the terms of the GNU Free
+** Documentation License version 1.3 as published by the Free Software
+** Foundation and appearing in the file included in the packaging of
+** this file.
+**
+** Other Usage
+** Alternatively, this file may be used in accordance with the terms
+** and conditions contained in a signed written agreement between you
+** and Nokia.
+**
+**
+**
+**
+** $QT_END_LICENSE$
+**
+****************************************************************************/
+
+/*!
+    \qmlclass ZoomBlur
+    \inqmlmodule QtGraphicalEffects
+    \brief Applies directional blur effect towards source items center point.
+
+    Effect creates perceived impression that the source item appears to be
+    moving towards the center point in Z-direction or that the camera appears
+    to be zooming rapidly. Other available motion blur effects are
+    \l {QtGraphicalEffects::DirectionalBlur} {DirectionalBlur}
+    and \l {QtGraphicalEffects::RadialBlur} {RadialBlur}.
+
+    \table
+    \header
+        \o Source
+        \o Effect applied
+    \row
+        \o \image Original_butterfly.png
+        \o \image ZoomBlur_butterfly.png
+    \endtable
+
+    \section1 Example
+
+    The following example shows how to apply the effect.
+    \snippet snippets/ZoomBlur-example.qml example
+
+    \section1 Memory consumption
+
+    The internal memory consumption is small.
+    If source item is not Image or ShaderEffectSource, then effect internally
+    creates one ShaderEffectSource item per source. Enabling the effect cache
+    increases the memory consumption because an extra buffer is allocated for
+    the effect output.
+
+    \table
+    \header
+        \o Estimated memory usage for 640x480 pixels size effect (32bpp colors)
+        \o
+    \row
+        \o Effect internal
+        \o 0.0 MB
+    \row
+        \o ShaderEffectSource (if used)
+        \o 1.2 MB
+    \row
+        \o Effect internal cache (if enabled)
+        \o 1.2 MB
+    \row
+        \o TOTAL (max)
+        \o 2.4 MB
+    \endtable
+
+*/
+
+/*!
+    \qmlproperty variant QtGraphicalEffects::ZoomBlur::source
+
+    This property defines the source item that is going to be blurred.
+
+*/
+
+/*!
+    \qmlproperty real QtGraphicalEffects::ZoomBlur::length
+
+    This property defines the maximum perceived amount of movement for each
+    pixel. The amount is smaller near the center and reaches the specified
+    value at the edges.
+
+    The quality of the blur depends on \l samples property. If length value is
+    large, more samples are needed to keep the visual quality at high level.
+
+    The value ranges from 0.0 to inf.
+    By default the property is set to \c 0.0 (no blur).
+
+    \table
+    \header
+    \o Output examples with different length values
+    \o
+    \o
+    \row
+        \o \image ZoomBlur_length1.png
+        \o \image ZoomBlur_length2.png
+        \o \image ZoomBlur_length3.png
+    \row
+        \o \bold { length: 0.0 }
+        \o \bold { length: 32.0 }
+        \o \bold { length: 48.0 }
+    \row
+        \o \l samples: 32
+        \o \l samples: 32
+        \o \l samples: 32
+    \row
+        \o \l horizontalOffset: 0
+        \o \l horizontalOffset: 0
+        \o \l horizontalOffset: 0
+    \row
+        \o \l verticalOffset: 0
+        \o \l verticalOffset: 0
+        \o \l verticalOffset: 0
+    \endtable
+
+*/
+
+/*!
+    \qmlproperty real QtGraphicalEffects::ZoomBlur::samples
+
+    This property defines how many samples are taken per pixel when blur
+    calculation is done. Larger value produces better quality, but is slower
+    to render.
+
+    This property is not intended to be animated. Changing this property may
+    cause the underlying OpenGL shaders to be recompiled.
+
+    Allowed values are between 0 and inf (practical maximum depends on GPU).
+    By default the property is set to \c 0 (no samples).
+
+*/
+
+/*!
+    \qmlproperty real QtGraphicalEffects::ZoomBlur::horizontalOffset
+    \qmlproperty real QtGraphicalEffects::ZoomBlur::verticalOffset
+
+    These properties define an offset in pixels for the blur direction center
+    point.
+
+    The values range from -inf to inf. By default these properties are set
+    to \c 0.
+
+    \table
+    \header
+    \o Output examples with different horizontalOffset values
+    \o
+    \o
+    \row
+        \o \image ZoomBlur_horizontalOffset1.png
+        \o \image ZoomBlur_horizontalOffset2.png
+        \o \image ZoomBlur_horizontalOffset3.png
+    \row
+        \o \bold { horizontalOffset: 100.0 }
+        \o \bold { horizontalOffset: 0.0 }
+        \o \bold { horizontalOffset: -100.0 }
+    \row
+        \o \l samples: 32
+        \o \l samples: 32
+        \o \l samples: 32
+    \row
+        \o \l length: 32
+        \o \l length: 32
+        \o \l length: 32
+    \row
+        \o \l verticalOffset: 0
+        \o \l verticalOffset: 0
+        \o \l verticalOffset: 0
+    \endtable
+
+*/
+
+
+/*!
+    \qmlproperty bool QtGraphicalEffects::ZoomBlur::transparentBorder
+
+    This property defines the blur near the edges of the item, where the pixel
+    blurring is affected by the pixels just outside the source.
+
+    Setting this property to \c false, interprets the pixels outside the item
+    according to the OpenGL clamp-to-edge mode. If the source is Image, the pixels
+    are interpreted according to the Image::fillMode property. If the source is
+    ShaderEffectSource, the pixels are interpreted according to the
+    ShaderEffectSource::wrapMode property.
+
+    Setting this property to \c true, interprets the pixels outside the item to
+    be transparent. This behavior is similar to the OpenGL clamp-to-border
+    extension. The blur is expanded slightly outside the effect item area.
+
+    By default, the property is set to \c false.
+
+*/
+
+/*!
+    \qmlproperty bool QtGraphicalEffects::ZoomBlur::cached
+
+    This property allows the effect output pixels to be cached in order to
+    improve the rendering performance.
+
+    Every time the source or effect properties are changed, the pixels in the
+    cache must be updated. Memory consumption is increased, because an extra
+    buffer of memory is required for storing the effect output.
+
+    It is recommended to disable the cache when the source or the effect
+    properties are animated.
+
+    By default, the property is set to \c false.
+
+*/

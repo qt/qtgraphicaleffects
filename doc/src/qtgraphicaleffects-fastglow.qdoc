@@ -1,0 +1,206 @@
+/****************************************************************************
+**
+** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+** All rights reserved.
+** Contact: Nokia Corporation (qt-info@nokia.com)
+**
+** This file is part of the documentation of the Qt Graphical Effects module.
+**
+** $QT_BEGIN_LICENSE:FDL$
+** GNU Free Documentation License
+** Alternatively, this file may be used under the terms of the GNU Free
+** Documentation License version 1.3 as published by the Free Software
+** Foundation and appearing in the file included in the packaging of
+** this file.
+**
+** Other Usage
+** Alternatively, this file may be used in accordance with the terms
+** and conditions contained in a signed written agreement between you
+** and Nokia.
+**
+**
+**
+**
+** $QT_END_LICENSE$
+**
+****************************************************************************/
+
+/*!
+    \qmlclass FastGlow
+    \inqmlmodule QtGraphicalEffects
+    \brief Generates a fast blurred and colorized image of the source, which gives
+    the impression that the source is glowing.
+
+    This effect is intended to have good performance, thus the quality of the
+    effect may not be the highest possible, especially if the glow is soft. For
+    situations where the high visual quality is required, consider the \l {QtGraphicalEffects::Glow}{Glow}
+    effect.
+
+    \table
+    \header
+        \o Source
+        \o Effect applied
+    \row
+        \o \image Original_butterfly_black.png
+        \o \image FastGlow_butterfly.png
+    \endtable
+
+    \section1 Example
+
+    The following example shows how to apply the effect.
+    \snippet snippets/FastGlow-example.qml example
+
+    \section1 Memory Consumption
+
+    The internal memory consumption is approximately twice the memory
+    consumption of the the source item area in pixels.
+    If source item is not Image or ShaderEffectSource, then effect internally creates one ShaderEffectSource item per source.
+    Enabling the effect cache increases the memory consumption because an extra
+    buffer is allocated for the effect output.
+
+    \table
+    \header
+        \o Estimated memory usage for an effect with a size of 640x480 pixels with 32 bits per pixel (bpp)
+        \o
+    \row
+        \o Effect internal
+        \o 2.4 MB
+    \row
+        \o ShaderEffectSource (if used)
+        \o 1.2 MB
+    \row
+        \o Effect internal cache (if enabled)
+        \o 1.2 MB
+    \row
+        \o TOTAL (max)
+        \o 4.8 MB
+    \endtable
+
+*/
+
+/*!
+    \qmlproperty variant QtGraphicalEffects::FastGlow::source
+
+    This property defines the source item that is going to be used as the source
+    for the generated glow.
+
+*/
+
+
+/*!
+    \qmlproperty color QtGraphicalEffects::FastGlow::color
+
+    This property defines the RGBA color value which is used for the glow.
+
+    By default, the property is set to \c "white".
+
+    \table
+    \header
+    \o Output examples with different color values
+    \o
+    \o
+    \row
+        \o \image FastGlow_color1.png
+        \o \image FastGlow_color2.png
+        \o \image FastGlow_color3.png
+    \row
+        \o \bold { color: #ffffff }
+        \o \bold { color: #00ff00 }
+        \o \bold { color: #aa00ff00 }
+    \row
+        \o \l blur: 0.5
+        \o \l blur: 0.5
+        \o \l blur: 0.5
+    \row
+        \o \l spread: 0.25
+        \o \l spread: 0.25
+        \o \l spread: 0.25
+    \endtable
+
+*/
+
+/*!
+    \qmlproperty real QtGraphicalEffects::FastGlow::blur
+
+    BlurLevel defines the level of glow edge softness. The value of 0.0
+    represents the glow as sharp and the value of 1.0 softens the glow edges
+    maximally.
+
+    The value ranges from 0.0 (no blur) to 1.0 (maximum blur). By default, the
+    property is set to \c 0.0 (no blur).
+
+    \table
+    \header
+    \o Output examples with different blur values
+    \o
+    \o
+    \row
+        \o \image FastGlow_blur1.png
+        \o \image FastGlow_blur2.png
+        \o \image FastGlow_blur3.png
+    \row
+        \o \bold { blur: 0.0 }
+        \o \bold { blur: 0.5 }
+        \o \bold { blur: 1.0 }
+    \row
+        \o \l color: #ffffff
+        \o \l color: #ffffff
+        \o \l color: #ffffff
+    \row
+        \o \l spread: 0
+        \o \l spread: 0
+        \o \l spread: 0
+    \endtable
+
+*/
+
+/*!
+    \qmlproperty real QtGraphicalEffects::FastGlow::spread
+
+    This property defines how large part of the glow color is strenghtened near
+    the source edges.
+
+    The value ranges from 0.0 (no change) to 1.0 (maximum increase). By default,
+    the property is set to \c 0.0 (no change).
+
+    \table
+    \header
+    \o Output examples with different spread values
+    \o
+    \o
+    \row
+        \o \image FastGlow_spread1.png
+        \o \image FastGlow_spread2.png
+        \o \image FastGlow_spread3.png
+    \row
+        \o \bold { spread: 0.0 }
+        \o \bold { spread: 0.5 }
+        \o \bold { spread: 0.9 }
+    \row
+        \o \l blur: 0.5
+        \o \l blur: 0.5
+        \o \l blur: 0.5
+    \row
+        \o \l color: #ffffff
+        \o \l color: #ffffff
+        \o \l color: #ffffff
+    \endtable
+
+*/
+
+/*!
+    \qmlproperty bool QtGraphicalEffects::FastGlow::cached
+
+    This property allows the effect output pixels to be cached in order to
+    improve the rendering performance.
+
+    Every time the source or effect properties are changed, the pixels in the
+    cache must be updated. Memory consumption is increased, because an extra
+    buffer of memory is required for storing the effect output.
+
+    It is recommended to disable the cache when the source or the effect
+    properties are animated.
+
+    By default, the property is set to \c false.
+
+*/
