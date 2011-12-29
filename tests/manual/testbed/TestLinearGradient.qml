@@ -70,8 +70,8 @@ TestCaseTemplate {
         cached: cachedCheckBox.selected
         visible: enabledCheckBox.selected
         maskSource: maskCheckBox.selected ? (sourceType.value == "shaderEffectSource" ? maskSource : maskImage) : undefined
-        start: Qt.point(startPicker.xValue, startPicker.yValue)
-        end: Qt.point(endPicker.xValue, endPicker.yValue)
+        start: Qt.point(startPicker.xValue * width, startPicker.yValue * height)
+        end: Qt.point(endPicker.xValue * width, endPicker.yValue * height)
         gradient: Gradient {
             GradientStop {
                 position: 0.0
@@ -86,13 +86,13 @@ TestCaseTemplate {
 
     PositionPicker {
         id: startPicker
-        xValue: 150
-        yValue: 150
+        xValue: 0.2
+        yValue: 0.2
     }
     PositionPicker {
         id: endPicker
-        xValue: 300
-        yValue: 450
+        xValue: 0.8
+        yValue: 0.8
     }
 
     bgColor: bgColorPicker.color

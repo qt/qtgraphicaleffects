@@ -45,8 +45,8 @@ TestCaseTemplate {
 
     DropShadow {
         id: effect
-        horizontalOffset: offsetPicker.xValue - width / 2
-        verticalOffset: offsetPicker.yValue - height / 2
+        horizontalOffset: (offsetPicker.xValue - 0.5) * width
+        verticalOffset: (offsetPicker.yValue - 0.5) * height
         anchors.fill: imageSource
         radius: radiusSlider.value
         spread: spreadSlider.value
@@ -73,8 +73,8 @@ TestCaseTemplate {
 
     PositionPicker {
         id: offsetPicker
-        xValue: effect.width / 2 + 10
-        yValue: effect.height / 2 + 10
+        xValue: 0.51
+        yValue: 0.51
     }
 
     bgColor: bgColorPicker.color

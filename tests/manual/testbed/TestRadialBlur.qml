@@ -63,8 +63,8 @@ TestCaseTemplate {
         transparentBorder: transparentBorderCheckBox.selected
         angle: lengthSlider.value
         samples: samplesSlider.value
-        horizontalOffset: offsetPicker.xValue - width / 2
-        verticalOffset: offsetPicker.yValue - height / 2
+        horizontalOffset: (offsetPicker.xValue - 0.5) * width
+        verticalOffset: (offsetPicker.yValue - 0.5) * height
         visible: enabledCheckBox.selected
         cached: cachedCheckBox.selected
         source: sourceType.value == "shaderEffectSource" ? shaderEffectSource : imageSource
@@ -72,8 +72,8 @@ TestCaseTemplate {
 
     PositionPicker {
         id: offsetPicker
-        xValue: effect.width / 2
-        yValue: effect.height / 2
+        xValue: 0.5
+        yValue: 0.5
     }
 
     bgColor: bgColorPicker.color

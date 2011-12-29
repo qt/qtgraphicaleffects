@@ -46,8 +46,8 @@ TestCaseTemplate {
     FastDropShadow {
         id: effect
         anchors.fill: imageSource
-        horizontalOffset: offsetPicker.xValue - width / 2
-        verticalOffset: offsetPicker.yValue - height / 2
+        horizontalOffset: (offsetPicker.xValue - 0.5) * width
+        verticalOffset: (offsetPicker.yValue - 0.5) * height
         spread: spreadSlider.value
         blur: blurLevelSlider.value
         color: colorPicker.color
@@ -72,8 +72,8 @@ TestCaseTemplate {
 
     PositionPicker {
         id: offsetPicker
-        xValue: effect.width / 2 + 10
-        yValue: effect.height / 2 + 10
+        xValue: 0.51
+        yValue: 0.51
     }
 
     bgColor: bgColorPicker.color

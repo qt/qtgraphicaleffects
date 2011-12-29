@@ -45,8 +45,8 @@ Image {
     property real xValue: 0
     property real yValue: 0
 
-    x: xValue - positionPicker.width / 2
-    y: yValue - positionPicker.height / 2
+    x: parent.width * xValue - positionPicker.width / 2
+    y: parent.height * yValue - positionPicker.height / 2
 
     property alias pressed: mouseArea.pressed
 
@@ -65,11 +65,8 @@ Image {
         }
 
         onPositionChanged: {
-            xValue = positionPicker.x + positionPicker.width / 2 + mouseX - startX;
-            yValue = positionPicker.y + positionPicker.height / 2 + mouseY - startY;
-
-            positionPicker.x += mouseX - startX;
-            positionPicker.y += mouseY - startY;
+            xValue = (positionPicker.x + positionPicker.width / 2 + mouseX - startX) / positionPicker.parent.width;
+            yValue = (positionPicker.y + positionPicker.height / 2 + mouseY - startY) / positionPicker.parent.height;
         }
     }
 }

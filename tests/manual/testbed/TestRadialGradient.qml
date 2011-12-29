@@ -69,8 +69,8 @@ TestCaseTemplate {
         cached: cachedCheckBox.selected
         visible: enabledCheckBox.selected
         maskSource: maskCheckBox.selected ? (sourceType.value == "shaderEffectSource" ? maskSource : maskImage) : undefined
-        horizontalOffset: offsetPicker.xValue - width / 2
-        verticalOffset: offsetPicker.yValue - height / 2
+        horizontalOffset: (offsetPicker.xValue - 0.5) * width
+        verticalOffset: (offsetPicker.yValue - 0.5) * height
         horizontalRadius: horizontalRadiusSlider.value
         verticalRadius: verticalRadiusSlider.value
         angle: angleSlider.value
@@ -82,8 +82,8 @@ TestCaseTemplate {
 
     PositionPicker {
         id: offsetPicker
-        xValue: effect.width / 2
-        yValue: effect.height / 2
+        xValue: 0.5
+        yValue: 0.5
     }
 
     bgColor: bgColorPicker.color
