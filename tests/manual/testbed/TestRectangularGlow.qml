@@ -125,11 +125,6 @@ TestCaseTemplate {
                 id: enabledCheckBox
                 caption: "enabled"
             }
-            CheckBox {
-                id: updateCheckBox
-                caption: "animated"
-                selected: false
-            }
             BGColorPicker {
                 id: bgColorPicker
             }
