@@ -126,6 +126,7 @@ Item {
             id: mapMouseArea
             anchors.fill: parent
             hoverEnabled: true
+            preventStealing: true
             onPositionChanged: {
                 if (pressed) {
                     var xx = Math.max(0, Math.min(mouse.x, parent.width))

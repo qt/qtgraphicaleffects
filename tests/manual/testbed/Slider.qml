@@ -121,7 +121,8 @@ Item {
         MouseArea {
             id: mouseArea
             anchors {left: parent.left; right: parent.right; leftMargin: 5; rightMargin: 5; verticalCenter: parent.verticalCenter}
-            height: 4
+            height: 8
+            preventStealing: true
 
             onPressed: {
                 var handleX = Math.max(0, Math.min(mouseX, mouseArea.width))

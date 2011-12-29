@@ -123,7 +123,7 @@ Rectangle {
         Flickable {
             id: slidersFlickable
             anchors.fill: parent
-            contentHeight: childrenRect.height
+            contentHeight: controlsColumn.height
             interactive: contentHeight > height
             clip: true
 

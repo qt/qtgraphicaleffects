@@ -153,18 +153,10 @@ Rectangle {
                 id: delegateMouseArea
                 anchors.fill: parent;
                 onClicked: {
-//                    main.state = "testRunning";
                     testLoader.source = name;
                     testLoader.item.currentTest = delegateText.text;
                 }
             }
         }
     }
-
-//    states: [
-//        State {
-//            name: "testRunning"
-//            PropertyChanges { target: testCaseList }
-//        }
-//    ]
 }
