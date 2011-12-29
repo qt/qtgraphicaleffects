@@ -64,7 +64,7 @@ Item {
     ShaderEffect {
         id: shaderItem
         property variant source: sourceProxy.output
-        property real gamma: rootItem.gamma
+        property real gamma: 1.0 / Math.max(rootItem.gamma, 0.0001)
 
         anchors.fill: parent
 
@@ -74,7 +74,10 @@ Item {
             uniform sampler2D source;
             uniform highp float gamma;
             void main(void) {
-                gl_FragColor = pow(texture2D(source, qt_TexCoord0.st), vec4(gamma));
+                highp vec4 originalColor = texture2D(source, qt_TexCoord0.st);
+                originalColor.rgb = originalColor.rgb / max(1.0/256.0, originalColor.a);
+                highp vec3 adjustedColor = pow(originalColor.rgb, vec3(gamma));
+                gl_FragColor = vec4(adjustedColor * originalColor.a, originalColor.a) * qt_Opacity;
             }
         "
     }

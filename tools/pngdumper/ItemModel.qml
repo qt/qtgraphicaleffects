@@ -403,7 +403,7 @@ VisualItemModel {
         property string __name: "GammaAdjust"
         property variant __properties: ["gamma"]
         property string __varyingProperty: "gamma"
-        property variant __values: ["0.5", "1.0", "1.5"]
+        property variant __values: ["0.5", "1.0", "2.0"]
     }
 
     GaussianBlur {

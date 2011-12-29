@@ -31,8 +31,9 @@
     \brief Alters the luminance of the source item.
 
     GammaAdjust is applied to each pixel according to the curve which is
-    pre-defined as a power-law expression, where the property gamma is used as the scaling
-    exponent. Refer to the property documentation of \l gamma for more details.
+    pre-defined as a power-law expression, where the property gamma is used as the
+    reciprocal scaling exponent. Refer to the property documentation of \l gamma
+    for more details.
 
     \table
     \header
@@ -52,7 +53,8 @@
 
     The ShaderEffectSource memory consumption is approximately the same as the
     memory consumption of the the source item area in pixels.
-    If source item is not Image or ShaderEffectSource, then effect internally creates one ShaderEffectSource item per source.
+    If source item is not Image or ShaderEffectSource, then effect internally
+    creates one ShaderEffectSource item per source.
     Enabling the effect cache increases the memory consumption.
 
     \table
@@ -86,13 +88,15 @@
 /*!
     \qmlproperty real QtGraphicalEffects::GammaAdjust::gamma
 
-    This property defines the change factor for how the luminance of each pixel is altered according to the
-    equation: \code luminance = pow(original_luminance, gamma); // The luminance is assumed to be between 0.0 and 1.0 \endcode
+    This property defines the change factor for how the luminance of each pixel
+    is altered according to the equation:
 
-    Setting the gamma values under 1.0 makes the image brighter, the values
-    above 1.0 darken it.
+    \code luminance = pow(original_luminance, 1.0 / gamma); // The luminance is assumed to be between 0.0 and 1.0 \endcode
 
-    The value ranges from 0.0 (bright) to inf (dark). By default, the property
+    Setting the gamma values under 1.0 makes the image darker, the values
+    above 1.0 lighten it.
+
+    The value ranges from 0.0 (darkest) to inf (lightest). By default, the property
     is set to \c 1.0 (no change).
 
     \table
@@ -107,7 +111,7 @@
     \row
         \o \bold { gamma: 0.5 }
         \o \bold { gamma: 1.0 }
-        \o \bold { gamma: 1.5 }
+        \o \bold { gamma: 2.0 }
     \endtable
 
     \table
@@ -120,7 +124,7 @@
         \o \image GammaAdjust_gamma2_graph.png
         \o \image GammaAdjust_gamma3_graph.png
     \row
-        \o Red curve: default gamma
+        \o Red curve: default gamma (1.0)
         \o
         \o
     \row

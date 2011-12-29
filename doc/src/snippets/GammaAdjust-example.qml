@@ -57,7 +57,7 @@ Item {
     GammaAdjust {
         anchors.fill: gammaAdjustSourceItem
         source: gammaAdjustSourceItem
-        gamma: 1.5
+        gamma: 0.45
     }
 }
 //! [example]
