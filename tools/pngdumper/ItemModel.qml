@@ -51,7 +51,8 @@ VisualItemModel {
         property string __name: "Blend"
         property variant __properties: ["mode"]
         property string __varyingProperty: "mode"
-        property variant __values: ["normal", "addition", "darken", "difference", "divide", "lighten", "multiply", "screen", "subtract"]
+        property variant __values: ["normal", "addition","average", "color", "colorBurn","colorDodge", "darken", "darkerColor", "difference", "divide",
+           "exclusion", "hardlight", "hue", "lighten", "lighterColor", "lightness", "negation", "multiply", "saturation", "screen", "subtract", "softLight"]
     }
 
     BrightnessContrast {

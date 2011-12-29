@@ -102,7 +102,32 @@ TestCaseTemplate {
                     onPressedChanged: blendMode.value = caption
                 }
                 RadioButton {
+                    caption: "average"
+                    selected: caption == blendMode.value
+                    onPressedChanged: blendMode.value = caption
+                }
+                RadioButton {
+                    caption: "color"
+                    selected: caption == blendMode.value
+                    onPressedChanged: blendMode.value = caption
+                }
+                RadioButton {
+                    caption: "colorBurn"
+                    selected: caption == blendMode.value
+                    onPressedChanged: blendMode.value = caption
+                }
+                RadioButton {
+                    caption: "colorDodge"
+                    selected: caption == blendMode.value
+                    onPressedChanged: blendMode.value = caption
+                }
+                RadioButton {
                     caption: "darken"
+                    selected: caption == blendMode.value
+                    onPressedChanged: blendMode.value = caption
+                }
+                RadioButton {
+                    caption: "darkerColor"
                     selected: caption == blendMode.value
                     onPressedChanged: blendMode.value = caption
                 }
@@ -117,7 +142,17 @@ TestCaseTemplate {
                     onPressedChanged: blendMode.value = caption
                 }
                 RadioButton {
-                    caption: "multiply"
+                    caption: "exclusion"
+                    selected: caption == blendMode.value
+                    onPressedChanged: blendMode.value = caption
+                }
+                RadioButton {
+                    caption: "hardLight"
+                    selected: caption == blendMode.value
+                    onPressedChanged: blendMode.value = caption
+                }
+                RadioButton {
+                    caption: "hue"
                     selected: caption == blendMode.value
                     onPressedChanged: blendMode.value = caption
                 }
@@ -127,7 +162,37 @@ TestCaseTemplate {
                     onPressedChanged: blendMode.value = caption
                 }
                 RadioButton {
+                    caption: "lighterColor"
+                    selected: caption == blendMode.value
+                    onPressedChanged: blendMode.value = caption
+                }
+                RadioButton {
+                    caption: "lightness"
+                    selected: caption == blendMode.value
+                    onPressedChanged: blendMode.value = caption
+                }
+                RadioButton {
+                    caption: "multiply"
+                    selected: caption == blendMode.value
+                    onPressedChanged: blendMode.value = caption
+                }
+                RadioButton {
+                    caption: "negation"
+                    selected: caption == blendMode.value
+                    onPressedChanged: blendMode.value = caption
+                }
+                RadioButton {
+                    caption: "saturation"
+                    selected: caption == blendMode.value
+                    onPressedChanged: blendMode.value = caption
+                }
+                RadioButton {
                     caption: "screen"
+                    selected: caption == blendMode.value
+                    onPressedChanged: blendMode.value = caption
+                }
+                RadioButton {
+                    caption: "softlight"
                     selected: caption == blendMode.value
                     onPressedChanged: blendMode.value = caption
                 }

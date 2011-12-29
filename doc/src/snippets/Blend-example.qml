@@ -68,7 +68,7 @@ Item {
         anchors.fill: blendSourceItem1
         backgroundSource: blendSourceItem1
         foregroundSource: blendSourceItem2
-        mode: "screen"
+        mode: "subtract"
     }
 }
 //! [example]

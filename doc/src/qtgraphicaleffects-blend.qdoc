@@ -95,7 +95,8 @@
 /*!
     \qmlproperty string QtGraphicalEffects::Blend::mode
 
-    This property defines the mode which is used when foregroundSource is blended over backgroundSource.
+    This property defines the mode which is used when foregroundSource is blended over backgroundSource. Values are
+    case insensitive.
 
     \table
     \header
@@ -108,8 +109,23 @@
         \o addition
         \o The pixel component values from backgroundSource and foregroundSource are added together and written.
     \row
+        \o average
+        \o The pixel component values from backgroundSource and foregroundSource are averaged and written.
+    \row
+        \o color
+        \o The lightness value from backgroundSource is combined with hue and saturation from foregroundSource and written.
+    \row
+        \o colorBurn
+        \o The darker pixels from backgroundSource are darkened more, if both backgroundSource and foregroundSource pixels are light the result is light.
+    \row
+        \o colorDodge
+        \o The lighter pixels from backgroundSource are lightened more, if both backgroundSource and foregroundSource pixels are dark the result is dark.
+    \row
         \o darken
-        \o The darkest pixel component value from backgroundSource and foregroundSource is written.
+        \o The darker pixel component value from backgroundSource and foregroundSource is written.
+    \row
+        \o darkerColor
+        \o The lower luminance pixel rgb-value from backgroundSource and foregroundSource is written.
     \row
         \o difference
         \o The absolute pixel component value difference between backgroundSource and foregroundSource is written.
@@ -117,17 +133,42 @@
         \o divide
         \o The pixel component values from backgroundSource is divided by the value from foregroundSource and written.
     \row
-        \o multiply
-        \o The pixel component values from backgroundSource and foregroundSource are multiplied together and written.
+        \o exclusion
+        \o The pixel component value difference with reduced contrast between backgroundSource and foregroundSource is written.
+    \row
+        \o hardLight
+        \o The pixel component values from backgroundSource are lightened or darkened according to foregroundSource values and written.
+    \row
+        \o hue
+        \o The hue value from foregroundSource is combined with saturation and lightness from backgroundSource and written.
     \row
         \o lighten
         \o The lightest pixel component value from backgroundSource and foregroundSource is written.
+    \row
+        \o lighterColor
+        \o The higher luminance pixel rgb-value from backgroundSource and foregroundSource is written.
+    \row
+        \o lightness
+        \o The lightness value from foregroundSource is combined with hue and saturation from backgroundSource and written.
+    \row
+        \o multiply
+        \o The pixel component values from backgroundSource and foregroundSource are multiplied together and written.
+    \row
+        \o negation
+        \o The inverted absolute pixel component value difference between backgroundSource and foregroundSource is written.
+    \row
+        \o saturation
+        \o The saturation value from foregroundSource is combined with hue and lightness from backgroundSource and written.
     \row
         \o screen
         \o The pixel values from backgroundSource and foregroundSource are negated, then multiplied, negated again, and written.
     \row
         \o subtract
         \o Pixel value from foregroundSource is subracted from backgroundSource and written.
+    \row
+        \o softLight
+        \o The pixel component values from backgroundSource are lightened or darkened slightly according to foregroundSource values and written.
+
     \endtable
 
     \table
@@ -151,24 +192,61 @@
     \row
         \o \bold { mode: normal }
         \o \bold { mode: addition }
-        \o \bold { mode: darken }
+        \o \bold { mode: average }
     \row
         \o \image Blend_mode4.png
         \o \image Blend_mode5.png
         \o \image Blend_mode6.png
     \row
-        \o \bold { mode: difference }
-        \o \bold { mode: divide }
-        \o \bold { mode: lighten }
+        \o \bold { mode: color }
+        \o \bold { mode: colorBurn }
+        \o \bold { mode: colorDodge }
     \row
         \o \image Blend_mode7.png
         \o \image Blend_mode8.png
         \o \image Blend_mode9.png
     \row
+        \o \bold { mode: darken }
+        \o \bold { mode: darkerColor }
+        \o \bold { mode: difference }
+    \row
+        \o \image Blend_mode10.png
+        \o \image Blend_mode11.png
+        \o \image Blend_mode12.png
+    \row
+        \o \bold { mode: divide }
+        \o \bold { mode: exclusion }
+        \o \bold { mode: hardlight }
+    \row
+        \o \image Blend_mode13.png
+        \o \image Blend_mode14.png
+        \o \image Blend_mode15.png
+    \row
+        \o \bold { mode: hue }
+        \o \bold { mode: lighten }
+        \o \bold { mode: lighterColor }
+    \row
+        \o \image Blend_mode16.png
+        \o \image Blend_mode17.png
+        \o \image Blend_mode18.png
+    \row
+        \o \bold { mode: lightness }
+        \o \bold { mode: negation }
         \o \bold { mode: multiply }
+    \row
+        \o \image Blend_mode19.png
+        \o \image Blend_mode20.png
+        \o \image Blend_mode21.png
+    \row
+        \o \bold { mode: saturation }
         \o \bold { mode: screen }
         \o \bold { mode: subtract }
+    \row
+        \o \image Blend_mode22.png
+    \row
+        \o \bold { mode: softLight }
     \endtable
+
 
 */
 
