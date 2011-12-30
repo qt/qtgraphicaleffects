@@ -53,8 +53,10 @@ ListModel {
     ListElement { name: "TestDirectionalBlur.qml"; group: "Motion Blur";  }
     ListElement { name: "TestRadialBlur.qml"; group: "Motion Blur";  }
     ListElement { name: "TestZoomBlur.qml"; group: "Motion Blur"; last: true }
+    ListElement { name: "TestDropShadow.qml"; group: "Drop Shadow" }
     ListElement { name: "TestFastDropShadow.qml"; group: "Drop Shadow" }
-    ListElement { name: "TestDropShadow.qml"; group: "Drop Shadow"; last: true }
+    ListElement { name: "TestInnerShadow.qml"; group: "Drop Shadow" }
+    ListElement { name: "TestFastInnerShadow.qml"; group: "Drop Shadow"; last: true }
     ListElement { name: "TestLinearGradient.qml"; group: "Gradient" }
     ListElement { name: "TestConicalGradient.qml"; group: "Gradient" }
     ListElement { name: "TestRadialGradient.qml"; group: "Gradient"; last: true }

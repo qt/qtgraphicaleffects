@@ -26,18 +26,18 @@
 ****************************************************************************/
 
 /*!
-    \qmlclass DropShadow
+    \qmlclass InnerShadow
     \inqmlmodule QtGraphicalEffects
-    \brief Generates a colorized and blurred shadow image of the
+    \brief Generates a colorized and blurred shadow inside the
     source.
 
-    The DropShadow effect produces a high quality shadow image, thus the
+    The InnerShadow effect produces a high quality shadow image, thus the
     rendering speed of the shadow might not be the highest possible. The
     rendering speed is reduced especially if the shadow edges are heavily
     softened.
     For use cases that require faster rendering speed and for which the highest
     possible visual quality is not necessary, there is an alternative effect
-    called \l {QtGraphicalEffects::FastDropShadow} {FastDropShadow}.
+    called \l {QtGraphicalEffects::FastInnerShadow} {FastInnerShadow}.
 
     \table
     \header
@@ -45,13 +45,13 @@
         \o Effect applied
     \row
         \o \image Original_butterfly.png
-        \o \image DropShadow_butterfly.png
+        \o \image InnerShadow_butterfly.png
     \endtable
 
     \section1 Example
 
     The following example shows how to apply the effect.
-    \snippet snippets/DropShadow-example.qml example
+    \snippet snippets/InnerShadow-example.qml example
 
     \section1 Memory Consumption
 
@@ -61,7 +61,7 @@
 
     Enabling the effect cache increases the memory consumption.
 
-    Due to performance reasons, the dropshadow generation is internally
+    Due to performance reasons, the shadow generation is internally
     implemented with two passes: a horizontal and a vertical pass. This 2-pass
     method requires one intermediate buffer for the pixel data.
 
@@ -86,7 +86,7 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects::DropShadow::source
+    \qmlproperty variant QtGraphicalEffects::InnerShadow::source
 
     This property defines the source item that is going to be used as the source
     for the generated shadow.
@@ -94,7 +94,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::DropShadow::radius
+    \qmlproperty real QtGraphicalEffects::InnerShadow::radius
 
     Radius defines the softness of the shadow. A larger radius causes the edges
     of the shadow to appear more blurry.
@@ -111,17 +111,17 @@
     \o
     \o
     \row
-        \o \image DropShadow_radius1.png
-        \o \image DropShadow_radius2.png
-        \o \image DropShadow_radius3.png
+        \o \image InnerShadow_radius1.png
+        \o \image InnerShadow_radius2.png
+        \o \image InnerShadow_radius3.png
     \row
         \o \bold { radius: 0 }
         \o \bold { radius: 6 }
         \o \bold { radius: 12 }
     \row
-        \o \l maximumRadius: 8
-        \o \l maximumRadius: 8
-        \o \l maximumRadius: 8
+        \o \l maximumRadius: 16
+        \o \l maximumRadius: 16
+        \o \l maximumRadius: 16
     \row
         \o \l color: #000000
         \o \l color: #000000
@@ -131,9 +131,9 @@
         \o \l horizontalOffset: 0
         \o \l horizontalOffset: 0
     \row
-        \o \l verticalOffset: 20
-        \o \l verticalOffset: 20
-        \o \l verticalOffset: 20
+        \o \l verticalOffset: 0
+        \o \l verticalOffset: 0
+        \o \l verticalOffset: 0
     \row
         \o \l spread: 0
         \o \l spread: 0
@@ -143,7 +143,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::DropShadow::maximumRadius
+    \qmlproperty real QtGraphicalEffects::InnerShadow::maximumRadius
 
     This property defines the maximum radius value that can be used without
     compromising the shadow softness quality. Setting too large maximumRadius
@@ -158,7 +158,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::DropShadow::spread
+    \qmlproperty real QtGraphicalEffects::InnerShadow::spread
 
     This property defines how large part of the shadow color is strenghtened near
     the source edges.
@@ -171,21 +171,21 @@
     \o
     \o
     \row
-        \o \image DropShadow_spread1.png
-        \o \image DropShadow_spread2.png
-        \o \image DropShadow_spread3.png
+        \o \image InnerShadow_spread1.png
+        \o \image InnerShadow_spread2.png
+        \o \image InnerShadow_spread3.png
     \row
         \o \bold { spread: 0.0 }
+        \o \bold { spread: 0.3 }
         \o \bold { spread: 0.5 }
-        \o \bold { spread: 1.0 }
     \row
-        \o \l radius: 8
-        \o \l radius: 8
-        \o \l radius: 8
+        \o \l radius: 16
+        \o \l radius: 16
+        \o \l radius: 16
     \row
-        \o \l maximumRadius: 8
-        \o \l maximumRadius: 8
-        \o \l maximumRadius: 8
+        \o \l maximumRadius: 16
+        \o \l maximumRadius: 16
+        \o \l maximumRadius: 16
     \row
         \o \l color: #000000
         \o \l color: #000000
@@ -195,15 +195,15 @@
         \o \l horizontalOffset: 0
         \o \l horizontalOffset: 0
     \row
-        \o \l verticalOffset: 20
-        \o \l verticalOffset: 20
-        \o \l verticalOffset: 20
+        \o \l verticalOffset: 0
+        \o \l verticalOffset: 0
+        \o \l verticalOffset: 0
     \endtable
 
 */
 
 /*!
-    \qmlproperty color QtGraphicalEffects::DropShadow::color
+    \qmlproperty color QtGraphicalEffects::InnerShadow::color
 
     This property defines the RGBA color value which is used for the shadow.
 
@@ -215,46 +215,46 @@
     \o
     \o
     \row
-        \o \image DropShadow_color1.png
-        \o \image DropShadow_color2.png
-        \o \image DropShadow_color3.png
+        \o \image InnerShadow_color1.png
+        \o \image InnerShadow_color2.png
+        \o \image InnerShadow_color3.png
     \row
         \o \bold { color: #000000 }
-        \o \bold { color: #0000ff }
-        \o \bold { color: #aa000000 }
+        \o \bold { color: #ffffff }
+        \o \bold { color: #ff0000 }
     \row
-        \o \l radius: 8
-        \o \l radius: 8
-        \o \l radius: 8
+        \o \l radius: 16
+        \o \l radius: 16
+        \o \l radius: 16
     \row
-        \o \l maximumRadius: 8
-        \o \l maximumRadius: 8
-        \o \l maximumRadius: 8
+        \o \l maximumRadius: 16
+        \o \l maximumRadius: 16
+        \o \l maximumRadius: 16
     \row
         \o \l horizontalOffset: 0
         \o \l horizontalOffset: 0
         \o \l horizontalOffset: 0
     \row
-        \o \l verticalOffset: 20
-        \o \l verticalOffset: 20
-        \o \l verticalOffset: 20
+        \o \l verticalOffset: 0
+        \o \l verticalOffset: 0
+        \o \l verticalOffset: 0
     \row
-        \o \l spread: 0
-        \o \l spread: 0
-        \o \l spread: 0
+        \o \l spread: 0.2
+        \o \l spread: 0.2
+        \o \l spread: 0.2
     \endtable
 
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::DropShadow::horizontalOffset
-    \qmlproperty real QtGraphicalEffects::DropShadow::verticalOffset
+    \qmlproperty real QtGraphicalEffects::InnerShadow::horizontalOffset
+    \qmlproperty real QtGraphicalEffects::InnerShadow::verticalOffset
 
     HorizontalOffset and verticalOffset properties define the offset
-    for the rendered shadow compared to the DropShadow item position. Often, the
-    DropShadow item is anchored so that it fills the source element. In this
+    for the rendered shadow compared to the InnerShadow item position. Often, the
+    InnerShadow item is anchored so that it fills the source element. In this
     case, if the HorizontalOffset and verticalOffset properties are set to 0, the
-    shadow is rendered exactly under the source item. By changing the offset
+    shadow is rendered fully inside the source item. By changing the offset
     properties, the shadow can be positioned relatively to the source item.
 
     The values range from -inf to inf. By default, the properties are set to \c 0.
@@ -265,21 +265,21 @@
     \o
     \o
     \row
-        \o \image DropShadow_horizontalOffset1.png
-        \o \image DropShadow_horizontalOffset2.png
-        \o \image DropShadow_horizontalOffset3.png
+        \o \image InnerShadow_horizontalOffset1.png
+        \o \image InnerShadow_horizontalOffset2.png
+        \o \image InnerShadow_horizontalOffset3.png
     \row
         \o \bold { horizontalOffset: -20 }
         \o \bold { horizontalOffset: 0 }
         \o \bold { horizontalOffset: 20 }
     \row
-        \o \l radius: 4
-        \o \l radius: 4
-        \o \l radius: 4
+        \o \l radius: 16
+        \o \l radius: 16
+        \o \l radius: 16
     \row
-        \o \l maximumRadius: 8
-        \o \l maximumRadius: 8
-        \o \l maximumRadius: 8
+        \o \l maximumRadius: 16
+        \o \l maximumRadius: 16
+        \o \l maximumRadius: 16
     \row
         \o \l color: #000000
         \o \l color: #000000
@@ -297,7 +297,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects::DropShadow::cached
+    \qmlproperty bool QtGraphicalEffects::InnerShadow::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.

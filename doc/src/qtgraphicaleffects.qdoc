@@ -72,6 +72,8 @@ Drop Shadow
 \list
 \o \l {QtGraphicalEffects::DropShadow}{DropShadow} - draws a higher quality drop shadow
 \o \l {QtGraphicalEffects::FastDropShadow}{FastDropShadow} - draws a fast drop shadow
+\o \l {QtGraphicalEffects::InnerShadow}{InnerShadow} - draws a higher quality inner shadow
+\o \l {QtGraphicalEffects::FastInnerShadow}{FastInnerShadow} - draws a fast inner shadow
 \endlist
 
 Blur

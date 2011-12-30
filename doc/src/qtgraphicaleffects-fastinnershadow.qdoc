@@ -26,14 +26,15 @@
 ****************************************************************************/
 
 /*!
-    \qmlclass FastDropShadow
+    \qmlclass FastInnerShadow
     \inqmlmodule QtGraphicalEffects
-    \brief Generates a fast shadow image of the source.
+    \brief Generates a colorized and blurred shadow inside the
+    source.
 
-    FastDropShadow is intended to be fast to render. It means that the quality
+    FastInnerShadow is intended to be fast to render. It means that the quality
     of the shadow may not be highest possible, especially if the shadow edges
     are softened. For situations where a high visual quality is required, consider
-    \l {QtGraphicalEffects::DropShadow}{DropShadow} effect.
+    \l {QtGraphicalEffects::InnerShadow}{InnerShadow} effect.
 
     \table
     \header
@@ -41,21 +42,20 @@
         \o Effect applied
     \row
         \o \image Original_butterfly.png
-        \o \image FastDropShadow_butterfly.png
+        \o \image FastInnerShadow_butterfly.png
     \endtable
 
     \section1 Example
 
-    The following example shows the usage of some of the items common properties.
-    \snippet snippets/FastDropShadow-example.qml example
+    The following example shows how to apply the effect.
+    \snippet snippets/FastInnerShadow-example.qml example
 
-    \section1 Memory consumption
+    \section1 Memory Consumption
 
     The internal memory consumption is approximately twice the memory
     consumption of the the source item area in pixels.
     If source item is not Image or ShaderEffectSource, then effect internally creates one ShaderEffectSource item per source.
-    Enabling the effect cache increases the memory consumption because an extra
-    buffer is allocated for the effect output.
+    Enabling the effect cache increases the memory consumption.
 
     \table
     \header
@@ -78,21 +78,21 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects::FastDropShadow::source
+    \qmlproperty variant QtGraphicalEffects::FastInnerShadow::source
 
-    This property defines the source item that is going to be used as source for
-    the generated shadow.
+    This property defines the source item that is going to be used as the source
+    for the generated shadow.
 
 */
+
 /*!
-    \qmlproperty real QtGraphicalEffects::FastDropShadow::blur
+    \qmlproperty real QtGraphicalEffects::FastInnerShadow::blur
 
-    BlurLevel defines the softness of the shadow edge. The value of 0.0
-    represents the shadow as sharp. The value of 1.0 softens the shdow edges
-    maximally.
+    This property defines the softness of the shadow. A larger value causes the edges
+    of the shadow to appear more blurry.
 
-    The value ranges from 0.0 (no blur) to 1.0 (maximum blur). By default the
-    property is set to \c 0.0 (no blur).
+    The value ranges from 0.0 (no blur) to 1.0 (maximum blur). By
+    default, the property is set to \c 0.0 (no blur).
 
     \table
     \header
@@ -100,13 +100,13 @@
     \o
     \o
     \row
-        \o \image FastDropShadow_blur1.png
-        \o \image FastDropShadow_blur2.png
-        \o \image FastDropShadow_blur3.png
+        \o \image FastInnerShadow_blur1.png
+        \o \image FastInnerShadow_blur2.png
+        \o \image FastInnerShadow_blur3.png
     \row
-        \o \bold { blur: 0.0 }
+        \o \bold { blur: 0 }
         \o \bold { blur: 0.5 }
-        \o \bold { blur: 0.8 }
+        \o \bold { blur: 1 }
     \row
         \o \l color: #000000
         \o \l color: #000000
@@ -116,18 +116,19 @@
         \o \l horizontalOffset: 0
         \o \l horizontalOffset: 0
     \row
-        \o \l verticalOffset: 20
-        \o \l verticalOffset: 20
-        \o \l verticalOffset: 20
+        \o \l verticalOffset: 0
+        \o \l verticalOffset: 0
+        \o \l verticalOffset: 0
     \row
         \o \l spread: 0
         \o \l spread: 0
         \o \l spread: 0
     \endtable
+
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::FastDropShadow::spread
+    \qmlproperty real QtGraphicalEffects::FastInnerShadow::spread
 
     This property defines how large part of the shadow color is strenghtened near
     the source edges.
@@ -140,17 +141,17 @@
     \o
     \o
     \row
-        \o \image FastDropShadow_spread1.png
-        \o \image FastDropShadow_spread2.png
-        \o \image FastDropShadow_spread3.png
+        \o \image FastInnerShadow_spread1.png
+        \o \image FastInnerShadow_spread2.png
+        \o \image FastInnerShadow_spread3.png
     \row
         \o \bold { spread: 0.0 }
+        \o \bold { spread: 0.3 }
         \o \bold { spread: 0.5 }
-        \o \bold { spread: 0.8 }
     \row
-        \o \l blur: 0.5
-        \o \l blur: 0.5
-        \o \l blur: 0.5
+        \o \l blur: 0.8
+        \o \l blur: 0.8
+        \o \l blur: 0.8
     \row
         \o \l color: #000000
         \o \l color: #000000
@@ -160,15 +161,15 @@
         \o \l horizontalOffset: 0
         \o \l horizontalOffset: 0
     \row
-        \o \l verticalOffset: 20
-        \o \l verticalOffset: 20
-        \o \l verticalOffset: 20
+        \o \l verticalOffset: 0
+        \o \l verticalOffset: 0
+        \o \l verticalOffset: 0
     \endtable
 
 */
 
 /*!
-    \qmlproperty color QtGraphicalEffects::FastDropShadow::color
+    \qmlproperty color QtGraphicalEffects::FastInnerShadow::color
 
     This property defines the RGBA color value which is used for the shadow.
 
@@ -180,45 +181,45 @@
     \o
     \o
     \row
-        \o \image FastDropShadow_color1.png
-        \o \image FastDropShadow_color2.png
-        \o \image FastDropShadow_color3.png
+        \o \image FastInnerShadow_color1.png
+        \o \image FastInnerShadow_color2.png
+        \o \image FastInnerShadow_color3.png
     \row
         \o \bold { color: #000000 }
-        \o \bold { color: #0000ff }
-        \o \bold { color: #aa000000 }
+        \o \bold { color: #ffffff }
+        \o \bold { color: #ff0000 }
     \row
-        \o \l blur: 0.5
-        \o \l blur: 0.5
-        \o \l blur: 0.5
+        \o \l blur: 0.8
+        \o \l blur: 0.8
+        \o \l blur: 0.8
     \row
         \o \l horizontalOffset: 0
         \o \l horizontalOffset: 0
         \o \l horizontalOffset: 0
     \row
-        \o \l verticalOffset: 20
-        \o \l verticalOffset: 20
-        \o \l verticalOffset: 20
+        \o \l verticalOffset: 0
+        \o \l verticalOffset: 0
+        \o \l verticalOffset: 0
     \row
-        \o \l spread: 0
-        \o \l spread: 0
-        \o \l spread: 0
+        \o \l spread: 0.2
+        \o \l spread: 0.2
+        \o \l spread: 0.2
     \endtable
 
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::FastDropShadow::horizontalOffset
-    \qmlproperty real QtGraphicalEffects::FastDropShadow::verticalOffset
+    \qmlproperty real QtGraphicalEffects::FastInnerShadow::horizontalOffset
+    \qmlproperty real QtGraphicalEffects::FastInnerShadow::verticalOffset
 
-    HorizontalOffset and verticalOffset properties define the offset for the
-    rendered shadow compared to the DropShadow item position. Often, the
-    DropShadow item is anchored so that it fills the source element. In this
-    case, if the HorizontalOffset and verticalOffset properties are set to 0 the
-    shadow is rendered exactly under the source item. By changing the offset
+    HorizontalOffset and verticalOffset properties define the offset
+    for the rendered shadow compared to the InnerShadow item position. Often, the
+    InnerShadow item is anchored so that it fills the source element. In this
+    case, if the HorizontalOffset and verticalOffset properties are set to 0, the
+    shadow is rendered fully inside the source item. By changing the offset
     properties, the shadow can be positioned relatively to the source item.
 
-    The values range from -inf to inf. By default, these properties are set to \c 0.
+    The values range from -inf to inf. By default, the properties are set to \c 0.
 
     \table
     \header
@@ -226,17 +227,17 @@
     \o
     \o
     \row
-        \o \image FastDropShadow_horizontalOffset1.png
-        \o \image FastDropShadow_horizontalOffset2.png
-        \o \image FastDropShadow_horizontalOffset3.png
+        \o \image FastInnerShadow_horizontalOffset1.png
+        \o \image FastInnerShadow_horizontalOffset2.png
+        \o \image FastInnerShadow_horizontalOffset3.png
     \row
         \o \bold { horizontalOffset: -20 }
         \o \bold { horizontalOffset: 0 }
         \o \bold { horizontalOffset: 20 }
     \row
-        \o \l blur: 0.5
-        \o \l blur: 0.5
-        \o \l blur: 0.5
+        \o \l blur: 0.8
+        \o \l blur: 0.8
+        \o \l blur: 0.8
     \row
         \o \l color: #000000
         \o \l color: #000000
@@ -254,22 +255,17 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects::FastDropShadow::cached
+    \qmlproperty bool QtGraphicalEffects::FastInnerShadow::cached
 
     This property allows the effect output pixels to be cached in order to
-    improve rendering performance. After the effect has been rendered into a
-    cache, drawing the effect into display can be done using the cached pixels,
-    which is very fast.
+    improve the rendering performance.
+    Every time the source or effect properties are changed, the pixels in the cache
+    must be updated. Memory consumption is increased, because an extra buffer of
+    memory is required for storing the effect output.
 
-    However every time when the source or effect properties are changed, the
-    pixels in the cache need to be updated. Another drawback of the caching is
-    the increased memory consumption, extra buffer of memory is required for
-    storing the effect output.
+    It is recommended to disable the cache when the source or the effect
+    properties are animated.
 
-    A rule of thumb for using the cache would be that it should be disabled when
-    the source or the effect properties are animated, otherwise it should be
-    enabled.
-
-    By default the property is set to \c false.
+    By default, the property is set to \c false.
 
 */

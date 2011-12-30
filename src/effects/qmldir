@@ -9,11 +9,13 @@ Displace 0.1 Displace.qml
 DropShadow 0.1 DropShadow.qml
 FastBlur 0.1 FastBlur.qml
 FastDropShadow 0.1 FastDropShadow.qml
+FastInnerShadow 0.1 FastInnerShadow.qml
 FastGlow 0.1 FastGlow.qml
 GammaAdjust 0.1 GammaAdjust.qml
 GaussianBlur 0.1 GaussianBlur.qml
 Glow 0.1 Glow.qml
 HueSaturation 0.1 HueSaturation.qml
+InnerShadow 0.1 InnerShadow.qml
 LinearGradient 0.1 LinearGradient.qml
 OpacityMask 0.1 OpacityMask.qml
 RadialBlur 0.1 RadialBlur.qml
