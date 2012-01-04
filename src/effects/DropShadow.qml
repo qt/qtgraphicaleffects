@@ -47,10 +47,11 @@ Item {
     property real radius: 0.0
     property int maximumRadius: 0
     property color color: "black"
-    property bool cached: false
     property real horizontalOffset: 0.0
     property real verticalOffset: 0.0
     property real spread: 0.0
+    property bool fast: false
+    property bool cached: false
     property bool transparentBorder: false
 
     Glow {
@@ -65,5 +66,6 @@ Item {
         cached: rootItem.cached
         spread: rootItem.spread
         transparentBorder: rootItem.transparentBorder
+        fast: rootItem.fast
     }
 }

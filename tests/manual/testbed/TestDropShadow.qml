@@ -55,6 +55,7 @@ TestCaseTemplate {
         visible: enabledCheckBox.selected
         cached: cachedCheckBox.selected
         source: sourceType.value == "shaderEffectSource" ? shaderEffectSource : imageSource
+        fast: fastCheckBox.selected
     }
 
     ImageSource {
@@ -92,7 +93,7 @@ TestCaseTemplate {
             Slider {
                 id: radiusSlider
                 minimum: 0
-                maximum: 16
+                maximum: 64
                 value: 8
                 caption: "radius"
             }
@@ -100,7 +101,7 @@ TestCaseTemplate {
                 id: maximumRadiusSlider
                 minimum: 0
                 maximum: 16
-                value: 8
+                value: 16
                 integer: true
                 caption: "maximumRadius"
             }
@@ -110,6 +111,11 @@ TestCaseTemplate {
                 maximum: 1.0
                 value: 0.0
                 caption: "spread"
+            }
+            CheckBox {
+                id: fastCheckBox
+                caption: "fast"
+                selected: false
             }
         },
 

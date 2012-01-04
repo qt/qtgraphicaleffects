@@ -238,70 +238,19 @@ VisualItemModel {
         property string __varyingProperty: "spread"
         property variant __values: ["0.0", "0.5", "1.0"]
     }
-
-    FastDropShadow {
-        function init() { checkerboard = true }
-
+    DropShadow {
         width: size
         height: size
         source: butterfly
         //horizontalOffset: 3
         verticalOffset: 20
-        blur: 0.5
-        property string __name: "FastDropShadow"
-        property variant __properties: ["blur", "color", "horizontalOffset", "verticalOffset", "spread"]
-        property string __varyingProperty: "color"
-        property variant __values: ["#000000", "#0000ff", "#aa000000"]
-
-        function uninit() { checkerboard = false }
+        radius: 16
+        maximumRadius: 16
+        property string __name: "DropShadow"
+        property variant __properties: ["radius", "maximumRadius", "color", "horizontalOffset", "verticalOffset", "spread", "fast"]
+        property string __varyingProperty: "fast"
+        property variant __values: [false, true]
     }
-    FastDropShadow {
-        width: size
-        height: size
-        source: butterfly
-        //verticalOffset: 3
-        blur: 0.5
-        property string __name: "FastDropShadow"
-        property variant __properties: ["blur", "color", "horizontalOffset", "verticalOffset", "spread"]
-        property string __varyingProperty: "horizontalOffset"
-        property variant __values: [-20, 0, 20]
-    }
-    FastDropShadow {
-        width: size
-        height: size
-        source: butterfly
-        //horizontalOffset: 3
-        blur: 0.5
-        property string __name: "FastDropShadow"
-        property variant __properties: ["blur", "color", "horizontalOffset", "verticalOffset", "spread"]
-        property string __varyingProperty: "verticalOffset"
-        property variant __values: [-20, 0, 20]
-    }
-    FastDropShadow {
-        width: size
-        height: size
-        source: butterfly
-        //horizontalOffset: 3
-        verticalOffset: 20
-        blur: 0.5
-        property string __name: "FastDropShadow"
-        property variant __properties: ["blur", "color", "horizontalOffset", "verticalOffset", "spread"]
-        property string __varyingProperty: "spread"
-        property variant __values: ["0.0", "0.5", "0.8"]
-    }
-    FastDropShadow {
-        width: size
-        height: size
-        source: butterfly
-        //horizontalOffset: 3
-        verticalOffset: 20
-        blur: 0.5
-        property string __name: "FastDropShadow"
-        property variant __properties: ["blur", "color", "horizontalOffset", "verticalOffset", "spread"]
-        property string __varyingProperty: "blur"
-        property variant __values: ["0.0", "0.5", "0.8"]
-    }
-
     Glow {
         function init() { background = "black" }
 
@@ -348,6 +297,8 @@ VisualItemModel {
         property variant __properties: ["radius", "maximumRadius", "color", "spread", "fast"]
         property string __varyingProperty: "fast"
         property variant __values: [false, true]
+
+        function uninit() { butterfly.visible = false }
     }
 
     FastBlur {
