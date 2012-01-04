@@ -93,8 +93,7 @@ Motion Blur
 
 Glow
 \list
-\o \l {QtGraphicalEffects::FastGlow}{FastGlow} - draws a fast glow effect
-\o \l {QtGraphicalEffects::Glow}{Glow} - draws a higher quality glow effect
+\o \l {QtGraphicalEffects::Glow}{Glow} - draws a glow effect
 \o \l {QtGraphicalEffects::RectangularGlow}{RectangularGlow} - draws a rectangular glow effect
 \endlist
 

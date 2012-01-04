@@ -33,7 +33,7 @@
 
     This effect is intended to have good performance. The shape of the glow is
     limited to a rectangle with a custom corner radius. For situations where
-    custom shapes are required, consider \l {QtGraphicalEffects::Glow} {Glow} or \l {QtGraphicalEffects::FastGlow} {FastGlow} effects.
+    custom shapes are required, consider \l {QtGraphicalEffects::Glow} {Glow} effect.
 
     \table
     \header

@@ -337,41 +337,17 @@ VisualItemModel {
         property string __varyingProperty: "spread"
         property variant __values: ["0.0", "0.5", "1.0"]
     }
-
-    FastGlow {
+    Glow {
         width: size
         height: size
         source: butterfly
-        property string __name: "FastGlow"
-        property variant __properties: ["blur", "color", "spread"]
-        property string __varyingProperty: "blur"
-        property variant __values: ["0.0", "0.5", "1.0"]
-    }
-    FastGlow {
-        width: size
-        height: size
-        source: butterfly
-        blur: 0.5
-        spread: 0.25
-        property string __name: "FastGlow"
-        property variant __properties: ["blur", "color", "spread"]
-        property string __varyingProperty: "color"
-        property variant __values: ["#ffffff", "#00ff00", "#aa00ff00"]
-    }
-    FastGlow {
-        width: size
-        height: size
-        source: butterfly
-        blur: 0.5
-        property string __name: "FastGlow"
-        property variant __properties: ["blur", "color", "spread"]
-        property string __varyingProperty: "spread"
-        property variant __values: ["0.0", "0.5", "0.9"]
-
-        function uninit() {
-            butterfly.visible = false
-            background = "white"
-        }
+        radius: 16
+        maximumRadius: 16
+        spread: 0.3
+        property string __name: "Glow"
+        property variant __properties: ["radius", "maximumRadius", "color", "spread", "fast"]
+        property string __varyingProperty: "fast"
+        property variant __values: [false, true]
     }
 
     FastBlur {

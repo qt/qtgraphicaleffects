@@ -44,7 +44,6 @@ ListModel {
     ListElement { name: "TestDisplace.qml"; group: "Distortion"; last: true }
     ListElement { name: "TestOpacityMask.qml"; group: "Mask" }
     ListElement { name: "TestThresholdMask.qml"; group: "Mask"; last: true }
-    ListElement { name: "TestFastGlow.qml"; group: "Glow" }
     ListElement { name: "TestGlow.qml"; group: "Glow" }
     ListElement { name: "TestRectangularGlow.qml"; group: "Glow"; last: true }
     ListElement { name: "TestFastBlur.qml"; group: "Blur" }

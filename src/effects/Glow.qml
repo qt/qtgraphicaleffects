@@ -48,70 +48,39 @@ Item {
     property int maximumRadius: 0
     property real spread: 0.0
     property color color: "white"
+    property bool fast: false
     property bool cached: false
     property bool transparentBorder: false
 
-    SourceProxy {
-        id: sourceProxy
-        input: rootItem.source
-    }
-
-    ShaderEffectSource {
-        id: cacheItem
-        anchors.fill: shaderItem
-        visible: rootItem.cached
-        smooth: true
-        sourceItem: shaderItem
-        live: true
-        hideSource: visible
-    }
-
-    GaussianBlur {
-        id: blur
+    Loader {
         anchors.fill: parent
-        source: sourceProxy.output
-        radius: rootItem.radius
-        maximumRadius: rootItem.maximumRadius
-        transparentBorder: rootItem.transparentBorder
+        sourceComponent: rootItem.fast ? fastGlow : gaussianGlow
     }
 
-    ShaderEffectSource {
-        id: blurredSource
-        sourceItem: blur
-        live: true
-        hideSource: true
-        textureSize: transparentBorder ? Qt.size(blur.width + 2 * maximumRadius, blur.height + 2 * maximumRadius) : Qt.size(blur.width, blur.height)
-        sourceRect: transparentBorder ? Qt.rect(-maximumRadius, -maximumRadius, blur.width + 2 * maximumRadius, blur.height + 2 * maximumRadius) : Qt.rect(0,0,0,0)
-        smooth: true
+    Component {
+        id: gaussianGlow
+        GaussianGlow {
+            anchors.fill: parent
+            source: rootItem.source
+            radius: rootItem.radius
+            maximumRadius: rootItem.maximumRadius
+            color: rootItem.color
+            cached: rootItem.cached
+            spread: rootItem.spread
+            transparentBorder: rootItem.transparentBorder
+        }
     }
 
-    ShaderEffect {
-        id: shaderItem
-
-        property variant source: blurredSource
-        property real spread: 1.0 - (rootItem.spread * 0.98)
-        property color color: rootItem.color
-
-        anchors.fill: blur
-        anchors.margins: transparentBorder ? -maximumRadius : 0
-        smooth: true
-
-        fragmentShader: "
-            uniform lowp sampler2D source;
-            uniform lowp float qt_Opacity;
-            uniform highp vec4 color;
-            uniform highp float spread;
-            varying mediump vec2 qt_TexCoord0;
-
-            highp float linearstep(highp float e0, highp float e1, highp float x) {
-                return clamp((x - e0) / (e1 - e0), 0.0, 1.0);
-            }
-
-            void main() {
-                lowp vec4 sourceColor = texture2D(source, qt_TexCoord0);
-                sourceColor = mix(vec4(0), color, linearstep(0.0, spread, sourceColor.a));
-                gl_FragColor = sourceColor * qt_Opacity;
-            }
-        "
-     }
+    Component {
+        id: fastGlow
+        FastGlow {
+            anchors.fill: parent
+            source: rootItem.source
+            blur: Math.pow(rootItem.radius / 64.0, 0.4)
+            color: rootItem.color
+            cached: rootItem.cached
+            spread: rootItem.spread
+            transparentBorder: rootItem.transparentBorder
+        }
+    }
 }

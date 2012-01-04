@@ -52,6 +52,7 @@ TestCaseTemplate {
         maximumRadius: maximumRadiusSlider.value
         visible: enabledCheckBox.selected
         cached: cachedCheckBox.selected
+        fast: fastCheckBox.selected
         source: sourceType.value == "shaderEffectSource" ? shaderEffectSource : imageSource
     }
 
@@ -94,9 +95,14 @@ TestCaseTemplate {
                 id: maximumRadiusSlider
                 minimum: 0
                 maximum: 16
-                value: 8
+                value: 16
                 integer: true
                 caption: "maximumRadius"
+            }
+            CheckBox {
+                id: fastCheckBox
+                caption: "fast"
+                selected: false
             }
         },
 
@@ -106,7 +112,7 @@ TestCaseTemplate {
                 id: colorPicker
                 hue: 0
                 saturation: 1
-                lightness: 0.5
+                lightness: 1
             }
         },
 
