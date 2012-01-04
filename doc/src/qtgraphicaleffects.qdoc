@@ -31,7 +31,7 @@
 \brief Qt Graphical Effects module is a Qt Quick Add-On module.
 
 The Qt Graphical Effects module provides a set of QML components for building
-visually impressive user interfaces. You can implement the effects inside QML applications with QML and GLSL.
+visually impressive user interfaces. Effects are implemented with QML and GLSL.
 
 \section1 Getting started
 Install the Qt Graphical Effects module, and simply add the following import statement to your .qml file:
@@ -54,6 +54,7 @@ Color
 \o \l {QtGraphicalEffects::Desaturate}{Desaturate} - reduces color saturation
 \o \l {QtGraphicalEffects::GammaAdjust}{GammaAdjust} - adjusts luminance
 \o \l {QtGraphicalEffects::HueSaturation}{HueSaturation} - adjusts colors in the HSL color space
+\o \l {QtGraphicalEffects::LevelAdjust}{LevelAdjust} - adjusts colors in the RGB color space
 \endlist
 
 Gradient

@@ -65,5 +65,6 @@ ListModel {
     ListElement { name: "TestHueSaturation.qml"; group: "Color" }
     ListElement { name: "TestBrightnessContrast.qml"; group: "Color" }
     ListElement { name: "TestDesaturate.qml"; group: "Color" }
+    ListElement { name: "TestLevelAdjust.qml"; group: "Color" }
     ListElement { name: "TestGammaAdjust.qml"; group: "Color"; last: true }
 }

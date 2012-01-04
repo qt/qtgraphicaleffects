@@ -882,6 +882,46 @@ VisualItemModel {
         function uninit() { checkerboard = false }
     }
 
+    LevelAdjust {
+        width: size
+        height: size
+        source: butterfly
+        property string __name: "LevelAdjust"
+        property variant __properties: ["minimumInput", "maximumInput", "minimumOutput", "maximumOutput", "gamma"]
+        property string __varyingProperty: "minimumInput"
+        property variant __values: ["#00000000", "#00000040", "#00000070"]
+    }
+
+    LevelAdjust {
+        width: size
+        height: size
+        source: butterfly
+        property string __name: "LevelAdjust"
+        property variant __properties: ["minimumInput", "maximumInput", "minimumOutput", "maximumOutput", "gamma"]
+        property string __varyingProperty: "maximumInput"
+        property variant __values: ["#FFFFFFFF", "#FFFFFF80", "#FFFFFF30"]
+    }
+
+    LevelAdjust {
+        width: size
+        height: size
+        source: butterfly
+        property string __name: "LevelAdjust"
+        property variant __properties: ["minimumInput", "maximumInput", "minimumOutput", "maximumOutput", "gamma"]
+        property string __varyingProperty: "minimumOutput"
+        property variant __values: ["#00000000", "#00000070", "#000000A0"]
+    }
+
+    LevelAdjust {
+        width: size
+        height: size
+        source: butterfly
+        property string __name: "LevelAdjust"
+        property variant __properties: ["minimumInput", "maximumInput", "minimumOutput", "maximumOutput", "gamma"]
+        property string __varyingProperty: "maximumOutput"
+        property variant __values: ["#FFFFFFFF", "#FFFFFF80", "#FFFFFF30"]
+    }
+
     Item {
         id: theEnd
         width: size

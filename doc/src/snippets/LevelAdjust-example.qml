@@ -38,78 +38,27 @@
 **
 ****************************************************************************/
 
+//! [example]
 import QtQuick 2.0
+import QtGraphicalEffects 0.1
 
 Item {
-    id: rgbaSlider
-    property color color: Qt.rgba(rValue, gValue, bValue, aValue)
+    width: 300
+    height: 300
 
-    property alias rValue: rSlider.value
-    property alias gValue: gSlider.value
-    property alias bValue: bSlider.value
-    property alias aValue: aSlider.value
-    property bool pressed: rSlider.pressed || gSlider.pressed || bSlider.pressed || aSlider.pressed
-
-    width: parent.width
-    height: childrenRect.height
-
-    function dec2hex(i)
-    {
-      if (i <= 15)
-         return  "0" + i.toString(16);
-      else
-         return i.toString(16);
+    Image {
+        id: levelAdjustSourceItem
+        source: "images/butterfly.png"
+        sourceSize: Qt.size(parent.width, parent.height)
+        smooth: true
+        visible: false
     }
 
-    Rectangle {
-        id: colorRect
-        width: 50; height: 50
-        anchors.left: parent.left
-        anchors.leftMargin: 20
-        anchors.verticalCenter: sliders.verticalCenter
-        color: Qt.rgba(rgbaSlider.rValue, rgbaSlider.gValue, rgbaSlider.bValue, rgbaSlider.aValue)
+    LevelAdjust {
+        anchors.fill: levelAdjustSourceItem
+        source: levelAdjustSourceItem
+        minimumOutput: "#00000000"
+        maximumOutput: "#FF1010FF"
     }
-    Column {
-        id: sliders
-        anchors {left: parent.left; right: parent.right}
-        Slider {
-            id: aSlider
-            minimum: 0
-            maximum: 1
-            value: 1.0
-            caption: 'A'
-        }
-        Slider {
-            id: rSlider
-            minimum: 0
-            maximum: 1
-            value: 1.0
-            caption: 'R'
-        }
-        Slider {
-            id: gSlider
-            minimum: 0
-            maximum: 1
-            value: 1.0
-            caption: 'G'
-        }
-        Slider {
-            id: bSlider
-            minimum: 0
-            maximum: 1
-            value: 1.0
-            caption: 'B'
-        }
-
-    }
-//    Text {
-//        anchors.top: colorRect.bottom
-//        anchors.topMargin: 5
-//        anchors.horizontalCenter: colorRect.horizontalCenter
-//        horizontalAlignment: Text.AlignHCenter
-//        text: "#" + dec2hex(Math.round(rgbaSlider.aValue * 255)) + dec2hex(Math.round(rgbaSlider.rValue * 255)) + dec2hex(Math.round(rgbaSlider.gValue * 255)) + dec2hex(Math.round(rgbaSlider.bValue * 255))
-//        font.capitalization: Font.AllUppercase
-//        color: "#999999"
-//        font.pixelSize: 11
-//    }
 }
+//! [example]

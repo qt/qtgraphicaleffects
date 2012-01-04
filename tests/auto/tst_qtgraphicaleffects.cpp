@@ -67,6 +67,7 @@ private slots:
     void glow();
     void hueSaturation();
     void innerShadow();
+    void levelAdjust();
     void linearGradient();
     void opacityMask();
     void radialBlur();
@@ -663,6 +664,7 @@ void tst_qtgraphicaleffects::recursiveBlur()
     QVERIFY(obj != 0);
 
     // Default values
+    QCOMPARE(obj->property("source").toInt(), 0);
     QCOMPARE(obj->property("loops").toInt(), 0);
     QCOMPARE(obj->property("radius").toDouble(), 0.0);
     QCOMPARE(obj->property("progress").toDouble(), 0.0);
@@ -688,6 +690,7 @@ void tst_qtgraphicaleffects::directionalBlur()
     QVERIFY(obj != 0);
 
     // Default values
+    QCOMPARE(obj->property("source").toInt(), 0);
     QCOMPARE(obj->property("lenght").toInt(), 0);
     QCOMPARE(obj->property("samples").toDouble(), 0.0);
     QCOMPARE(obj->property("angle").toDouble(), 0.0);
@@ -713,6 +716,7 @@ void tst_qtgraphicaleffects::radialBlur()
     QVERIFY(obj != 0);
 
     // Default values
+    QCOMPARE(obj->property("source").toInt(), 0);
     QCOMPARE(obj->property("samples").toDouble(), 0.0);
     QCOMPARE(obj->property("angle").toDouble(), 0.0);
     QCOMPARE(obj->property("transparentBorder").toBool(), false);
@@ -739,6 +743,7 @@ void tst_qtgraphicaleffects::zoomBlur()
     QVERIFY(obj != 0);
 
     // Default values
+    QCOMPARE(obj->property("source").toInt(), 0);
     QCOMPARE(obj->property("lenght").toInt(), 0);
     QCOMPARE(obj->property("samples").toDouble(), 0.0);
     QCOMPARE(obj->property("transparentBorder").toBool(), false);
@@ -748,6 +753,32 @@ void tst_qtgraphicaleffects::zoomBlur()
 
     delete obj;
 }
+
+void tst_qtgraphicaleffects::levelAdjust()
+{
+    // Creation
+    QString componentStr = "import QtQuick 2.0\n"
+            "import effects 0.1\n"
+            "LevelAdjust {"
+            "width: 50; height: 50\n"
+            "}";
+    QDeclarativeComponent component(&engine);
+    component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
+    QObject *obj = component.create();
+    QTest::qWait(100);
+    QVERIFY(obj != 0);
+
+    // Default values
+    QCOMPARE(obj->property("source").toInt(), 0);
+    QCOMPARE(obj->property("minimumInput").toString(), QString("#000000"));
+    QCOMPARE(obj->property("maximumInput").toString(), QString("#ffffff"));
+    QCOMPARE(obj->property("minimumOutput").toString(), QString("#000000"));
+    QCOMPARE(obj->property("maximumOutput").toString(), QString("#ffffff"));
+    QCOMPARE(obj->property("cached").toBool(), false);
+
+    delete obj;
+}
+
 
 QTEST_MAIN(tst_qtgraphicaleffects)
 
