@@ -59,7 +59,6 @@ private slots:
     void displace();
     void dropShadow();
     void fastBlur();
-    void fastInnerShadow();
     void gammaAdjust();
     void gaussianBlur();
     void glow();
@@ -435,35 +434,7 @@ void tst_qtgraphicaleffects::innerShadow()
     QCOMPARE(obj->property("source").toInt(), 0);
     QCOMPARE(obj->property("color").toString(), QString("#000000"));
     QCOMPARE(obj->property("spread").toDouble(), 0.0);
-    QCOMPARE(obj->property("transparentBorder").toBool(), false);
-
-    delete obj;
-}
-
-void tst_qtgraphicaleffects::fastInnerShadow()
-{
-    // Creation
-    QString componentStr = "import QtQuick 2.0\n"
-            "import effects 0.1\n"
-            "FastInnerShadow {"
-            "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
-            "width: 50; height: 50\n"
-            "}";
-    QDeclarativeComponent component(&engine);
-    component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QObject *obj = component.create();
-    QTest::qWait(100);
-    QVERIFY(obj != 0);
-
-    // Default values
-    QCOMPARE(obj->property("blur").toDouble(), 0.0);
-    QCOMPARE(obj->property("horizontalOffset").toDouble(), 0.0);
-    QCOMPARE(obj->property("verticalOffset").toDouble(), 0.0);
-    QCOMPARE(obj->property("cached").toBool(), false);
-    QCOMPARE(obj->property("source").toInt(), 0);
-    QCOMPARE(obj->property("color").toString(), QString("#000000"));
-    QCOMPARE(obj->property("spread").toDouble(), 0.0);
-    QCOMPARE(obj->property("transparentBorder").toBool(), false);
+    QCOMPARE(obj->property("fast").toBool(), false);
 
     delete obj;
 }

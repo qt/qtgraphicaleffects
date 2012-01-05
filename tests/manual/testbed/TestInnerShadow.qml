@@ -68,6 +68,7 @@ TestCaseTemplate {
         color: colorPicker.color
         visible: enabledCheckBox.selected
         cached: cachedCheckBox.selected
+        fast: fastCheckBox.selected
         source: sourceType.value == "shaderEffectSource" ? shaderEffectSource : imageSource
     }
 
@@ -110,6 +111,11 @@ TestCaseTemplate {
                 maximum: 1.0
                 value: 0.0
                 caption: "spread"
+            }
+            CheckBox {
+                id: fastCheckBox
+                caption: "fast"
+                selected: false
             }
         },
 

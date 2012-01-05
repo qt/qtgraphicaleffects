@@ -72,8 +72,7 @@ Distortion
 Drop Shadow
 \list
 \o \l {QtGraphicalEffects::DropShadow}{DropShadow} - draws a drop shadow
-\o \l {QtGraphicalEffects::InnerShadow}{InnerShadow} - draws a higher quality inner shadow
-\o \l {QtGraphicalEffects::FastInnerShadow}{FastInnerShadow} - draws a fast inner shadow
+\o \l {QtGraphicalEffects::InnerShadow}{InnerShadow} - draws an inner shadow
 \endlist
 
 Blur

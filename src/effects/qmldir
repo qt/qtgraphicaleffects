@@ -8,7 +8,6 @@ DirectionalBlur 0.1 DirectionalBlur.qml
 Displace 0.1 Displace.qml
 DropShadow 0.1 DropShadow.qml
 FastBlur 0.1 FastBlur.qml
-FastInnerShadow 0.1 FastInnerShadow.qml
 GammaAdjust 0.1 GammaAdjust.qml
 GaussianBlur 0.1 GaussianBlur.qml
 Glow 0.1 Glow.qml

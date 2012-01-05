@@ -34,10 +34,9 @@
     The InnerShadow effect produces a high quality shadow image, thus the
     rendering speed of the shadow might not be the highest possible. The
     rendering speed is reduced especially if the shadow edges are heavily
-    softened.
-    For use cases that require faster rendering speed and for which the highest
-    possible visual quality is not necessary, there is an alternative effect
-    called \l {QtGraphicalEffects::FastInnerShadow} {FastInnerShadow}.
+    softened. For use cases that require faster rendering speed and for which the
+    highest possible visual quality is not necessary, property \l fast can be
+    set to true.
 
     \table
     \header
@@ -292,6 +291,48 @@
         \o \l spread: 0
         \o \l spread: 0
         \o \l spread: 0
+    \endtable
+
+*/
+
+/*!
+    \qmlproperty bool QtGraphicalEffects::InnerShadow::fast
+
+    This property selects the blurring algorithm that is used to produce the
+    softness for the effect. Setting this to true enables fast algorithm,
+    setting value to false produces higher quality result.
+
+    By default, the property is set to \c false.
+
+    \table
+    \header
+    \o Output examples with different fast values
+    \o
+    \o
+    \row
+        \o \image InnerShadow_fast1.png
+        \o \image InnerShadow_fast2.png
+    \row
+        \o \bold { fast: false }
+        \o \bold { fast: true }
+    \row
+        \o \l radius: 16
+        \o \l radius: 16
+    \row
+        \o \l maximumRadius: 16
+        \o \l maximumRadius: 16
+    \row
+        \o \l color: #000000
+        \o \l color: #000000
+    \row
+        \o \l horizontalOffset: 0
+        \o \l horizontalOffset: 0
+    \row
+        \o \l verticalOffset: 0
+        \o \l verticalOffset: 0
+    \row
+        \o \l spread: 0.2
+        \o \l spread: 0.2
     \endtable
 
 */

@@ -398,6 +398,9 @@ VisualItemModel {
     }
 
     InnerShadow {
+        function init() {
+            background = "white"
+        }
         width: size
         height: size
         source: butterfly
@@ -435,6 +438,22 @@ VisualItemModel {
         property string __varyingProperty: "spread"
         property variant __values: ["0.0", "0.3", "0.5"]
     }
+
+    InnerShadow {
+        width: size
+        height: size
+        source: butterfly
+        horizontalOffset: 0
+        verticalOffset: 0
+        radius: 16
+        spread: 0.2
+        maximumRadius: 16
+        property string __name: "InnerShadow"
+        property variant __properties: ["radius", "maximumRadius", "color", "horizontalOffset", "verticalOffset", "spread", "fast"]
+        property string __varyingProperty: "fast"
+        property variant __values: [false, true]
+    }
+
     InnerShadow {
         function init() { checkerboard = true }
         width: size
@@ -447,59 +466,6 @@ VisualItemModel {
         maximumRadius: 16
         property string __name: "InnerShadow"
         property variant __properties: ["radius", "maximumRadius", "color", "horizontalOffset", "verticalOffset", "spread"]
-        property string __varyingProperty: "color"
-        property variant __values: ["#000000", "#ffffff", "#ff0000"]
-    }
-
-    FastInnerShadow {
-        function init() { checkerboard = true }
-        width: size
-        height: size
-        source: butterfly
-        horizontalOffset: 0
-        verticalOffset: 0
-        property string __name: "FastInnerShadow"
-        property variant __properties: ["blur", "color", "horizontalOffset", "verticalOffset", "spread"]
-        property string __varyingProperty: "blur"
-        property variant __values: [0.0, 0.5, 1.0]
-    }
-    FastInnerShadow {
-        width: size
-        height: size
-        source: butterfly
-        horizontalOffset: 0
-        verticalOffset: 0
-        blur: 0.8
-        property string __name: "FastInnerShadow"
-        property variant __properties: ["blur", "color", "horizontalOffset", "verticalOffset", "spread"]
-        property string __varyingProperty: "horizontalOffset"
-        property variant __values: [-20, 0, 20]
-    }
-    FastInnerShadow {
-        width: size
-        height: size
-        source: butterfly
-        horizontalOffset: 0
-        verticalOffset: 0
-        blur: 0.8
-        property string __name: "FastInnerShadow"
-        property variant __properties: ["blur", "color", "horizontalOffset", "verticalOffset", "spread"]
-        property string __varyingProperty: "spread"
-        property variant __values: ["0.0", "0.3", "0.5"]
-    }
-    FastInnerShadow {
-        function init() {
-            background = "gray"
-        }
-        width: size
-        height: size
-        source: butterfly
-        horizontalOffset: 0
-        verticalOffset: 0
-        blur: 0.8
-        spread: 0.2
-        property string __name: "FastInnerShadow"
-        property variant __properties: ["blur", "color", "horizontalOffset", "verticalOffset", "spread"]
         property string __varyingProperty: "color"
         property variant __values: ["#000000", "#ffffff", "#ff0000"]
     }
