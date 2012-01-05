@@ -47,6 +47,16 @@ Item {
     property variant maskSource
     property bool cached: false
 
+    SourceProxy {
+        id: sourceProxy
+        input: rootItem.source
+    }
+
+    SourceProxy {
+        id: maskSourceProxy
+        input: rootItem.maskSource
+    }
+
     ShaderEffectSource {
         id: cacheItem
         anchors.fill: parent
@@ -59,8 +69,8 @@ Item {
 
     ShaderEffect {
         id: shaderItem
-        property variant source: rootItem.source
-        property variant maskSource: rootItem.maskSource
+        property variant source: sourceProxy.output
+        property variant maskSource: maskSourceProxy.output
 
         anchors.fill: parent
 
