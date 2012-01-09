@@ -15,6 +15,7 @@ HueSaturation 0.1 HueSaturation.qml
 InnerShadow 0.1 InnerShadow.qml
 LevelAdjust 0.1 LevelAdjust.qml
 LinearGradient 0.1 LinearGradient.qml
+MaskedBlur 0.1 MaskedBlur.qml
 OpacityMask 0.1 OpacityMask.qml
 RadialBlur 0.1 RadialBlur.qml
 RadialGradient 0.1 RadialGradient.qml

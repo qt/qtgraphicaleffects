@@ -815,6 +815,45 @@ VisualItemModel {
         property variant __values: ["#FFFFFFFF", "#FFFFFF80", "#FFFFFF30"]
     }
 
+    MaskedBlur {
+        width: size
+        height: size
+        source: butterfly
+        maskSource: blurMask
+        maximumRadius: 16
+        property string __name: "MaskedBlur"
+        property variant __properties: ["radius", "maximumRadius", "transparentBorder", "fast"]
+        property string __varyingProperty: "radius"
+        property variant __values: [0.0, 8.0, 16.0]
+    }
+    MaskedBlur {
+        width: size
+        height: size
+        source: butterfly
+        maskSource: blurMask
+        radius: 16
+        maximumRadius: 16
+        property string __name: "MaskedBlur"
+        property variant __properties: ["radius", "maximumRadius", "transparentBorder", "fast"]
+        property string __varyingProperty: "fast"
+        property variant __values: [false, true]
+    }
+    MaskedBlur {
+        function init() { checkerboard = true }
+        width: size
+        height: size
+        source: bug
+        maskSource: blurMask
+        radius: 64
+        maximumRadius: 16
+        fast: true
+        property string __name: "MaskedBlur"
+        property variant __properties: ["radius", "maximumRadius", "transparentBorder", "fast"]
+        property string __varyingProperty: "transparentBorder"
+        property variant __values: [false, true]
+        function uninit() { checkerboard = false }
+    }
+
     Item {
         id: theEnd
         width: size

@@ -48,6 +48,7 @@ ListModel {
     ListElement { name: "TestRectangularGlow.qml"; group: "Glow"; last: true }
     ListElement { name: "TestFastBlur.qml"; group: "Blur" }
     ListElement { name: "TestGaussianBlur.qml"; group: "Blur" }
+    ListElement { name: "TestMaskedBlur.qml"; group: "Blur" }
     ListElement { name: "TestRecursiveBlur.qml"; group: "Blur"; last: true }
     ListElement { name: "TestDirectionalBlur.qml"; group: "Motion Blur";  }
     ListElement { name: "TestRadialBlur.qml"; group: "Motion Blur";  }

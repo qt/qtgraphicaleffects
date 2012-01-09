@@ -66,6 +66,7 @@ private slots:
     void innerShadow();
     void levelAdjust();
     void linearGradient();
+    void maskedBlur();
     void opacityMask();
     void radialBlur();
     void radialGradient();
@@ -697,6 +698,33 @@ void tst_qtgraphicaleffects::levelAdjust()
     delete obj;
 }
 
+void tst_qtgraphicaleffects::maskedBlur()
+{
+    // Creation
+    QString componentStr = "import QtQuick 2.0\n"
+            "import effects 0.1\n"
+            "MaskedBlur {"
+            "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
+            "maskSource: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
+            "width: 50; height: 50\n"
+            "}";
+    QDeclarativeComponent component(&engine);
+    component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
+    QObject *obj = component.create();
+    QTest::qWait(100);
+    QVERIFY(obj != 0);
+
+    // Default values
+    QCOMPARE(obj->property("source").toInt(), 0);
+    QCOMPARE(obj->property("maskSource").toInt(), 0);
+    QCOMPARE(obj->property("radius").toDouble(), 0.0);
+    QCOMPARE(obj->property("maximumRadius").toInt(), 0);
+    QCOMPARE(obj->property("cached").toBool(), false);
+    QCOMPARE(obj->property("transparentBorder").toBool(), false);
+    QCOMPARE(obj->property("fast").toBool(), false);
+
+    delete obj;
+}
 
 QTEST_MAIN(tst_qtgraphicaleffects)
 

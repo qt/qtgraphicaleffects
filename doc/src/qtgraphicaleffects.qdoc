@@ -79,6 +79,7 @@ Blur
 \list
 \o \l {QtGraphicalEffects::FastBlur}{FastBlur} - applies a fast blur effect
 \o \l {QtGraphicalEffects::GaussianBlur}{GaussianBlur} - applies a higher quality blur effect
+\o \l {QtGraphicalEffects::MaskedBlur}{MaskedBlur} - applies a varying intensity blur effect
 \o \l {QtGraphicalEffects::RecursiveBlur}{RecursiveBlur} - blurs repeatedly, providing a strong blur effect
 \endlist
 

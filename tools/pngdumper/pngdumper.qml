@@ -51,6 +51,17 @@ Rectangle {
     property bool checkerboard: false
     color: background
 
+    Rectangle {
+        id: blurMask
+        anchors.fill: parent
+        visible: false
+        gradient: Gradient {
+                 GradientStop { position: 0.3; color: "#ff000000" }
+                 GradientStop { position: 0.7; color: "#00000000" }
+        }
+    }
+
+
     Gradient {
         id: firstGradient
         GradientStop { position: 0.000; color: Qt.rgba(1, 0, 0, 1) }
