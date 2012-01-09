@@ -49,7 +49,7 @@ Item {
     height: 300
 
     Image {
-        id: blendSourceItem1
+        id: bug
         source: "images/bug.jpg"
         sourceSize: Qt.size(parent.width, parent.height)
         smooth: true
@@ -57,7 +57,7 @@ Item {
     }
 
     Image {
-        id: blendSourceItem2
+        id: butterfly
         source: "images/butterfly.png"
         sourceSize: Qt.size(parent.width, parent.height)
         smooth: true
@@ -65,9 +65,9 @@ Item {
     }
 
     Blend {
-        anchors.fill: blendSourceItem1
-        backgroundSource: blendSourceItem1
-        foregroundSource: blendSourceItem2
+        anchors.fill: bug
+        backgroundSource: bug
+        foregroundSource: butterfly
         mode: "subtract"
     }
 }

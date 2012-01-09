@@ -53,7 +53,7 @@ Item {
     }
 
     Image {
-        id: thresholdMaskSourceItem
+        id: bug
         source: "images/bug.jpg"
         sourceSize: Qt.size(parent.width, parent.height)
         smooth: true
@@ -61,7 +61,7 @@ Item {
     }
 
     Image {
-        id: thresholdMaskItem
+        id: mask
         source: "images/fog.png"
         sourceSize: Qt.size(parent.width, parent.height)
         smooth: true
@@ -69,9 +69,9 @@ Item {
     }
 
     ThresholdMask {
-        anchors.fill: thresholdMaskSourceItem
-        source: thresholdMaskSourceItem
-        maskSource: thresholdMaskItem
+        anchors.fill: bug
+        source: bug
+        maskSource: mask
         threshold: 0.4
         spread: 0.2
     }

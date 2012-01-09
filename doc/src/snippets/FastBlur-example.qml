@@ -47,7 +47,7 @@ Item {
     height: 300
 
     Image {
-        id: fastBlurSourceItem
+        id: bug
         source: "images/bug.jpg"
         sourceSize: Qt.size(parent.width, parent.height)
         smooth: true
@@ -55,8 +55,8 @@ Item {
     }
 
     FastBlur {
-        anchors.fill: fastBlurSourceItem
-        source: fastBlurSourceItem
+        anchors.fill: bug
+        source: bug
         blur: 0.5
     }
 }

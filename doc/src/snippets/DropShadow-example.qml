@@ -51,17 +51,17 @@ Item {
     }
 
     DropShadow {
-        anchors.fill: dropShadowSourceItem
+        anchors.fill: butterfly
         horizontalOffset: 3
         verticalOffset: 3
         radius: 8.0
         maximumRadius: 8.0
         color: "#80000000"
-        source: dropShadowSourceItem
+        source: butterfly
     }
 
     Image {
-        id: dropShadowSourceItem
+        id: butterfly
         source: "images/butterfly.png"
         sourceSize: Qt.size(parent.width, parent.height)
         smooth: true

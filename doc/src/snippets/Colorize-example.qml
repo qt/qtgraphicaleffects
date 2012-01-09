@@ -47,7 +47,7 @@ Item {
     height: 300
 
     Image {
-        id: colorizeSourceItem
+        id: bug
         source: "images/bug.jpg"
         sourceSize: Qt.size(parent.width, parent.height)
         smooth: true
@@ -55,8 +55,8 @@ Item {
     }
 
     Colorize {
-        anchors.fill: colorizeSourceItem
-        source: colorizeSourceItem
+        anchors.fill: bug
+        source: bug
         hue: 0.5
         saturation: 0.5
         lightness: -0.2

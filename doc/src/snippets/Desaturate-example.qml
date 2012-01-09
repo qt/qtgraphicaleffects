@@ -47,7 +47,7 @@ Item {
     height: 300
 
     Image {
-        id: desaturateSourceItem
+        id: bug
         source: "images/bug.jpg"
         sourceSize: Qt.size(parent.width, parent.height)
         smooth: true
@@ -55,8 +55,8 @@ Item {
     }
 
     Desaturate {
-        anchors.fill: desaturateSourceItem
-        source: desaturateSourceItem
+        anchors.fill: bug
+        source: bug
         desaturation: 0.8
     }
 }

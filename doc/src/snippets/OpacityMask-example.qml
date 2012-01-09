@@ -47,7 +47,7 @@ Item {
     height: 300
 
     Image {
-        id: opacityMaskSourceItem
+        id: bug
         source: "images/bug.jpg"
         sourceSize: Qt.size(parent.width, parent.height)
         smooth: true
@@ -55,10 +55,11 @@ Item {
     }
 
     Image {
-        id: opacityMaskItem
+        id: mask
         source: "images/butterfly.png"
         sourceSize: Qt.size(parent.width, parent.height)
         smooth: true
+        visible: false
         Text {
             text: "MASK"
             font.pixelSize: 60
@@ -71,9 +72,9 @@ Item {
     }
 
     OpacityMask {
-        anchors.fill: opacityMaskSourceItem
-        source: opacityMaskSourceItem
-        maskSource: ShaderEffectSource { hideSource: true; smooth: true; sourceItem: opacityMaskItem; visible: false }
+        anchors.fill: bug
+        source: bug
+        maskSource: mask
     }
 }
 //! [example]

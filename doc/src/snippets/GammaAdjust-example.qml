@@ -47,7 +47,7 @@ Item {
     height: 300
 
     Image {
-        id: gammaAdjustSourceItem
+        id: bug
         source: "images/bug.jpg"
         sourceSize: Qt.size(parent.width, parent.height)
         smooth: true
@@ -55,8 +55,8 @@ Item {
     }
 
     GammaAdjust {
-        anchors.fill: gammaAdjustSourceItem
-        source: gammaAdjustSourceItem
+        anchors.fill: bug
+        source: bug
         gamma: 0.45
     }
 }

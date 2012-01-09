@@ -47,7 +47,7 @@ Item {
     height: 300
 
     Image {
-        id: recursiveBlurSourceItem
+        id: bug
         source: "images/bug.jpg"
         sourceSize: Qt.size(parent.width, parent.height)
         smooth: true
@@ -55,8 +55,8 @@ Item {
     }
 
     RecursiveBlur {
-        anchors.fill: recursiveBlurSourceItem
-        source: recursiveBlurSourceItem
+        anchors.fill: bug
+        source: bug
         radius: 7.5
         loops: 50
     }

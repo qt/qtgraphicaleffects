@@ -47,7 +47,7 @@ Item {
     height: 300
 
     Image {
-        id: gaussianBlurSourceItem
+        id: bug
         source: "images/bug.jpg"
         sourceSize: Qt.size(parent.width, parent.height)
         smooth: true
@@ -55,8 +55,8 @@ Item {
     }
 
     GaussianBlur {
-        anchors.fill: gaussianBlurSourceItem
-        source: gaussianBlurSourceItem
+        anchors.fill: bug
+        source: bug
         radius: 8
         maximumRadius: 8
     }

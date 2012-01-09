@@ -47,7 +47,7 @@ Item {
     height: 300
 
     Image {
-        id: brightnessContrastSourceItem
+        id: bug
         source: "images/bug.jpg"
         sourceSize: Qt.size(parent.width, parent.height)
         smooth: true
@@ -55,8 +55,8 @@ Item {
     }
 
     BrightnessContrast {
-        anchors.fill: brightnessContrastSourceItem
-        source: brightnessContrastSourceItem
+        anchors.fill: bug
+        source: bug
         brightness: -0.2
         contrast: 0.3
     }

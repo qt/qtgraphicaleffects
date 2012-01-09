@@ -47,7 +47,7 @@ Item {
     height: 300
 
     Image {
-        id: directionalBlurSourceItem
+        id: butterfly
         source: "images/butterfly.png"
         sourceSize: Qt.size(parent.width, parent.height)
         smooth: true
@@ -55,8 +55,8 @@ Item {
     }
 
     DirectionalBlur {
-        anchors.fill: directionalBlurSourceItem
-        source: directionalBlurSourceItem
+        anchors.fill: butterfly
+        source: butterfly
         angle: 90
         length: 32
         samples: 32

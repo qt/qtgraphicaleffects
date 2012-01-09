@@ -52,15 +52,15 @@ Item {
     }
 
     Glow {
-        anchors.fill: glowSourceItem
+        anchors.fill: butterfly
         radius: 8
         maximumRadius: 8
         color: "white"
-        source: glowSourceItem
+        source: butterfly
     }
 
     Image {
-        id: glowSourceItem
+        id: butterfly
         source: "images/butterfly.png"
         sourceSize: Qt.size(parent.width, parent.height)
         smooth: true

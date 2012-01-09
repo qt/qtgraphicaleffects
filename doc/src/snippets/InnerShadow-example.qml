@@ -51,7 +51,7 @@ Item {
     }
 
     Image {
-        id: innerShadowSourceItem
+        id: butterfly
         source: "images/butterfly.png"
         sourceSize: Qt.size(parent.width, parent.height)
         smooth: true
@@ -59,11 +59,11 @@ Item {
     }
 
     InnerShadow {
-        anchors.fill: innerShadowSourceItem
+        anchors.fill: butterfly
         radius: 16.0
         maximumRadius: 16.0
         color: "black"
-        source: innerShadowSourceItem
+        source: butterfly
     }
 
 }

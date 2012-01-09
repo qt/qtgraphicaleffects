@@ -53,15 +53,15 @@ Item {
 
     RectangularGlow {
         id: effect
-        anchors.fill: rectangularGlowSource
+        anchors.fill: rect
         glowRadius: 10
         spread: 0.2
         color: "white"
-        cornerRadius: rectangularGlowSource.radius + glowRadius
+        cornerRadius: rect.radius + glowRadius
     }
 
     Rectangle {
-        id: rectangularGlowSource
+        id: rect
         color: "#cc4b00"
         anchors.centerIn: parent
         width: Math.round(parent.width / 1.5)

@@ -47,7 +47,7 @@ Item {
     height: 300
 
     Image {
-        id: displacementSourceItem
+        id: bug
         source: "images/bug.jpg"
         sourceSize: Qt.size(parent.width, parent.height)
         smooth: true
@@ -55,9 +55,10 @@ Item {
     }
 
     Rectangle {
-        id: displacementMapItem
+        id: displacement
         color: Qt.rgba(0.5, 0.5, 1.0, 1.0)
         anchors.fill: parent
+        visible: false
         Image {
             anchors.centerIn: parent
             source: "images/displacementmap.png"
@@ -67,9 +68,9 @@ Item {
     }
 
     Displace {
-        anchors.fill: displacementSourceItem
-        source: displacementSourceItem
-        displacementSource: ShaderEffectSource { hideSource: true; smooth: true; sourceItem: displacementMapItem; visible: false }
+        anchors.fill: bug
+        source: bug
+        displacementSource: displacement
         displacement: 0.1
     }
 }

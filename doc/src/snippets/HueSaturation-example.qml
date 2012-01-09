@@ -47,7 +47,7 @@ Item {
     height: 300
 
     Image {
-        id: hueSaturationSourceItem
+        id: bug
         source: "images/bug.jpg"
         sourceSize: Qt.size(parent.width, parent.height)
         smooth: true
@@ -55,8 +55,8 @@ Item {
     }
 
     HueSaturation {
-        anchors.fill: hueSaturationSourceItem
-        source: hueSaturationSourceItem
+        anchors.fill: bug
+        source: bug
         hue: -0.3
         saturation: 0.5
         lightness: -0.1

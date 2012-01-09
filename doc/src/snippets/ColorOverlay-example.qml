@@ -47,7 +47,7 @@ Item {
     height: 300
 
     Image {
-        id: colorOverlaySourceItem
+        id: bug
         source: "images/butterfly.png"
         sourceSize: Qt.size(parent.width, parent.height)
         smooth: true
@@ -55,8 +55,8 @@ Item {
     }
 
     ColorOverlay {
-        anchors.fill: colorOverlaySourceItem
-        source: colorOverlaySourceItem
+        anchors.fill: bug
+        source: bug
         color: "#80800000"
     }
 }

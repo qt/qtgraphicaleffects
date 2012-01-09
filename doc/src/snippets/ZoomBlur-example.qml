@@ -47,7 +47,7 @@ Item {
     height: 300
 
     Image {
-        id: zoomBlurSourceItem
+        id: butterfly
         source: "images/butterfly.png"
         sourceSize: Qt.size(parent.width, parent.height)
         smooth: true
@@ -55,8 +55,8 @@ Item {
     }
 
     ZoomBlur {
-        anchors.fill: zoomBlurSourceItem
-        source: zoomBlurSourceItem
+        anchors.fill: butterfly
+        source: butterfly
         samples: 32
         length: 48
     }
