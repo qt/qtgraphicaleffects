@@ -55,7 +55,7 @@ Item {
         horizontalOffset: 3
         verticalOffset: 3
         radius: 8.0
-        maximumRadius: 8.0
+        samples: 16
         color: "#80000000"
         source: butterfly
     }

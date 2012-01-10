@@ -69,7 +69,7 @@ Item {
         source: butterfly
         maskSource: mask
         radius: 16
-        maximumRadius: 16
+        samples: 32
     }
 }
 //! [example]

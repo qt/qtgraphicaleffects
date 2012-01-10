@@ -58,7 +58,7 @@ Item {
         anchors.fill: bug
         source: bug
         radius: 8
-        maximumRadius: 8
+        samples: 16
     }
 }
 //! [example]

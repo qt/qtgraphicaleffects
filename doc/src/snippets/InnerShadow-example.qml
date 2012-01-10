@@ -61,7 +61,7 @@ Item {
     InnerShadow {
         anchors.fill: butterfly
         radius: 16.0
-        maximumRadius: 16.0
+        samples: 32
         color: "black"
         source: butterfly
     }

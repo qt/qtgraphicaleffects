@@ -54,7 +54,7 @@ Item {
     Glow {
         anchors.fill: butterfly
         radius: 8
-        maximumRadius: 8
+        samples: 16
         color: "white"
         source: butterfly
     }
