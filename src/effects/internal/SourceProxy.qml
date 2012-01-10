@@ -46,7 +46,11 @@ Item {
     property variant output: input
     visible: false
 
-    onInputChanged: {
+    Component.onCompleted: evaluateInput()
+
+    onInputChanged: evaluateInput()
+
+    function evaluateInput() {
         if (input == undefined) {
             output =  input
         }
