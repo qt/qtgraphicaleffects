@@ -50,13 +50,14 @@ Image {
     sourceSize: width > height ? Qt.size(0, parent.height) : Qt.size(parent.width, 0)
 
     property bool forcedUpdateAnimationRunning: false
-    Rectangle {
+    Text {
         x: is.width - 10 - width
         y: 10
-        width:  25
-        height: 25
+        text: "Qt"
+        font.pixelSize: 20
+        color: "white"
         visible: is.forcedUpdateAnimationRunning
-        color: "#229933"
+
         NumberAnimation on rotation {
             id: dd
             running: is.forcedUpdateAnimationRunning
