@@ -31,7 +31,7 @@
     \brief Generates a blurred and colorized image of the source, which gives
     the impression that the source is glowing.
 
-    The Glow effect produces a high quality glow image, thus the rendering
+    By default effect produces a high quality glow image, thus the rendering
     speed of the shadow may not be the highest possible. The rendering speed is
     reduced especially if the shadow edges are heavily softened.
     For use cases that require faster rendering speed and the highest possible
