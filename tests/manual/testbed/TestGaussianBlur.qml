@@ -60,7 +60,7 @@ TestCaseTemplate {
         id: effect
         anchors.fill: imageSource
         radius: radiusSlider.value
-        maximumRadius: maximumRadiusSlider.value
+        samples: samplesSlider.value
         deviation: deviationSlider.value
         transparentBorder: transparentBorderCheckBox.selected
         visible: enabledCheckBox.selected
@@ -72,14 +72,6 @@ TestCaseTemplate {
     controls: [
         Control {
             caption: "general"
-            Slider {
-                id: maximumRadiusSlider
-                minimum: 0
-                maximum: 16
-                value: 16
-                integer: true
-                caption: "maximumRadius"
-            }
             Slider {
                 id: radiusSlider
                 minimum: 0.0
@@ -93,6 +85,14 @@ TestCaseTemplate {
                 maximum: 16
                 value: (effect.radius + 1) / 3.3333
                 caption: "deviation"
+            }
+            Slider {
+                id: samplesSlider
+                minimum: 0
+                maximum: 32
+                value: 32
+                integer: true
+                caption: "samples"
             }
             CheckBox {
                 id: transparentBorderCheckBox

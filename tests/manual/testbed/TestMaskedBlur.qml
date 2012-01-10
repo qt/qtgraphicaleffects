@@ -81,7 +81,7 @@ TestCaseTemplate {
         id: effect
         anchors.fill: imageSource
         radius: radiusSlider.value
-        maximumRadius: maximumRadiusSlider.value
+        samples: samplesSlider.value
         transparentBorder: transparentBorderCheckBox.selected
         visible: enabledCheckBox.selected
         cached: cachedCheckBox.selected
@@ -102,12 +102,12 @@ TestCaseTemplate {
                 caption: "radius"
             }
             Slider {
-                id: maximumRadiusSlider
+                id: samplesSlider
                 minimum: 0
-                maximum: 16
-                value: 16
+                maximum: 32
+                value: 32
                 integer: true
-                caption: "maximumRadius"
+                caption: "samples"
             }
             CheckBox {
                 id: transparentBorderCheckBox

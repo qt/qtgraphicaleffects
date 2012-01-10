@@ -89,14 +89,13 @@
 
     This property defines the distance of the neighboring pixels which affect
     the blurring of an individual pixel. A larger radius increases the blur
-    effect. To achieve a more blurry result, it is sometimes possible to
-    increase the deviation property.
+    effect.
 
-    \bold Note: The radius value should always be lower than maximumRadius,
-    otherwise the blur quality is not optimal.
+    Depending on the radius value, value of the \l samples should be set to
+    sufficiently large to ensure the visual quality.
 
-    The value ranges from 0.0 (no blur) to maximumRadius (maximum blur). By
-    default, the property is set to \c 0.0 (no blur).
+    The value ranges from 0.0 (no blur) to inf. By default, the property is set to
+    \c 0.0 (no blur).
 
     \table
     \header
@@ -112,9 +111,9 @@
         \o \bold { radius: 4 }
         \o \bold { radius: 8 }
     \row
-        \o \l maximumRadius: 8
-        \o \l maximumRadius: 8
-        \o \l maximumRadius: 8
+        \o \l samples: 16
+        \o \l samples: 16
+        \o \l samples: 16
     \row
         \o \l deviation: 3
         \o \l deviation: 3
@@ -124,18 +123,20 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::GaussianBlur::maximumRadius
+    \qmlproperty int QtGraphicalEffects::GaussianBlur::samples
 
-    This property defines the maximum radius value that can be used without
-    compromising the blur quality. Setting a too large maximumRadius value has a
-    negative impact on the rendering performance. Changing this property may
+    This property defines how many samples are taken per pixel when blur
+    calculation is done. Larger value produces better quality, but is slower
+    to render.
+
+    Ideally, this value should be twice as large as the highest required radius
+    value, for example, if the radius is animated between 0.0 and 4.0, samples
+    should be set to 8.
+
+    The value ranges from 0 to 32. By default, the property is set to \c 0.
+
+    This property is not intended to be animated. Changing this property may
     cause the underlying OpenGL shaders to be recompiled.
-
-    Ideally, this value should be the same as the highest required radius value,
-    for example. if the radius is animated between 0.0 and 4.0, maximumRadius
-    should be set to 4.
-
-    The value ranges from 0 to 16. By default, the property is set to \c 0.
 
 */
 
@@ -178,9 +179,9 @@
         \o \l radius: 8
         \o \l radius: 8
     \row
-        \o \l maximumRadius: 8
-        \o \l maximumRadius: 8
-        \o \l maximumRadius: 8
+        \o \l samples: 16
+        \o \l samples: 16
+        \o \l samples: 16
     \endtable
 
 */
@@ -218,11 +219,11 @@
         \o \l radius: 8
         \o \l radius: 8
     \row
-        \o \l maximumRadius: 8
-        \o \l maximumRadius: 8
+        \o \l samples: 16
+        \o \l samples: 16
     \row
-        \o \l deviation: 2.7000270002700026
-        \o \l deviation: 2.7000270002700026
+        \o \l deviation: 2.7
+        \o \l deviation: 2.7
     \endtable
 
 */

@@ -46,7 +46,7 @@ Item {
     property variant source
     property variant maskSource
     property real radius: 0.0
-    property int maximumRadius: 0
+    property int samples: 0
     property bool cached: false
     property bool fast: false
     property bool transparentBorder: false
@@ -74,7 +74,7 @@ Item {
             source: sourceProxy.output
             maskSource: maskSourceProxy.output
             radius: rootItem.radius
-            maximumRadius: rootItem.maximumRadius
+            maximumRadius: rootItem.samples * 0.5
             transparentBorder: rootItem.transparentBorder
             cached: rootItem.cached
         }

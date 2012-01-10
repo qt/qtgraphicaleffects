@@ -45,7 +45,7 @@ Item {
     id: rootItem
     property variant source
     property real radius: 0.0
-    property int maximumRadius: 0
+    property int samples: 0
     property color color: "black"
     property real horizontalOffset: 0.0
     property real verticalOffset: 0.0
@@ -61,7 +61,7 @@ Item {
         height: parent.height
         source: rootItem.source
         radius: rootItem.radius
-        maximumRadius: rootItem.maximumRadius
+        samples: rootItem.samples
         color: rootItem.color
         cached: rootItem.cached
         spread: rootItem.spread

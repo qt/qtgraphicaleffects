@@ -179,9 +179,9 @@ VisualItemModel {
         source: butterfly
         horizontalOffset: 0
         verticalOffset: 20
-        maximumRadius: 8
+        samples: 16
         property string __name: "DropShadow"
-        property variant __properties: ["radius", "maximumRadius", "color", "horizontalOffset", "verticalOffset", "spread"]
+        property variant __properties: ["radius", "samples", "color", "horizontalOffset", "verticalOffset", "spread"]
         property string __varyingProperty: "radius"
         property variant __values: [0, 6, 12]
     }
@@ -193,9 +193,9 @@ VisualItemModel {
         horizontalOffset: 0
         verticalOffset: 20
         radius: 8
-        maximumRadius: 8
+        samples: 16
         property string __name: "DropShadow"
-        property variant __properties: ["radius", "maximumRadius", "color", "horizontalOffset", "verticalOffset", "spread"]
+        property variant __properties: ["radius", "samples", "color", "horizontalOffset", "verticalOffset", "spread"]
         property string __varyingProperty: "color"
         property variant __values: ["#000000", "#0000ff", "#aa000000"]
 
@@ -207,9 +207,9 @@ VisualItemModel {
         source: butterfly
         //verticalOffset: 3
         radius: 4
-        maximumRadius: 8
+        samples: 16
         property string __name: "DropShadow"
-        property variant __properties: ["radius", "maximumRadius", "color", "horizontalOffset", "verticalOffset", "spread"]
+        property variant __properties: ["radius", "samples", "color", "horizontalOffset", "verticalOffset", "spread"]
         property string __varyingProperty: "horizontalOffset"
         property variant __values: ["-20", "0", "20"]
     }
@@ -219,9 +219,9 @@ VisualItemModel {
         source: butterfly
         //horizontalOffset: 3
         radius: 4
-        maximumRadius: 8
+        samples: 16
         property string __name: "DropShadow"
-        property variant __properties: ["radius", "maximumRadius", "color", "horizontalOffset", "verticalOffset", "spread"]
+        property variant __properties: ["radius", "samples", "color", "horizontalOffset", "verticalOffset", "spread"]
         property string __varyingProperty: "verticalOffset"
         property variant __values: ["-20", "0", "20"]
     }
@@ -232,9 +232,9 @@ VisualItemModel {
         //horizontalOffset: 3
         verticalOffset: 20
         radius: 8
-        maximumRadius: 8
+        samples: 16
         property string __name: "DropShadow"
-        property variant __properties: ["radius", "maximumRadius", "color", "horizontalOffset", "verticalOffset", "spread"]
+        property variant __properties: ["radius", "samples", "color", "horizontalOffset", "verticalOffset", "spread"]
         property string __varyingProperty: "spread"
         property variant __values: ["0.0", "0.5", "1.0"]
     }
@@ -245,9 +245,9 @@ VisualItemModel {
         //horizontalOffset: 3
         verticalOffset: 20
         radius: 16
-        maximumRadius: 16
+        samples: 32
         property string __name: "DropShadow"
-        property variant __properties: ["radius", "maximumRadius", "color", "horizontalOffset", "verticalOffset", "spread", "fast"]
+        property variant __properties: ["radius", "samples", "color", "horizontalOffset", "verticalOffset", "spread", "fast"]
         property string __varyingProperty: "fast"
         property variant __values: [false, true]
     }
@@ -257,9 +257,9 @@ VisualItemModel {
         width: size
         height: size
         source: butterfly
-        maximumRadius: 8
+        samples: 16
         property string __name: "Glow"
-        property variant __properties: ["radius", "maximumRadius", "color", "spread"]
+        property variant __properties: ["radius", "samples", "color", "spread"]
         property string __varyingProperty: "radius"
         property variant __values: [0, 6, 12]
     }
@@ -269,9 +269,9 @@ VisualItemModel {
         source: butterfly
         radius: 8
         spread: 0.5
-        maximumRadius: 8
+        samples: 16
         property string __name: "Glow"
-        property variant __properties: ["radius", "maximumRadius", "color", "spread"]
+        property variant __properties: ["radius", "samples", "color", "spread"]
         property string __varyingProperty: "color"
         property variant __values: ["#ffffff", "#00ff00", "#aa00ff00"]
     }
@@ -280,9 +280,9 @@ VisualItemModel {
         height: size
         source: butterfly
         radius: 8
-        maximumRadius: 8
+        samples: 16
         property string __name: "Glow"
-        property variant __properties: ["radius", "maximumRadius", "color", "spread"]
+        property variant __properties: ["radius", "samples", "color", "spread"]
         property string __varyingProperty: "spread"
         property variant __values: ["0.0", "0.5", "1.0"]
     }
@@ -291,10 +291,10 @@ VisualItemModel {
         height: size
         source: butterfly
         radius: 16
-        maximumRadius: 16
+        samples: 32
         spread: 0.3
         property string __name: "Glow"
-        property variant __properties: ["radius", "maximumRadius", "color", "spread", "fast"]
+        property variant __properties: ["radius", "samples", "color", "spread", "fast"]
         property string __varyingProperty: "fast"
         property variant __values: [false, true]
 
@@ -337,10 +337,10 @@ VisualItemModel {
         width: size
         height: size
         source: bug
-        maximumRadius: 8
+        samples: 16
         deviation: 3
         property string __name: "GaussianBlur"
-        property variant __properties: ["radius", "maximumRadius", "deviation"]
+        property variant __properties: ["radius", "samples", "deviation"]
         property string __varyingProperty: "radius"
         property variant __values: [0, 4, 8]
     }
@@ -348,10 +348,10 @@ VisualItemModel {
         width: size
         height: size
         source: bug
-        maximumRadius: 8
+        samples: 16
         radius: 8
         property string __name: "GaussianBlur"
-        property variant __properties: ["radius", "maximumRadius", "deviation"]
+        property variant __properties: ["radius", "samples", "deviation"]
         property string __varyingProperty: "deviation"
         property variant __values: [1, 2, 4]
     }
@@ -360,10 +360,10 @@ VisualItemModel {
         width: size
         height: size
         source: bug
-        maximumRadius: 8
+        samples: 16
         radius: 8
         property string __name: "GaussianBlur"
-        property variant __properties: ["radius", "maximumRadius", "deviation", "transparentBorder"]
+        property variant __properties: ["radius", "samples", "deviation", "transparentBorder"]
         property string __varyingProperty: "transparentBorder"
         property variant __values: [false, true]
         function uninit() { checkerboard = false }
@@ -406,9 +406,9 @@ VisualItemModel {
         source: butterfly
         horizontalOffset: 0
         verticalOffset: 0
-        maximumRadius: 16
+        samples: 32
         property string __name: "InnerShadow"
-        property variant __properties: ["radius", "maximumRadius", "color", "horizontalOffset", "verticalOffset", "spread"]
+        property variant __properties: ["radius", "samples", "color", "horizontalOffset", "verticalOffset", "spread"]
         property string __varyingProperty: "radius"
         property variant __values: [0, 6, 12]
     }
@@ -419,9 +419,9 @@ VisualItemModel {
         horizontalOffset: 0
         verticalOffset: 0
         radius: 16
-        maximumRadius: 16
+        samples: 32
         property string __name: "InnerShadow"
-        property variant __properties: ["radius", "maximumRadius", "color", "horizontalOffset", "verticalOffset", "spread"]
+        property variant __properties: ["radius", "samples", "color", "horizontalOffset", "verticalOffset", "spread"]
         property string __varyingProperty: "horizontalOffset"
         property variant __values: [-20, 0, 20]
     }
@@ -432,9 +432,9 @@ VisualItemModel {
         horizontalOffset: 0
         verticalOffset: 0
         radius: 16
-        maximumRadius: 16
+        samples: 32
         property string __name: "InnerShadow"
-        property variant __properties: ["radius", "maximumRadius", "color", "horizontalOffset", "verticalOffset", "spread"]
+        property variant __properties: ["radius", "samples", "color", "horizontalOffset", "verticalOffset", "spread"]
         property string __varyingProperty: "spread"
         property variant __values: ["0.0", "0.3", "0.5"]
     }
@@ -447,9 +447,9 @@ VisualItemModel {
         verticalOffset: 0
         radius: 16
         spread: 0.2
-        maximumRadius: 16
+        samples: 32
         property string __name: "InnerShadow"
-        property variant __properties: ["radius", "maximumRadius", "color", "horizontalOffset", "verticalOffset", "spread", "fast"]
+        property variant __properties: ["radius", "samples", "color", "horizontalOffset", "verticalOffset", "spread", "fast"]
         property string __varyingProperty: "fast"
         property variant __values: [false, true]
     }
@@ -463,9 +463,9 @@ VisualItemModel {
         verticalOffset: 0
         radius: 16
         spread: 0.2
-        maximumRadius: 16
+        samples: 32
         property string __name: "InnerShadow"
-        property variant __properties: ["radius", "maximumRadius", "color", "horizontalOffset", "verticalOffset", "spread"]
+        property variant __properties: ["radius", "samples", "color", "horizontalOffset", "verticalOffset", "spread"]
         property string __varyingProperty: "color"
         property variant __values: ["#000000", "#ffffff", "#ff0000"]
     }
@@ -820,9 +820,9 @@ VisualItemModel {
         height: size
         source: butterfly
         maskSource: blurMask
-        maximumRadius: 16
+        samples: 32
         property string __name: "MaskedBlur"
-        property variant __properties: ["radius", "maximumRadius", "transparentBorder", "fast"]
+        property variant __properties: ["radius", "samples", "transparentBorder", "fast"]
         property string __varyingProperty: "radius"
         property variant __values: [0.0, 8.0, 16.0]
     }
@@ -832,9 +832,9 @@ VisualItemModel {
         source: butterfly
         maskSource: blurMask
         radius: 16
-        maximumRadius: 16
+        samples: 32
         property string __name: "MaskedBlur"
-        property variant __properties: ["radius", "maximumRadius", "transparentBorder", "fast"]
+        property variant __properties: ["radius", "samples", "transparentBorder", "fast"]
         property string __varyingProperty: "fast"
         property variant __values: [false, true]
     }
@@ -845,10 +845,10 @@ VisualItemModel {
         source: bug
         maskSource: blurMask
         radius: 64
-        maximumRadius: 16
+        samples: 32
         fast: true
         property string __name: "MaskedBlur"
-        property variant __properties: ["radius", "maximumRadius", "transparentBorder", "fast"]
+        property variant __properties: ["radius", "samples", "transparentBorder", "fast"]
         property string __varyingProperty: "transparentBorder"
         property variant __values: [false, true]
         function uninit() { checkerboard = false }

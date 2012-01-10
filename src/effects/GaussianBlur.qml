@@ -45,7 +45,7 @@ Item {
     id: rootItem
     property variant source
     property real radius: 0.0
-    property int maximumRadius: 0
+    property int samples: 0
     property real deviation: (radius + 1) / 3.3333
     property bool transparentBorder: false
     property bool cached: false
@@ -84,7 +84,7 @@ Item {
 
         deviation: rootItem.deviation
         radius: rootItem.radius
-        maximumRadius: rootItem.maximumRadius
+        maximumRadius: rootItem.samples * 0.5
         transparentBorder: rootItem.transparentBorder
     }
 
@@ -99,7 +99,7 @@ Item {
         source: sourceProxy.output
         deviation: rootItem.deviation
         radius: rootItem.radius
-        maximumRadius: rootItem.maximumRadius
+        maximumRadius: rootItem.samples / 2.0
         transparentBorder: rootItem.transparentBorder
     }
 }

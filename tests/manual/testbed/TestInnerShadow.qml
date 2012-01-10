@@ -62,7 +62,7 @@ TestCaseTemplate {
         anchors.fill: imageSource
         horizontalOffset: (offsetPicker.xValue - 0.5) * width
         verticalOffset: (offsetPicker.yValue - 0.5) * height
-        maximumRadius: maximumRadiusSlider.value
+        samples: samplesSlider.value
         radius: radiusSlider.value
         spread: spreadSlider.value
         color: colorPicker.color
@@ -98,12 +98,12 @@ TestCaseTemplate {
                 caption: "radius"
             }
             Slider {
-                id: maximumRadiusSlider
+                id: samplesSlider
                 minimum: 0
-                maximum: 16
-                value: 16
+                maximum: 32
+                value: 32
                 integer: true
-                caption: "maximumRadius"
+                caption: "samples"
             }
             Slider {
                 id: spreadSlider

@@ -45,7 +45,7 @@ Item {
     id: rootItem
     property variant source
     property real radius: 0.0
-    property int maximumRadius: 0
+    property int samples: 0
     property real spread: 0.0
     property color color: "white"
     property bool fast: false
@@ -63,7 +63,7 @@ Item {
             anchors.fill: parent
             source: rootItem.source
             radius: rootItem.radius
-            maximumRadius: rootItem.maximumRadius
+            maximumRadius: rootItem.samples * 0.5
             color: rootItem.color
             cached: rootItem.cached
             spread: rootItem.spread

@@ -92,14 +92,15 @@
 /*!
     \qmlproperty real QtGraphicalEffects::Glow::radius
 
-    The radius property defines the softness of the glow. A larger radius causes
-    the glow edges to appear more blurry.
+    Radius defines the softness of the glow. A larger radius causes the edges
+    of the glow to appear more blurry.
 
-    \bold Note: The radius value should always be lower than \l maximumRadius,
-    otherwise the blur quality is not optimal.
+    Depending on the radius value, value of the \l samples should be set to sufficiently
+    large to ensure the visual quality.
 
-    The values range from 0.0 (no blur) to \l maximumRadius (maximum blur). By
-    default, the property is set to \c 0.0 (no blur).
+    The value ranges from 0.0 (no blur) to inf. By default, the property is set to
+    \c 0.0 (no blur).
+
 
     \table
     \header
@@ -115,9 +116,9 @@
         \o \bold { radius: 6 }
         \o \bold { radius: 12 }
     \row
-        \o \l maximumRadius: 8
-        \o \l maximumRadius: 8
-        \o \l maximumRadius: 8
+        \o \l samples: 16
+        \o \l samples: 16
+        \o \l samples: 16
     \row
         \o \l color: #ffffff
         \o \l color: #ffffff
@@ -131,18 +132,22 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::Glow::maximumRadius
+    \qmlproperty int QtGraphicalEffects::Glow::samples
 
-    MaxRadius defines the maximum radius value that can be used without
-    compromising the glow softness quality. Setting a too large maximumRadius
-    value has a negative impact on the rendering performance. Changing this
-    property may cause the underlying OpenGL shaders to be recompiled.
+    This property defines how many samples are taken per pixel when edge softening
+    blur calculation is done. Larger value produces better quality, but is slower
+    to render.
 
-    Ideally, this value should be the same as the highest required radius value,
-    for example, if radius is animated between 0.0 and 4.0, maximumRadius should
-    be set to 4.
+    Ideally, this value should be twice as large as the highest required radius
+    value, for example, if the radius is animated between 0.0 and 4.0, samples
+    should be set to 8.
 
-    The value ranges from 0 to 16. By default, the property is set to \c 0.
+    The value ranges from 0 to 32. By default, the property is set to \c 0.
+
+    This property is not intended to be animated. Changing this property may
+    cause the underlying OpenGL shaders to be recompiled.
+
+    When \l fast property is set to true, this property has no effect.
 
 */
 
@@ -171,9 +176,9 @@
         \o \l radius: 8
         \o \l radius: 8
     \row
-        \o \l maximumRadius: 8
-        \o \l maximumRadius: 8
-        \o \l maximumRadius: 8
+        \o \l samples: 16
+        \o \l samples: 16
+        \o \l samples: 16
     \row
         \o \l spread: 0.5
         \o \l spread: 0.5
@@ -208,9 +213,9 @@
         \o \l radius: 8
         \o \l radius: 8
     \row
-        \o \l maximumRadius: 8
-        \o \l maximumRadius: 8
-        \o \l maximumRadius: 8
+        \o \l samples: 16
+        \o \l samples: 16
+        \o \l samples: 16
     \row
         \o \l color: #ffffff
         \o \l color: #ffffff
@@ -243,8 +248,8 @@
         \o \l radius: 16
         \o \l radius: 16
     \row
-        \o \l maximumRadius: 16
-        \o \l maximumRadius: 16
+        \o \l samples: 32
+        \o \l samples: 32
     \row
         \o \l color: #ffffff
         \o \l color: #ffffff

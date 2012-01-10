@@ -119,7 +119,7 @@ Item {
         visible: loops > 0
         anchors.fill: parent
         radius: rootItem.radius
-        maximumRadius: Math.ceil(rootItem.radius)
+        samples: Math.ceil(2.0 * rootItem.radius)
         deviation: (radius + 1) / 2.3333
         transparentBorder: rootItem.transparentBorder
         cached: false
