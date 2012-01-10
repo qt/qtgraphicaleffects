@@ -47,14 +47,6 @@ TestCaseTemplate {
         id: imageSource
         source: "images/butterfly.png"
         anchors.centerIn: parent
-        forcedUpdateAnimationRunning: updateCheckBox.selected
-    }
-
-    ShaderEffectSource {
-        id: shaderEffectSource
-        sourceItem: imageSource
-        hideSource: enabledCheckBox.selected
-        smooth: true
     }
 
     InnerShadow {
@@ -69,7 +61,7 @@ TestCaseTemplate {
         visible: enabledCheckBox.selected
         cached: cachedCheckBox.selected
         fast: fastCheckBox.selected
-        source: sourceType.value == "shaderEffectSource" ? shaderEffectSource : imageSource
+        source: imageSource
     }
 
     PositionPicker {
@@ -153,24 +145,6 @@ TestCaseTemplate {
                 id: updateCheckBox
                 caption: "animated"
                 selected: false
-            }
-            RadioButtonColumn {
-                id: sourceType
-                value: "shaderEffectSource"
-                caption: "source type"
-                RadioButton {
-                    caption: "shaderEffectSource"
-                    selected: caption == sourceType.value
-                    onPressedChanged: sourceType.value = caption
-                }
-                RadioButton {
-                    caption: "image"
-                    selected: caption == sourceType.value
-                    onPressedChanged: {
-                        sourceType.value = caption
-                        updateCheckBox.selected = false
-                    }
-                }
             }
             BGColorPicker {
                 id: bgColorPicker

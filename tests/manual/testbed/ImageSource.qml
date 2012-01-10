@@ -44,12 +44,13 @@ Image {
     id: is
     source: "images/bug.jpg"
     smooth: true
-    visible: sourceType.value == "shaderEffectSource"
     anchors.fill: parent
     fillMode: Image.PreserveAspectFit
     sourceSize: width > height ? Qt.size(0, parent.height) : Qt.size(parent.width, 0)
+    //visible: !enabledCheckBox.selected
+    opacity: enabledCheckBox.selected ? 0.0 : 1.0
 
-    property bool forcedUpdateAnimationRunning: false
+    property bool forcedUpdateAnimationRunning: updateCheckBox.selected
     Text {
         x: is.width - 10 - width
         y: 10

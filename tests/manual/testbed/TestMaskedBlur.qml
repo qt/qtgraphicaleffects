@@ -45,36 +45,16 @@ TestCaseTemplate {
     ImageSource {
         id: imageSource
         source: "images/butterfly.png"
-        forcedUpdateAnimationRunning: updateCheckBox.selected
     }
 
     Rectangle {
         id: maskSource
         anchors.fill: imageSource
+        visible: !enabledCheckBox.selected
         gradient: Gradient {
                  GradientStop { position: 0.3; color: Qt.rgba(maskAlphaBeginSlider.value, maskAlphaBeginSlider.value, maskAlphaBeginSlider.value, maskAlphaBeginSlider.value) }
                  GradientStop { position: 0.7; color: Qt.rgba(maskAlphaEndSlider.value, maskAlphaEndSlider.value, maskAlphaEndSlider.value, maskAlphaEndSlider.value) }
         }
-    }
-
-    ShaderEffectSource {
-        id: shaderEffectSource
-        sourceItem: imageSource
-        live: updateCheckBox.selected
-        hideSource: enabledCheckBox.selected
-        smooth: true
-        onLiveChanged: scheduleUpdate()
-        visible: false
-    }
-
-    ShaderEffectSource {
-        id: shaderEffectMaskSource
-        sourceItem: maskSource
-        live: true
-        hideSource: enabledCheckBox.selected
-        smooth: true
-        onLiveChanged: scheduleUpdate()
-        visible: false
     }
 
     MaskedBlur {
@@ -86,8 +66,8 @@ TestCaseTemplate {
         visible: enabledCheckBox.selected
         cached: cachedCheckBox.selected
         fast: fastCheckBox.selected
-        source: sourceType.value == "shaderEffectSource" ? shaderEffectSource : imageSource
-        maskSource: sourceType.value == "shaderEffectSource" ? shaderEffectMaskSource : maskSource
+        source: imageSource
+        maskSource: maskSource
     }
 
     bgColor: bgColorPicker.color
@@ -161,24 +141,6 @@ TestCaseTemplate {
                 id: updateCheckBox
                 caption: "animated"
                 selected: false
-            }
-            RadioButtonColumn {
-                id: sourceType
-                value: "shaderEffectSource"
-                caption: "source type"
-                RadioButton {
-                    caption: "shaderEffectSource"
-                    selected: caption == sourceType.value
-                    onPressedChanged: sourceType.value = caption
-                }
-                RadioButton {
-                    caption: "image"
-                    selected: caption == sourceType.value
-                    onPressedChanged: {
-                        sourceType.value = caption
-                        updateCheckBox.selected = false
-                    }
-                }
             }
             BGColorPicker {
                 id: bgColorPicker

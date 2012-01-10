@@ -44,16 +44,7 @@ import "../../../src/effects"
 TestCaseTemplate {
     ImageSource {
         id: imageSource
-        forcedUpdateAnimationRunning: updateCheckBox.selected
         source: "images/butterfly.png"
-    }
-
-    ShaderEffectSource {
-        id: shaderEffectSource
-        sourceItem: imageSource
-        live: updateCheckBox.selected
-        hideSource: enabledCheckBox.selected
-        visible: false; onLiveChanged: scheduleUpdate()
     }
 
     HueSaturation {
@@ -64,7 +55,7 @@ TestCaseTemplate {
         hue: colorPicker.hue
         saturation: colorPicker.saturation
         lightness: colorPicker.lightness
-        source: sourceType.value == "shaderEffectSource" ? shaderEffectSource : imageSource
+        source: imageSource
     }
 
     bgColor: bgColorPicker.color
@@ -102,24 +93,6 @@ TestCaseTemplate {
                 id: updateCheckBox
                 caption: "animated"
                 selected: false
-            }
-            RadioButtonColumn {
-                id: sourceType
-                value: "shaderEffectSource"
-                caption: "source type"
-                RadioButton {
-                    caption: "shaderEffectSource"
-                    selected: caption == sourceType.value
-                    onPressedChanged: sourceType.value = caption
-                }
-                RadioButton {
-                    caption: "image"
-                    selected: caption == sourceType.value
-                    onPressedChanged: {
-                        sourceType.value = caption
-                        updateCheckBox.selected = false
-                    }
-                }
             }
             BGColorPicker {
                 id: bgColorPicker

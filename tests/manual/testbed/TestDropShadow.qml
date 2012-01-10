@@ -54,7 +54,7 @@ TestCaseTemplate {
         color: colorPicker.color
         visible: enabledCheckBox.selected
         cached: cachedCheckBox.selected
-        source: sourceType.value == "shaderEffectSource" ? shaderEffectSource : imageSource
+        source: imageSource
         fast: fastCheckBox.selected
     }
 
@@ -62,14 +62,7 @@ TestCaseTemplate {
         id: imageSource
         source: "images/butterfly.png"
         anchors.centerIn: parent
-        forcedUpdateAnimationRunning: updateCheckBox.selected
-    }
-
-    ShaderEffectSource {
-        id: shaderEffectSource
-        anchors.fill: imageSource
-        sourceItem: imageSource
-        hideSource: false
+        opacity: 1.0
     }
 
     PositionPicker {

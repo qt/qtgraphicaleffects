@@ -45,32 +45,10 @@ TestCaseTemplate {
    ImageSource {
        id: imageSource
        source: "images/bug.jpg"
-       forcedUpdateAnimationRunning: updateCheckBox.selected
    }
     ImageSource {
         id: maskSource
         source: "images/fog.png"
-        forcedUpdateAnimationRunning: updateCheckBox.selected
-    }
-
-    ShaderEffectSource {
-        id: shaderEffectSource1
-        sourceItem: imageSource
-        live: updateCheckBox.selected
-        hideSource: enabledCheckBox.selected
-        smooth: true
-        visible: false
-        onLiveChanged: scheduleUpdate()
-    }
-
-    ShaderEffectSource {
-        id: shaderEffectSource2
-        sourceItem: maskSource
-        live: updateCheckBox.selected
-        hideSource: enabledCheckBox.selected
-        smooth: true
-        visible: false
-        onLiveChanged: scheduleUpdate()
     }
 
     ThresholdMask {
@@ -78,8 +56,8 @@ TestCaseTemplate {
         anchors.fill: imageSource
         visible: enabledCheckBox.selected
         cached: cachedCheckBox.selected
-        source: sourceType.value == "shaderEffectSource" ? shaderEffectSource1 : imageSource
-        maskSource: sourceType.value == "shaderEffectSource" ? shaderEffectSource2 : maskSource
+        source: imageSource
+        maskSource: maskSource
         threshold: thresholdSlider.value
         spread: fringeSlider.value
     }
@@ -127,24 +105,6 @@ TestCaseTemplate {
                 id: updateCheckBox
                 caption: "animated"
                 selected: false
-            }
-            RadioButtonColumn {
-                id: sourceType
-                value: "shaderEffectSource"
-                caption: "source type"
-                RadioButton {
-                    caption: "shaderEffectSource"
-                    selected: caption == sourceType.value
-                    onPressedChanged: sourceType.value = caption
-                }
-                RadioButton {
-                    caption: "image"
-                    selected: caption == sourceType.value
-                    onPressedChanged: {
-                        sourceType.value = caption
-                        updateCheckBox.selected = false
-                    }
-                }
             }
             BGColorPicker {
                 id: bgColorPicker

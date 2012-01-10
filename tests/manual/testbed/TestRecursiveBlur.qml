@@ -47,15 +47,6 @@ TestCaseTemplate {
         id: imageSource
     }
 
-    ShaderEffectSource {
-        id: shaderEffectSource
-        sourceItem: imageSource
-        live: true
-        hideSource: enabledCheckBox.selected
-        smooth: true
-        visible: false
-    }
-
     RecursiveBlur {
         id: effect
         loops: iterationSlider.value
@@ -64,7 +55,7 @@ TestCaseTemplate {
         transparentBorder: transparentBorderCheckBox.selected
         visible: enabledCheckBox.selected
         cached: cachedCheckBox.selected
-        source: sourceType.value == "shaderEffectSource" ? shaderEffectSource : imageSource
+        source: imageSource
     }
 
     bgColor: bgColorPicker.color
@@ -118,24 +109,6 @@ TestCaseTemplate {
             CheckBox {
                 id: enabledCheckBox
                 caption: "enabled"
-            }
-            RadioButtonColumn {
-                id: sourceType
-                value: "shaderEffectSource"
-                caption: "source type"
-                RadioButton {
-                    caption: "shaderEffectSource"
-                    selected: caption == sourceType.value
-                    onPressedChanged: sourceType.value = caption
-                }
-                RadioButton {
-                    caption: "image"
-                    selected: caption == sourceType.value
-                    onPressedChanged: {
-                        sourceType.value = caption
-                        updateCheckBox.selected = false
-                    }
-                }
             }
             BGColorPicker {
                 id: bgColorPicker

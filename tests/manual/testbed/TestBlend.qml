@@ -45,31 +45,11 @@ TestCaseTemplate {
     ImageSource {
         id: imageSource1
         source: "images/bug.jpg"
-        forcedUpdateAnimationRunning: updateCheckBox.selected
     }
 
     ImageSource {
         id: imageSource2
         source: "images/butterfly.png"
-        forcedUpdateAnimationRunning: updateCheckBox.selected
-    }
-
-    ShaderEffectSource {
-        id: shaderEffectSource1
-        sourceItem: imageSource1
-        live: updateCheckBox.selected
-        hideSource: enabledCheckBox.selected
-        visible: false
-        onLiveChanged: scheduleUpdate()
-    }
-
-    ShaderEffectSource {
-        id: shaderEffectSource2
-        sourceItem: imageSource2
-        live: updateCheckBox.selected
-        hideSource: enabledCheckBox.selected
-        visible: false
-        onLiveChanged: scheduleUpdate()
     }
 
     Blend {
@@ -77,8 +57,8 @@ TestCaseTemplate {
         anchors.fill: imageSource1
         visible: enabledCheckBox.selected
         cached: cachedCheckBox.selected
-        backgroundSource: sourceType.value == "shaderEffectSource"  ? shaderEffectSource1 : imageSource1
-        foregroundSource: sourceType.value == "shaderEffectSource" ? shaderEffectSource2 : imageSource2
+        backgroundSource: imageSource1
+        foregroundSource: imageSource2
         mode: blendMode.value
     }
 
@@ -227,24 +207,6 @@ TestCaseTemplate {
                 id: updateCheckBox
                 caption: "animated"
                 selected: false
-            }
-            RadioButtonColumn {
-                id: sourceType
-                value: "shaderEffectSource"
-                caption: "source type"
-                RadioButton {
-                    caption: "shaderEffectSource"
-                    selected: caption == sourceType.value
-                    onPressedChanged: sourceType.value = caption
-                }
-                RadioButton {
-                    caption: "image"
-                    selected: caption == sourceType.value
-                    onPressedChanged: {
-                        sourceType.value = caption
-                        updateCheckBox.selected = false
-                    }
-                }
             }
             BGColorPicker {
                 id: bgColorPicker

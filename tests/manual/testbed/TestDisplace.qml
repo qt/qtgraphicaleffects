@@ -46,7 +46,6 @@ TestCaseTemplate {
     ImageSource {
         id: imageSource
         source: "images/bug.jpg"
-        forcedUpdateAnimationRunning: updateCheckBox.selected
     }
 
     Rectangle {
@@ -65,31 +64,13 @@ TestCaseTemplate {
             }
     }
 
-    ShaderEffectSource {
-        id: shaderEffectSource
-        sourceItem: imageSource
-        live: updateCheckBox.selected
-        hideSource: false
-        smooth: true
-        visible: false
-        onLiveChanged: scheduleUpdate()
-    }
-
-    ShaderEffectSource { id: shaderEffectNormalSource
-        sourceItem: displacementMapSource
-        live: true
-        hideSource: enabledCheckBox.selected
-        smooth: true
-        visible: false
-    }
-
     Displace {
         id: effect
         anchors.fill: imageSource
         visible: enabledCheckBox.selected
         cached: cachedCheckBox.selected
-        source: sourceType.value == "shaderEffectSource" ? shaderEffectSource : imageSource
-        displacementSource: sourceType.value == "shaderEffectSource" ? shaderEffectNormalSource : di
+        source: imageSource
+        displacementSource: displacementMapSource
         displacement: displacementScaleSlider.value
         smooth: true
         MouseArea {

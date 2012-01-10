@@ -45,7 +45,6 @@ TestCaseTemplate {
     ImageSource {
         id: maskImage
         source: "images/butterfly.png"
-        forcedUpdateAnimationRunning: updateCheckBox.selected
         Text {
             text: "MASK"
             font.pixelSize: 60
@@ -57,18 +56,12 @@ TestCaseTemplate {
         }
     }
 
-    ShaderEffectSource {
-        id: maskSource
-        sourceItem: maskImage
-        live: updateCheckBox.selected
-        hideSource: enabledCheckBox.selected; smooth: true; visible: false; onLiveChanged: scheduleUpdate() }
-
     RadialGradient {
         id: effect
         anchors.fill: parent
         cached: cachedCheckBox.selected
         visible: enabledCheckBox.selected
-        maskSource: maskCheckBox.selected ? (sourceType.value == "shaderEffectSource" ? maskSource : maskImage) : undefined
+        maskSource: maskCheckBox.selected ?  maskImage : undefined
         horizontalOffset: (offsetPicker.xValue - 0.5) * width
         verticalOffset: (offsetPicker.yValue - 0.5) * height
         horizontalRadius: horizontalRadiusSlider.value
@@ -168,24 +161,6 @@ TestCaseTemplate {
                 id: updateCheckBox
                 caption: "animated"
                 selected: false
-            }
-            RadioButtonColumn {
-                id: sourceType
-                value: "shaderEffectSource"
-                caption: "source type"
-                RadioButton {
-                    caption: "shaderEffectSource"
-                    selected: caption == sourceType.value
-                    onPressedChanged: sourceType.value = caption
-                }
-                RadioButton {
-                    caption: "image"
-                    selected: caption == sourceType.value
-                    onPressedChanged: {
-                        sourceType.value = caption
-                        updateCheckBox.selected = false
-                    }
-                }
             }
             BGColorPicker {
                 id: bgColorPicker

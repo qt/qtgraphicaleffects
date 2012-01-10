@@ -45,13 +45,11 @@ TestCaseTemplate {
     ImageSource {
         id: imageSource
         source: "images/bug.jpg"
-        forcedUpdateAnimationRunning: updateCheckBox.selected
+        forcedUpdateAnimationRunning: false
     }
     ImageSource {
         id: maskSource
         source: "images/butterfly.png"
-        forcedUpdateAnimationRunning: updateCheckBox.selected
-
         Text {
             text: "MASK"
             font.pixelSize: 60
@@ -63,32 +61,13 @@ TestCaseTemplate {
         }
     }
 
-    ShaderEffectSource {
-        id: shaderEffectSource1
-        sourceItem: imageSource
-        live: updateCheckBox.selected
-        hideSource: enabledCheckBox.selected
-        smooth: true
-        visible: false
-        onLiveChanged: scheduleUpdate()
-    }
-    ShaderEffectSource {
-        id: shaderEffectSource2
-        sourceItem: maskSource
-        live: updateCheckBox.selected
-        hideSource: enabledCheckBox.selected
-        smooth: true
-        visible: false
-        onLiveChanged: scheduleUpdate()
-    }
-
     OpacityMask {
         id: effect
         anchors.fill: imageSource
         visible: enabledCheckBox.selected
         cached: cachedCheckBox.selected
-        source: sourceType.value == "shaderEffectSource" ? shaderEffectSource1 : imageSource
-        maskSource: sourceType.value == "shaderEffectSource" ? shaderEffectSource2 : maskSource
+        source: imageSource
+        maskSource: maskSource
     }
 
     bgColor: bgColorPicker.color
@@ -116,24 +95,6 @@ TestCaseTemplate {
                 id: updateCheckBox
                 caption: "animated"
                 selected: false
-            }
-            RadioButtonColumn {
-                id: sourceType
-                value: "shaderEffectSource"
-                caption: "source type"
-                RadioButton {
-                    caption: "shaderEffectSource"
-                    selected: caption == sourceType.value
-                    onPressedChanged: sourceType.value = caption
-                }
-                RadioButton {
-                    caption: "image"
-                    selected: caption == sourceType.value
-                    onPressedChanged: {
-                        sourceType.value = caption
-                        updateCheckBox.selected = false
-                    }
-                }
             }
             BGColorPicker {
                 id: bgColorPicker
