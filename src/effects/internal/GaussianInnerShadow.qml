@@ -136,7 +136,7 @@ Item {
         id: shaderItem
         anchors.fill: parent
 
-        property variant original: rootItem.source
+        property variant original: sourceProxy.output
         property variant shadow: blurredSource
         property real spread: 1.0 - (rootItem.spread * 0.98)
         property color color: rootItem.color
