@@ -88,7 +88,7 @@ void tst_qtgraphicaleffects::brightnessContrast()
 {
     // Creation
     QString componentStr = "import QtQuick 2.0\n"
-            "import effects 0.1\n"
+            "import QtGraphicalEffects 1.0\n"
             "BrightnessContrast {"
             "width: 50; height: 50\n"
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
@@ -112,7 +112,7 @@ void tst_qtgraphicaleffects::colorize()
 {
     // Creation
     QString componentStr = "import QtQuick 2.0\n"
-            "import effects 0.1\n"
+            "import QtGraphicalEffects 1.0\n"
             "Colorize {"
             "width: 50; height: 50\n"
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
@@ -137,7 +137,7 @@ void tst_qtgraphicaleffects::fastBlur()
 {
     // Creation
     QString componentStr = "import QtQuick 2.0\n"
-            "import effects 0.1\n"
+            "import QtGraphicalEffects 1.0\n"
             "FastBlur {"
             "width: 50; height: 50\n"
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
@@ -161,7 +161,7 @@ void tst_qtgraphicaleffects::desaturate()
 {
     // Creation
     QString componentStr = "import QtQuick 2.0\n"
-            "import effects 0.1\n"
+            "import QtGraphicalEffects 1.0\n"
             "Desaturate {"
             "width: 50; height: 50\n"
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
@@ -184,7 +184,7 @@ void tst_qtgraphicaleffects::hueSaturation()
 {
     // Creation
     QString componentStr = "import QtQuick 2.0\n"
-            "import effects 0.1\n"
+            "import QtGraphicalEffects 1.0\n"
             "HueSaturation {"
             "width: 50; height: 50\n"
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
@@ -209,7 +209,7 @@ void tst_qtgraphicaleffects::opacityMask()
 {
     // Creation
     QString componentStr = "import QtQuick 2.0\n"
-            "import effects 0.1\n"
+            "import QtGraphicalEffects 1.0\n"
             "OpacityMask {"
             "width: 50; height: 50\n"
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
@@ -233,7 +233,7 @@ void tst_qtgraphicaleffects::radialGradient()
 {
     // Creation
     QString componentStr = "import QtQuick 2.0\n"
-            "import effects 0.1\n"
+            "import QtGraphicalEffects 1.0\n"
             "RadialGradient {"
             "width: 50; height: 50\n"
             "}";
@@ -260,7 +260,7 @@ void tst_qtgraphicaleffects::linearGradient()
 {
     // Creation
     QString componentStr = "import QtQuick 2.0\n"
-            "import effects 0.1\n"
+            "import QtGraphicalEffects 1.0\n"
             "LinearGradient {"
             "width: 50; height: 50\n"
             "}";
@@ -284,7 +284,7 @@ void tst_qtgraphicaleffects::rectangularGlow()
 {
     // Creation
     QString componentStr = "import QtQuick 2.0\n"
-            "import effects 0.1\n"
+            "import QtGraphicalEffects 1.0\n"
             "RectangularGlow {"
             "width: 50; height: 50\n"
             "}";
@@ -308,7 +308,7 @@ void tst_qtgraphicaleffects::conicalGradient()
 {
     // Creation
     QString componentStr = "import QtQuick 2.0\n"
-            "import effects 0.1\n"
+            "import QtGraphicalEffects 1.0\n"
             "ConicalGradient {"
             "width: 50; height: 50\n"
             "}";
@@ -333,7 +333,7 @@ void tst_qtgraphicaleffects::colorOverlay()
 {
     // Creation
     QString componentStr = "import QtQuick 2.0\n"
-            "import effects 0.1\n"
+            "import QtGraphicalEffects 1.0\n"
             "ColorOverlay {"
             "width: 50; height: 50\n"
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
@@ -355,7 +355,7 @@ void tst_qtgraphicaleffects::gaussianBlur()
 {
     // Creation
     QString componentStr = "import QtQuick 2.0\n"
-            "import effects 0.1\n"
+            "import QtGraphicalEffects 1.0\n"
             "GaussianBlur {"
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "width: 50; height: 50\n"
@@ -384,7 +384,7 @@ void tst_qtgraphicaleffects::dropShadow()
 {
     // Creation
     QString componentStr = "import QtQuick 2.0\n"
-            "import effects 0.1\n"
+            "import QtGraphicalEffects 1.0\n"
             "DropShadow {"
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "width: 50; height: 50\n"
@@ -415,7 +415,7 @@ void tst_qtgraphicaleffects::innerShadow()
 {
     // Creation
     QString componentStr = "import QtQuick 2.0\n"
-            "import effects 0.1\n"
+            "import QtGraphicalEffects 1.0\n"
             "InnerShadow {"
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "width: 50; height: 50\n"
@@ -444,7 +444,7 @@ void tst_qtgraphicaleffects::gammaAdjust()
 {
     // Creation
     QString componentStr = "import QtQuick 2.0\n"
-            "import effects 0.1\n"
+            "import QtGraphicalEffects 1.0\n"
             "GammaAdjust {"
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "width: 50; height: 50\n"
@@ -468,7 +468,7 @@ void tst_qtgraphicaleffects::thresholdMask()
 {
     // Creation
     QString componentStr = "import QtQuick 2.0\n"
-            "import effects 0.1\n"
+            "import QtGraphicalEffects 1.0\n"
             "ThresholdMask {"
             "width: 50; height: 50\n"
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
@@ -494,7 +494,7 @@ void tst_qtgraphicaleffects::glow()
 {
     // Creation
     QString componentStr = "import QtQuick 2.0\n"
-            "import effects 0.1\n"
+            "import QtGraphicalEffects 1.0\n"
             "Glow {"
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "width: 50; height: 50\n"
@@ -521,7 +521,7 @@ void tst_qtgraphicaleffects::blend()
 {
     // Creation
     QString componentStr = "import QtQuick 2.0\n"
-            "import effects 0.1\n"
+            "import QtGraphicalEffects 1.0\n"
             "Blend {"
             "backgroundSource: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "foregroundSource: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
@@ -546,7 +546,7 @@ void tst_qtgraphicaleffects::displace()
 {
     // Creation
     QString componentStr = "import QtQuick 2.0\n"
-            "import effects 0.1\n"
+            "import QtGraphicalEffects 1.0\n"
             "Displace {"
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "displacementSource: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
@@ -571,7 +571,7 @@ void tst_qtgraphicaleffects::recursiveBlur()
 {
     // Creation
     QString componentStr = "import QtQuick 2.0\n"
-            "import effects 0.1\n"
+            "import QtGraphicalEffects 1.0\n"
             "RecursiveBlur {"
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "width: 50; height: 50\n"
@@ -597,7 +597,7 @@ void tst_qtgraphicaleffects::directionalBlur()
 {
     // Creation
     QString componentStr = "import QtQuick 2.0\n"
-            "import effects 0.1\n"
+            "import QtGraphicalEffects 1.0\n"
             "DirectionalBlur {"
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "width: 50; height: 50\n"
@@ -623,7 +623,7 @@ void tst_qtgraphicaleffects::radialBlur()
 {
     // Creation
     QString componentStr = "import QtQuick 2.0\n"
-            "import effects 0.1\n"
+            "import QtGraphicalEffects 1.0\n"
             "RadialBlur {"
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "width: 50; height: 50\n"
@@ -650,7 +650,7 @@ void tst_qtgraphicaleffects::zoomBlur()
 {
     // Creation
     QString componentStr = "import QtQuick 2.0\n"
-            "import effects 0.1\n"
+            "import QtGraphicalEffects 1.0\n"
             "ZoomBlur {"
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "width: 50; height: 50\n"
@@ -677,7 +677,7 @@ void tst_qtgraphicaleffects::levelAdjust()
 {
     // Creation
     QString componentStr = "import QtQuick 2.0\n"
-            "import effects 0.1\n"
+            "import QtGraphicalEffects 1.0\n"
             "LevelAdjust {"
             "width: 50; height: 50\n"
             "}";
@@ -702,7 +702,7 @@ void tst_qtgraphicaleffects::maskedBlur()
 {
     // Creation
     QString componentStr = "import QtQuick 2.0\n"
-            "import effects 0.1\n"
+            "import QtGraphicalEffects 1.0\n"
             "MaskedBlur {"
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "maskSource: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"

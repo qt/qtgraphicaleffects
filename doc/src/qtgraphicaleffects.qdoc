@@ -92,8 +92,8 @@ Motion Blur
 
 Glow
 \list
-\o \l {QtGraphicalEffects::Glow}{Glow} - draws a glow effect
-\o \l {QtGraphicalEffects::RectangularGlow}{RectangularGlow} - draws a rectangular glow effect
+\o \l {QtGraphicalEffects::Glow}{Glow} - draws an outer glow effect
+\o \l {QtGraphicalEffects::RectangularGlow}{RectangularGlow} - draws a rectangular outer glow effect
 \endlist
 
 Mask
@@ -101,9 +101,5 @@ Mask
 \o \l {QtGraphicalEffects::OpacityMask}{OpacityMask} - masks the source item with another item
 \o \l {QtGraphicalEffects::ThresholdMask}{ThresholdMask} - masks the source item with another item and applies a threshold value
 \endlist
-
-\section1 Examples
-
-Will be added here later.
 
 */

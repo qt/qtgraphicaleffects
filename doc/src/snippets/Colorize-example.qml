@@ -40,7 +40,7 @@
 
 //! [example]
 import QtQuick 2.0
-import QtGraphicalEffects 0.1
+import QtGraphicalEffects 1.0
 
 Item {
     width: 300
