@@ -45,6 +45,7 @@ TestCaseTemplate {
 
     ImageSource {
         id: imageSource
+        forcedUpdateAnimationRunning: false
     }
 
     RecursiveBlur {
