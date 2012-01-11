@@ -40,6 +40,8 @@
 
 import QtQuick 2.0
 
+import QtQuick 2.0
+
 Item {
     id: rootItem
     property variant input
@@ -54,6 +56,9 @@ Item {
         if (input == undefined) {
             output =  input
         }
+        else if (isQQuickItemLayerEnabled(input)) {
+            output =  input
+        }
         else if ((isQQuickImage(input) && !hasChildren(input))) {
             output =  input
         }
@@ -64,6 +69,15 @@ Item {
             proxySource.sourceItem = input
             output =  proxySource
         }
+    }
+
+    function isQQuickItemLayerEnabled(item) {
+        if (item.hasOwnProperty("layer")) {
+            var l = item["layer"]
+            if (l.hasOwnProperty("enabled") && l["enabled"].toString() == "true")
+                return true
+        }
+        return false
     }
 
     function isQQuickImage(item) {
