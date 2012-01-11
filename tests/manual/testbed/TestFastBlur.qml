@@ -49,7 +49,7 @@ TestCaseTemplate {
     FastBlur {
         id: effect
         anchors.fill: imageSource
-        blur: blurSlider.value
+        radius: blurSlider.value
         transparentBorder: transparentBorderCheckBox.selected
         visible: enabledCheckBox.selected
         cached: cachedCheckBox.selected
@@ -63,9 +63,9 @@ TestCaseTemplate {
             Slider {
                 id: blurSlider
                 minimum: 0.0
-                maximum: 1.0
-                value: 0.5
-                caption: "blur"
+                maximum: 64.0
+                value: 32
+                caption: "radius"
             }
             CheckBox {
                 id: transparentBorderCheckBox

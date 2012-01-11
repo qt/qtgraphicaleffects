@@ -44,7 +44,7 @@ import "internal"
 Item {
     id: rootItem
     property variant source
-    property real blur: 0.0
+    property real radius: 0.0
     property bool transparentBorder: false
     property bool cached: false
 
@@ -60,7 +60,7 @@ Item {
         sourceItem: shaderItem
         live: true
         hideSource: visible
-        smooth: rootItem.blur > 0
+        smooth: rootItem.radius > 0
     }
 
     property string __internalBlurFragmentShader: "
@@ -98,7 +98,7 @@ Item {
         hideSource: rootItem.visible
         sourceRect: transparentBorder ? Qt.rect(-64, -64, shaderItem.width, shaderItem.height) : Qt.rect(0, 0, 0, 0)
         visible: false
-        smooth: rootItem.blur > 0
+        smooth: rootItem.radius > 0
     }
 
     ShaderEffect {
@@ -232,7 +232,7 @@ Item {
         property variant source4: level4
         property variant source5: level5
         property variant source6: level6
-        property real lod: Math.sqrt(rootItem.blur) * 1.2 - 0.2
+        property real lod: Math.sqrt(rootItem.radius / 64.0) * 1.2 - 0.2
         property real weight1
         property real weight2
         property real weight3

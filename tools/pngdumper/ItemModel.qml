@@ -306,18 +306,18 @@ VisualItemModel {
         height: size
         source: bug
         property string __name: "FastBlur"
-        property variant __properties: ["blur"]
-        property string __varyingProperty: "blur"
-        property variant __values: ["0.0", "0.5", "1.0"]
+        property variant __properties: ["radius"]
+        property string __varyingProperty: "radius"
+        property variant __values: ["0.0", "32", "64"]
     }
     FastBlur {
         function init() { checkerboard = true }
         width: size
         height: size
         source: bug
-        blur: 1.0
+        radius: 64
         property string __name: "FastBlur"
-        property variant __properties: ["blur", "transparentBorder"]
+        property variant __properties: ["radius", "transparentBorder"]
         property string __varyingProperty: "transparentBorder"
         property variant __values: [false, true]
         function uninit() { checkerboard = false }

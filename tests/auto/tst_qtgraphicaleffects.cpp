@@ -149,7 +149,7 @@ void tst_qtgraphicaleffects::fastBlur()
     QVERIFY(obj != 0);
 
     // Default values
-    QCOMPARE(obj->property("blur").toDouble(), 0.0);
+    QCOMPARE(obj->property("radius").toDouble(), 0.0);
     QCOMPARE(obj->property("transparentBorder").toBool(), false);
     QCOMPARE(obj->property("source").toInt(), 0);
     QCOMPARE(obj->property("cached").toBool(), false);

@@ -87,13 +87,15 @@
 
 */
 /*!
-    \qmlproperty real QtGraphicalEffects::FastBlur::blur
+    \qmlproperty real QtGraphicalEffects::FastBlur::radius
 
-    BlurLevel defines the level of blurring, value 0.0 represents the source as
-    unblurred and value 1.0 blurs the source maximally.
+    This property defines the distance of the neighboring pixels which affect
+    the blurring of an individual pixel. A larger radius increases the blur
+    effect. FastBlur algorithm may internally reduce the accuracy of the radius in order to
+    provide good rendering performance.
 
-    The value ranges from 0.0 (no blur) to 1.0 (maximum blur). By default, the
-    property is set to \c 0.0 (no blur).
+    The value ranges from 0.0 (no blur) to inf. Visual quality of the blur is reduced when
+    radius exceeds value 64. By default, the property is set to \c 0.0 (no blur).
 
     \table
     \header
@@ -101,13 +103,13 @@
     \o
     \o
     \row
-        \o \image FastBlur_blur1.png
-        \o \image FastBlur_blur2.png
-        \o \image FastBlur_blur3.png
+        \o \image FastBlur_radius1.png
+        \o \image FastBlur_radius2.png
+        \o \image FastBlur_radius3.png
     \row
-        \o \bold { blur: 0.0 }
-        \o \bold { blur: 0.5 }
-        \o \bold { blur: 1.0 }
+        \o \bold { radius: 0 }
+        \o \bold { radius: 32 }
+        \o \bold { radius: 64 }
     \endtable
 */
 
@@ -141,8 +143,8 @@
         \o \bold { transparentBorder: false }
         \o \bold { transparentBorder: true }
     \row
-        \o \l blur: 1
-        \o \l blur: 1
+        \o \l radius: 64
+        \o \l radius: 64
     \endtable
 
 */

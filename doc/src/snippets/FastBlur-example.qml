@@ -57,7 +57,7 @@ Item {
     FastBlur {
         anchors.fill: bug
         source: bug
-        blur: 0.5
+        radius: 32
     }
 }
 //! [example]
