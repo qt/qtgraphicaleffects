@@ -135,6 +135,14 @@ VisualItemModel {
         height: size
         property string __name: "ConicalGradient"
         property variant __properties: ["angle", "horizontalOffset", "verticalOffset", "gradient"]
+        property string __varyingProperty: "verticalOffset"
+        property variant __values: [-50, 0, 50]
+    }
+    ConicalGradient {
+        width: size
+        height: size
+        property string __name: "ConicalGradient"
+        property variant __properties: ["angle", "horizontalOffset", "verticalOffset", "gradient"]
         property string __varyingProperty: "gradient"
         property variant __values: [firstGradient, secondGradient, thirdGradient]
     }
@@ -251,6 +259,7 @@ VisualItemModel {
         property string __varyingProperty: "fast"
         property variant __values: [false, true]
     }
+
     Glow {
         function init() { background = "black" }
 
@@ -435,10 +444,22 @@ VisualItemModel {
         samples: 32
         property string __name: "InnerShadow"
         property variant __properties: ["radius", "samples", "color", "horizontalOffset", "verticalOffset", "spread"]
+        property string __varyingProperty: "verticalOffset"
+        property variant __values: [-20, 0, 20]
+    }
+    InnerShadow {
+        width: size
+        height: size
+        source: butterfly
+        horizontalOffset: 0
+        verticalOffset: 0
+        radius: 16
+        samples: 32
+        property string __name: "InnerShadow"
+        property variant __properties: ["radius", "samples", "color", "horizontalOffset", "verticalOffset", "spread"]
         property string __varyingProperty: "spread"
         property variant __values: ["0.0", "0.3", "0.5"]
     }
-
     InnerShadow {
         width: size
         height: size
@@ -453,7 +474,6 @@ VisualItemModel {
         property string __varyingProperty: "fast"
         property variant __values: [false, true]
     }
-
     InnerShadow {
         function init() { checkerboard = true }
         width: size
@@ -711,7 +731,6 @@ VisualItemModel {
         property variant __values: ["0.0", "15.0", "30.0"]
         function uninit() { checkerboard = false }
     }
-
     RadialBlur {
         width: size
         height: size
@@ -721,6 +740,18 @@ VisualItemModel {
         property string __name: "RadialBlur"
         property variant __properties: ["samples", "angle", "horizontalOffset", "verticalOffset"]
         property string __varyingProperty: "horizontalOffset"
+        property variant __values: ["75.0", "0.0", "-75.0"]
+        function uninit() { checkerboard = false }
+    }
+    RadialBlur {
+        width: size
+        height: size
+        source: butterfly
+        samples: 32
+        angle: 20
+        property string __name: "RadialBlur"
+        property variant __properties: ["samples", "angle", "horizontalOffset", "verticalOffset"]
+        property string __varyingProperty: "verticalOffset"
         property variant __values: ["75.0", "0.0", "-75.0"]
         function uninit() { checkerboard = false }
     }
@@ -737,7 +768,6 @@ VisualItemModel {
         property variant __values: ["0.0", "45.0", "90.0"]
         function uninit() { checkerboard = false }
     }
-
     DirectionalBlur {
         width: size
         height: size
@@ -762,7 +792,18 @@ VisualItemModel {
         property variant __values: ["100.0", "0.0", "-100.0"]
         function uninit() { checkerboard = false }
     }
-
+    ZoomBlur {
+        width: size
+        height: size
+        source: butterfly
+        samples: 32
+        length: 32
+        property string __name: "ZoomBlur"
+        property variant __properties: ["samples", "length", "horizontalOffset", "verticalOffset"]
+        property string __varyingProperty: "verticalOffset"
+        property variant __values: ["100.0", "0.0", "-100.0"]
+        function uninit() { checkerboard = false }
+    }
     ZoomBlur {
         width: size
         height: size

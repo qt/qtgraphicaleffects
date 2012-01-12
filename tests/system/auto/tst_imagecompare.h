@@ -69,16 +69,11 @@ private Q_SLOTS:
     void dropShadow_varHorizontalOffset();
     void dropShadow_varVerticalOffset();
     void dropShadow_varSpread();
-    void fastDropShadow_varColor();
-    void fastDropShadow_varHorizontalOffset();
-    void fastDropShadow_varVerticalOffset();
-    void fastDropShadow_varSpread();
+    void dropShadow_varFast();
     void glow_varRadius();
     void glow_varColor();
     void glow_varSpread();
-    void fastGlow_varBlur();
-    void fastGlow_varColor();
-    void fastGlow_varSpread();
+    void glow_varFast();
     void fastBlur_varBlur();
     void fastBlur_varTransparentBorder();
     void gammaAdjust_varGamma();
@@ -88,6 +83,12 @@ private Q_SLOTS:
     void hueSaturation_varHue();
     void hueSaturation_varSaturation();
     void hueSaturation_varLightness();
+    void innerShadow_varRadius();
+    void innerShadow_varHorizontalOffset();
+    void innerShadow_varVerticalOffset();
+    void innerShadow_varSpread();
+    void innerShadow_varFast();
+    void innerShadow_varColor();
     void linearGradient_varGradient();
     void linearGradient_varStart();
     void linearGradient_varEnd();
@@ -109,6 +110,21 @@ private Q_SLOTS:
     void recursiveBlur_varTransparentBorder();
     void thresholdMask_varSpread();
     void thresholdMask_varThreshold();
+    void radialBlur_varAngle();
+    void radialBlur_varHorizontalOffset();
+    void radialBlur_varVerticalOffset();
+    void directionalBlur_varAngle();
+    void directionalBlur_varLength();
+    void zoomBlur_varHorizontalOffset();
+    void zoomBlur_varVerticalOffset();
+    void zoomBlur_varLength();
+    void levelAdjust_varMinimumInput();
+    void levelAdjust_varMaximumInput();
+    void levelAdjust_varMinimumOutput();
+    void levelAdjust_varMaximumOutput();
+    void maskedBlur_varRadius();
+    void maskedBlur_varFast();
+    void maskedBlur_varTransparentBorder();
 };
 
 #endif // TST_IMAGECOMPARE_H

@@ -77,7 +77,7 @@ void tst_imagecompare::initTestCase(){
 
 void tst_imagecompare::blend_varMode(){
     QStringList filters;
-    filters << "blend_mode*.png";
+    filters << "Blend_mode*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -96,7 +96,7 @@ void tst_imagecompare::blend_varMode(){
 
 void tst_imagecompare::brightnessContrast_varBrightness(){
     QStringList filters;
-    filters << "brightnesscontrast_brightness*.png";
+    filters << "BrightnessContrast_brightness*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -112,10 +112,9 @@ void tst_imagecompare::brightnessContrast_varBrightness(){
         QCOMPARE(compare.CompareImages(actual, expected), true);
     }
 }
-
 void tst_imagecompare::brightnessContrast_varContrast(){
     QStringList filters;
-    filters << "brightnesscontrast_contrast*.png";
+    filters << "BrightnessContrast_contrast*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -134,7 +133,7 @@ void tst_imagecompare::brightnessContrast_varContrast(){
 
 void tst_imagecompare::colorize_varHue(){
     QStringList filters;
-    filters << "colorize_hue*.png";
+    filters << "Colorize_hue*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -150,10 +149,9 @@ void tst_imagecompare::colorize_varHue(){
         QCOMPARE(compare.CompareImages(actual, expected), true);
     }
 }
-
 void tst_imagecompare::colorize_varSaturation(){
     QStringList filters;
-    filters << "colorize_saturation*.png";
+    filters << "Colorize_saturation*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -169,10 +167,9 @@ void tst_imagecompare::colorize_varSaturation(){
         QCOMPARE(compare.CompareImages(actual, expected), true);
     }
 }
-
 void tst_imagecompare::colorize_varLightness(){
     QStringList filters;
-    filters << "colorize_lightness*.png";
+    filters << "Colorize_lightness*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -191,7 +188,7 @@ void tst_imagecompare::colorize_varLightness(){
 
 void tst_imagecompare::colorOverlay_varColor(){
     QStringList filters;
-    filters << "coloroverlay_color*.png";
+    filters << "ColorOverlay_color*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -210,7 +207,7 @@ void tst_imagecompare::colorOverlay_varColor(){
 
 void tst_imagecompare::conicalGradient_varAngle(){
     QStringList filters;
-    filters << "conicalgradient_angle*.png";
+    filters << "ConicalGradient_angle*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -226,10 +223,9 @@ void tst_imagecompare::conicalGradient_varAngle(){
         QCOMPARE(compare.CompareImages(actual, expected), true);
     }
 }
-
 void tst_imagecompare::conicalGradient_varHorizontalOffset(){
     QStringList filters;
-    filters << "conicalgradient_horizontaloffset*.png";
+    filters << "ConicalGradient_horizontalOffset*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -245,10 +241,9 @@ void tst_imagecompare::conicalGradient_varHorizontalOffset(){
         QCOMPARE(compare.CompareImages(actual, expected), true);
     }
 }
-
 void tst_imagecompare::conicalGradient_varVerticalOffset(){
     QStringList filters;
-    filters << "conicalgradient_verticaloffset*.png";
+    filters << "ConicalGradient_verticalOffset*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -264,10 +259,9 @@ void tst_imagecompare::conicalGradient_varVerticalOffset(){
         QCOMPARE(compare.CompareImages(actual, expected), true);
     }
 }
-
 void tst_imagecompare::conicalGradient_varGradient(){
     QStringList filters;
-    filters << "conicalgradient_gradient*.png";
+    filters << "ConicalGradient_gradient*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -283,10 +277,9 @@ void tst_imagecompare::conicalGradient_varGradient(){
         QCOMPARE(compare.CompareImages(actual, expected), true);
     }
 }
-
 void tst_imagecompare::conicalGradient_varMaskSource(){
     QStringList filters;
-    filters << "conicalgradient_masksource*.png";
+    filters << "ConicalGradient_maskSource*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -305,7 +298,7 @@ void tst_imagecompare::conicalGradient_varMaskSource(){
 
 void tst_imagecompare::desaturate_varDesaturation(){
     QStringList filters;
-    filters << "desaturate_desaturation*.png";
+    filters << "Desaturate_desaturation*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -324,7 +317,7 @@ void tst_imagecompare::desaturate_varDesaturation(){
 
 void tst_imagecompare::displace_varDisplacement(){
     QStringList filters;
-    filters << "displace_displacement*.png";
+    filters << "Displace_displacement*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -343,7 +336,7 @@ void tst_imagecompare::displace_varDisplacement(){
 
 void tst_imagecompare::dropShadow_varRadius(){
     QStringList filters;
-    filters << "dropshadow_radius*.png";
+    filters << "DropShadow_radius*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -359,10 +352,9 @@ void tst_imagecompare::dropShadow_varRadius(){
         QCOMPARE(compare.CompareImages(actual, expected), true);
     }
 }
-
 void tst_imagecompare::dropShadow_varColor(){
     QStringList filters;
-    filters << "dropshadow_color*.png";
+    filters << "DropShadow_color*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -378,10 +370,9 @@ void tst_imagecompare::dropShadow_varColor(){
         QCOMPARE(compare.CompareImages(actual, expected), true);
     }
 }
-
 void tst_imagecompare::dropShadow_varHorizontalOffset(){
     QStringList filters;
-    filters << "dropshadow_horizontaloffset*.png";
+    filters << "DropShadow_horizontalOffset*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -397,10 +388,9 @@ void tst_imagecompare::dropShadow_varHorizontalOffset(){
         QCOMPARE(compare.CompareImages(actual, expected), true);
     }
 }
-
 void tst_imagecompare::dropShadow_varVerticalOffset(){
     QStringList filters;
-    filters << "dropshadow_verticaloffset*.png";
+    filters << "DropShadow_verticalOffset*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -416,10 +406,9 @@ void tst_imagecompare::dropShadow_varVerticalOffset(){
         QCOMPARE(compare.CompareImages(actual, expected), true);
     }
 }
-
 void tst_imagecompare::dropShadow_varSpread(){
     QStringList filters;
-    filters << "dropshadow_spread*.png";
+    filters << "DropShadow_spread*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -435,68 +424,9 @@ void tst_imagecompare::dropShadow_varSpread(){
         QCOMPARE(compare.CompareImages(actual, expected), true);
     }
 }
-
-void tst_imagecompare::fastDropShadow_varColor(){
+void tst_imagecompare::dropShadow_varFast(){
     QStringList filters;
-    filters << "fastdropshadow_color*.png";
-    actualDir.setNameFilters(filters);
-    QStringList list = actualDir.entryList();
-
-    for (int i = 0; i < list.size(); ++i){
-        QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
-        QString actualFile = actualDir.absolutePath() + "/" + filename;
-        QString expectedFile = expectedDir.absolutePath() + "/" + filename;
-
-        QImage actual(actualFile);
-        QImage expected(expectedFile);
-        ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
-    }
-}
-
-
-void tst_imagecompare::fastDropShadow_varHorizontalOffset(){
-    QStringList filters;
-    filters << "fastdropshadow_horizontaloffset*.png";
-    actualDir.setNameFilters(filters);
-    QStringList list = actualDir.entryList();
-
-    for (int i = 0; i < list.size(); ++i){
-        QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
-        QString actualFile = actualDir.absolutePath() + "/" + filename;
-        QString expectedFile = expectedDir.absolutePath() + "/" + filename;
-
-        QImage actual(actualFile);
-        QImage expected(expectedFile);
-        ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
-    }
-}
-
-void tst_imagecompare::fastDropShadow_varVerticalOffset(){
-    QStringList filters;
-    filters << "fastdropshadow_verticaloffset*.png";
-    actualDir.setNameFilters(filters);
-    QStringList list = actualDir.entryList();
-
-    for (int i = 0; i < list.size(); ++i){
-        QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
-        QString actualFile = actualDir.absolutePath() + "/" + filename;
-        QString expectedFile = expectedDir.absolutePath() + "/" + filename;
-
-        QImage actual(actualFile);
-        QImage expected(expectedFile);
-        ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
-    }
-}
-
-void tst_imagecompare::fastDropShadow_varSpread(){
-    QStringList filters;
-    filters << "fastdropshadow_spread*.png";
+    filters << "DropShadow_fast*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -515,7 +445,7 @@ void tst_imagecompare::fastDropShadow_varSpread(){
 
 void tst_imagecompare::glow_varRadius(){
     QStringList filters;
-    filters << "glow_radius*.png";
+    filters << "Glow_radius*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -531,10 +461,9 @@ void tst_imagecompare::glow_varRadius(){
         QCOMPARE(compare.CompareImages(actual, expected), true);
     }
 }
-
 void tst_imagecompare::glow_varColor(){
     QStringList filters;
-    filters << "glow_color*.png";
+    filters << "Glow_color*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -550,10 +479,9 @@ void tst_imagecompare::glow_varColor(){
         QCOMPARE(compare.CompareImages(actual, expected), true);
     }
 }
-
 void tst_imagecompare::glow_varSpread(){
     QStringList filters;
-    filters << "glow_spread*.png";
+    filters << "Glow_spread*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -569,48 +497,9 @@ void tst_imagecompare::glow_varSpread(){
         QCOMPARE(compare.CompareImages(actual, expected), true);
     }
 }
-
-void tst_imagecompare::fastGlow_varBlur(){
+void tst_imagecompare::glow_varFast(){
     QStringList filters;
-    filters << "fastglow_blur*.png";
-    actualDir.setNameFilters(filters);
-    QStringList list = actualDir.entryList();
-
-    for (int i = 0; i < list.size(); ++i){
-        QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
-        QString actualFile = actualDir.absolutePath() + "/" + filename;
-        QString expectedFile = expectedDir.absolutePath() + "/" + filename;
-
-        QImage actual(actualFile);
-        QImage expected(expectedFile);
-        ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
-    }
-}
-
-void tst_imagecompare::fastGlow_varColor(){
-    QStringList filters;
-    filters << "fastglow_color*.png";
-    actualDir.setNameFilters(filters);
-    QStringList list = actualDir.entryList();
-
-    for (int i = 0; i < list.size(); ++i){
-        QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
-        QString actualFile = actualDir.absolutePath() + "/" + filename;
-        QString expectedFile = expectedDir.absolutePath() + "/" + filename;
-
-        QImage actual(actualFile);
-        QImage expected(expectedFile);
-        ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
-    }
-}
-
-void tst_imagecompare::fastGlow_varSpread(){
-    QStringList filters;
-    filters << "fastglow_spread*.png";
+    filters << "Glow_fast*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -629,7 +518,7 @@ void tst_imagecompare::fastGlow_varSpread(){
 
 void tst_imagecompare::fastBlur_varBlur(){
     QStringList filters;
-    filters << "fastblur_blur*.png";
+    filters << "FastBlur_blur*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -645,10 +534,9 @@ void tst_imagecompare::fastBlur_varBlur(){
         QCOMPARE(compare.CompareImages(actual, expected), true);
     }
 }
-
 void tst_imagecompare::fastBlur_varTransparentBorder(){
     QStringList filters;
-    filters << "fastblur_transparentborder*.png";
+    filters << "FastBlur_transparentBorder*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -667,7 +555,7 @@ void tst_imagecompare::fastBlur_varTransparentBorder(){
 
 void tst_imagecompare::gammaAdjust_varGamma(){
     QStringList filters;
-    filters << "gammaadjust_gamma*.png";
+    filters << "GammaAdjust_gamma*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -686,7 +574,7 @@ void tst_imagecompare::gammaAdjust_varGamma(){
 
 void tst_imagecompare::gaussianBlur_varRadius(){
     QStringList filters;
-    filters << "gaussianblur_radius*.png";
+    filters << "GaussianBlur_radius*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -702,10 +590,9 @@ void tst_imagecompare::gaussianBlur_varRadius(){
         QCOMPARE(compare.CompareImages(actual, expected), true);
     }
 }
-
 void tst_imagecompare::gaussianBlur_varDeviation(){
     QStringList filters;
-    filters << "gaussianblur_deviation*.png";
+    filters << "GaussianBlur_deviation*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -721,10 +608,9 @@ void tst_imagecompare::gaussianBlur_varDeviation(){
         QCOMPARE(compare.CompareImages(actual, expected), true);
     }
 }
-
 void tst_imagecompare::gaussianBlur_varTransparentBorder(){
     QStringList filters;
-    filters << "gaussianblur_transparentborder*.png";
+    filters << "GaussianBlur_transparentBorder*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -743,7 +629,7 @@ void tst_imagecompare::gaussianBlur_varTransparentBorder(){
 
 void tst_imagecompare::hueSaturation_varHue(){
     QStringList filters;
-    filters << "huesaturation_hue*.png";
+    filters << "HueSaturation_hue*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -759,10 +645,27 @@ void tst_imagecompare::hueSaturation_varHue(){
         QCOMPARE(compare.CompareImages(actual, expected), true);
     }
 }
-
 void tst_imagecompare::hueSaturation_varSaturation(){
     QStringList filters;
-    filters << "huesaturation_saturation*.png";
+    filters << "HueSaturation_saturation*.png";
+    actualDir.setNameFilters(filters);
+    QStringList list = actualDir.entryList();
+
+    for (int i = 0; i < list.size(); ++i){
+        QString filename = list.at(i).toLocal8Bit().constData();
+        //qDebug() << "Testing shader image " + filename;
+        QString actualFile = actualDir.absolutePath() + "/" + filename;
+        QString expectedFile = expectedDir.absolutePath() + "/" + filename;
+
+        QImage actual(actualFile);
+        QImage expected(expectedFile);
+        ImageCompare compare;
+        QCOMPARE(compare.CompareImages(actual, expected), true);
+    }
+}
+void tst_imagecompare::hueSaturation_varLightness(){
+    QStringList filters;
+    filters << "HueSaturation_lightness*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -779,9 +682,99 @@ void tst_imagecompare::hueSaturation_varSaturation(){
     }
 }
 
-void tst_imagecompare::hueSaturation_varLightness(){
+void tst_imagecompare::innerShadow_varRadius(){
     QStringList filters;
-    filters << "huesaturation_lightness*.png";
+    filters << "InnerShadow_radius*.png";
+    actualDir.setNameFilters(filters);
+    QStringList list = actualDir.entryList();
+
+    for (int i = 0; i < list.size(); ++i){
+        QString filename = list.at(i).toLocal8Bit().constData();
+        //qDebug() << "Testing shader image " + filename;
+        QString actualFile = actualDir.absolutePath() + "/" + filename;
+        QString expectedFile = expectedDir.absolutePath() + "/" + filename;
+
+        QImage actual(actualFile);
+        QImage expected(expectedFile);
+        ImageCompare compare;
+        QCOMPARE(compare.CompareImages(actual, expected), true);
+    }
+}
+void tst_imagecompare::innerShadow_varHorizontalOffset(){
+    QStringList filters;
+    filters << "InnerShadow_horizontalOffset*.png";
+    actualDir.setNameFilters(filters);
+    QStringList list = actualDir.entryList();
+
+    for (int i = 0; i < list.size(); ++i){
+        QString filename = list.at(i).toLocal8Bit().constData();
+        //qDebug() << "Testing shader image " + filename;
+        QString actualFile = actualDir.absolutePath() + "/" + filename;
+        QString expectedFile = expectedDir.absolutePath() + "/" + filename;
+
+        QImage actual(actualFile);
+        QImage expected(expectedFile);
+        ImageCompare compare;
+        QCOMPARE(compare.CompareImages(actual, expected), true);
+    }
+}
+void tst_imagecompare::innerShadow_varVerticalOffset(){
+    QStringList filters;
+    filters << "InnerShadow_verticalOffset*.png";
+    actualDir.setNameFilters(filters);
+    QStringList list = actualDir.entryList();
+
+    for (int i = 0; i < list.size(); ++i){
+        QString filename = list.at(i).toLocal8Bit().constData();
+        //qDebug() << "Testing shader image " + filename;
+        QString actualFile = actualDir.absolutePath() + "/" + filename;
+        QString expectedFile = expectedDir.absolutePath() + "/" + filename;
+
+        QImage actual(actualFile);
+        QImage expected(expectedFile);
+        ImageCompare compare;
+        QCOMPARE(compare.CompareImages(actual, expected), true);
+    }
+}
+void tst_imagecompare::innerShadow_varSpread(){
+    QStringList filters;
+    filters << "InnerShadow_spread*.png";
+    actualDir.setNameFilters(filters);
+    QStringList list = actualDir.entryList();
+
+    for (int i = 0; i < list.size(); ++i){
+        QString filename = list.at(i).toLocal8Bit().constData();
+        //qDebug() << "Testing shader image " + filename;
+        QString actualFile = actualDir.absolutePath() + "/" + filename;
+        QString expectedFile = expectedDir.absolutePath() + "/" + filename;
+
+        QImage actual(actualFile);
+        QImage expected(expectedFile);
+        ImageCompare compare;
+        QCOMPARE(compare.CompareImages(actual, expected), true);
+    }
+}
+void tst_imagecompare::innerShadow_varFast(){
+    QStringList filters;
+    filters << "InnerShadow_fast*.png";
+    actualDir.setNameFilters(filters);
+    QStringList list = actualDir.entryList();
+
+    for (int i = 0; i < list.size(); ++i){
+        QString filename = list.at(i).toLocal8Bit().constData();
+        //qDebug() << "Testing shader image " + filename;
+        QString actualFile = actualDir.absolutePath() + "/" + filename;
+        QString expectedFile = expectedDir.absolutePath() + "/" + filename;
+
+        QImage actual(actualFile);
+        QImage expected(expectedFile);
+        ImageCompare compare;
+        QCOMPARE(compare.CompareImages(actual, expected), true);
+    }
+}
+void tst_imagecompare::innerShadow_varColor(){
+    QStringList filters;
+    filters << "InnerShadow_color*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -800,7 +793,7 @@ void tst_imagecompare::hueSaturation_varLightness(){
 
 void tst_imagecompare::linearGradient_varGradient(){
     QStringList filters;
-    filters << "lineargradient_gradient*.png";
+    filters << "LinearGradient_gradient*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -816,10 +809,9 @@ void tst_imagecompare::linearGradient_varGradient(){
         QCOMPARE(compare.CompareImages(actual, expected), true);
     }
 }
-
 void tst_imagecompare::linearGradient_varStart(){
     QStringList filters;
-    filters << "lineargradient_start*.png";
+    filters << "LinearGradient_start*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -835,10 +827,9 @@ void tst_imagecompare::linearGradient_varStart(){
         QCOMPARE(compare.CompareImages(actual, expected), true);
     }
 }
-
 void tst_imagecompare::linearGradient_varEnd(){
     QStringList filters;
-    filters << "lineargradient_end*.png";
+    filters << "LinearGradient_end*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -854,10 +845,9 @@ void tst_imagecompare::linearGradient_varEnd(){
         QCOMPARE(compare.CompareImages(actual, expected), true);
     }
 }
-
 void tst_imagecompare::linearGradient_varMaskSource(){
     QStringList filters;
-    filters << "lineargradient_masksource*.png";
+    filters << "LinearGradient_maskSource*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -876,7 +866,7 @@ void tst_imagecompare::linearGradient_varMaskSource(){
 
 void tst_imagecompare::opacityMask_varMaskSource(){
     QStringList filters;
-    filters << "opacitymask_masksource*.png";
+    filters << "OpacityMask_maskSource*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -895,7 +885,7 @@ void tst_imagecompare::opacityMask_varMaskSource(){
 
 void tst_imagecompare::radialGradient_varHorizontalOffset(){
     QStringList filters;
-    filters << "radialgradient_horizontaloffset*.png";
+    filters << "RadialGradient_horizontalOffset*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -911,10 +901,9 @@ void tst_imagecompare::radialGradient_varHorizontalOffset(){
         QCOMPARE(compare.CompareImages(actual, expected), true);
     }
 }
-
 void tst_imagecompare::radialGradient_varVerticalOffset(){
     QStringList filters;
-    filters << "radialgradient_verticaloffset*.png";
+    filters << "RadialGradient_verticalOffset*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -930,10 +919,9 @@ void tst_imagecompare::radialGradient_varVerticalOffset(){
         QCOMPARE(compare.CompareImages(actual, expected), true);
     }
 }
-
 void tst_imagecompare::radialGradient_varHorizontalRadius(){
     QStringList filters;
-    filters << "radialgradient_horizontalradius*.png";
+    filters << "RadialGradient_horizontalRadius*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -949,10 +937,9 @@ void tst_imagecompare::radialGradient_varHorizontalRadius(){
         QCOMPARE(compare.CompareImages(actual, expected), true);
     }
 }
-
 void tst_imagecompare::radialGradient_varVerticalRadius(){
     QStringList filters;
-    filters << "radialgradient_verticalradius*.png";
+    filters << "RadialGradient_verticalRadius*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -968,10 +955,9 @@ void tst_imagecompare::radialGradient_varVerticalRadius(){
         QCOMPARE(compare.CompareImages(actual, expected), true);
     }
 }
-
 void tst_imagecompare::radialGradient_varGradient(){
     QStringList filters;
-    filters << "radialgradient_gradient*.png";
+    filters << "RadialGradient_gradient*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -987,10 +973,9 @@ void tst_imagecompare::radialGradient_varGradient(){
         QCOMPARE(compare.CompareImages(actual, expected), true);
     }
 }
-
 void tst_imagecompare::radialGradient_varAngle(){
     QStringList filters;
-    filters << "radialgradient_angle*.png";
+    filters << "RadialGradient_angle*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -1006,10 +991,9 @@ void tst_imagecompare::radialGradient_varAngle(){
         QCOMPARE(compare.CompareImages(actual, expected), true);
     }
 }
-
 void tst_imagecompare::radialGradient_varMaskSource(){
     QStringList filters;
-    filters << "radialgradient_masksource*.png";
+    filters << "RadialGradient_maskSource*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -1028,7 +1012,7 @@ void tst_imagecompare::radialGradient_varMaskSource(){
 
 void tst_imagecompare::rectangularGlow_varGlowRadius(){
     QStringList filters;
-    filters << "rectangularglow_glowradius*.png";
+    filters << "RectangularGlow_glowRadius*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -1044,10 +1028,9 @@ void tst_imagecompare::rectangularGlow_varGlowRadius(){
         QCOMPARE(compare.CompareImages(actual, expected), true);
     }
 }
-
 void tst_imagecompare::rectangularGlow_varSpread(){
     QStringList filters;
-    filters << "rectangularglow_spread*.png";
+    filters << "RectangularGlow_spread*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -1063,10 +1046,9 @@ void tst_imagecompare::rectangularGlow_varSpread(){
         QCOMPARE(compare.CompareImages(actual, expected), true);
     }
 }
-
 void tst_imagecompare::rectangularGlow_varColor(){
     QStringList filters;
-    filters << "rectangularglow_color*.png";
+    filters << "RectangularGlow_color*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -1082,10 +1064,9 @@ void tst_imagecompare::rectangularGlow_varColor(){
         QCOMPARE(compare.CompareImages(actual, expected), true);
     }
 }
-
 void tst_imagecompare::rectangularGlow_varCornerRadius(){
     QStringList filters;
-    filters << "rectangularglow_cornerradius*.png";
+    filters << "RectangularGlow_cornerRadius*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -1104,7 +1085,7 @@ void tst_imagecompare::rectangularGlow_varCornerRadius(){
 
 void tst_imagecompare::recursiveBlur_varLoops(){
     QStringList filters;
-    filters << "recursiveblur_loops*.png";
+    filters << "RecursiveBlur_loops*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -1120,10 +1101,9 @@ void tst_imagecompare::recursiveBlur_varLoops(){
         QCOMPARE(compare.CompareImages(actual, expected), true);
     }
 }
-
 void tst_imagecompare::recursiveBlur_varRadius(){
     QStringList filters;
-    filters << "recursiveblur_radius*.png";
+    filters << "RecursiveBlur_radius*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -1139,10 +1119,9 @@ void tst_imagecompare::recursiveBlur_varRadius(){
         QCOMPARE(compare.CompareImages(actual, expected), true);
     }
 }
-
 void tst_imagecompare::recursiveBlur_varTransparentBorder(){
     QStringList filters;
-    filters << "recursiveblur_transparentborder*.png";
+    filters << "RecursiveBlur_transparentBorder*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -1161,7 +1140,25 @@ void tst_imagecompare::recursiveBlur_varTransparentBorder(){
 
 void tst_imagecompare::thresholdMask_varSpread(){
     QStringList filters;
-    filters << "thresholdmask_spread*.png";
+    filters << "ThresholdMask_spread*.png";
+    actualDir.setNameFilters(filters);
+    QStringList list = actualDir.entryList();
+
+    for (int i = 0; i < list.size(); ++i){
+        QString filename = list.at(i).toLocal8Bit().constData();
+        //qDebug() << "Testing shader image " + filename;
+        QString actualFile = actualDir.absolutePath() + "/" + filename;
+        QString expectedFile = expectedDir.absolutePath() + "/" + filename;
+
+        QImage actual(actualFile);
+        QImage expected(expectedFile);
+        ImageCompare compare;
+        QCOMPARE(compare.CompareImages(actual, expected), true);
+    }
+}
+void tst_imagecompare::thresholdMask_varThreshold(){
+    QStringList filters;
+    filters << "ThresholdMask_threshold*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
@@ -1178,9 +1175,265 @@ void tst_imagecompare::thresholdMask_varSpread(){
     }
 }
 
-void tst_imagecompare::thresholdMask_varThreshold(){
+void tst_imagecompare::radialBlur_varAngle(){
     QStringList filters;
-    filters << "thresholdmask_threshold*.png";
+    filters << "RadialBlur_angle*.png";
+    actualDir.setNameFilters(filters);
+    QStringList list = actualDir.entryList();
+
+    for (int i = 0; i < list.size(); ++i){
+        QString filename = list.at(i).toLocal8Bit().constData();
+        //qDebug() << "Testing shader image " + filename;
+        QString actualFile = actualDir.absolutePath() + "/" + filename;
+        QString expectedFile = expectedDir.absolutePath() + "/" + filename;
+
+        QImage actual(actualFile);
+        QImage expected(expectedFile);
+        ImageCompare compare;
+        QCOMPARE(compare.CompareImages(actual, expected), true);
+    }
+}
+void tst_imagecompare::radialBlur_varHorizontalOffset(){
+    QStringList filters;
+    filters << "RadialBlur_horizontalOffset*.png";
+    actualDir.setNameFilters(filters);
+    QStringList list = actualDir.entryList();
+
+    for (int i = 0; i < list.size(); ++i){
+        QString filename = list.at(i).toLocal8Bit().constData();
+        //qDebug() << "Testing shader image " + filename;
+        QString actualFile = actualDir.absolutePath() + "/" + filename;
+        QString expectedFile = expectedDir.absolutePath() + "/" + filename;
+
+        QImage actual(actualFile);
+        QImage expected(expectedFile);
+        ImageCompare compare;
+        QCOMPARE(compare.CompareImages(actual, expected), true);
+    }
+}
+void tst_imagecompare::radialBlur_varVerticalOffset(){
+    QStringList filters;
+    filters << "RadialBlur_verticalOffset*.png";
+    actualDir.setNameFilters(filters);
+    QStringList list = actualDir.entryList();
+
+    for (int i = 0; i < list.size(); ++i){
+        QString filename = list.at(i).toLocal8Bit().constData();
+        //qDebug() << "Testing shader image " + filename;
+        QString actualFile = actualDir.absolutePath() + "/" + filename;
+        QString expectedFile = expectedDir.absolutePath() + "/" + filename;
+
+        QImage actual(actualFile);
+        QImage expected(expectedFile);
+        ImageCompare compare;
+        QCOMPARE(compare.CompareImages(actual, expected), true);
+    }
+}
+
+void tst_imagecompare::directionalBlur_varAngle(){
+    QStringList filters;
+    filters << "DirectionalBlur_angle*.png";
+    actualDir.setNameFilters(filters);
+    QStringList list = actualDir.entryList();
+
+    for (int i = 0; i < list.size(); ++i){
+        QString filename = list.at(i).toLocal8Bit().constData();
+        //qDebug() << "Testing shader image " + filename;
+        QString actualFile = actualDir.absolutePath() + "/" + filename;
+        QString expectedFile = expectedDir.absolutePath() + "/" + filename;
+
+        QImage actual(actualFile);
+        QImage expected(expectedFile);
+        ImageCompare compare;
+        QCOMPARE(compare.CompareImages(actual, expected), true);
+    }
+}
+void tst_imagecompare::directionalBlur_varLength(){
+    QStringList filters;
+    filters << "DirectionalBlur_length*.png";
+    actualDir.setNameFilters(filters);
+    QStringList list = actualDir.entryList();
+
+    for (int i = 0; i < list.size(); ++i){
+        QString filename = list.at(i).toLocal8Bit().constData();
+        //qDebug() << "Testing shader image " + filename;
+        QString actualFile = actualDir.absolutePath() + "/" + filename;
+        QString expectedFile = expectedDir.absolutePath() + "/" + filename;
+
+        QImage actual(actualFile);
+        QImage expected(expectedFile);
+        ImageCompare compare;
+        QCOMPARE(compare.CompareImages(actual, expected), true);
+    }
+}
+
+void tst_imagecompare::zoomBlur_varHorizontalOffset(){
+    QStringList filters;
+    filters << "ZoomBlur_horizontalOffset*.png";
+    actualDir.setNameFilters(filters);
+    QStringList list = actualDir.entryList();
+
+    for (int i = 0; i < list.size(); ++i){
+        QString filename = list.at(i).toLocal8Bit().constData();
+        //qDebug() << "Testing shader image " + filename;
+        QString actualFile = actualDir.absolutePath() + "/" + filename;
+        QString expectedFile = expectedDir.absolutePath() + "/" + filename;
+
+        QImage actual(actualFile);
+        QImage expected(expectedFile);
+        ImageCompare compare;
+        QCOMPARE(compare.CompareImages(actual, expected), true);
+    }
+}
+void tst_imagecompare::zoomBlur_varVerticalOffset(){
+    QStringList filters;
+    filters << "ZoomBlur_verticalOffset*.png";
+    actualDir.setNameFilters(filters);
+    QStringList list = actualDir.entryList();
+
+    for (int i = 0; i < list.size(); ++i){
+        QString filename = list.at(i).toLocal8Bit().constData();
+        //qDebug() << "Testing shader image " + filename;
+        QString actualFile = actualDir.absolutePath() + "/" + filename;
+        QString expectedFile = expectedDir.absolutePath() + "/" + filename;
+
+        QImage actual(actualFile);
+        QImage expected(expectedFile);
+        ImageCompare compare;
+        QCOMPARE(compare.CompareImages(actual, expected), true);
+    }
+}
+void tst_imagecompare::zoomBlur_varLength(){
+    QStringList filters;
+    filters << "ZoomBlur_length*.png";
+    actualDir.setNameFilters(filters);
+    QStringList list = actualDir.entryList();
+
+    for (int i = 0; i < list.size(); ++i){
+        QString filename = list.at(i).toLocal8Bit().constData();
+        //qDebug() << "Testing shader image " + filename;
+        QString actualFile = actualDir.absolutePath() + "/" + filename;
+        QString expectedFile = expectedDir.absolutePath() + "/" + filename;
+
+        QImage actual(actualFile);
+        QImage expected(expectedFile);
+        ImageCompare compare;
+        QCOMPARE(compare.CompareImages(actual, expected), true);
+    }
+}
+
+void tst_imagecompare::levelAdjust_varMinimumInput(){
+    QStringList filters;
+    filters << "LevelAdjust_minimumInput*.png";
+    actualDir.setNameFilters(filters);
+    QStringList list = actualDir.entryList();
+
+    for (int i = 0; i < list.size(); ++i){
+        QString filename = list.at(i).toLocal8Bit().constData();
+        //qDebug() << "Testing shader image " + filename;
+        QString actualFile = actualDir.absolutePath() + "/" + filename;
+        QString expectedFile = expectedDir.absolutePath() + "/" + filename;
+
+        QImage actual(actualFile);
+        QImage expected(expectedFile);
+        ImageCompare compare;
+        QCOMPARE(compare.CompareImages(actual, expected), true);
+    }
+}
+void tst_imagecompare::levelAdjust_varMaximumInput(){
+    QStringList filters;
+    filters << "LevelAdjust_maximumInput*.png";
+    actualDir.setNameFilters(filters);
+    QStringList list = actualDir.entryList();
+
+    for (int i = 0; i < list.size(); ++i){
+        QString filename = list.at(i).toLocal8Bit().constData();
+        //qDebug() << "Testing shader image " + filename;
+        QString actualFile = actualDir.absolutePath() + "/" + filename;
+        QString expectedFile = expectedDir.absolutePath() + "/" + filename;
+
+        QImage actual(actualFile);
+        QImage expected(expectedFile);
+        ImageCompare compare;
+        QCOMPARE(compare.CompareImages(actual, expected), true);
+    }
+}
+void tst_imagecompare::levelAdjust_varMinimumOutput(){
+    QStringList filters;
+    filters << "LevelAdjust_minimumOutput*.png";
+    actualDir.setNameFilters(filters);
+    QStringList list = actualDir.entryList();
+
+    for (int i = 0; i < list.size(); ++i){
+        QString filename = list.at(i).toLocal8Bit().constData();
+        //qDebug() << "Testing shader image " + filename;
+        QString actualFile = actualDir.absolutePath() + "/" + filename;
+        QString expectedFile = expectedDir.absolutePath() + "/" + filename;
+
+        QImage actual(actualFile);
+        QImage expected(expectedFile);
+        ImageCompare compare;
+        QCOMPARE(compare.CompareImages(actual, expected), true);
+    }
+}
+void tst_imagecompare::levelAdjust_varMaximumOutput(){
+    QStringList filters;
+    filters << "LevelAdjust_maximumOutput*.png";
+    actualDir.setNameFilters(filters);
+    QStringList list = actualDir.entryList();
+
+    for (int i = 0; i < list.size(); ++i){
+        QString filename = list.at(i).toLocal8Bit().constData();
+        //qDebug() << "Testing shader image " + filename;
+        QString actualFile = actualDir.absolutePath() + "/" + filename;
+        QString expectedFile = expectedDir.absolutePath() + "/" + filename;
+
+        QImage actual(actualFile);
+        QImage expected(expectedFile);
+        ImageCompare compare;
+        QCOMPARE(compare.CompareImages(actual, expected), true);
+    }
+}
+
+void tst_imagecompare::maskedBlur_varRadius(){
+    QStringList filters;
+    filters << "MaskedBlur_radius*.png";
+    actualDir.setNameFilters(filters);
+    QStringList list = actualDir.entryList();
+
+    for (int i = 0; i < list.size(); ++i){
+        QString filename = list.at(i).toLocal8Bit().constData();
+        //qDebug() << "Testing shader image " + filename;
+        QString actualFile = actualDir.absolutePath() + "/" + filename;
+        QString expectedFile = expectedDir.absolutePath() + "/" + filename;
+
+        QImage actual(actualFile);
+        QImage expected(expectedFile);
+        ImageCompare compare;
+        QCOMPARE(compare.CompareImages(actual, expected), true);
+    }
+}
+void tst_imagecompare::maskedBlur_varFast(){
+    QStringList filters;
+    filters << "MaskedBlur_fast*.png";
+    actualDir.setNameFilters(filters);
+    QStringList list = actualDir.entryList();
+
+    for (int i = 0; i < list.size(); ++i){
+        QString filename = list.at(i).toLocal8Bit().constData();
+        //qDebug() << "Testing shader image " + filename;
+        QString actualFile = actualDir.absolutePath() + "/" + filename;
+        QString expectedFile = expectedDir.absolutePath() + "/" + filename;
+
+        QImage actual(actualFile);
+        QImage expected(expectedFile);
+        ImageCompare compare;
+        QCOMPARE(compare.CompareImages(actual, expected), true);
+    }
+}
+void tst_imagecompare::maskedBlur_varTransparentBorder(){
+    QStringList filters;
+    filters << "MaskedBlur_transparentBorder*.png";
     actualDir.setNameFilters(filters);
     QStringList list = actualDir.entryList();
 
