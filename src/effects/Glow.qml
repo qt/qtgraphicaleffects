@@ -83,4 +83,9 @@ Item {
             transparentBorder: rootItem.transparentBorder
         }
     }
+
+    ShaderEffectSource {
+        anchors.fill: parent
+        sourceItem: rootItem.source
+    }
 }

@@ -51,19 +51,20 @@ Item {
         color: "black"
     }
 
+    Image {
+        id: butterfly
+        source: "images/butterfly.png"
+        sourceSize: Qt.size(parent.width, parent.height)
+        smooth: true
+        visible: false
+    }
+
     Glow {
         anchors.fill: butterfly
         radius: 8
         samples: 16
         color: "white"
         source: butterfly
-    }
-
-    Image {
-        id: butterfly
-        source: "images/butterfly.png"
-        sourceSize: Qt.size(parent.width, parent.height)
-        smooth: true
     }
 }
 //! [example]

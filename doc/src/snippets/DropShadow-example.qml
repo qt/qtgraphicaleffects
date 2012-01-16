@@ -50,6 +50,14 @@ Item {
         anchors.fill: parent
     }
 
+    Image {
+        id: butterfly
+        source: "images/butterfly.png"
+        sourceSize: Qt.size(parent.width, parent.height)
+        smooth: true
+        visible: false
+    }
+
     DropShadow {
         anchors.fill: butterfly
         horizontalOffset: 3
@@ -58,13 +66,6 @@ Item {
         samples: 16
         color: "#80000000"
         source: butterfly
-    }
-
-    Image {
-        id: butterfly
-        source: "images/butterfly.png"
-        sourceSize: Qt.size(parent.width, parent.height)
-        smooth: true
     }
 }
 //! [example]

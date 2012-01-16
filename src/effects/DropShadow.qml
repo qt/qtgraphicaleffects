@@ -54,18 +54,43 @@ Item {
     property bool cached: false
     property bool transparentBorder: false
 
-    Glow {
+    Loader {
         x: rootItem.horizontalOffset
         y: rootItem.verticalOffset
         width: parent.width
         height: parent.height
-        source: rootItem.source
-        radius: rootItem.radius
-        samples: rootItem.samples
-        color: rootItem.color
-        cached: rootItem.cached
-        spread: rootItem.spread
-        transparentBorder: rootItem.transparentBorder
-        fast: rootItem.fast
+        sourceComponent: rootItem.fast ? fastGlow : gaussianGlow
+    }
+
+    Component {
+        id: gaussianGlow
+        GaussianGlow {
+            anchors.fill: parent
+            source: rootItem.source
+            radius: rootItem.radius
+            maximumRadius: rootItem.samples * 0.5
+            color: rootItem.color
+            cached: rootItem.cached
+            spread: rootItem.spread
+            transparentBorder: rootItem.transparentBorder
+        }
+    }
+
+    Component {
+        id: fastGlow
+        FastGlow {
+            anchors.fill: parent
+            source: rootItem.source
+            blur: Math.pow(rootItem.radius / 64.0, 0.4)
+            color: rootItem.color
+            cached: rootItem.cached
+            spread: rootItem.spread
+            transparentBorder: rootItem.transparentBorder
+        }
+    }
+
+    ShaderEffectSource {
+        anchors.fill: parent
+        sourceItem: rootItem.source
     }
 }

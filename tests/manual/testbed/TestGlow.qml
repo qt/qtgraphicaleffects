@@ -43,6 +43,12 @@ import "../../../src/effects"
 
 TestCaseTemplate {
 
+    ImageSource {
+        id: imageSource
+        source: "images/butterfly.png"
+        anchors.centerIn: parent
+    }
+
     Glow {
         id: effect
         anchors.fill: imageSource
@@ -54,13 +60,6 @@ TestCaseTemplate {
         cached: cachedCheckBox.selected
         fast: fastCheckBox.selected
         source: imageSource
-    }
-
-    ImageSource {
-        id: imageSource
-        source: "images/butterfly.png"
-        anchors.centerIn: parent
-        opacity: 1.0
     }
 
     bgColor: bgColorPicker.color

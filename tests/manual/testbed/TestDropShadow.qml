@@ -43,6 +43,12 @@ import "../../../src/effects"
 
 TestCaseTemplate {
 
+    ImageSource {
+        id: imageSource
+        source: "images/butterfly.png"
+        anchors.centerIn: parent
+    }
+
     DropShadow {
         id: effect
         horizontalOffset: (offsetPicker.xValue - 0.5) * width
@@ -56,13 +62,6 @@ TestCaseTemplate {
         cached: cachedCheckBox.selected
         source: imageSource
         fast: fastCheckBox.selected
-    }
-
-    ImageSource {
-        id: imageSource
-        source: "images/butterfly.png"
-        anchors.centerIn: parent
-        opacity: 1.0
     }
 
     PositionPicker {

@@ -29,7 +29,8 @@
     \qmlclass DropShadow
     \inqmlmodule QtGraphicalEffects
     \brief Generates a colorized and blurred shadow image of the
-    source.
+    source and places it behind the original, giving the impression that
+    source item is raised from the background.
 
     By default the effect produces a high quality shadow image, thus the
     rendering speed of the shadow might not be the highest possible. The

@@ -28,12 +28,12 @@
 /*!
     \qmlclass Glow
     \inqmlmodule QtGraphicalEffects
-    \brief Generates a blurred and colorized image of the source, which gives
-    the impression that the source is glowing.
+    \brief Generates a blurred and colorized image of the source and places it
+    behind the original, giving impression that the source is glowing.
 
     By default effect produces a high quality glow image, thus the rendering
-    speed of the shadow may not be the highest possible. The rendering speed is
-    reduced especially if the shadow edges are heavily softened.
+    speed of the effect may not be the highest possible. The rendering speed is
+    reduced especially if the glow edges are heavily softened.
     For use cases that require faster rendering speed and the highest possible
     visual quality is not necessary, property \l fast can be set to true.
 
