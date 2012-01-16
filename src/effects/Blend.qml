@@ -43,14 +43,14 @@ import "internal"
 
 Item {
     id: rootItem
-    property variant backgroundSource
+    property variant source
     property variant foregroundSource
     property string mode: "normal"
     property bool cached: false
 
     SourceProxy {
         id: backgroundSourceProxy
-        input: rootItem.backgroundSource
+        input: rootItem.source
     }
 
     SourceProxy {

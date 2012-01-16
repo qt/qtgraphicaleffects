@@ -34,7 +34,7 @@
 
     \table
     \header
-        \o backgroundSource
+        \o source
         \o foregroundSource
         \o Effect applied
     \row
@@ -63,7 +63,7 @@
         \o Effect internal
         \o 0 MB
     \row
-        \o ShaderEffectSource for backgroundSource (if used)
+        \o ShaderEffectSource for source (if used)
         \o 1.2 MB
     \row
         \o ShaderEffectSource for foregroundSource (if used)
@@ -79,7 +79,7 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects::Blend::backgroundSource
+    \qmlproperty variant QtGraphicalEffects::Blend::source
 
     This property defines the source item that is going to be the base when \l foregroundSource is blended over it.
 
@@ -88,14 +88,14 @@
 /*!
     \qmlproperty variant QtGraphicalEffects::Blend::foregroundSource
 
-    This property defines the item that is going to be blended over the \l backgroundSource.
+    This property defines the item that is going to be blended over the \l source.
 
 */
 
 /*!
     \qmlproperty string QtGraphicalEffects::Blend::mode
 
-    This property defines the mode which is used when foregroundSource is blended over backgroundSource. Values are
+    This property defines the mode which is used when foregroundSource is blended over source. Values are
     case insensitive.
 
     \table
@@ -104,76 +104,76 @@
         \o description
     \row
         \o normal
-        \o The pixel component values from foregroundSource are written over backgroundSource by using alpha blending.
+        \o The pixel component values from foregroundSource are written over source by using alpha blending.
     \row
         \o addition
-        \o The pixel component values from backgroundSource and foregroundSource are added together and written.
+        \o The pixel component values from source and foregroundSource are added together and written.
     \row
         \o average
-        \o The pixel component values from backgroundSource and foregroundSource are averaged and written.
+        \o The pixel component values from source and foregroundSource are averaged and written.
     \row
         \o color
-        \o The lightness value from backgroundSource is combined with hue and saturation from foregroundSource and written.
+        \o The lightness value from source is combined with hue and saturation from foregroundSource and written.
     \row
         \o colorBurn
-        \o The darker pixels from backgroundSource are darkened more, if both backgroundSource and foregroundSource pixels are light the result is light.
+        \o The darker pixels from source are darkened more, if both source and foregroundSource pixels are light the result is light.
     \row
         \o colorDodge
-        \o The lighter pixels from backgroundSource are lightened more, if both backgroundSource and foregroundSource pixels are dark the result is dark.
+        \o The lighter pixels from source are lightened more, if both source and foregroundSource pixels are dark the result is dark.
     \row
         \o darken
-        \o The darker pixel component value from backgroundSource and foregroundSource is written.
+        \o The darker pixel component value from source and foregroundSource is written.
     \row
         \o darkerColor
-        \o The lower luminance pixel rgb-value from backgroundSource and foregroundSource is written.
+        \o The lower luminance pixel rgb-value from source and foregroundSource is written.
     \row
         \o difference
-        \o The absolute pixel component value difference between backgroundSource and foregroundSource is written.
+        \o The absolute pixel component value difference between source and foregroundSource is written.
     \row
         \o divide
-        \o The pixel component values from backgroundSource is divided by the value from foregroundSource and written.
+        \o The pixel component values from source is divided by the value from foregroundSource and written.
     \row
         \o exclusion
-        \o The pixel component value difference with reduced contrast between backgroundSource and foregroundSource is written.
+        \o The pixel component value difference with reduced contrast between source and foregroundSource is written.
     \row
         \o hardLight
-        \o The pixel component values from backgroundSource are lightened or darkened according to foregroundSource values and written.
+        \o The pixel component values from source are lightened or darkened according to foregroundSource values and written.
     \row
         \o hue
-        \o The hue value from foregroundSource is combined with saturation and lightness from backgroundSource and written.
+        \o The hue value from foregroundSource is combined with saturation and lightness from source and written.
     \row
         \o lighten
-        \o The lightest pixel component value from backgroundSource and foregroundSource is written.
+        \o The lightest pixel component value from source and foregroundSource is written.
     \row
         \o lighterColor
-        \o The higher luminance pixel rgb-value from backgroundSource and foregroundSource is written.
+        \o The higher luminance pixel rgb-value from source and foregroundSource is written.
     \row
         \o lightness
-        \o The lightness value from foregroundSource is combined with hue and saturation from backgroundSource and written.
+        \o The lightness value from foregroundSource is combined with hue and saturation from source and written.
     \row
         \o multiply
-        \o The pixel component values from backgroundSource and foregroundSource are multiplied together and written.
+        \o The pixel component values from source and foregroundSource are multiplied together and written.
     \row
         \o negation
-        \o The inverted absolute pixel component value difference between backgroundSource and foregroundSource is written.
+        \o The inverted absolute pixel component value difference between source and foregroundSource is written.
     \row
         \o saturation
-        \o The saturation value from foregroundSource is combined with hue and lightness from backgroundSource and written.
+        \o The saturation value from foregroundSource is combined with hue and lightness from source and written.
     \row
         \o screen
-        \o The pixel values from backgroundSource and foregroundSource are negated, then multiplied, negated again, and written.
+        \o The pixel values from source and foregroundSource are negated, then multiplied, negated again, and written.
     \row
         \o subtract
-        \o Pixel value from foregroundSource is subracted from backgroundSource and written.
+        \o Pixel value from foregroundSource is subracted from source and written.
     \row
         \o softLight
-        \o The pixel component values from backgroundSource are lightened or darkened slightly according to foregroundSource values and written.
+        \o The pixel component values from source are lightened or darkened slightly according to foregroundSource values and written.
 
     \endtable
 
     \table
     \header
-        \o Example backgroundSource
+        \o Example source
         \o Example foregroundSource
     \row
         \o \image Original_bug.png

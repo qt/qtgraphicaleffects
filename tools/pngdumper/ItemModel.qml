@@ -45,7 +45,7 @@ VisualItemModel {
     Blend {
         width: size
         height: size
-        backgroundSource: bug
+        source: bug
         foregroundSource: butterfly
         mode: "normal"
         property string __name: "Blend"

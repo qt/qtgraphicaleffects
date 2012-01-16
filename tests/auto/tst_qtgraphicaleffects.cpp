@@ -523,7 +523,7 @@ void tst_qtgraphicaleffects::blend()
     QString componentStr = "import QtQuick 2.0\n"
             "import QtGraphicalEffects 1.0\n"
             "Blend {"
-            "backgroundSource: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
+            "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "foregroundSource: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "width: 50; height: 50\n"
             "}";
@@ -534,7 +534,7 @@ void tst_qtgraphicaleffects::blend()
     QVERIFY(obj != 0);
 
     // Default values
-    QCOMPARE(obj->property("backgroundSource").toInt(), 0);
+    QCOMPARE(obj->property("source").toInt(), 0);
     QCOMPARE(obj->property("foregroundSource").toInt(), 0);
     QCOMPARE(obj->property("cached").toBool(), false);
     QCOMPARE(obj->property("mode").toString(), QString("normal"));

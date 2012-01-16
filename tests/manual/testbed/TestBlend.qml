@@ -57,7 +57,7 @@ TestCaseTemplate {
         anchors.fill: imageSource1
         visible: enabledCheckBox.selected
         cached: cachedCheckBox.selected
-        backgroundSource: imageSource1
+        source: imageSource1
         foregroundSource: imageSource2
         mode: blendMode.value
     }

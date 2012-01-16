@@ -66,7 +66,7 @@ Item {
 
     Blend {
         anchors.fill: bug
-        backgroundSource: bug
+        source: bug
         foregroundSource: butterfly
         mode: "subtract"
     }
