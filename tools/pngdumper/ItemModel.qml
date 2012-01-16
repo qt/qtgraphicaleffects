@@ -150,8 +150,8 @@ VisualItemModel {
         width: size
         height: size
         property string __name: "ConicalGradient"
-        property variant __properties: ["angle", "horizontalOffset", "verticalOffset", "gradient", "maskSource"]
-        property string __varyingProperty: "maskSource"
+        property variant __properties: ["angle", "horizontalOffset", "verticalOffset", "gradient", "source"]
+        property string __varyingProperty: "source"
         property variant __values: [undefined, butterfly]
 
         function uninit() { checkerboard = false }
@@ -526,8 +526,8 @@ VisualItemModel {
         start: Qt.point(0,0)
         end: Qt.point(width, height)
         property string __name: "LinearGradient"
-        property variant __properties: ["start", "end", "gradient", "maskSource"]
-        property string __varyingProperty: "maskSource"
+        property variant __properties: ["start", "end", "gradient", "source"]
+        property string __varyingProperty: "source"
         property variant __values: [undefined, butterfly]
     }
 
@@ -594,8 +594,8 @@ VisualItemModel {
         width: size
         height: size
         property string __name: "RadialGradient"
-        property variant __properties: ["horizontalOffset", "verticalOffset", "horizontalRadius", "verticalRadius", "angle", "gradient", "maskSource"]
-        property string __varyingProperty: "maskSource"
+        property variant __properties: ["horizontalOffset", "verticalOffset", "horizontalRadius", "verticalRadius", "angle", "gradient", "source"]
+        property string __varyingProperty: "source"
         property variant __values: [undefined, butterfly]
 
         function uninit() { checkerboard = false }

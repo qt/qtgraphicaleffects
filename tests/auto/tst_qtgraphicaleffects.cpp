@@ -249,7 +249,7 @@ void tst_qtgraphicaleffects::radialGradient()
     QCOMPARE(obj->property("verticalOffset").toDouble(), 0.0);
     QCOMPARE(obj->property("horizontalRadius").toDouble(), 50.0);
     QCOMPARE(obj->property("verticalRadius").toDouble(), 50.0);
-    QCOMPARE(obj->property("maskSource").toInt(), 0);
+    QCOMPARE(obj->property("source").toInt(), 0);
     QCOMPARE(obj->property("angle").toDouble(), 0.0);
     QCOMPARE(obj->property("cached").toBool(), false);
 
@@ -274,7 +274,7 @@ void tst_qtgraphicaleffects::linearGradient()
     QCOMPARE(obj->property("gradient").toInt(), 0);
     QCOMPARE(obj->property("start").toPointF(), QPointF(0.0, 0.0));
     QCOMPARE(obj->property("end").toPointF(), QPointF(0.0, 50.0));
-    QCOMPARE(obj->property("maskSource").toInt(), 0);
+    QCOMPARE(obj->property("source").toInt(), 0);
     QCOMPARE(obj->property("cached").toBool(), false);
 
     delete obj;
@@ -323,7 +323,7 @@ void tst_qtgraphicaleffects::conicalGradient()
     QCOMPARE(obj->property("gradient").toInt(), 0);
     QCOMPARE(obj->property("horizontalOffset").toDouble(), 0.0);
     QCOMPARE(obj->property("verticalOffset").toDouble(), 0.0);
-    QCOMPARE(obj->property("maskSource").toInt(), 0);
+    QCOMPARE(obj->property("source").toInt(), 0);
     QCOMPARE(obj->property("cached").toBool(), false);
 
     delete obj;

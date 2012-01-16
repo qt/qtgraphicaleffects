@@ -62,7 +62,7 @@ TestCaseTemplate {
         anchors.fill: parent
         cached: cachedCheckBox.selected
         visible: enabledCheckBox.selected
-        maskSource: maskCheckBox.selected ? maskImage : undefined
+        source: maskCheckBox.selected ? maskImage : undefined
         horizontalOffset: (offsetPicker.xValue - 0.5) * width
         verticalOffset: (offsetPicker.yValue - 0.5) * height
         gradient: Gradient {

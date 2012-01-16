@@ -66,7 +66,7 @@
         \o Effect internal cache (if enabled)
         \o 1.2 MB
     \row
-        \o ShaderEffectSource for maskSource (if used)
+        \o ShaderEffectSource for source (if used)
         \o 1.2 MB
     \row
         \o TOTAL (max)
@@ -152,25 +152,25 @@ Gradient {
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects::ConicalGradient::maskSource
+    \qmlproperty variant QtGraphicalEffects::ConicalGradient::source
 
-    This property defines the item that is going to be used as the mask. The
-    mask gets rendered into an intermediate pixel buffer.
-    The alpha values from the result are used to determine the gradient's pixels
-    visibility in the display.
-    The default value for maskSource is undefined, and in that case no mask is
-    used.
+    This property defines the item that is going to be filled with gradient. Source
+    item gets rendered into an intermediate pixel buffer and the alpha values
+    from the result are used to determine the gradient's pixels visibility in
+    the display.
+    The default value for source is undefined and in that case whole effect area
+    is filled with gradient.
 
     \table
     \header
-    \o Output examples with different maskSource values
+    \o Output examples with different source values
     \o
     \row
         \o \image ConicalGradient_maskSource1.png
         \o \image ConicalGradient_maskSource2.png
     \row
-        \o \bold { maskSource: undefined }
-        \o \bold { maskSource:  }
+        \o \bold { source: undefined }
+        \o \bold { source:  }
     \row
         \o \l angle: 0
         \o \l angle: 0

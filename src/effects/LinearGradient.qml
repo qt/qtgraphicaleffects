@@ -46,7 +46,7 @@ Item {
     property variant start: Qt.point(0, 0)
     property variant end: Qt.point(0, height)
     property bool cached: false
-    property variant maskSource
+    property variant source
 
     property Gradient gradient: Gradient {
         GradientStop { position: 0.0; color: "white" }
@@ -55,7 +55,7 @@ Item {
 
     SourceProxy {
         id: maskSourceProxy
-        input: rootItem.maskSource
+        input: rootItem.source
     }
 
     ShaderEffectSource {

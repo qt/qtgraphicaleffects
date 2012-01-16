@@ -47,7 +47,7 @@ Item {
     property real angle: 0.0
     property real horizontalOffset: 0.0
     property real verticalOffset: 0.0
-    property variant maskSource
+    property variant source
 
     property Gradient gradient: Gradient {
         GradientStop { position: 0.0; color: "white" }
@@ -56,7 +56,7 @@ Item {
 
     SourceProxy {
         id: maskSourceProxy
-        input: rootItem.maskSource
+        input: rootItem.source
     }
 
     Rectangle {

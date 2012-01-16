@@ -61,7 +61,7 @@ TestCaseTemplate {
         anchors.fill: parent
         cached: cachedCheckBox.selected
         visible: enabledCheckBox.selected
-        maskSource: maskCheckBox.selected ? maskImage : undefined
+        source: maskCheckBox.selected ? maskImage : undefined
         start: Qt.point(startPicker.xValue * width, startPicker.yValue * height)
         end: Qt.point(endPicker.xValue * width, endPicker.yValue * height)
         gradient: Gradient {

@@ -49,7 +49,7 @@ Item {
     property real horizontalRadius: width
     property real verticalRadius: height
     property real angle: 0.0
-    property variant maskSource
+    property variant source
 
     property Gradient gradient: Gradient {
         GradientStop { position: 0.0; color: "white" }
@@ -58,7 +58,7 @@ Item {
 
     SourceProxy {
         id: maskSourceProxy
-        input: rootItem.maskSource
+        input: rootItem.source
     }
 
     ShaderEffectSource {
