@@ -48,13 +48,13 @@ Rectangle {
     property alias controls: controlsColumn.children
     property string currentTest: ""
     property string fps: "nan"
-    property string bgColor: "black"
+    property color bgColor: "black"
 
     property int dummy: 0
     property int fpsCount: 0
 
     anchors.fill: parent
-    color: bgColor.charAt(0) == '#' ? bgColor : "red"
+    color: bgColor
 
     onDummyChanged: fpsCount++;
 
@@ -79,7 +79,7 @@ Rectangle {
         id: background
         anchors.fill: parent
         fillMode: Image.Tile
-        source: bgColor.substring(0,7) == "file://" ? bgColor : ""
+        source: bgColor.toString() == "#010101" ? "images/background.png" : ""
     }
 
     Item {

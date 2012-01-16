@@ -42,7 +42,7 @@ import QtQuick 2.0
 
 Label {
     id: bgColorPicker
-    property string color: "#242424"
+    property color color: "#242424"
     caption: "Background color"
     Image {
         id: highlight
@@ -95,7 +95,7 @@ Label {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    bgColorPicker.color = parent.source
+                    bgColorPicker.color = "#010101"
                     highlight.x = parent.x - 3
                 }
             }
