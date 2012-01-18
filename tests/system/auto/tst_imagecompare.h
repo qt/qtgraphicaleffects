@@ -48,6 +48,9 @@ class tst_imagecompare : public QObject
 {
     Q_OBJECT
 
+public:
+    void setDiffTolerance(int tolerance);
+
 private Q_SLOTS:
     void initTestCase();
     void blend_varMode();

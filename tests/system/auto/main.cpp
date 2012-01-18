@@ -48,6 +48,23 @@ int main(int argc, char *argv[]){
 
     tst_imagecompare test;
 
+    // Tolerance for pixel ARGB component comparison can be set using command line argument -t with tolerance integer value
+    // E.g. [program name] -t [tolerance]
+    int tolerance = 0;
+    for(int i = 0; i < argc; i++){
+        if (strcmp(argv[i], "-t") == 0){
+            tolerance = atoi(argv[i+1]);
+
+            // Tolerance arguments are removed from the argument list so the list can be sent to QTestLib
+            for(i; i < argc; i++){
+                argv[i] = argv[i+2];
+            }
+            argc -= 2;
+            break;
+        }
+    }
+    test.setDiffTolerance(tolerance);
+
     // To be enabled/uncommented if test result output is needed in XML format
     //QStringList arguments;
     //arguments << " " << "-o" << "results.xml" << "-xml";

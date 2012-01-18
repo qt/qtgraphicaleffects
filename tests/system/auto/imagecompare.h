@@ -44,8 +44,10 @@
 
 #include <QObject>
 #include <QtCore/QCoreApplication>
+#include <QtCore/QDir>
 #include <QtGui/QImage>
 #include <math.h>
+#include <QDebug>
 
 class ImageCompare : public QObject
 {
@@ -53,7 +55,8 @@ class ImageCompare : public QObject
 
 public:
     explicit ImageCompare(QObject *parent = 0);
-    bool CompareImages(QImage, QImage);
+    bool ComparePixels(QImage actual, QImage expected, int tolerance = 0, QString filename = "difference.png");
+    bool CompareSizes(QImage actual, QImage expected);
     
 signals:
     

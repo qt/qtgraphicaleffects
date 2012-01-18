@@ -48,8 +48,13 @@
 #include "imagecompare.h"
 #include "tst_imagecompare.h"
 
-QDir expectedDir("../../../doc/src/images");
+QDir expectedDir("../images");
 QDir actualDir("./output");
+int diffTolerance = 0;
+
+void tst_imagecompare::setDiffTolerance(int tolerance){
+    diffTolerance = tolerance;
+}
 
 void tst_imagecompare::initTestCase(){
     QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
@@ -59,6 +64,9 @@ void tst_imagecompare::initTestCase(){
 
     // Verifies that QTDIR environment variable is set
     QCOMPARE(qtDir == "", false);
+
+    // Verifies does the expected images folder exist
+    QCOMPARE(expectedDir.exists(), true);
 
     QProcess *myProcess = new QProcess();
     myProcess->start(qtDir + "/bin/qmlscene", dumperpath);
@@ -83,14 +91,23 @@ void tst_imagecompare::blend_varMode(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 
@@ -102,14 +119,23 @@ void tst_imagecompare::brightnessContrast_varBrightness(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::brightnessContrast_varContrast(){
@@ -120,14 +146,23 @@ void tst_imagecompare::brightnessContrast_varContrast(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 
@@ -139,14 +174,23 @@ void tst_imagecompare::colorize_varHue(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::colorize_varSaturation(){
@@ -157,14 +201,23 @@ void tst_imagecompare::colorize_varSaturation(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;'
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::colorize_varLightness(){
@@ -175,14 +228,23 @@ void tst_imagecompare::colorize_varLightness(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 
@@ -194,14 +256,23 @@ void tst_imagecompare::colorOverlay_varColor(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 
@@ -213,14 +284,23 @@ void tst_imagecompare::conicalGradient_varAngle(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::conicalGradient_varHorizontalOffset(){
@@ -231,14 +311,23 @@ void tst_imagecompare::conicalGradient_varHorizontalOffset(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::conicalGradient_varVerticalOffset(){
@@ -249,14 +338,23 @@ void tst_imagecompare::conicalGradient_varVerticalOffset(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::conicalGradient_varGradient(){
@@ -267,14 +365,23 @@ void tst_imagecompare::conicalGradient_varGradient(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::conicalGradient_varMaskSource(){
@@ -285,14 +392,23 @@ void tst_imagecompare::conicalGradient_varMaskSource(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 
@@ -304,14 +420,23 @@ void tst_imagecompare::desaturate_varDesaturation(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 
@@ -323,14 +448,23 @@ void tst_imagecompare::displace_varDisplacement(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 
@@ -342,14 +476,23 @@ void tst_imagecompare::dropShadow_varRadius(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::dropShadow_varColor(){
@@ -360,14 +503,23 @@ void tst_imagecompare::dropShadow_varColor(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::dropShadow_varHorizontalOffset(){
@@ -378,14 +530,23 @@ void tst_imagecompare::dropShadow_varHorizontalOffset(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::dropShadow_varVerticalOffset(){
@@ -396,14 +557,23 @@ void tst_imagecompare::dropShadow_varVerticalOffset(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::dropShadow_varSpread(){
@@ -414,14 +584,23 @@ void tst_imagecompare::dropShadow_varSpread(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::dropShadow_varFast(){
@@ -432,14 +611,23 @@ void tst_imagecompare::dropShadow_varFast(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 
@@ -451,14 +639,23 @@ void tst_imagecompare::glow_varRadius(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::glow_varColor(){
@@ -469,14 +666,23 @@ void tst_imagecompare::glow_varColor(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::glow_varSpread(){
@@ -487,14 +693,23 @@ void tst_imagecompare::glow_varSpread(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::glow_varFast(){
@@ -505,14 +720,23 @@ void tst_imagecompare::glow_varFast(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 
@@ -524,14 +748,23 @@ void tst_imagecompare::fastBlur_varBlur(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::fastBlur_varTransparentBorder(){
@@ -542,14 +775,23 @@ void tst_imagecompare::fastBlur_varTransparentBorder(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 
@@ -561,14 +803,23 @@ void tst_imagecompare::gammaAdjust_varGamma(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 
@@ -580,14 +831,23 @@ void tst_imagecompare::gaussianBlur_varRadius(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::gaussianBlur_varDeviation(){
@@ -598,14 +858,23 @@ void tst_imagecompare::gaussianBlur_varDeviation(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::gaussianBlur_varTransparentBorder(){
@@ -616,14 +885,23 @@ void tst_imagecompare::gaussianBlur_varTransparentBorder(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 
@@ -635,14 +913,23 @@ void tst_imagecompare::hueSaturation_varHue(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::hueSaturation_varSaturation(){
@@ -653,14 +940,23 @@ void tst_imagecompare::hueSaturation_varSaturation(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::hueSaturation_varLightness(){
@@ -671,14 +967,23 @@ void tst_imagecompare::hueSaturation_varLightness(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 
@@ -690,14 +995,23 @@ void tst_imagecompare::innerShadow_varRadius(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::innerShadow_varHorizontalOffset(){
@@ -708,14 +1022,23 @@ void tst_imagecompare::innerShadow_varHorizontalOffset(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::innerShadow_varVerticalOffset(){
@@ -726,14 +1049,23 @@ void tst_imagecompare::innerShadow_varVerticalOffset(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::innerShadow_varSpread(){
@@ -744,14 +1076,23 @@ void tst_imagecompare::innerShadow_varSpread(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::innerShadow_varFast(){
@@ -762,14 +1103,23 @@ void tst_imagecompare::innerShadow_varFast(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::innerShadow_varColor(){
@@ -780,14 +1130,23 @@ void tst_imagecompare::innerShadow_varColor(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 
@@ -799,14 +1158,23 @@ void tst_imagecompare::linearGradient_varGradient(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::linearGradient_varStart(){
@@ -817,14 +1185,23 @@ void tst_imagecompare::linearGradient_varStart(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::linearGradient_varEnd(){
@@ -835,14 +1212,23 @@ void tst_imagecompare::linearGradient_varEnd(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::linearGradient_varMaskSource(){
@@ -853,14 +1239,23 @@ void tst_imagecompare::linearGradient_varMaskSource(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 
@@ -872,14 +1267,23 @@ void tst_imagecompare::opacityMask_varMaskSource(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 
@@ -891,14 +1295,23 @@ void tst_imagecompare::radialGradient_varHorizontalOffset(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::radialGradient_varVerticalOffset(){
@@ -909,14 +1322,23 @@ void tst_imagecompare::radialGradient_varVerticalOffset(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::radialGradient_varHorizontalRadius(){
@@ -927,14 +1349,23 @@ void tst_imagecompare::radialGradient_varHorizontalRadius(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::radialGradient_varVerticalRadius(){
@@ -945,14 +1376,23 @@ void tst_imagecompare::radialGradient_varVerticalRadius(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::radialGradient_varGradient(){
@@ -963,14 +1403,23 @@ void tst_imagecompare::radialGradient_varGradient(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::radialGradient_varAngle(){
@@ -981,14 +1430,23 @@ void tst_imagecompare::radialGradient_varAngle(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::radialGradient_varMaskSource(){
@@ -999,14 +1457,23 @@ void tst_imagecompare::radialGradient_varMaskSource(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 
@@ -1018,14 +1485,23 @@ void tst_imagecompare::rectangularGlow_varGlowRadius(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::rectangularGlow_varSpread(){
@@ -1036,14 +1512,23 @@ void tst_imagecompare::rectangularGlow_varSpread(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::rectangularGlow_varColor(){
@@ -1054,14 +1539,23 @@ void tst_imagecompare::rectangularGlow_varColor(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::rectangularGlow_varCornerRadius(){
@@ -1072,14 +1566,23 @@ void tst_imagecompare::rectangularGlow_varCornerRadius(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 
@@ -1091,14 +1594,23 @@ void tst_imagecompare::recursiveBlur_varLoops(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::recursiveBlur_varRadius(){
@@ -1109,14 +1621,23 @@ void tst_imagecompare::recursiveBlur_varRadius(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::recursiveBlur_varTransparentBorder(){
@@ -1127,14 +1648,23 @@ void tst_imagecompare::recursiveBlur_varTransparentBorder(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 
@@ -1146,14 +1676,23 @@ void tst_imagecompare::thresholdMask_varSpread(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::thresholdMask_varThreshold(){
@@ -1164,14 +1703,23 @@ void tst_imagecompare::thresholdMask_varThreshold(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 
@@ -1183,14 +1731,23 @@ void tst_imagecompare::radialBlur_varAngle(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::radialBlur_varHorizontalOffset(){
@@ -1201,14 +1758,23 @@ void tst_imagecompare::radialBlur_varHorizontalOffset(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::radialBlur_varVerticalOffset(){
@@ -1219,14 +1785,23 @@ void tst_imagecompare::radialBlur_varVerticalOffset(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 
@@ -1238,14 +1813,23 @@ void tst_imagecompare::directionalBlur_varAngle(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::directionalBlur_varLength(){
@@ -1256,14 +1840,23 @@ void tst_imagecompare::directionalBlur_varLength(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 
@@ -1275,14 +1868,23 @@ void tst_imagecompare::zoomBlur_varHorizontalOffset(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::zoomBlur_varVerticalOffset(){
@@ -1293,14 +1895,23 @@ void tst_imagecompare::zoomBlur_varVerticalOffset(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::zoomBlur_varLength(){
@@ -1311,14 +1922,23 @@ void tst_imagecompare::zoomBlur_varLength(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 
@@ -1330,14 +1950,23 @@ void tst_imagecompare::levelAdjust_varMinimumInput(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::levelAdjust_varMaximumInput(){
@@ -1348,14 +1977,23 @@ void tst_imagecompare::levelAdjust_varMaximumInput(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::levelAdjust_varMinimumOutput(){
@@ -1366,14 +2004,23 @@ void tst_imagecompare::levelAdjust_varMinimumOutput(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::levelAdjust_varMaximumOutput(){
@@ -1384,14 +2031,23 @@ void tst_imagecompare::levelAdjust_varMaximumOutput(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 
@@ -1403,14 +2059,23 @@ void tst_imagecompare::maskedBlur_varRadius(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::maskedBlur_varFast(){
@@ -1421,14 +2086,23 @@ void tst_imagecompare::maskedBlur_varFast(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
 void tst_imagecompare::maskedBlur_varTransparentBorder(){
@@ -1439,13 +2113,22 @@ void tst_imagecompare::maskedBlur_varTransparentBorder(){
 
     for (int i = 0; i < list.size(); ++i){
         QString filename = list.at(i).toLocal8Bit().constData();
-        //qDebug() << "Testing shader image " + filename;
+        qDebug() << "Testing shader image " + filename;
         QString actualFile = actualDir.absolutePath() + "/" + filename;
         QString expectedFile = expectedDir.absolutePath() + "/" + filename;
 
         QImage actual(actualFile);
         QImage expected(expectedFile);
+
+        // Verifies that pngdumper generated image is not a null size image
+        QCOMPARE((actual.width() != 0 || actual.height() != 0), true);
+
         ImageCompare compare;
-        QCOMPARE(compare.CompareImages(actual, expected), true);
+
+        // Verifies that actual and expected images have the same size
+        QCOMPARE(compare.CompareSizes(actual, expected), true);
+
+        // Verifies that actual and expected images are pixel-wise the same
+        QCOMPARE(compare.ComparePixels(actual, expected, diffTolerance, filename), true);
     }
 }
