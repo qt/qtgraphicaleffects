@@ -66,7 +66,7 @@ Item {
         id: gaussianGlow
         GaussianGlow {
             anchors.fill: parent
-            source: rootItem.source
+            source: sourceProxy.output
             radius: rootItem.radius
             maximumRadius: rootItem.samples * 0.5
             color: rootItem.color
@@ -80,7 +80,7 @@ Item {
         id: fastGlow
         FastGlow {
             anchors.fill: parent
-            source: rootItem.source
+            source: sourceProxy.output
             blur: Math.pow(rootItem.radius / 64.0, 0.4)
             color: rootItem.color
             cached: rootItem.cached
@@ -89,8 +89,12 @@ Item {
         }
     }
 
-    ShaderEffectSource {
+    SourceProxy {
+        id: sourceProxy
+        input: rootItem.source
+    }
+    ShaderEffect {
         anchors.fill: parent
-        sourceItem: rootItem.source
+        property variant source: sourceProxy.output
     }
 }
