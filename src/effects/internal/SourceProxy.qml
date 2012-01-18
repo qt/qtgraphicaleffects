@@ -57,7 +57,7 @@ Item {
         else if (isQQuickItemLayerEnabled(input)) {
             output =  input
         }
-        else if ((isQQuickImage(input) && !hasChildren(input))) {
+        else if ((isQQuickImage(input) && !hasTileMode(input) && !hasChildren(input))) {
             output =  input
         }
         else if (isQQuickShaderEffectSource(input)) {
@@ -100,6 +100,16 @@ Item {
     function hasChildren(item) {
         if (item.hasOwnProperty("childrenRect")) {
             if (item["childrenRect"].toString() != "QRectF(0, 0, 0, 0)")
+                return true
+            else
+                return false
+        }
+        return false
+    }
+
+    function hasTileMode(item) {
+        if (item.hasOwnProperty("fillMode")) {
+            if (item["fillMode"].toString() != "0")
                 return true
             else
                 return false
