@@ -61,7 +61,7 @@ Item {
     ShaderEffectSource {
         id: gradientSource
         sourceItem: Rectangle {
-            width: 1
+            width: 16
             height: 256
             gradient: rootItem.gradient
             smooth: true
