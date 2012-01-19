@@ -54,32 +54,6 @@
     The following example shows how to apply the effect.
     \snippet snippets/Colorize-example.qml example
 
-    \section1 Memory Consumption
-
-    The internal memory consumption is small.
-    If source item is not Image or ShaderEffectSource, then effect internally creates one ShaderEffectSource item per source.
-    The ShaderEffectSource memory consumption is approximately the same as the memory consumption of the the
-    source item area in pixels. Enabling the effect cache increases the memory
-    consumption.
-
-    \table
-    \header
-        \o Estimated memory usage for an effect with a size of 640x480 pixels with 32 bits per pixel (bpp)
-        \o
-    \row
-        \o Effect internal
-        \o 0 MB
-    \row
-        \o ShaderEffectSource (if used)
-        \o 1.2 MB
-    \row
-        \o Effect internal cache (if enabled)
-        \o 1.2 MB
-    \row
-        \o TOTAL (max)
-        \o 2.4 MB
-    \endtable
-
 */
 
 /*!

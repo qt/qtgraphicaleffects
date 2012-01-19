@@ -52,32 +52,6 @@
     The following example shows how to apply the effect.
     \snippet snippets/RadialBlur-example.qml example
 
-    \chapter Memory consumption
-
-    The internal memory consumption is small.
-    If source item is not Image or ShaderEffectSource, then effect internally
-    creates one ShaderEffectSource item per source. Enabling the effect cache
-    increases the memory consumption because an extra buffer is allocated for
-    the effect output.
-
-    \table
-    \header
-        \o Estimated memory usage for 640x480 pixels size effect (32bpp colors)
-        \o
-    \row
-        \o Effect internal
-        \o 0.0 MB
-    \row
-        \o ShaderEffectSource (if used)
-        \o 1.2 MB
-    \row
-        \o Effect internal cache (if enabled)
-        \o 1.2 MB
-    \row
-        \o TOTAL (max)
-        \o 2.4 MB
-    \endtable
-
 */
 
 /*!
