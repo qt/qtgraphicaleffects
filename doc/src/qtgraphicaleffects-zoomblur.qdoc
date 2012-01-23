@@ -159,18 +159,17 @@
 /*!
     \qmlproperty bool QtGraphicalEffects::ZoomBlur::transparentBorder
 
-    This property defines the blur near the edges of the item, where the pixel
-    blurring is affected by the pixels just outside the source.
+    This property defines the blur behavior near the edges of the item, where
+    the pixel blurring is affected by the pixels outside the source edges.
 
-    Setting this property to \c false, interprets the pixels outside the item
-    according to the OpenGL clamp-to-edge mode. If the source is Image, the pixels
-    are interpreted according to the Image::fillMode property. If the source is
-    ShaderEffectSource, the pixels are interpreted according to the
-    ShaderEffectSource::wrapMode property.
-
-    Setting this property to \c true, interprets the pixels outside the item to
-    be transparent. This behavior is similar to the OpenGL clamp-to-border
+    If the property is set to \c true, the pixels outside the source are
+    interpreted to be transparent, which is similar to OpenGL clamp-to-border
     extension. The blur is expanded slightly outside the effect item area.
+
+    If the property is set to \c false, the pixels outside the source are 
+    interpreted to contain the same color as the pixels at the edge of the item, 
+    which is similar to OpenGL clamp-to-edge behavior. The blur does not expand 
+    outside the effect item area.
 
     By default, the property is set to \c false.
 
