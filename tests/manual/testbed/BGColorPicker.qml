@@ -45,64 +45,88 @@ Label {
     property color color: "#242424"
     caption: "Background color"
 
-    Image {
-        id: highlight
-        source: "images/color_selection_hl.png"
-        width: 14
-        height: 14
-        x: initial.x - (highlight.width - initial.width) * 0.5
-        y: selection.y - (highlight.height - selection.height) * 0.5
-    }
-
     Row {
         id: selection
+        x: -3
         y: 3
-        spacing: 8
-        Rectangle { width: 12; height: 12; color: "#ffffff"
+        spacing: 4
+        Rectangle { width: 16; height: 16; color: "#ffffff"
+            Image {
+                anchors.centerIn: parent
+                source: "images/color_selection_mask.png"
+            }
             MouseArea {
                 anchors.fill: parent
+                anchors.margins: -3
                 onClicked: {
                     bgColorPicker.color = parent.color
-                    highlight.x = parent.x - (highlight.width - parent.width) * 0.5
+                    highlight.x = parent.x - 3
                 }
             }
         }
-        Rectangle { width: 12; height: 12; color: "#ababab"
+        Rectangle { width: 16; height: 16; color: "#ababab"
+            Image {
+                anchors.centerIn: parent
+                source: "images/color_selection_mask.png"
+            }
             MouseArea {
                 anchors.fill: parent
+                anchors.margins: -3
                 onClicked: {
                     bgColorPicker.color = parent.color
-                    highlight.x = parent.x - (highlight.width - parent.width) * 0.5
+                    highlight.x = parent.x - 3
                 }
             }
         }
-        Rectangle { id: initial; width: 12; height: 12; color: "#242424"
+        Rectangle { id: initial; width: 16; height: 16; color: "#242424"
+            Image {
+                anchors.centerIn: parent
+                source: "images/color_selection_mask.png"
+            }
             MouseArea {
                 anchors.fill: parent
+                anchors.margins: -3
                 onClicked: {
                     bgColorPicker.color = parent.color
-                    highlight.x = parent.x - (highlight.width - parent.width) * 0.5
+                    highlight.x = parent.x - 3
                 }
             }
         }
-        Rectangle { width: 12; height: 12; color: "#000000"
+        Rectangle { width: 16; height: 16; color: "#000000"
+            Image {
+                anchors.centerIn: parent
+                source: "images/color_selection_mask.png"
+            }
             MouseArea {
                 anchors.fill: parent
+                anchors.margins: -3
                 onClicked: {
                     bgColorPicker.color = parent.color
-                    highlight.x = parent.x - (highlight.width - parent.width) * 0.5
+                    highlight.x = parent.x - 3
                 }
             }
         }
         Image { source: "images/background.png"
-            width: 12; height: 12;
+            width: 16; height: 16;
+            Image {
+                anchors.centerIn: parent
+                source: "images/color_selection_mask.png"
+            }
             MouseArea {
                 anchors.fill: parent
+                anchors.margins: -3
                 onClicked: {
                     bgColorPicker.color = "#010101"
-                    highlight.x = parent.x - (highlight.width - parent.width) * 0.5
+                    highlight.x = parent.x - 3
                 }
             }
         }
+    }
+
+    Image {
+        id: highlight
+        source: "images/color_selection_hl.png"
+        x: initial.x - (highlight.width - initial.width) * 0.5
+        y: selection.y - (highlight.height - selection.height) * 0.5
     }
 }
