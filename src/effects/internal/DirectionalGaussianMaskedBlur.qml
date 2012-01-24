@@ -129,55 +129,51 @@ Item {
         }
 
         function buildFragmentShader() {
-        var linearSteps = ""
-
-        if (transparentBorder)
-            linearSteps = "* linearstep(0.0, pixelX, texCoord.s) * linearstep(1.0, stepX, texCoord.s) * linearstep(0.0, pixelY, texCoord.t) * linearstep(1.0, stepY, texCoord.t)"
 
         var shaderSteps = [
-            "gl_FragColor += texture2D(source, texCoord) * factor_0_2.x" + linearSteps + "; texCoord += shift;",
-            "gl_FragColor += texture2D(source, texCoord) * factor_0_2.y" + linearSteps + "; texCoord += shift;",
-            "gl_FragColor += texture2D(source, texCoord) * factor_0_2.z" + linearSteps + "; texCoord += shift;",
+            "gl_FragColor += texture2D(source, texCoord) * factor_0_2.x; texCoord += shift;",
+            "gl_FragColor += texture2D(source, texCoord) * factor_0_2.y; texCoord += shift;",
+            "gl_FragColor += texture2D(source, texCoord) * factor_0_2.z; texCoord += shift;",
 
-            "gl_FragColor += texture2D(source, texCoord) * factor_3_5.x" + linearSteps + "; texCoord += shift;",
-            "gl_FragColor += texture2D(source, texCoord) * factor_3_5.y" + linearSteps + "; texCoord += shift;",
-            "gl_FragColor += texture2D(source, texCoord) * factor_3_5.z" + linearSteps + "; texCoord += shift;",
+            "gl_FragColor += texture2D(source, texCoord) * factor_3_5.x; texCoord += shift;",
+            "gl_FragColor += texture2D(source, texCoord) * factor_3_5.y; texCoord += shift;",
+            "gl_FragColor += texture2D(source, texCoord) * factor_3_5.z; texCoord += shift;",
 
-            "gl_FragColor += texture2D(source, texCoord) * factor_6_8.x" + linearSteps + "; texCoord += shift;",
-            "gl_FragColor += texture2D(source, texCoord) * factor_6_8.y" + linearSteps + "; texCoord += shift;",
-            "gl_FragColor += texture2D(source, texCoord) * factor_6_8.z" + linearSteps + "; texCoord += shift;",
+            "gl_FragColor += texture2D(source, texCoord) * factor_6_8.x; texCoord += shift;",
+            "gl_FragColor += texture2D(source, texCoord) * factor_6_8.y; texCoord += shift;",
+            "gl_FragColor += texture2D(source, texCoord) * factor_6_8.z; texCoord += shift;",
 
-            "gl_FragColor += texture2D(source, texCoord) * factor_9_11.x" + linearSteps + "; texCoord += shift;",
-            "gl_FragColor += texture2D(source, texCoord) * factor_9_11.y" + linearSteps + "; texCoord += shift;",
-            "gl_FragColor += texture2D(source, texCoord) * factor_9_11.z" + linearSteps + "; texCoord += shift;",
+            "gl_FragColor += texture2D(source, texCoord) * factor_9_11.x; texCoord += shift;",
+            "gl_FragColor += texture2D(source, texCoord) * factor_9_11.y; texCoord += shift;",
+            "gl_FragColor += texture2D(source, texCoord) * factor_9_11.z; texCoord += shift;",
 
-            "gl_FragColor += texture2D(source, texCoord) * factor_12_14.x" + linearSteps + "; texCoord += shift;",
-            "gl_FragColor += texture2D(source, texCoord) * factor_12_14.y" + linearSteps + "; texCoord += shift;",
-            "gl_FragColor += texture2D(source, texCoord) * factor_12_14.z" + linearSteps + "; texCoord += shift;",
+            "gl_FragColor += texture2D(source, texCoord) * factor_12_14.x; texCoord += shift;",
+            "gl_FragColor += texture2D(source, texCoord) * factor_12_14.y; texCoord += shift;",
+            "gl_FragColor += texture2D(source, texCoord) * factor_12_14.z; texCoord += shift;",
 
-            "gl_FragColor += texture2D(source, texCoord) * factor_15_17.x" + linearSteps + "; texCoord += shift;",
-            "gl_FragColor += texture2D(source, texCoord) * factor_15_17.y" + linearSteps + "; texCoord += shift;",
-            "gl_FragColor += texture2D(source, texCoord) * factor_15_17.z" + linearSteps + "; texCoord += shift;",
+            "gl_FragColor += texture2D(source, texCoord) * factor_15_17.x; texCoord += shift;",
+            "gl_FragColor += texture2D(source, texCoord) * factor_15_17.y; texCoord += shift;",
+            "gl_FragColor += texture2D(source, texCoord) * factor_15_17.z; texCoord += shift;",
 
-            "gl_FragColor += texture2D(source, texCoord) * factor_18_20.x" + linearSteps + "; texCoord += shift;",
-            "gl_FragColor += texture2D(source, texCoord) * factor_18_20.y" + linearSteps + "; texCoord += shift;",
-            "gl_FragColor += texture2D(source, texCoord) * factor_18_20.z" + linearSteps + "; texCoord += shift;",
+            "gl_FragColor += texture2D(source, texCoord) * factor_18_20.x; texCoord += shift;",
+            "gl_FragColor += texture2D(source, texCoord) * factor_18_20.y; texCoord += shift;",
+            "gl_FragColor += texture2D(source, texCoord) * factor_18_20.z; texCoord += shift;",
 
-            "gl_FragColor += texture2D(source, texCoord) * factor_21_23.x" + linearSteps + "; texCoord += shift;",
-            "gl_FragColor += texture2D(source, texCoord) * factor_21_23.y" + linearSteps + "; texCoord += shift;",
-            "gl_FragColor += texture2D(source, texCoord) * factor_21_23.z" + linearSteps + "; texCoord += shift;",
+            "gl_FragColor += texture2D(source, texCoord) * factor_21_23.x; texCoord += shift;",
+            "gl_FragColor += texture2D(source, texCoord) * factor_21_23.y; texCoord += shift;",
+            "gl_FragColor += texture2D(source, texCoord) * factor_21_23.z; texCoord += shift;",
 
-            "gl_FragColor += texture2D(source, texCoord) * factor_24_26.x" + linearSteps + "; texCoord += shift;",
-            "gl_FragColor += texture2D(source, texCoord) * factor_24_26.y" + linearSteps + "; texCoord += shift;",
-            "gl_FragColor += texture2D(source, texCoord) * factor_24_26.z" + linearSteps + "; texCoord += shift;",
+            "gl_FragColor += texture2D(source, texCoord) * factor_24_26.x; texCoord += shift;",
+            "gl_FragColor += texture2D(source, texCoord) * factor_24_26.y; texCoord += shift;",
+            "gl_FragColor += texture2D(source, texCoord) * factor_24_26.z; texCoord += shift;",
 
-            "gl_FragColor += texture2D(source, texCoord) * factor_27_29.x" + linearSteps + "; texCoord += shift;",
-            "gl_FragColor += texture2D(source, texCoord) * factor_27_29.y" + linearSteps + "; texCoord += shift;",
-            "gl_FragColor += texture2D(source, texCoord) * factor_27_29.z" + linearSteps + "; texCoord += shift;",
+            "gl_FragColor += texture2D(source, texCoord) * factor_27_29.x; texCoord += shift;",
+            "gl_FragColor += texture2D(source, texCoord) * factor_27_29.y; texCoord += shift;",
+            "gl_FragColor += texture2D(source, texCoord) * factor_27_29.z; texCoord += shift;",
 
-            "gl_FragColor += texture2D(source, texCoord) * factor_30_32.x" + linearSteps + "; texCoord += shift;",
-            "gl_FragColor += texture2D(source, texCoord) * factor_30_32.y" + linearSteps + "; texCoord += shift;",
-            "gl_FragColor += texture2D(source, texCoord) * factor_30_32.z" + linearSteps + "; texCoord += shift;"
+            "gl_FragColor += texture2D(source, texCoord) * factor_30_32.x; texCoord += shift;",
+            "gl_FragColor += texture2D(source, texCoord) * factor_30_32.y; texCoord += shift;",
+            "gl_FragColor += texture2D(source, texCoord) * factor_30_32.z; texCoord += shift;"
         ]
 
             var shader = fragmentShaderBegin
@@ -236,14 +232,6 @@ Item {
             uniform highp float expandY;
             uniform highp float pixelX;
             uniform highp float pixelY;
-
-            highp float linearstep(highp float e0, highp float e1, highp float x) {
-                return clamp((x - e0) / (e1 - e0), 0.0, 1.0);
-            }
-
-            highp float dlinearstep(highp float e0, highp float d, highp float x) {
-                return clamp((x - e0) * d, 0.0, 1.0);
-            }
 
             void main() {
                 highp vec2 shift = vec2(delta.x, delta.y) * texture2D(maskSource, qt_TexCoord0).a;

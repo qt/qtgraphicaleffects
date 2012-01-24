@@ -52,11 +52,13 @@ Item {
     SourceProxy {
         id: sourceProxy
         input: rootItem.source
+        sourceRect: rootItem.transparentBorder ? Qt.rect(-1, -1, parent.width + 2.0, parent.height + 2.0) : Qt.rect(0, 0, 0, 0)
     }
 
     SourceProxy {
         id: maskSourceProxy
         input: rootItem.maskSource
+        sourceRect: rootItem.transparentBorder ? Qt.rect(-1, -1, parent.width + 2.0, parent.height + 2.0) : Qt.rect(0, 0, 0, 0)
     }
 
     ShaderEffectSource {
@@ -71,10 +73,10 @@ Item {
 
     DirectionalGaussianMaskedBlur {
         id: blur
-        x: transparentBorder ? -maximumRadius : 0
-        y: transparentBorder ? -maximumRadius : 0
+        x: transparentBorder ? -maximumRadius - 1: 0
+        y: transparentBorder ? -maximumRadius - 1: 0
         width: horizontalBlur.width
-        height: transparentBorder ? horizontalBlur.height + 2 * maximumRadius : horizontalBlur.height
+        height: horizontalBlur.height
 
         horizontalStep: 0.0
         verticalStep: 1.0 / parent.height
@@ -94,8 +96,8 @@ Item {
 
     DirectionalGaussianMaskedBlur {
         id: horizontalBlur
-        width: transparentBorder ? parent.width + 2 * maximumRadius : parent.width
-        height: parent.height
+        width: transparentBorder ? parent.width + 2 * maximumRadius + 2 : parent.width
+        height: transparentBorder ? parent.height + 2 * maximumRadius + 2  : parent.height
 
         horizontalStep: 1.0 / parent.width
         verticalStep: 0.0

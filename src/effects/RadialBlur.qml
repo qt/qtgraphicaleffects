@@ -54,6 +54,7 @@ Item {
     SourceProxy {
         id: sourceProxy
         input: rootItem.source
+        sourceRect: shaderItem.transparentBorder ? Qt.rect(-1, -1, parent.width + 2.0, parent.height + 2.0) : Qt.rect(0, 0, 0, 0)
     }
 
     ShaderEffectSource {
@@ -77,15 +78,14 @@ Item {
         property real angleCosStep: Math.cos(-rootItem.angle * Math.PI/180 / Math.max(1.0, rootItem.samples - 1))
         property variant expandPixels: transparentBorder ? Qt.size(0.5 * parent.height, 0.5 * parent.width) : Qt.size(0,0)
         property variant expand: transparentBorder ? Qt.size(expandPixels.width / width, expandPixels.height / height) : Qt.size(0,0)
-        property variant pixelSize: Qt.size(1.0 / (width / (1.0 - 2 * expand.width)), 1.0 / (height / (1.0 - 2 * expand.height)))
         property variant delta: Qt.size(1.0 / rootItem.width, 1.0 / rootItem.height)
-        property real w: width
-        property real h: height
+        property real w: parent.width
+        property real h: parent.height
 
-        x: transparentBorder ? -expandPixels.width : 0
-        y: transparentBorder ? -expandPixels.height : 0
-        width: transparentBorder ? parent.width + expandPixels.width * 2.0 : parent.width
-        height: transparentBorder ? parent.height + expandPixels.height * 2.0 : parent.height
+        x: transparentBorder ? -expandPixels.width - 1 : 0
+        y: transparentBorder ? -expandPixels.height - 1 : 0
+        width: transparentBorder ? parent.width + expandPixels.width * 2.0 + 2 : parent.width
+        height: transparentBorder ? parent.height + expandPixels.height * 2.0 + 2 : parent.height
 
         property string fragmentShaderSkeleton: "
             varying highp vec2 qt_TexCoord0;
@@ -96,25 +96,20 @@ Item {
             uniform highp float weight;
             uniform highp vec2 expand;
             uniform highp vec2 center;
-            uniform highp vec2 pixelSize;
             uniform highp vec2 delta;
             uniform highp float w;
             uniform highp float h;
-
-            highp float linearstep(highp float e0, highp float e1, highp float x) {
-                return clamp((x - e0) / (e1 - e0), 0.0, 1.0);
-            }
 
             void main(void) {
                 highp mat2 m;
                 m[0] = vec2(angleCosStep, -angleSinStep);
                 m[1] = vec2(angleSinStep, angleCosStep);
                 gl_FragColor = vec4(0.0);
-                highp vec2 dir = vec2(qt_TexCoord0.s * w - w * 0.5, qt_TexCoord0.t * h - h * 0.5);
-
                 mediump vec2 texCoord = qt_TexCoord0;
 
                 PLACEHOLDER_EXPAND_STEPS
+
+                highp vec2 dir = vec2(texCoord.s * w - w * 0.5, texCoord.t * h - h * 0.5);
 
                 PLACEHOLDER_UNROLLED_LOOP
 
@@ -125,21 +120,18 @@ Item {
         function buildFragmentShader() {
             var shader = fragmentShaderSkeleton
             var expandSteps = ""
-            var linearSteps = ""
 
             if (transparentBorder) {
                 expandSteps += "texCoord.s = (texCoord.s - expand.x) / (1.0 - 2.0 * expand.x);"
                 expandSteps += "texCoord.t = (texCoord.t - expand.y) / (1.0 - 2.0 * expand.y);"
-                expandSteps += "highp vec2 stepSize = vec2(1.0 - pixelSize.x, 1.0 - pixelSize.y);"
-                linearSteps = "* linearstep(0.0, pixelSize.x, texCoord.s) * linearstep(1.0, stepSize.x, texCoord.s) * linearstep(0.0, pixelSize.y, texCoord.t) * linearstep(1.0, stepSize.y, texCoord.t)"
             }
 
-            var unrolledLoop = "gl_FragColor += texture2D(source, texCoord) " + linearSteps + ";\n"
+            var unrolledLoop = "gl_FragColor += texture2D(source, texCoord);\n"
 
             if (rootItem.samples > 1) {
                  unrolledLoop = ""
                  for (var i = 0; i < rootItem.samples; i++)
-                     unrolledLoop += "texCoord = vec2(center.x + dir.x * delta.x, center.y + dir.y * delta.y); gl_FragColor += texture2D(source, texCoord) * weight " + linearSteps + "; dir *= m;\n"
+                     unrolledLoop += "texCoord = vec2(center.x + dir.x * delta.x, center.y + dir.y * delta.y); gl_FragColor += texture2D(source, texCoord) * weight; dir *= m;\n"
             }
 
             shader = shader.replace("PLACEHOLDER_EXPAND_STEPS", expandSteps)

@@ -58,16 +58,17 @@ Item {
     SourceProxy {
         id: sourceProxy
         input: rootItem.source
+        sourceRect: rootItem.transparentBorder ? Qt.rect(-1, -1, parent.width + 2, parent.height + 2) : Qt.rect(0, 0, 0, 0)
     }
 
     ShaderEffectSource {
         id: cacheItem
-        anchors.fill: parent
+        anchors.fill: verticalBlur
         smooth: true
         visible: rootItem.cached
         hideSource: visible
         live: true
-        sourceItem: blurItem
+        sourceItem: inputItem.visible ? inputItem : verticalBlur
     }
 
     Item {
@@ -84,7 +85,7 @@ Item {
                 recursionTimer.counter = 0
 
             if (counter > 0)
-                recursiveSource.sourceItem = blurItem
+                recursiveSource.sourceItem = verticalBlur
             else
                 recursiveSource.sourceItem = inputItem
 
@@ -98,8 +99,37 @@ Item {
     ShaderEffect {
         id: inputItem
         property variant source: sourceProxy.output
-        anchors.fill: parent
-        visible: !blurItem.visible
+        property real expandX: rootItem.transparentBorder ? (horizontalBlur.maximumRadius) / horizontalBlur.width : 0.0
+        property real expandY: rootItem.transparentBorder ? (horizontalBlur.maximumRadius) / horizontalBlur.height : 0.0
+
+        anchors.fill: verticalBlur
+        visible: !verticalBlur.visible
+
+        vertexShader: "
+            attribute highp vec4 qt_Vertex;
+            attribute highp vec2 qt_MultiTexCoord0;
+            uniform highp mat4 qt_Matrix;
+            uniform highp float expandX;
+            uniform highp float expandY;
+            varying highp vec2 qt_TexCoord0;
+
+            void main() {
+                mediump vec2 texCoord = qt_MultiTexCoord0;
+                texCoord.s = (texCoord.s - expandX) / (1.0 - 2.0 * expandX);
+                texCoord.t = (texCoord.t - expandY) / (1.0 - 2.0 * expandY);
+                qt_TexCoord0 = texCoord;
+                gl_Position = qt_Matrix * qt_Vertex;
+            }
+        "
+
+        fragmentShader: "
+            varying mediump vec2 qt_TexCoord0;
+            uniform highp float qt_Opacity;
+            uniform sampler2D source;
+            void main() {
+                gl_FragColor = texture2D(source, qt_TexCoord0) * qt_Opacity;
+            }
+        "
     }
 
     ShaderEffectSource {
@@ -114,15 +144,43 @@ Item {
         onScheduledUpdateCompleted: recursionTimer.nextFrame()
     }
 
-    GaussianBlur {
-        id: blurItem
-        visible: loops > 0
-        anchors.fill: parent
-        radius: rootItem.radius
-        samples: Math.ceil(2.0 * rootItem.radius)
+    DirectionalGaussianBlur {
+        id: verticalBlur
+        x: rootItem.transparentBorder ? -horizontalBlur.maximumRadius - 1 : 0
+        y: rootItem.transparentBorder ? -horizontalBlur.maximumRadius - 1 : 0
+        width: horizontalBlur.width + 2
+        height: horizontalBlur.height + 2
+
+        horizontalStep: 0.0
+        verticalStep: 1.0 / parent.height
+
+        source: ShaderEffectSource {
+            sourceItem: horizontalBlur
+            hideSource: true
+            visible: false
+            smooth: true
+        }
+
         deviation: (radius + 1) / 2.3333
-        transparentBorder: rootItem.transparentBorder
-        cached: false
+        radius: rootItem.radius
+        maximumRadius: Math.ceil(rootItem.radius)
+        transparentBorder: false
+        visible: loops > 0
+    }
+
+    DirectionalGaussianBlur {
+        id: horizontalBlur
+        width: rootItem.transparentBorder ? parent.width + 2 * maximumRadius + 2 : parent.width
+        height: rootItem.transparentBorder ? parent.height + 2 * maximumRadius + 2 : parent.height
+
+        horizontalStep: 1.0 / parent.width
+        verticalStep: 0.0
+
         source: recursiveSource
+        deviation: (radius + 1) / 2.3333
+        radius: rootItem.radius
+        maximumRadius: Math.ceil(rootItem.radius)
+        transparentBorder: false
+        visible: false
     }
 }
