@@ -44,15 +44,18 @@ Label {
     id: bgColorPicker
     property color color: "#242424"
     caption: "Background color"
+
     Image {
         id: highlight
         source: "images/color_selection_hl.png"
-        width: 18; height: 18;
-        x: 37
-        y: 0
+        width: 14
+        height: 14
+        x: initial.x - (highlight.width - initial.width) * 0.5
+        y: selection.y - (highlight.height - selection.height) * 0.5
     }
 
     Row {
+        id: selection
         y: 3
         spacing: 8
         Rectangle { width: 12; height: 12; color: "#ffffff"
@@ -60,7 +63,7 @@ Label {
                 anchors.fill: parent
                 onClicked: {
                     bgColorPicker.color = parent.color
-                    highlight.x = parent.x - 3
+                    highlight.x = parent.x - (highlight.width - parent.width) * 0.5
                 }
             }
         }
@@ -69,16 +72,16 @@ Label {
                 anchors.fill: parent
                 onClicked: {
                     bgColorPicker.color = parent.color
-                    highlight.x = parent.x - 3
+                    highlight.x = parent.x - (highlight.width - parent.width) * 0.5
                 }
             }
         }
-        Rectangle { width: 12; height: 12; color: "#242424"
+        Rectangle { id: initial; width: 12; height: 12; color: "#242424"
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
                     bgColorPicker.color = parent.color
-                    highlight.x = parent.x - 3
+                    highlight.x = parent.x - (highlight.width - parent.width) * 0.5
                 }
             }
         }
@@ -87,16 +90,17 @@ Label {
                 anchors.fill: parent
                 onClicked: {
                     bgColorPicker.color = parent.color
-                    highlight.x = parent.x - 3
+                    highlight.x = parent.x - (highlight.width - parent.width) * 0.5
                 }
             }
         }
-        Image {source: "images/background.png"
+        Image { source: "images/background.png"
+            width: 12; height: 12;
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
                     bgColorPicker.color = "#010101"
-                    highlight.x = parent.x - 3
+                    highlight.x = parent.x - (highlight.width - parent.width) * 0.5
                 }
             }
         }
