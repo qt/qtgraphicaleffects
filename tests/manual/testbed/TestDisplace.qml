@@ -54,14 +54,14 @@ TestCaseTemplate {
         color: "#8080ff"
         smooth: true
         anchors.fill: parent
-            Image {
-                id: di
-                x: (parent.width - width) / 2
-                y: (parent.height - height) / 2
-                sourceSize: Qt.size(128, 128)
-                source: "images/displacementmap.png"
-                smooth: true
-            }
+        Image {
+            id: di
+            x: (parent.width - width) / 2
+            y: (parent.height - height) / 2
+            sourceSize: Qt.size(128, 128)
+            source: "images/glass_normal.png"
+            smooth: true
+        }
     }
 
     Displace {
@@ -87,8 +87,8 @@ TestCaseTemplate {
             Slider {
                 id: displacementScaleSlider
                 caption: "displacement"
-                minimum: -1.0
-                maximum: 1.0
+                minimum: -0.5
+                maximum: 0.5
                 value: 0.1
             }
         },
