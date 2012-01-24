@@ -61,7 +61,7 @@ Item {
         visible: false
         Image {
             anchors.centerIn: parent
-            source: "images/displacementmap.png"
+            source: "images/glass_normal.png"
             sourceSize: Qt.size(parent.width/2, parent.height/2)
             smooth: true
         }

@@ -85,21 +85,6 @@
     downwards. The actual amount of displacement in pixels depends on the \l
     displacement property.
 
-\table
-\header
-\o Output examples with different displacement values
-\o
-\o
-\row
-    \o \image Displace_displacement1.png
-    \o \image Displace_displacement2.png
-    \o \image Displace_displacement3.png
-\row
-    \o \bold { displacement: -0.3 }
-    \o \bold { displacement: 0.0 }
-    \o \bold { displacement: 0.3 }
-\endtable
-
 */
 
 /*!
@@ -115,13 +100,17 @@
 
     \table
     \header
-        \o Output examples with different displacement values
-        \o
-        \o
+    \o Output examples with different displacement values
+    \o
+    \o
     \row
         \o \image Displace_displacement1.png
         \o \image Displace_displacement2.png
         \o \image Displace_displacement3.png
+    \row
+        \o \bold { displacement: -0.2 }
+        \o \bold { displacement: 0.0 }
+        \o \bold { displacement: 0.2 }
     \endtable
 
 */

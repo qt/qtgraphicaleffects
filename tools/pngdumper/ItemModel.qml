@@ -167,7 +167,6 @@ VisualItemModel {
         property variant __values: ["0.0", "0.5", "1.0"]
     }
 
-    // TODO: Update the displacement texture
     Displace {
         width: size
         height: size
@@ -176,7 +175,7 @@ VisualItemModel {
         property string __name: "Displace"
         property variant __properties: ["displacement"]
         property string __varyingProperty: "displacement"
-        property variant __values: ["-0.3", "0.0", "0.3"]
+        property variant __values: ["-0.2", "0.0", "0.2"]
     }
 
     DropShadow {
