@@ -67,7 +67,7 @@ TestCaseTemplate {
     PositionPicker {
         id: offsetPicker
         xValue: 0.50
-        yValue: 0.50
+        yValue: 0.51
     }
 
     bgColor: bgColorPicker.color
@@ -118,7 +118,7 @@ TestCaseTemplate {
                 hue: 0
                 saturation: 0
                 lightness: 0
-                alpha: 1.0
+                alpha: 0.75
             }
         },
 

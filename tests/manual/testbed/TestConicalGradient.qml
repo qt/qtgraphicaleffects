@@ -98,9 +98,9 @@ TestCaseTemplate {
             caption: "gradient begin color"
             ColorPicker {
                 id: gradientBeginColorSlider
-                hue: 340/360
-                saturation: 0.9
-                lightness: 0.27
+                hue: 0.67
+                saturation: 1.0
+                lightness: 0.5
             }
         },
 
@@ -108,8 +108,8 @@ TestCaseTemplate {
             caption: "gradient end color"
             ColorPicker {
                 id: gradientEndColorSlider
-                hue: 46/360
-                saturation: 1
+                hue: 0.5
+                saturation: 1.0
                 lightness: 0.5
             }
         },

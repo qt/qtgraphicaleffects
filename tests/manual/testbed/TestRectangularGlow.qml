@@ -61,7 +61,7 @@ TestCaseTemplate {
         width: Math.round(parent.width / 1.5)
         height: Math.round(parent.height / 2)
         radius: 25
-        color: "#cc4b00"
+        color: "black"
         smooth: true
     }
 
