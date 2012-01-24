@@ -89,6 +89,11 @@ Rectangle {
     }
 
     Image {
+        anchors {right: testLoader.right; rightMargin: 300; top: parent.top; bottom: parent.bottom}
+        source: "images/workarea_right.png"
+    }
+
+    Image {
         anchors {left: testLoader.left; top: parent.top; bottom: parent.bottom}
         source: "images/workarea_left.png"
     }
