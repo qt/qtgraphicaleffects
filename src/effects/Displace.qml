@@ -95,7 +95,7 @@ Item {
                 lowp vec4 offset = texture2D(displacementSource, qt_TexCoord0);
                 offset.xy -= vec2(0.5, 0.5);
                 offset.xy = offset.xy * step(vec2(1.0/256.0), abs(offset.xy));
-                highp vec2 tx = qt_TexCoord0 + (offset.xy * displacement);
+                highp vec2 tx = qt_TexCoord0 + (vec2(-offset.x, offset.y) * displacement);
 
                 lowp float e1 = linearstep(0.0, xPixel, tx.x);
                 lowp float e2 = linearstep(0.0, yPixel, tx.y);

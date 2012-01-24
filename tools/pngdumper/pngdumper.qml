@@ -169,7 +169,7 @@ Rectangle {
             x: (parent.width - width) / 2
             y: (parent.height - height) / 2
             sourceSize: Qt.size(128, 128)
-            source: "../../tests/manual/testbed/images/displacementmap.png"
+            source: "../../tests/manual/testbed/images/glass_normal.png"
             smooth: true
         }
     }
