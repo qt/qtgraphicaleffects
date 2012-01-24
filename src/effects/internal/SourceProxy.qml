@@ -57,37 +57,24 @@ Item {
         if (input == undefined) {
             output =  input
         }
-        else if (sourceRect != undefined && sourceRect != Qt.rect(0, 0, 0, 0)) {
-            output =  proxySource
+        else if (sourceRect != undefined && sourceRect != Qt.rect(0, 0, 0, 0) && !isQQuickShaderEffectSource(input)) {
+            proxySource.sourceItem = input
+            output = proxySource
             proxySource.sourceRect = sourceRect
-
-            if (isQQuickShaderEffectSource(input)) {
-                proxyEffect.source = input
-                proxyEffect.width = sourceRect.width + sourceRect.x * 2
-                proxyEffect.height = sourceRect.height + sourceRect.y * 2
-                proxySource.sourceItem = proxyEffect
-            } else {
-                proxyEffect.source = undefined
-                proxyEffect.width = 0
-                proxyEffect.height = 0
-                proxySource.sourceItem = input
-            }
         }
         else if (isQQuickItemLayerEnabled(input)) {
-            output =  input
+            output = input
         }
         else if ((isQQuickImage(input) && !hasTileMode(input) && !hasChildren(input))) {
-            output =  input
+            output = input
         }
         else if (isQQuickShaderEffectSource(input)) {
-            output =  input
+            output = input
         }
         else {
             proxySource.sourceItem = input
-            output =  proxySource
+            output = proxySource
             proxySource.sourceRect = Qt.rect(0, 0, 0, 0)
-            proxySource.width = 0
-            proxySource.height = 0
         }
     }
 
@@ -137,11 +124,6 @@ Item {
                 return false
         }
         return false
-    }
-
-    ShaderEffect {
-        id: proxyEffect
-        property variant source
     }
 
     ShaderEffectSource {
