@@ -139,7 +139,7 @@ Gradient {
         \o \image LinearGradient_maskSource2.png
     \row
         \o \bold { source: undefined }
-        \o \bold { source: QQuickShaderEffectSource(0xa090ba8) }
+        \o \bold { source: Image { source: images/butterfly.png } }
     \row
         \o \l start: Qt.point(0, 0)
         \o \l start: Qt.point(0, 0)
