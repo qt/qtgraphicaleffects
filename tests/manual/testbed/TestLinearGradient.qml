@@ -45,15 +45,6 @@ TestCaseTemplate {
     ImageSource {
         id: maskImage
         source: "images/butterfly.png"
-        Text {
-            text: "MASK"
-            font.pixelSize: 60
-            font.bold: true
-            anchors.bottom: parent.bottom
-            anchors.left: parent.left
-            anchors.right: parent.right
-            horizontalAlignment: Text.AlignHCenter
-        }
     }
 
     LinearGradient {
