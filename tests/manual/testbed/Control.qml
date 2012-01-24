@@ -52,6 +52,8 @@ Item {
     height: __hide ? 30 : controlsColumn.height + 40
 
     Behavior on height {
+        id: heightBehavior
+        enabled: false
         NumberAnimation { duration: 100 }
     }
 
@@ -89,7 +91,10 @@ Item {
         anchors.left: parent.left
         anchors.right: parent.right
         height: 30
-        onClicked: control.__hide = !control.__hide
+        onClicked: {
+            heightBehavior.enabled = true
+            control.__hide = !control.__hide
+        }
     }
 
     Column {
