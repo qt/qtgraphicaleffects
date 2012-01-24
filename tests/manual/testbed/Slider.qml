@@ -120,8 +120,8 @@ Item {
 
         MouseArea {
             id: mouseArea
-            anchors {left: parent.left; right: parent.right; leftMargin: 5; rightMargin: 5; verticalCenter: parent.verticalCenter}
-            height: 8
+            anchors { left: parent.left; right: parent.right; verticalCenter: parent.verticalCenter }
+            height: 16
             preventStealing: true
 
             onPressed: {
