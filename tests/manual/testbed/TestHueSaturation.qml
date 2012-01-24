@@ -52,9 +52,9 @@ TestCaseTemplate {
         anchors.fill: imageSource
         visible: enabledCheckBox.selected
         cached: cachedCheckBox.selected
-        hue: colorPicker.hue
-        saturation: colorPicker.saturation
-        lightness: colorPicker.lightness
+        hue: hueSlider.value
+        saturation: saturationSlider.value
+        lightness: lightnessSlider.value
         source: imageSource
     }
 
@@ -62,11 +62,26 @@ TestCaseTemplate {
     controls: [
         Control {
             caption: "general"
-            ColorPicker {
-                id: colorPicker
-                hue: 0.5
-                saturation: 0.5
-                lightness: 0.5
+            Slider {
+                id: hueSlider
+                caption: "hue"
+                minimum: -1.0
+                maximum: 1.0
+                value: 0.0
+            }
+            Slider {
+                id: saturationSlider
+                caption: "saturation"
+                minimum: -1.0
+                maximum: 1.0
+                value: 0.0
+            }
+            Slider {
+                id: lightnessSlider
+                caption: "lightness"
+                minimum: -1.0
+                maximum: 1.0
+                value: 0.0
             }
         },
 
