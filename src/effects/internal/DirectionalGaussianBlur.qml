@@ -81,7 +81,7 @@ Item {
     ShaderEffect {
         id: shaderItem
         property variant source: sourceProxy.output
-        property real deviation: rootItem.deviation
+        property real deviation: Math.max(0.1, rootItem.deviation)
         property real radius: rootItem.radius
         property int maxRadius: rootItem.maximumRadius
         property bool transparentBorder: rootItem.transparentBorder
@@ -276,10 +276,7 @@ Item {
 
         property string fragmentShaderEnd: "
 
-                if (gaussianSum > 0.0)
-                    gl_FragColor /= gaussianSum;
-                else
-                    gl_FragColor = texture2D(source, qt_TexCoord0);
+                gl_FragColor /= gaussianSum;
 
                 PLACEHOLDER_COLORIZE_STEPS
 
