@@ -85,17 +85,13 @@ Item {
         property real radius: rootItem.radius
         property int maxRadius: rootItem.maximumRadius
         property bool transparentBorder: rootItem.transparentBorder
-        property real deltaX: rootItem.horizontalStep
-        property real deltaY: rootItem.verticalStep
         property real gaussianSum: 0.0
         property real startIndex: 0.0
         property real deltaFactor: (2 * radius - 1) / (maxRadius * 2 - 1)
-        property real expandX: transparentBorder && deltaX > 0 ? maxRadius / width : 0.0
-        property real expandY: transparentBorder && deltaY > 0 ? maxRadius / height : 0.0
-        property real pixelX: 1.0 / (width / (1.0 - 2 * expandX))
-        property real pixelY: 1.0 / (height / (1.0 - 2 * expandY))
+        property real expandX: transparentBorder && rootItem.horizontalStep > 0 ? maxRadius / width : 0.0
+        property real expandY: transparentBorder && rootItem.verticalStep > 0 ? maxRadius / height : 0.0
         property variant gwts: []
-        property variant delta: Qt.vector3d(deltaX * deltaFactor, deltaY * deltaFactor, startIndex);
+        property variant delta: Qt.vector3d(rootItem.horizontalStep * deltaFactor, rootItem.verticalStep * deltaFactor, startIndex);
         property variant factor_0_2: Qt.vector3d(gwts[0], gwts[1], gwts[2]);
         property variant factor_3_5: Qt.vector3d(gwts[3], gwts[4], gwts[5]);
         property variant factor_6_8: Qt.vector3d(gwts[6], gwts[7], gwts[8]);
@@ -261,8 +257,6 @@ Item {
             uniform highp float gaussianSum;
             uniform highp float expandX;
             uniform highp float expandY;
-            uniform highp float pixelX;
-            uniform highp float pixelY;
             PLACEHOLDER_MASK_UNIFORMS
             PLACEHOLDER_COLORIZE_UNIFORMS
 
@@ -273,8 +267,6 @@ Item {
 
                 highp float index = delta.z;
                 mediump vec2 texCoord = qt_TexCoord0;
-                highp float stepX = 1.0 - pixelX;
-                highp float stepY = 1.0 - pixelY;
                 texCoord.s = (texCoord.s - expandX) / (1.0 - 2.0 * expandX);
                 texCoord.t = (texCoord.t - expandY) / (1.0 - 2.0 * expandY);
                 texCoord +=  (shift * index);
