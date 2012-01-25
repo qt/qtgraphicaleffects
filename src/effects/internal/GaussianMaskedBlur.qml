@@ -71,7 +71,7 @@ Item {
         hideSource: visible
     }
 
-    DirectionalGaussianMaskedBlur {
+    DirectionalGaussianBlur {
         id: blur
         x: transparentBorder ? -maximumRadius - 1: 0
         y: transparentBorder ? -maximumRadius - 1: 0
@@ -87,14 +87,14 @@ Item {
             visible: false
             smooth: true
         }
+        enableMask: true
         maskSource: maskSourceProxy.output
-
         radius: rootItem.radius
         maximumRadius: rootItem.maximumRadius
         transparentBorder: rootItem.transparentBorder
     }
 
-    DirectionalGaussianMaskedBlur {
+    DirectionalGaussianBlur {
         id: horizontalBlur
         width: transparentBorder ? parent.width + 2 * maximumRadius + 2 : parent.width
         height: transparentBorder ? parent.height + 2 * maximumRadius + 2  : parent.height
@@ -103,6 +103,7 @@ Item {
         verticalStep: 0.0
 
         source: sourceProxy.output
+        enableMask: true
         maskSource: maskSourceProxy.output
         radius: rootItem.radius
         maximumRadius: rootItem.maximumRadius

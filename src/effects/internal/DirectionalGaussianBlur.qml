@@ -51,9 +51,21 @@ Item {
     property bool transparentBorder: false
     property bool cached: false
 
+    property bool enableColor: false
+    property color color: "white"
+    property real spread: 0.0
+
+    property bool enableMask: false
+    property variant maskSource
+
     SourceProxy {
         id: sourceProxy
         input: rootItem.source
+    }
+
+    SourceProxy {
+        id: maskSourceProxy
+        input: rootItem.maskSource
     }
 
     ShaderEffectSource {
@@ -95,6 +107,10 @@ Item {
         property variant factor_24_26: Qt.vector3d(gwts[24], gwts[25], gwts[26]);
         property variant factor_27_29: Qt.vector3d(gwts[27], gwts[28], gwts[29]);
         property variant factor_30_32: Qt.vector3d(gwts[30], gwts[31], gwts[32]);
+
+        property color color: rootItem.color
+        property real spread: 1.0 - (rootItem.spread * 0.98)
+        property variant maskSource: maskSourceProxy.output
 
         anchors.fill: rootItem
 
@@ -181,6 +197,29 @@ Item {
             }
 
             shader += fragmentShaderEnd
+
+            var colorizeSteps = ""
+            var colorizeUniforms = ""
+
+            var maskSteps = ""
+            var maskUniforms = ""
+
+            if (enableColor) {
+                colorizeSteps += "gl_FragColor = mix(vec4(0), color, clamp((gl_FragColor.a - 0.0) / (spread - 0.0), 0.0, 1.0));\n"
+                colorizeUniforms += "uniform highp vec4 color;\n"
+                colorizeUniforms += "uniform highp float spread;\n"
+            }
+
+            if (enableMask) {
+                maskSteps += "shift *= texture2D(maskSource, qt_TexCoord0).a;\n"
+                maskUniforms += "uniform sampler2D maskSource;\n"
+            }
+
+            shader = shader.replace("PLACEHOLDER_COLORIZE_STEPS", colorizeSteps)
+            shader = shader.replace("PLACEHOLDER_COLORIZE_UNIFORMS", colorizeUniforms)
+            shader = shader.replace("PLACEHOLDER_MASK_STEPS", maskSteps)
+            shader = shader.replace("PLACEHOLDER_MASK_UNIFORMS", maskUniforms)
+
             fragmentShader = shader
         }
 
@@ -224,9 +263,14 @@ Item {
             uniform highp float expandY;
             uniform highp float pixelX;
             uniform highp float pixelY;
+            PLACEHOLDER_MASK_UNIFORMS
+            PLACEHOLDER_COLORIZE_UNIFORMS
 
             void main() {
                 highp vec2 shift = vec2(delta.x, delta.y);
+
+                PLACEHOLDER_MASK_STEPS
+
                 highp float index = delta.z;
                 mediump vec2 texCoord = qt_TexCoord0;
                 highp float stepX = 1.0 - pixelX;
@@ -239,10 +283,13 @@ Item {
         "
 
         property string fragmentShaderEnd: "
+
                 if (gaussianSum > 0.0)
                     gl_FragColor /= gaussianSum;
                 else
                     gl_FragColor = texture2D(source, qt_TexCoord0);
+
+                PLACEHOLDER_COLORIZE_STEPS
 
                 gl_FragColor *= qt_Opacity;
             }
