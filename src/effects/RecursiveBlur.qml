@@ -144,7 +144,7 @@ Item {
         onScheduledUpdateCompleted: recursionTimer.nextFrame()
     }
 
-    DirectionalGaussianBlur {
+    GaussianDirectionalBlur {
         id: verticalBlur
         x: rootItem.transparentBorder ? -horizontalBlur.maximumRadius - 1 : 0
         y: rootItem.transparentBorder ? -horizontalBlur.maximumRadius - 1 : 0
@@ -168,7 +168,7 @@ Item {
         visible: loops > 0
     }
 
-    DirectionalGaussianBlur {
+    GaussianDirectionalBlur {
         id: horizontalBlur
         width: rootItem.transparentBorder ? parent.width + 2 * maximumRadius + 2 : parent.width
         height: rootItem.transparentBorder ? parent.height + 2 * maximumRadius + 2 : parent.height

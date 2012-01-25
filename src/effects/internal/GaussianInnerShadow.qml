@@ -92,7 +92,7 @@ Item {
         "
     }
 
-    DirectionalGaussianBlur {
+    GaussianDirectionalBlur {
         id: blurItem
         anchors.fill: parent
         horizontalStep: 0.0
@@ -110,7 +110,7 @@ Item {
         visible: false
     }
 
-    DirectionalGaussianBlur {
+    GaussianDirectionalBlur {
         id: horizontalBlur
         width: transparentBorder ? parent.width + 2 * maximumRadius : parent.width
         height: parent.height

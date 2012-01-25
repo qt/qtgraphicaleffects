@@ -66,7 +66,7 @@ Item {
         hideSource: visible
     }
 
-    DirectionalGaussianBlur {
+    GaussianDirectionalBlur {
         id: verticalBlur
         x: transparentBorder ? -maximumRadius - 1 : 0
         y: transparentBorder ? -maximumRadius - 1 : 0
@@ -90,7 +90,7 @@ Item {
         transparentBorder: rootItem.transparentBorder
     }
 
-    DirectionalGaussianBlur {
+    GaussianDirectionalBlur {
         id: horizontalBlur
         width: transparentBorder ? parent.width + 2 * maximumRadius + 2 : parent.width
         height: transparentBorder ? parent.height + 2 * maximumRadius + 2  : parent.height
