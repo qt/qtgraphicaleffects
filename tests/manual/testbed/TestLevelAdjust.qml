@@ -53,63 +53,80 @@ TestCaseTemplate {
         visible: enabledCheckBox.selected
         cached: cachedCheckBox.selected
         source: imageSource
-        minimumInput: colorPicker1.color
-        maximumInput: colorPicker2.color
-        minimumOutput: colorPicker3.color
-        maximumOutput: colorPicker4.color
-        gamma: Qt.vector3d(gammaR.value, gammaG.value, gammaB.value)
+
+        minimumInput: Qt.rgba(redInput.blackPointValue + valueInput.blackPointValue * (redInput.whitePointValue - redInput.blackPointValue), greenInput.blackPointValue + valueInput.blackPointValue * (greenInput.whitePointValue - greenInput.blackPointValue), blueInput.blackPointValue + valueInput.blackPointValue * (blueInput.whitePointValue - blueInput.blackPointValue), alphaInput.blackPointValue)
+        maximumInput: Qt.rgba(redInput.whitePointValue - (1.0 - valueInput.whitePointValue) * (redInput.whitePointValue - redInput.blackPointValue), greenInput.whitePointValue - (1.0 - valueInput.whitePointValue) * (greenInput.whitePointValue - greenInput.blackPointValue), blueInput.whitePointValue - (1.0 - valueInput.whitePointValue) * (blueInput.whitePointValue - blueInput.blackPointValue), alphaInput.whitePointValue)
+        minimumOutput: Qt.rgba(redOutput.blackPointValue + valueOutput.blackPointValue * (redOutput.whitePointValue - redOutput.blackPointValue), greenOutput.blackPointValue + valueOutput.blackPointValue * (greenOutput.whitePointValue - greenOutput.blackPointValue), blueOutput.blackPointValue + valueOutput.blackPointValue * (blueOutput.whitePointValue - blueOutput.blackPointValue), alphaOutput.blackPointValue)
+        maximumOutput: Qt.rgba(redOutput.whitePointValue - (1.0 - valueOutput.whitePointValue) * (redOutput.whitePointValue - redOutput.blackPointValue), greenOutput.whitePointValue - (1.0 - valueOutput.whitePointValue) * (greenOutput.whitePointValue - greenOutput.blackPointValue), blueOutput.whitePointValue - (1.0 - valueOutput.whitePointValue) * (blueOutput.whitePointValue - blueOutput.blackPointValue), alphaOutput.whitePointValue)
+
+        gamma: Qt.vector3d((redInput.gamma * valueInput.gamma), (greenInput.gamma * valueInput.gamma), (blueInput.gamma * valueInput.gamma))
     }
 
     bgColor: bgColorPicker.color
     controls: [
         Control {
-            caption: "minimumInput"
-            RgbaColorPicker {
-                id: colorPicker1
-                rValue:  0.0
-                gValue:  0.0
-                bValue:  0.0
-                aValue:  0.0
+            caption: "RGB"
+            LevelSlider {
+                id: valueInput
+                caption: "Input"
+            }
+            LevelSlider {
+                id: valueOutput
+                showMidPoint: false
+                caption: "Output"
             }
         },
         Control {
-            caption: "maximumInput"
-            RgbaColorPicker {
-                id: colorPicker2
+            caption: "Red"
+            __hide: true
+            LevelSlider {
+                id: redInput
+                caption: "Input"
+            }
+            LevelSlider {
+                id: redOutput
+                showMidPoint: false
+                caption: "Output"
             }
         },
         Control {
-            caption: "minimumOutput"
-            RgbaColorPicker {
-                id: colorPicker3
-                rValue:  0.0
-                gValue:  0.0
-                bValue:  0.0
-                aValue:  0.0
+            caption: "Green"
+            __hide: true
+            LevelSlider {
+                id: greenInput
+                caption: "Input"
+            }
+            LevelSlider {
+                id: greenOutput
+                showMidPoint: false
+                caption: "Output"
             }
         },
         Control {
-            caption: "maximumOutput"
-            RgbaColorPicker {
-                id: colorPicker4
+            caption: "Blue"
+            __hide: true
+            LevelSlider {
+                id: blueInput
+                caption: "Input"
+            }
+            LevelSlider {
+                id: blueOutput
+                showMidPoint: false
+                caption: "Output"
             }
         },
         Control {
-            caption: "gamma"
-            Slider {
-                id: gammaR
-                maximum: 10
-                caption: "R"
+            caption: "Alpha"
+            __hide: true
+            LevelSlider {
+                id: alphaInput
+                showMidPoint: false
+                caption: "Input"
             }
-            Slider {
-                id: gammaG
-                maximum: 10
-                caption: "G"
-            }
-            Slider {
-                id: gammaB
-                maximum: 10
-                caption: "B"
+            LevelSlider {
+                id: alphaOutput
+                showMidPoint: false
+                caption: "Output"
             }
         },
         Control {
