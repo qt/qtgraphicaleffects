@@ -44,16 +44,19 @@ import "../../../src/effects"
 TestCaseTemplate {
     ImageSource {
         id: imageSource
-        source: "images/butterfly.png"
     }
 
-    Rectangle {
+    Item {
         id: maskSource
         anchors.fill: imageSource
-        visible: !enabledCheckBox.selected
-        gradient: Gradient {
-                 GradientStop { position: 0.3; color: Qt.rgba(maskAlphaBeginSlider.value, maskAlphaBeginSlider.value, maskAlphaBeginSlider.value, maskAlphaBeginSlider.value) }
-                 GradientStop { position: 0.7; color: Qt.rgba(maskAlphaEndSlider.value, maskAlphaEndSlider.value, maskAlphaEndSlider.value, maskAlphaEndSlider.value) }
+        visible: false
+        Rectangle {
+            rotation: -90
+            anchors.fill: parent
+            gradient: Gradient {
+                     GradientStop { position: 0.2; color: Qt.rgba(maskAlphaBeginSlider.value, maskAlphaBeginSlider.value, maskAlphaBeginSlider.value, maskAlphaBeginSlider.value) }
+                     GradientStop { position: 0.5; color: Qt.rgba(maskAlphaEndSlider.value, maskAlphaEndSlider.value, maskAlphaEndSlider.value, maskAlphaEndSlider.value) }
+            }
         }
     }
 
@@ -77,7 +80,7 @@ TestCaseTemplate {
             Slider {
                 id: radiusSlider
                 minimum: 0.0
-                maximum: 64.0
+                maximum: 32.0
                 value: 16.0
                 caption: "radius"
             }

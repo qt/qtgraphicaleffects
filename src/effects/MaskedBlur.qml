@@ -51,16 +51,6 @@ Item {
     property bool fast: false
     property bool transparentBorder: false
 
-    SourceProxy {
-        id: sourceProxy
-        input: rootItem.source
-    }
-
-    SourceProxy {
-        id: maskSourceProxy
-        input: rootItem.maskSource
-    }
-
     Loader {
         id: loaderItem
         anchors.fill: parent
@@ -71,8 +61,8 @@ Item {
         id: gaussianBlur
         GaussianMaskedBlur {
             anchors.fill: parent
-            source: sourceProxy.output
-            maskSource: maskSourceProxy.output
+            source: rootItem.source
+            maskSource: rootItem.maskSource
             radius: rootItem.radius
             maximumRadius: rootItem.samples * 0.5
             transparentBorder: rootItem.transparentBorder
@@ -84,8 +74,8 @@ Item {
         id: fastBlur
         FastMaskedBlur {
             anchors.fill: parent
-            source: sourceProxy.output
-            maskSource: maskSourceProxy.output
+            source:rootItem. source
+            maskSource: rootItem.maskSource
             blur: Math.pow(rootItem.radius / 64.0, 0.4)
             transparentBorder: rootItem.transparentBorder
             cached: rootItem.cached
