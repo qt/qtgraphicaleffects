@@ -64,24 +64,42 @@ Item {
         hideSource: visible
     }
 
+    property string __internalBlurVertexShader: "
+        attribute highp vec4 qt_Vertex;
+        attribute highp vec2 qt_MultiTexCoord0;
+        uniform highp mat4 qt_Matrix;
+        uniform highp float yStep;
+        uniform highp float xStep;
+        varying highp vec2 qt_TexCoord0;
+        varying highp vec2 qt_TexCoord1;
+        varying highp vec2 qt_TexCoord2;
+        varying highp vec2 qt_TexCoord3;
+
+        void main() {
+            qt_TexCoord0 = vec2(qt_MultiTexCoord0.x + xStep, qt_MultiTexCoord0.y + yStep * 0.36);
+            qt_TexCoord1 = vec2(qt_MultiTexCoord0.x + xStep * 0.36, qt_MultiTexCoord0.y - yStep);
+            qt_TexCoord2 = vec2(qt_MultiTexCoord0.x - xStep * 0.36, qt_MultiTexCoord0.y + yStep);
+            qt_TexCoord3 = vec2(qt_MultiTexCoord0.x - xStep, qt_MultiTexCoord0.y - yStep * 0.36);
+            gl_Position = qt_Matrix * qt_Vertex;
+        }
+    "
+
     property string __internalBlurFragmentShader: "
         uniform lowp sampler2D source;
         uniform lowp float qt_Opacity;
-        uniform highp float yStep;
-        uniform highp float xStep;
-        varying mediump vec2 qt_TexCoord0;
+        varying highp vec2 qt_TexCoord0;
+        varying highp vec2 qt_TexCoord1;
+        varying highp vec2 qt_TexCoord2;
+        varying highp vec2 qt_TexCoord3;
 
         void main() {
-            highp vec2 shift = vec2(xStep, yStep);
-
-            lowp vec4 sourceColor = texture2D(source, vec2(qt_TexCoord0.x + shift.x, qt_TexCoord0.y + shift.y * 0.36)) * 0.25 +
-                                    texture2D(source, vec2(qt_TexCoord0.x + shift.x * 0.36, qt_TexCoord0.y - shift.y)) * 0.25 +
-                                    texture2D(source, vec2(qt_TexCoord0.x - shift.x * 0.36, qt_TexCoord0.y + shift.y)) * 0.25 +
-                                    texture2D(source, vec2(qt_TexCoord0.x - shift.x, qt_TexCoord0.y - shift.y * 0.36)) * 0.25;
-
+            highp vec4 sourceColor = (texture2D(source, qt_TexCoord0) +
+            texture2D(source, qt_TexCoord1) +
+            texture2D(source, qt_TexCoord2) +
+            texture2D(source, qt_TexCoord3)) * 0.25;
             gl_FragColor = sourceColor * qt_Opacity;
         }
-    "
+   "
 
     ShaderEffect {
         id: level0
@@ -110,6 +128,7 @@ Item {
         anchors.fill: level2
         visible: false
         smooth: true
+        vertexShader: __internalBlurVertexShader
         fragmentShader: __internalBlurFragmentShader
     }
 
@@ -131,6 +150,7 @@ Item {
         anchors.fill: level3
         visible: false
         smooth: true
+        vertexShader: __internalBlurVertexShader
         fragmentShader: __internalBlurFragmentShader
     }
 
@@ -152,6 +172,7 @@ Item {
         anchors.fill: level4
         visible: false
         smooth: true
+        vertexShader: __internalBlurVertexShader
         fragmentShader: __internalBlurFragmentShader
     }
 
@@ -173,6 +194,7 @@ Item {
         anchors.fill: level5
         visible: false
         smooth: true
+        vertexShader: __internalBlurVertexShader
         fragmentShader: __internalBlurFragmentShader
     }
 
@@ -194,6 +216,7 @@ Item {
         anchors.fill: level6
         visible: false
         smooth: true
+        vertexShader: __internalBlurVertexShader
         fragmentShader: __internalBlurFragmentShader
     }
 
