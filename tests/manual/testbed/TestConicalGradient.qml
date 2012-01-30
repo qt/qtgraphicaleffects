@@ -75,11 +75,11 @@ TestCaseTemplate {
             caption: "general"
             Label {
                 caption: "horizontalOffset"
-                text: effect.horizontalOffset
+                text: effect.horizontalOffset.toFixed(2)
             }
             Label {
                 caption: "verticalOffset"
-                text: effect.verticalOffset
+                text: effect.verticalOffset.toFixed(2)
             }
             Slider {
                 id: startAngleSlider

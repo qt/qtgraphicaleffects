@@ -65,11 +65,8 @@ Image {
         }
 
         onPositionChanged: {
-            var xv = (positionPicker.x + positionPicker.width / 2 + mouseX - startX) / positionPicker.parent.width;
-            var yv = (positionPicker.y + positionPicker.height / 2 + mouseY - startY) / positionPicker.parent.height;
-
-            xValue = xv.toFixed(2)
-            yValue = yv.toFixed(2)
+            xValue = (positionPicker.x + positionPicker.width / 2 + mouseX - startX) / positionPicker.parent.width;
+            yValue = (positionPicker.y + positionPicker.height / 2 + mouseY - startY) / positionPicker.parent.height;
         }
     }
 }
