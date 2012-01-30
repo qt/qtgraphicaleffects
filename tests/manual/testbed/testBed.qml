@@ -140,11 +140,12 @@ Rectangle {
                 smooth: true
                 visible: last && index != 20 ? 1 : 0
             }
+
             Rectangle {
                 width: parent.width
-                color: "#3D3D3D"
+                color: "#323232"
                 height: 20
-                visible: delegateMouseArea.pressed
+                visible: delegateMouseArea.pressed || (testLoader.source.toString().search(name) != -1)
             }
             Text {
                 id: delegateText;
