@@ -145,7 +145,7 @@ Rectangle {
                 width: parent.width
                 color: "#323232"
                 height: 20
-                visible: delegateMouseArea.pressed || (testLoader.source.toString().search(name) != -1)
+                visible: (testLoader.source.toString().search(name) != -1)
             }
             Text {
                 id: delegateText;
@@ -153,7 +153,7 @@ Rectangle {
                 text: name.slice(4, name.indexOf("."))
                 font.family: "Arial"
                 font.pixelSize: 12
-                color: "#CCCCCC"
+                color: delegateMouseArea.pressed  ? "white" : "#CCCCCC"
             }
             MouseArea {
                 id: delegateMouseArea
