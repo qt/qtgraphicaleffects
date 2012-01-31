@@ -67,11 +67,11 @@ Item {
         anchors.left: parent.left
         anchors.leftMargin: 10
         anchors.top: parent.top
-        anchors.topMargin: 10
+        anchors.topMargin: 5
         width: 68
         height: width
-        property real hue: root.hue
         opacity: 0.01
+        property real hue: root.hue
 
         fragmentShader: "
         varying mediump vec2 qt_TexCoord0;
@@ -116,8 +116,7 @@ Item {
 
         void main() {
             lowp vec4 c = vec4(1.0);
-            //c.rgb = HSLtoRGB(vec3(hue, 1.0 - qt_TexCoord0.t, qt_TexCoord0.s));
-            c.rgb = HSLtoRGB(vec3(hue, 1.0 - qt_TexCoord0.y, 0.5 * qt_TexCoord0.x * (qt_TexCoord0.y + 1.0)));
+            c.rgb = HSLtoRGB(vec3(hue, 1.0 - qt_TexCoord0.t, qt_TexCoord0.s));
             gl_FragColor = c * qt_Opacity;
         }
         "
@@ -131,19 +130,18 @@ Item {
                 if (pressed) {
                     var xx = Math.max(0, Math.min(mouse.x, parent.width))
                     var yy = Math.max(0, Math.min(mouse.y, parent.height))
-                    crosshair.x = xx - crosshair.width / 2
-                    crosshair.y = yy - crosshair.height / 2
                     root.saturation = 1.0 - yy / parent.height
-                    root.lightness = 0.5 * xx / parent.width * (yy / parent.height + 1.0)
+                    root.lightness = xx / parent.width
                 }
             }
+            onPressed: positionChanged(mouse)
+
             onEntered: map.opacity = 1
             onReleased: {
                 if (mouse.x < 0 || mouse.x > parent.width || mouse.y < 0 || mouse.y > parent.height) {
                     map.opacity = 0.01;
                 }
             }
-            onPressed: positionChanged(mouse)
             onExited: {
                 if (!pressed) {
                     map.opacity = 0.01;
@@ -157,10 +155,7 @@ Item {
             x: root.lightness * parent.width - width / 2
             y: (1.0 - root.saturation) * parent.height - height / 2
         }
-
-        Behavior on opacity { PropertyAnimation { duration: 100 } }
     }
-
 
     Column {
         anchors.left: parent.left
