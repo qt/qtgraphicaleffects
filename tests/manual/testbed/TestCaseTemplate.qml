@@ -40,7 +40,7 @@
 
 import QtQuick 2.0
 
-Rectangle {
+Item {
     id: main
 
     property real imageSize: Math.min(height, width - 220)
@@ -54,7 +54,6 @@ Rectangle {
     property int fpsCount: 0
 
     anchors.fill: parent
-    color: bgColor
 
     onDummyChanged: fpsCount++;
 
@@ -75,9 +74,15 @@ Rectangle {
         }
     }
 
+    Rectangle {
+        id: backgroundColor
+        anchors.fill: testItemContainer
+        color: bgColor
+    }
+
     Image {
         id: background
-        anchors.fill: parent
+        anchors.fill: testItemContainer
         fillMode: Image.Tile
         source: bgColor.toString() == "#010101" ? "images/background.png" : ""
     }
