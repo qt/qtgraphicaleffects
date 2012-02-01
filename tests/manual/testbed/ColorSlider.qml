@@ -79,9 +79,10 @@ Item {
     Text {
         id: valueCaption
         anchors.left: captionText.right
+        anchors.leftMargin: 11
         anchors.verticalCenter: parent.verticalCenter
         width: 35
-        horizontalAlignment: Text.AlignRight
+        horizontalAlignment: Text.AlignLeft
         text: colorSlider.value.toFixed(1)
         font.family: "Arial"
         font.pixelSize: 11
