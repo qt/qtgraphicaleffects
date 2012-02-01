@@ -138,7 +138,7 @@ Item {
         property string blendModeLightness: "result.rgb = HSLtoRGB(vec3(RGBtoHSL(rgb1).xy, RGBtoL(rgb2)));"
         property string blendModeMultiply: "result.rgb = rgb1 * rgb2;"
         property string blendModeNegation: "result.rgb = 1.0 - abs(1.0 - rgb1 - rgb2);"
-        property string blendModeNormal: "result.rgb = rgb2;"
+        property string blendModeNormal: "result.rgb = rgb2; a = max(color1.a, color2.a);"
         property string blendModeSaturation: "lowp vec3 hsl1 = RGBtoHSL(rgb1); result.rgb = HSLtoRGB(vec3(hsl1.x, RGBtoHSL(rgb2).y, hsl1.z));"
         property string blendModeScreen: "result.rgb = 1.0 - (vec3(1.0) - rgb1) * (vec3(1.0) - rgb2);"
         property string blendModeSubtract: "result.rgb = max(rgb1 - rgb2, vec3(0.0));"
@@ -229,11 +229,14 @@ Item {
                 lowp vec4 color2 = texture2D(foregroundSource, qt_TexCoord0);
                 lowp vec3 rgb1 = color1.rgb / max(1.0/256.0, color1.a);
                 lowp vec3 rgb2 = color2.rgb / max(1.0/256.0, color2.a);
+                highp float a = max(color1.a, color1.a * color2.a);
         "
 
         property string fragmentShaderEnd: "
-                gl_FragColor.a = color1.a * qt_Opacity;
                 gl_FragColor.rgb = mix(rgb1, result.rgb, color2.a);
+                gl_FragColor.rbg *= a;
+                gl_FragColor.a = a;
+                gl_FragColor *= qt_Opacity;
             }
         "
     }
