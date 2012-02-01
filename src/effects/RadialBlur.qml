@@ -74,6 +74,8 @@ Item {
         property bool transparentBorder: rootItem.transparentBorder && rootItem.samples > 1
         property int samples: rootItem.samples
         property real weight: 1.0 / Math.max(1.0, rootItem.samples)
+        property real angleSin: Math.sin(rootItem.angle/2 * Math.PI/180)
+        property real angleCos: Math.cos(rootItem.angle/2 * Math.PI/180)
         property real angleSinStep: Math.sin(-rootItem.angle * Math.PI/180 / Math.max(1.0, rootItem.samples - 1))
         property real angleCosStep: Math.cos(-rootItem.angle * Math.PI/180 / Math.max(1.0, rootItem.samples - 1))
         property variant expandPixels: transparentBorder ? Qt.size(0.5 * parent.height, 0.5 * parent.width) : Qt.size(0,0)
@@ -91,6 +93,8 @@ Item {
             varying highp vec2 qt_TexCoord0;
             uniform highp float qt_Opacity;
             uniform sampler2D source;
+            uniform highp float angleSin;
+            uniform highp float angleCos;
             uniform highp float angleSinStep;
             uniform highp float angleCosStep;
             uniform highp float weight;
@@ -102,14 +106,18 @@ Item {
 
             void main(void) {
                 highp mat2 m;
-                m[0] = vec2(angleCosStep, -angleSinStep);
-                m[1] = vec2(angleSinStep, angleCosStep);
                 gl_FragColor = vec4(0.0);
                 mediump vec2 texCoord = qt_TexCoord0;
 
                 PLACEHOLDER_EXPAND_STEPS
 
-                highp vec2 dir = vec2(texCoord.s * w - w * 0.5, texCoord.t * h - h * 0.5);
+                highp vec2 dir = vec2(texCoord.s * w - w * center.x, texCoord.t * h - h * center.y);
+                m[0] = vec2(angleCos, -angleSin);
+                m[1] = vec2(angleSin, angleCos);
+                dir *= m;
+
+                m[0] = vec2(angleCosStep, -angleSinStep);
+                m[1] = vec2(angleSinStep, angleCosStep);
 
                 PLACEHOLDER_UNROLLED_LOOP
 

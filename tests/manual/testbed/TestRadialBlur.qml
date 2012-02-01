@@ -72,8 +72,8 @@ TestCaseTemplate {
             caption: "general"
             Slider {
                 id: lengthSlider
-                minimum: -180.0
-                maximum: 180.0
+                minimum: 0.0
+                maximum: 360.0
                 value: 15.0
                 caption: "angle"
             }
