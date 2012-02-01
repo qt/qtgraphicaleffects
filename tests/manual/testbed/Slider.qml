@@ -81,7 +81,7 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
         width: 35
         horizontalAlignment: Text.AlignLeft
-        text: slider.value.toFixed(1)
+        text: integer ? slider.value.toFixed(0) : slider.value.toFixed(1)
         font.family: "Arial"
         font.pixelSize: 11
         color: "#999999"
