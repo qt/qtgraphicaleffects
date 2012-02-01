@@ -41,11 +41,11 @@ import QtQuick 2.0
 Item {
     id: root
     property color color: Qt.hsla(hue, saturation, lightness, alpha)
-
     property alias hue: hueSlider.value
     property alias saturation: saturationSlider.value
     property alias lightness: lightnessSlider.value
     property alias alpha: alphaSlider.value
+    property bool showAlphaSlider: true
 
     width: parent.width
     height: 100
@@ -238,6 +238,7 @@ Item {
             maximum: 1.0
             value: 1.0
             caption: "A"
+            opacity: showAlphaSlider ? 1.0 : 0.0
             trackItem:Item {
                 anchors.fill: parent
                 Image {

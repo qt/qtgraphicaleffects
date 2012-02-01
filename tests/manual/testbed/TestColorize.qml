@@ -67,6 +67,7 @@ TestCaseTemplate {
                 hue: 0.5
                 saturation: 0.5
                 lightness: 0.5
+                showAlphaSlider: false
             }
         },
         Control {
