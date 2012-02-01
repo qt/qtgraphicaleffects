@@ -68,7 +68,7 @@ Item {
         text: label.text
         font.family: "Arial"
         font.pixelSize: 11
-        color: "#B3B3B3"
+        color: "#999999"
         visible: label.text.length > 0
     }
 
