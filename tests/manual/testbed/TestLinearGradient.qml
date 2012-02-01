@@ -84,19 +84,19 @@ TestCaseTemplate {
             caption: "general"
             Label {
                 caption: "startX"
-                text: startPicker.xValue.toFixed(2)
+                text: startPicker.xValue.toFixed(1)
             }
             Label {
                 caption: "startY"
-                text: startPicker.yValue.toFixed(2)
+                text: startPicker.yValue.toFixed(1)
             }
             Label {
                 caption: "endX"
-                text: endPicker.xValue.toFixed(2)
+                text: endPicker.xValue.toFixed(1)
             }
             Label {
                 caption: "endY"
-                text: endPicker.yValue.toFixed(2)
+                text: endPicker.yValue.toFixed(1)
             }
             CheckBox {
                 id: maskCheckBox
