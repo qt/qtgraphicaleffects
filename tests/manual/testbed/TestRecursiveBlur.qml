@@ -66,7 +66,7 @@ TestCaseTemplate {
             Slider {
                 id: iterationSlider
                 minimum: 0
-                maximum: 500
+                maximum: 20
                 value: 0
                 integer:  true
                 caption: "loops"
