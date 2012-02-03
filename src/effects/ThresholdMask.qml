@@ -54,6 +54,11 @@ Item {
         input: rootItem.source
     }
 
+    SourceProxy {
+        id: maskSourceProxy
+        input: rootItem.maskSource
+    }
+
     ShaderEffectSource {
          id: cacheItem
          anchors.fill: parent
@@ -67,7 +72,7 @@ Item {
     ShaderEffect {
         id: shaderItem
         property variant source: sourceProxy.output
-        property variant maskSource: rootItem.maskSource
+        property variant maskSource: maskSourceProxy.output
         property real threshold: rootItem.threshold
         property real spread: rootItem.spread
 
