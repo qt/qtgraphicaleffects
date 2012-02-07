@@ -1,6 +1,6 @@
 #!/bin/bash
-# This script must be run from its own folder.
-# Example of usage ./pngdumper.sh -plaform xcb"
+# This script must be run from its current folder.
+# Example of usage: ./pngdumper.sh -platform xcb
 
 rm ItemModel.qml
 cp ItemModel1.qml ItemModel.qml
