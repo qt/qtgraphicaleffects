@@ -19,6 +19,7 @@
 %dependencies = (
         "qtbase" => "refs/heads/api_changes",
         "qtdeclarative" => "refs/heads/master",
+        "qtjsbackend" => "refs/heads/master",
         "qtsvg" => "refs/heads/master",
         "qtxmlpatterns" => "refs/heads/master",
 );
