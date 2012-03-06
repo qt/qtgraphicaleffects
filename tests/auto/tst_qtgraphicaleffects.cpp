@@ -649,7 +649,7 @@ void tst_qtgraphicaleffects::directionalBlur()
 
     // Default values
     QCOMPARE(obj->property("source").toInt(), 0);
-    QCOMPARE(obj->property("lenght").toInt(), 0);
+    QCOMPARE(obj->property("length").toInt(), 0);
     QCOMPARE(obj->property("samples").toDouble(), 0.0);
     QCOMPARE(obj->property("angle").toDouble(), 0.0);
     QCOMPARE(obj->property("transparentBorder").toBool(), false);
@@ -703,7 +703,7 @@ void tst_qtgraphicaleffects::zoomBlur()
 
     // Default values
     QCOMPARE(obj->property("source").toInt(), 0);
-    QCOMPARE(obj->property("lenght").toInt(), 0);
+    QCOMPARE(obj->property("length").toInt(), 0);
     QCOMPARE(obj->property("samples").toDouble(), 0.0);
     QCOMPARE(obj->property("transparentBorder").toBool(), false);
     QCOMPARE(obj->property("cached").toBool(), false);
