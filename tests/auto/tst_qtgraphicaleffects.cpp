@@ -75,8 +75,26 @@ private slots:
     void thresholdMask();
     void zoomBlur();
 
-private: QDeclarativeEngine engine;
+private:
+    QString componentErrors(const QDeclarativeComponent*) const;
+
+    QDeclarativeEngine engine;
 };
+
+QString tst_qtgraphicaleffects::componentErrors(const QDeclarativeComponent* component) const
+{
+    if (!component) {
+        return "(null component)";
+    }
+
+    QStringList out;
+
+    foreach (QDeclarativeError const& error, component->errors()) {
+        out << error.toString();
+    }
+
+    return out.join("\n");
+}
 
 void tst_qtgraphicaleffects::initTestCase()
 {
@@ -95,8 +113,9 @@ void tst_qtgraphicaleffects::brightnessContrast()
             "}";
     QDeclarativeComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
+    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
     QObject *obj = component.create();
-    QTest::qWait(100);
     QVERIFY(obj != 0);
 
     // Default values
@@ -119,8 +138,9 @@ void tst_qtgraphicaleffects::colorize()
             "}";
     QDeclarativeComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
+    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
     QObject *obj = component.create();
-    QTest::qWait(100);
     QVERIFY(obj != 0);
 
     // Default values
@@ -144,8 +164,9 @@ void tst_qtgraphicaleffects::fastBlur()
             "}";
     QDeclarativeComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
+    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
     QObject *obj = component.create();
-    QTest::qWait(100);
     QVERIFY(obj != 0);
 
     // Default values
@@ -168,8 +189,9 @@ void tst_qtgraphicaleffects::desaturate()
             "}";
     QDeclarativeComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
+    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
     QObject *obj = component.create();
-    QTest::qWait(100);
     QVERIFY(obj != 0);
 
     // Default values
@@ -191,8 +213,9 @@ void tst_qtgraphicaleffects::hueSaturation()
             "}";
     QDeclarativeComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
+    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
     QObject *obj = component.create();
-    QTest::qWait(100);
     QVERIFY(obj != 0);
 
     // Default values
@@ -217,8 +240,9 @@ void tst_qtgraphicaleffects::opacityMask()
             "}";
     QDeclarativeComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
+    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
     QObject *obj = component.create();
-    QTest::qWait(100);
     QVERIFY(obj != 0);
 
     // Default values
@@ -239,8 +263,9 @@ void tst_qtgraphicaleffects::radialGradient()
             "}";
     QDeclarativeComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
+    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
     QObject *obj = component.create();
-    QTest::qWait(100);
     QVERIFY(obj != 0);
 
     // Default values
@@ -266,8 +291,9 @@ void tst_qtgraphicaleffects::linearGradient()
             "}";
     QDeclarativeComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
+    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
     QObject *obj = component.create();
-    QTest::qWait(100);
     QVERIFY(obj != 0);
 
     // Default values
@@ -290,8 +316,9 @@ void tst_qtgraphicaleffects::rectangularGlow()
             "}";
     QDeclarativeComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
+    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
     QObject *obj = component.create();
-    QTest::qWait(100);
     QVERIFY(obj != 0);
 
     // Default values
@@ -314,8 +341,9 @@ void tst_qtgraphicaleffects::conicalGradient()
             "}";
     QDeclarativeComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
+    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
     QObject *obj = component.create();
-    QTest::qWait(100);
     QVERIFY(obj != 0);
 
     // Default values
@@ -340,8 +368,9 @@ void tst_qtgraphicaleffects::colorOverlay()
             "}";
     QDeclarativeComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
+    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
     QObject *obj = component.create();
-    QTest::qWait(100);
     QVERIFY(obj != 0);
 
     // Default values
@@ -362,8 +391,9 @@ void tst_qtgraphicaleffects::gaussianBlur()
             "}";
     QDeclarativeComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
+    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
     QObject *obj = component.create();
-    QTest::qWait(100);
     QVERIFY(obj != 0);
 
     // Default values
@@ -391,8 +421,9 @@ void tst_qtgraphicaleffects::dropShadow()
             "}";
     QDeclarativeComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
+    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
     QObject *obj = component.create();
-    QTest::qWait(100);
     QVERIFY(obj != 0);
 
     // Default values
@@ -422,8 +453,9 @@ void tst_qtgraphicaleffects::innerShadow()
             "}";
     QDeclarativeComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
+    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
     QObject *obj = component.create();
-    QTest::qWait(100);
     QVERIFY(obj != 0);
 
     // Default values
@@ -451,9 +483,10 @@ void tst_qtgraphicaleffects::gammaAdjust()
             "}";
     QDeclarativeComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
+    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
     QObject *obj = component.create();
     //qDebug() << component.errorString();
-    QTest::qWait(100);
     QVERIFY(obj != 0);
 
     // Default values
@@ -476,8 +509,9 @@ void tst_qtgraphicaleffects::thresholdMask()
             "}";
     QDeclarativeComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
+    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
     QObject *obj = component.create();
-    QTest::qWait(100);
     QVERIFY(obj != 0);
 
     // Default values
@@ -501,8 +535,9 @@ void tst_qtgraphicaleffects::glow()
             "}";
     QDeclarativeComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
+    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
     QObject *obj = component.create();
-    QTest::qWait(100);
     QVERIFY(obj != 0);
 
     // Default values
@@ -529,8 +564,9 @@ void tst_qtgraphicaleffects::blend()
             "}";
     QDeclarativeComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
+    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
     QObject *obj = component.create();
-    QTest::qWait(100);
     QVERIFY(obj != 0);
 
     // Default values
@@ -554,8 +590,9 @@ void tst_qtgraphicaleffects::displace()
             "}";
     QDeclarativeComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
+    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
     QObject *obj = component.create();
-    QTest::qWait(100);
     QVERIFY(obj != 0);
 
     // Default values
@@ -578,8 +615,9 @@ void tst_qtgraphicaleffects::recursiveBlur()
             "}";
     QDeclarativeComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
+    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
     QObject *obj = component.create();
-    QTest::qWait(100);
     QVERIFY(obj != 0);
 
     // Default values
@@ -604,8 +642,9 @@ void tst_qtgraphicaleffects::directionalBlur()
             "}";
     QDeclarativeComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
+    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
     QObject *obj = component.create();
-    QTest::qWait(100);
     QVERIFY(obj != 0);
 
     // Default values
@@ -630,8 +669,9 @@ void tst_qtgraphicaleffects::radialBlur()
             "}";
     QDeclarativeComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
+    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
     QObject *obj = component.create();
-    QTest::qWait(100);
     QVERIFY(obj != 0);
 
     // Default values
@@ -657,9 +697,9 @@ void tst_qtgraphicaleffects::zoomBlur()
             "}";
     QDeclarativeComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
+    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
     QObject *obj = component.create();
-    QTest::qWait(100);
-    QVERIFY(obj != 0);
 
     // Default values
     QCOMPARE(obj->property("source").toInt(), 0);
@@ -683,8 +723,9 @@ void tst_qtgraphicaleffects::levelAdjust()
             "}";
     QDeclarativeComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
+    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
     QObject *obj = component.create();
-    QTest::qWait(100);
     QVERIFY(obj != 0);
 
     // Default values
@@ -710,8 +751,9 @@ void tst_qtgraphicaleffects::maskedBlur()
             "}";
     QDeclarativeComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
+    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
     QObject *obj = component.create();
-    QTest::qWait(100);
     QVERIFY(obj != 0);
 
     // Default values
