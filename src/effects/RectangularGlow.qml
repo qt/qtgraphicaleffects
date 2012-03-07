@@ -51,7 +51,7 @@ Item {
 
     ShaderEffectSource {
          id: cacheItem
-         anchors.fill: parent
+         anchors.fill: shaderItem
          visible: rootItem.cached
          smooth: true
          sourceItem: shaderItem
