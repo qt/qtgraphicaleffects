@@ -52,6 +52,7 @@ TestCaseTemplate {
         visible: enabledCheckBox.selected
         opacity: opacitySlider.value
         cornerRadius: radiusSlider.value
+        cached: cachedCheckBox.selected
     }
 
     Rectangle {
@@ -120,6 +121,10 @@ TestCaseTemplate {
             Label {
                 caption: "FPS"
                 text: fps
+            }
+            CheckBox {
+                id: cachedCheckBox
+                caption: "cached"
             }
             CheckBox {
                 id: enabledCheckBox
