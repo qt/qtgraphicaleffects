@@ -404,10 +404,9 @@ Item {
                 shadowColor += texture2D(source3, qt_TexCoord0) * weight3;
                 shadowColor += texture2D(source4, qt_TexCoord0) * weight4;
                 shadowColor += texture2D(source5, qt_TexCoord0) * weight5;
-                shadowColor = mix(vec4(0), color, linearstep(0.0, spread, shadowColor.a));
-
                 lowp vec4 originalColor = texture2D(original, qt_TexCoord0);
-                gl_FragColor = vec4(mix(originalColor.rgb, shadowColor.rgb, shadowColor.a * qt_Opacity), originalColor.a) * originalColor.a * qt_Opacity;
+                shadowColor.rgb = mix(originalColor.rgb, color.rgb * originalColor.a, linearstep(0.0, spread, shadowColor.a));
+                gl_FragColor = vec4(shadowColor.rgb, originalColor.a) * originalColor.a * qt_Opacity;
             }
         "
     }
