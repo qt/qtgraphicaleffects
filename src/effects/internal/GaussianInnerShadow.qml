@@ -156,7 +156,7 @@ Item {
             void main(void) {
                 lowp vec4 originalColor = texture2D(original, qt_TexCoord0);
                 lowp vec4 shadowColor = texture2D(shadow, qt_TexCoord0);
-                shadowColor = mix(vec4(0), color, linearstep(0.0, spread, shadowColor.a));
+                shadowColor.rgb = mix(originalColor.rgb, color.rgb * originalColor.a, linearstep(0.0, spread, shadowColor.a));
                 gl_FragColor = vec4(mix(originalColor.rgb, shadowColor.rgb, shadowColor.a * qt_Opacity), originalColor.a) * originalColor.a * qt_Opacity;
             }
         "
