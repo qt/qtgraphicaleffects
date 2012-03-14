@@ -241,7 +241,7 @@ Item {
         property string fragmentShaderBegin: "
             varying mediump vec2 qt_TexCoord0;
             uniform highp float qt_Opacity;
-            uniform sampler2D source;
+            uniform lowp sampler2D source;
             uniform highp vec3 delta;
             uniform highp vec3 factor_0_2;
             uniform highp vec3 factor_3_5;

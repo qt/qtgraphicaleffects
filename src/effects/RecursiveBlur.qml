@@ -125,7 +125,7 @@ Item {
         fragmentShader: "
             varying mediump vec2 qt_TexCoord0;
             uniform highp float qt_Opacity;
-            uniform sampler2D source;
+            uniform lowp sampler2D source;
             void main() {
                 gl_FragColor = texture2D(source, qt_TexCoord0) * qt_Opacity;
             }
