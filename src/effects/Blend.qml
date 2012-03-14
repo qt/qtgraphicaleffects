@@ -147,8 +147,8 @@ Item {
         property string fragmentShaderBegin: "
             varying mediump vec2 qt_TexCoord0;
             uniform highp float qt_Opacity;
-            uniform sampler2D backgroundSource;
-            uniform sampler2D foregroundSource;
+            uniform lowp sampler2D backgroundSource;
+            uniform lowp sampler2D foregroundSource;
 
             highp float RGBtoL(highp vec3 color) {
                 highp float cmin = min(color.r, min(color.g, color.b));

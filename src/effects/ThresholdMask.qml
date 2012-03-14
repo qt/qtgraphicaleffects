@@ -81,8 +81,8 @@ Item {
         fragmentShader: "
             varying highp vec2 qt_TexCoord0;
             uniform highp float qt_Opacity;
-            uniform sampler2D source;
-            uniform sampler2D maskSource;
+            uniform lowp sampler2D source;
+            uniform lowp sampler2D maskSource;
             uniform highp float threshold;
             uniform highp float spread;
             void main(void) {

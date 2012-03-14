@@ -72,7 +72,7 @@ Item {
         fragmentShader: "
             varying mediump vec2 qt_TexCoord0;
             uniform highp float qt_Opacity;
-            uniform sampler2D source;
+            uniform lowp sampler2D source;
             uniform highp vec4 color;
             void main() {
                 highp vec4 pixelColor = texture2D(source, qt_TexCoord0);
