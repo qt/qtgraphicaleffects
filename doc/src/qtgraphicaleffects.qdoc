@@ -31,10 +31,18 @@
 \brief Qt Graphical Effects module is a Qt Quick Add-On module.
 
 The Qt Graphical Effects module provides a set of QML components for building
-visually impressive user interfaces. Effects are implemented with QML and GLSL.
+visually impressive user interfaces.
+Over twenty ready-made QML graphical effect elements are currently available.
+The effects include code for blending, masking, blurring, coloring, and much more.
+
+The API for each effect is a set of QML properties which can be animated just
+like any other QML properties. The element documentation contains property descriptions
+and basic usage examples. Currently there is no C++ API.
+
+Effects have been implemented with QML and GLSL.
 
 \section1 Getting started
-Install the Qt Graphical Effects module, and simply add the following import statement to your .qml file:
+To load Qt Graphical Effects, add the following import statement to your .qml file:
 \snippet snippets/Blend-example.qml import
 
 \section1 Elements
