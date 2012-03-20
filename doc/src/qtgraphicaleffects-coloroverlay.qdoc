@@ -28,6 +28,8 @@
 /*!
     \qmlclass ColorOverlay
     \inqmlmodule QtGraphicalEffects 1.0
+    \since QtGraphicalEffects 1.0
+    \inherits QtQuick2::Item
     \brief Alters the colors of the source item by applying an overlay color.
 
     The effect is similar to what happens when a colorized glass is put on top

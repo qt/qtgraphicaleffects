@@ -28,6 +28,8 @@
 /*!
     \qmlclass DropShadow
     \inqmlmodule QtGraphicalEffects 1.0
+    \since QtGraphicalEffects 1.0
+    \inherits QtQuick2::Item
     \brief Generates a colorized and blurred shadow image of the
     source and places it behind the original, giving the impression that
     source item is raised from the background.

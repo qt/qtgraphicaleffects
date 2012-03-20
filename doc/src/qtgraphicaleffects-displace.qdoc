@@ -28,6 +28,8 @@
 /*!
     \qmlclass Displace
     \inqmlmodule QtGraphicalEffects 1.0
+    \since QtGraphicalEffects 1.0
+    \inherits QtQuick2::Item
     \brief Moves the pixels of the source item according to the given
     displacement map.
 
