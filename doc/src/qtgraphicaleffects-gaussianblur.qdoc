@@ -27,7 +27,7 @@
 
 /*!
     \qmlclass GaussianBlur
-    \inqmlmodule QtGraphicalEffects
+    \inqmlmodule QtGraphicalEffects 1.0
     \brief Applies a higher quality blur effect.
 
     GaussianBlur effect softens the image by blurring it with an algorithm that
@@ -51,13 +51,13 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects::GaussianBlur::source
+    \qmlproperty variant QtGraphicalEffects1.0::GaussianBlur::source
 
     This property defines the source item that is going to be blurred.
 
 */
 /*!
-    \qmlproperty real QtGraphicalEffects::GaussianBlur::radius
+    \qmlproperty real QtGraphicalEffects1.0::GaussianBlur::radius
 
     This property defines the distance of the neighboring pixels which affect
     the blurring of an individual pixel. A larger radius increases the blur
@@ -95,7 +95,7 @@
 */
 
 /*!
-    \qmlproperty int QtGraphicalEffects::GaussianBlur::samples
+    \qmlproperty int QtGraphicalEffects1.0::GaussianBlur::samples
 
     This property defines how many samples are taken per pixel when blur
     calculation is done. Larger value produces better quality, but is slower
@@ -113,7 +113,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::GaussianBlur::deviation
+    \qmlproperty real QtGraphicalEffects1.0::GaussianBlur::deviation
 
     This property is a parameter to the gaussian function that is used when
     calculating neighboring pixel weights for the blurring. A larger deviation
@@ -159,7 +159,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects::GaussianBlur::transparentBorder
+    \qmlproperty bool QtGraphicalEffects1.0::GaussianBlur::transparentBorder
 
     This property defines the blur behavior near the edges of the item, where
     the pixel blurring is affected by the pixels outside the source edges.
@@ -168,9 +168,9 @@
     interpreted to be transparent, which is similar to OpenGL clamp-to-border
     extension. The blur is expanded slightly outside the effect item area.
 
-    If the property is set to \c false, the pixels outside the source are 
-    interpreted to contain the same color as the pixels at the edge of the item, 
-    which is similar to OpenGL clamp-to-edge behavior. The blur does not expand 
+    If the property is set to \c false, the pixels outside the source are
+    interpreted to contain the same color as the pixels at the edge of the item,
+    which is similar to OpenGL clamp-to-edge behavior. The blur does not expand
     outside the effect item area.
 
     By default, the property is set to \c false.
@@ -200,7 +200,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects::GaussianBlur::cached
+    \qmlproperty bool QtGraphicalEffects1.0::GaussianBlur::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.

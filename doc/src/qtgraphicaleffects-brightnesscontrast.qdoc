@@ -27,7 +27,7 @@
 
 /*!
     \qmlclass BrightnessContrast
-    \inqmlmodule QtGraphicalEffects
+    \inqmlmodule QtGraphicalEffects 1.0
     \brief Adjusts brightness and contrast.
 
     This effect adjusts the source item colors.
@@ -52,7 +52,7 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects::BrightnessContrast::source
+    \qmlproperty variant QtGraphicalEffects1.0::BrightnessContrast::source
 
     This property defines the source item that provides the source pixels for
     the effect.
@@ -60,7 +60,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::BrightnessContrast::brightness
+    \qmlproperty real QtGraphicalEffects1.0::BrightnessContrast::brightness
 
     This property defines how much the source brightness is increased or
     decreased.
@@ -90,7 +90,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::BrightnessContrast::contrast
+    \qmlproperty real QtGraphicalEffects1.0::BrightnessContrast::contrast
 
     This property defines how much the source contrast is increased or
     decreased. The decrease of the contrast is linear, but the increase is
@@ -128,7 +128,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects::BrightnessContrast::cached
+    \qmlproperty bool QtGraphicalEffects1.0::BrightnessContrast::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.

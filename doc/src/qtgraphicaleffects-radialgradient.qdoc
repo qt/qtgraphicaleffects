@@ -27,7 +27,7 @@
 
 /*!
     \qmlclass RadialGradient
-    \inqmlmodule QtGraphicalEffects
+    \inqmlmodule QtGraphicalEffects 1.0
     \brief Draws a radial gradient.
 
     A gradient is defined by two or more colors, which are blended seamlessly.
@@ -48,7 +48,7 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects::RadialGradient::source
+    \qmlproperty variant QtGraphicalEffects1.0::RadialGradient::source
 
     This property defines the item that is going to be filled with gradient. Source
     item gets rendered into an intermediate pixel buffer and the alpha values
@@ -88,7 +88,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::RadialGradient::angle
+    \qmlproperty real QtGraphicalEffects1.0::RadialGradient::angle
 
     This property defines the rotation of the gradient around its center point.
     The rotation is only visible when the \l horizontalRadius and \l
@@ -129,8 +129,8 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::RadialGradient::horizontalOffset
-    \qmlproperty real QtGraphicalEffects::RadialGradient::verticalOffset
+    \qmlproperty real QtGraphicalEffects1.0::RadialGradient::horizontalOffset
+    \qmlproperty real QtGraphicalEffects1.0::RadialGradient::verticalOffset
 
     The HorizontalOffset and verticalOffset properties define the offset in
     pixels for the center point of the gradient compared to the item center.
@@ -171,8 +171,8 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::RadialGradient::horizontalRadius
-    \qmlproperty real QtGraphicalEffects::RadialGradient::verticalRadius
+    \qmlproperty real QtGraphicalEffects1.0::RadialGradient::horizontalRadius
+    \qmlproperty real QtGraphicalEffects1.0::RadialGradient::verticalRadius
 
     The HorizontalRadius and verticalRadius properties define the shape and size
     of the radial gradient. If the radiuses are equal, the shape of the gradient
@@ -213,7 +213,7 @@
 */
 
 /*!
-    \qmlproperty Gradient QtGraphicalEffects::RadialGradient::gradient
+    \qmlproperty Gradient QtGraphicalEffects1.0::RadialGradient::gradient
 
     A gradient is defined by two or more colors, which are blended seamlessly.
     The colors are specified as a set of GradientStop child items, each of which
@@ -297,7 +297,7 @@ Gradient {
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects::RadialGradient::cached
+    \qmlproperty bool QtGraphicalEffects1.0::RadialGradient::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.
