@@ -27,7 +27,7 @@
 
 /*!
     \qmlclass DirectionalBlur
-    \inqmlmodule QtGraphicalEffects
+    \inqmlmodule QtGraphicalEffects 1.0
     \brief Applies blur effect to the specified direction.
 
     Effect creates perceived impression that the source item appears to be
@@ -35,8 +35,8 @@
     each pixel, therefore setting the direction to 0 and 180 provides the
     same result.
 
-    Other available motionblur effects are \l {QtGraphicalEffects::ZoomBlur} {ZoomBlur} and
-    \l {QtGraphicalEffects::RadialBlur} {RadialBlur}.
+    Other available motionblur effects are \l {QtGraphicalEffects1.0::ZoomBlur} {ZoomBlur} and
+    \l {QtGraphicalEffects1.0::RadialBlur} {RadialBlur}.
 
     \table
     \header
@@ -55,14 +55,14 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects::DirectionalBlur::source
+    \qmlproperty variant QtGraphicalEffects1.0::DirectionalBlur::source
 
     This property defines the source item that is going to be blurred.
 
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::DirectionalBlur::length
+    \qmlproperty real QtGraphicalEffects1.0::DirectionalBlur::length
 
     This property defines the percieved amount of movement for each pixel.
     The movement is divided evenly to both sides of each pixel.
@@ -99,7 +99,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::DirectionalBlur::samples
+    \qmlproperty real QtGraphicalEffects1.0::DirectionalBlur::samples
 
     This property defines how many samples are taken per pixel when blur
     calculation is done. Larger value produces better quality, but is slower
@@ -114,7 +114,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::DirectionalBlur::angle
+    \qmlproperty real QtGraphicalEffects1.0::DirectionalBlur::angle
 
     This property defines the direction for the blur. Blur is applied to
     both sides of each pixel, therefore setting the direction to 0 and 180
@@ -150,7 +150,7 @@
 
 
 /*!
-    \qmlproperty bool QtGraphicalEffects::DirectionalBlur::transparentBorder
+    \qmlproperty bool QtGraphicalEffects1.0::DirectionalBlur::transparentBorder
 
     This property defines the blur behavior near the edges of the item, where
     the pixel blurring is affected by the pixels outside the source edges.
@@ -159,9 +159,9 @@
     interpreted to be transparent, which is similar to OpenGL clamp-to-border
     extension. The blur is expanded slightly outside the effect item area.
 
-    If the property is set to \c false, the pixels outside the source are 
-    interpreted to contain the same color as the pixels at the edge of the item, 
-    which is similar to OpenGL clamp-to-edge behavior. The blur does not expand 
+    If the property is set to \c false, the pixels outside the source are
+    interpreted to contain the same color as the pixels at the edge of the item,
+    which is similar to OpenGL clamp-to-edge behavior. The blur does not expand
     outside the effect item area.
 
     By default, the property is set to \c false.
@@ -169,7 +169,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects::DirectionalBlur::cached
+    \qmlproperty bool QtGraphicalEffects1.0::DirectionalBlur::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.

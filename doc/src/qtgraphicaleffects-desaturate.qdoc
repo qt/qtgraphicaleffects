@@ -27,7 +27,7 @@
 
 /*!
     \qmlclass Desaturate
-    \inqmlmodule QtGraphicalEffects
+    \inqmlmodule QtGraphicalEffects 1.0
     \brief Reduces the saturation of the colors.
 
    Desaturated pixel values are calculated as averages of the original RGB
@@ -50,7 +50,7 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects::Desaturate::source
+    \qmlproperty variant QtGraphicalEffects1.0::Desaturate::source
 
     This property defines the source item that provides the source pixels to the
     effect.
@@ -58,7 +58,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::Desaturate::desaturation
+    \qmlproperty real QtGraphicalEffects1.0::Desaturate::desaturation
 
     This property defines how much the source colors are desaturated.
 
@@ -83,7 +83,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects::Desaturate::cached
+    \qmlproperty bool QtGraphicalEffects1.0::Desaturate::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.

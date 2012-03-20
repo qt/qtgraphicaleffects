@@ -27,14 +27,14 @@
 
 /*!
     \qmlclass ZoomBlur
-    \inqmlmodule QtGraphicalEffects
+    \inqmlmodule QtGraphicalEffects 1.0
     \brief Applies directional blur effect towards source items center point.
 
     Effect creates perceived impression that the source item appears to be
     moving towards the center point in Z-direction or that the camera appears
     to be zooming rapidly. Other available motion blur effects are
-    \l {QtGraphicalEffects::DirectionalBlur} {DirectionalBlur}
-    and \l {QtGraphicalEffects::RadialBlur} {RadialBlur}.
+    \l {QtGraphicalEffects1.0::DirectionalBlur} {DirectionalBlur}
+    and \l {QtGraphicalEffects1.0::RadialBlur} {RadialBlur}.
 
     \table
     \header
@@ -53,14 +53,14 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects::ZoomBlur::source
+    \qmlproperty variant QtGraphicalEffects1.0::ZoomBlur::source
 
     This property defines the source item that is going to be blurred.
 
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::ZoomBlur::length
+    \qmlproperty real QtGraphicalEffects1.0::ZoomBlur::length
 
     This property defines the maximum perceived amount of movement for each
     pixel. The amount is smaller near the center and reaches the specified
@@ -102,7 +102,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::ZoomBlur::samples
+    \qmlproperty real QtGraphicalEffects1.0::ZoomBlur::samples
 
     This property defines how many samples are taken per pixel when blur
     calculation is done. Larger value produces better quality, but is slower
@@ -117,8 +117,8 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::ZoomBlur::horizontalOffset
-    \qmlproperty real QtGraphicalEffects::ZoomBlur::verticalOffset
+    \qmlproperty real QtGraphicalEffects1.0::ZoomBlur::horizontalOffset
+    \qmlproperty real QtGraphicalEffects1.0::ZoomBlur::verticalOffset
 
     These properties define an offset in pixels for the blur direction center
     point.
@@ -157,7 +157,7 @@
 
 
 /*!
-    \qmlproperty bool QtGraphicalEffects::ZoomBlur::transparentBorder
+    \qmlproperty bool QtGraphicalEffects1.0::ZoomBlur::transparentBorder
 
     This property defines the blur behavior near the edges of the item, where
     the pixel blurring is affected by the pixels outside the source edges.
@@ -167,8 +167,8 @@
     extension. The blur is expanded slightly outside the effect item area.
 
     If the property is set to \c false, the pixels outside the source are 
-    interpreted to contain the same color as the pixels at the edge of the item, 
-    which is similar to OpenGL clamp-to-edge behavior. The blur does not expand 
+    interpreted to contain the same color as the pixels at the edge of the item,
+    which is similar to OpenGL clamp-to-edge behavior. The blur does not expand
     outside the effect item area.
 
     By default, the property is set to \c false.
@@ -176,7 +176,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects::ZoomBlur::cached
+    \qmlproperty bool QtGraphicalEffects1.0::ZoomBlur::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.
