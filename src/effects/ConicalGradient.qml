@@ -84,7 +84,6 @@ Item {
             sourceItem: gradientRect
             smooth: true
             hideSource: true
-            wrapMode: ShaderEffectSource.Repeat
             visible: false
         }
         property variant maskSource: maskSourceProxy.output
@@ -108,7 +107,7 @@ Item {
                 const highp float PI = 3.14159265;
                 const highp float PIx2inv = 0.1591549;
                 highp float a = (atan((center.y - qt_TexCoord0.t), (center.x - qt_TexCoord0.s)) + PI - startAngle) * PIx2inv;
-                gl_FragColor = texture2D(gradientSource, vec2(0.0, a)) * qt_Opacity;
+                gl_FragColor = texture2D(gradientSource, vec2(0.0, fract(a))) * qt_Opacity;
             }
         "
 
@@ -125,7 +124,7 @@ Item {
                 const highp float PI = 3.14159265;
                 const highp float PIx2inv = 0.1591549;
                 highp float a = (atan((center.y - qt_TexCoord0.t), (center.x - qt_TexCoord0.s)) + PI - startAngle) * PIx2inv;
-                gl_FragColor = texture2D(gradientSource, vec2(0.0, a)) * maskAlpha * qt_Opacity;
+                gl_FragColor = texture2D(gradientSource, vec2(0.0, fract(a))) * maskAlpha * qt_Opacity;
             }
         "
     }
