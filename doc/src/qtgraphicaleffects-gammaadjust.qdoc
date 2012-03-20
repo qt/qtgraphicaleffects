@@ -27,7 +27,7 @@
 
 /*!
     \qmlclass GammaAdjust
-    \inqmlmodule QtGraphicalEffects
+    \inqmlmodule QtGraphicalEffects 1.0
     \brief Alters the luminance of the source item.
 
     GammaAdjust is applied to each pixel according to the curve which is
@@ -52,7 +52,7 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects::GammaAdjust::source
+    \qmlproperty variant QtGraphicalEffects1.0::GammaAdjust::source
 
     This property defines the source item for which the luminance is going to be
     adjusted.
@@ -60,7 +60,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::GammaAdjust::gamma
+    \qmlproperty real QtGraphicalEffects1.0::GammaAdjust::gamma
 
     This property defines the change factor for how the luminance of each pixel
     is altered according to the equation:
@@ -119,7 +119,7 @@
 
 
 /*!
-    \qmlproperty bool QtGraphicalEffects::GammaAdjust::cached
+    \qmlproperty bool QtGraphicalEffects1.0::GammaAdjust::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.

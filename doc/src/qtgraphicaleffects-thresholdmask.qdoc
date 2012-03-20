@@ -27,7 +27,7 @@
 
 /*!
     \qmlclass ThresholdMask
-    \inqmlmodule QtGraphicalEffects
+    \inqmlmodule QtGraphicalEffects 1.0
     \brief Masks the source item with another item and applies a threshold value.
 
     The masking behavior can be controlled with the \l threshold value for the
@@ -52,14 +52,14 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects::ThresholdMask::source
+    \qmlproperty variant QtGraphicalEffects1.0::ThresholdMask::source
 
     This property defines the source item that is going to be masked.
 
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects::ThresholdMask::maskSource
+    \qmlproperty variant QtGraphicalEffects1.0::ThresholdMask::maskSource
 
     This property defines the item that is going to be used as the mask. Mask item gets rendered into an intermediate pixel buffer and
     the alpha values from the result are used to determine the source item's pixels visibility in the display.
@@ -78,7 +78,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::ThresholdMask::threshold
+    \qmlproperty real QtGraphicalEffects1.0::ThresholdMask::threshold
 
     This property defines a threshold value for the mask pixels. The mask pixels that have an alpha value
     below this property are used to completely mask away the corresponding pixels from the source item.
@@ -108,7 +108,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::ThresholdMask::spread
+    \qmlproperty real QtGraphicalEffects1.0::ThresholdMask::spread
 
     This property defines the smoothness of the mask edges near the \l threshold
     alpha value. Setting spread to 0.0 uses mask normally with the specified
@@ -141,7 +141,7 @@
 
 
 /*!
-    \qmlproperty bool QtGraphicalEffects::ThresholdMask::cached
+    \qmlproperty bool QtGraphicalEffects1.0::ThresholdMask::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.
