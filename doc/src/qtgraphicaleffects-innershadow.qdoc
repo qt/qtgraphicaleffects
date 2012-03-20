@@ -28,6 +28,8 @@
 /*!
     \qmlclass InnerShadow
     \inqmlmodule QtGraphicalEffects 1.0
+    \since QtGraphicalEffects 1.0
+    \inherits QtQuick2::Item
     \brief Generates a colorized and blurred shadow inside the
     source.
 

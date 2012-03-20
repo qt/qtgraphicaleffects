@@ -28,6 +28,8 @@
 /*!
     \qmlclass Colorize
     \inqmlmodule QtGraphicalEffects 1.0
+    \since QtGraphicalEffects 1.0
+    \inherits QtQuick2::Item
     \brief Sets the color in the HSL color space.
 
     The effect is similar to what happens when a colorized glass is put on top

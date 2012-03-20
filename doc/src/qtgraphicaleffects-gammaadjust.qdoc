@@ -28,6 +28,8 @@
 /*!
     \qmlclass GammaAdjust
     \inqmlmodule QtGraphicalEffects 1.0
+    \since QtGraphicalEffects 1.0
+    \inherits QtQuick2::Item
     \brief Alters the luminance of the source item.
 
     GammaAdjust is applied to each pixel according to the curve which is

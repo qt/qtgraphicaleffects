@@ -28,6 +28,8 @@
 /*!
     \qmlclass BrightnessContrast
     \inqmlmodule QtGraphicalEffects 1.0
+    \since QtGraphicalEffects 1.0
+    \inherits QtQuick2::Item
     \brief Adjusts brightness and contrast.
 
     This effect adjusts the source item colors.

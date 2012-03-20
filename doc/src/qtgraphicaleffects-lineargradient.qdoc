@@ -28,6 +28,8 @@
 /*!
     \qmlclass LinearGradient
     \inqmlmodule QtGraphicalEffects 1.0
+    \since QtGraphicalEffects 1.0
+    \inherits QtQuick2::Item
     \brief Draws a linear gradient.
 
     A gradient is defined by two or more colors, which are blended seamlessly.

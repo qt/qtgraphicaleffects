@@ -28,6 +28,8 @@
 /*!
     \qmlclass RadialBlur
     \inqmlmodule QtGraphicalEffects 1.0
+    \since QtGraphicalEffects 1.0
+    \inherits QtQuick2::Item
     \brief Applies directional blur in a circular direction around the items center
     point.
 

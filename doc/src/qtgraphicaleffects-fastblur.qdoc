@@ -28,6 +28,8 @@
 /*!
     \qmlclass FastBlur
     \inqmlmodule QtGraphicalEffects 1.0
+    \since QtGraphicalEffects 1.0
+    \inherits QtQuick2::Item
     \brief Applies a fast blur effect to one or more source items.
 
     FastBlur offers lower blur quality than \l
