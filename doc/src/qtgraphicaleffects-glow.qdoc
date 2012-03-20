@@ -27,7 +27,7 @@
 
 /*!
     \qmlclass Glow
-    \inqmlmodule QtGraphicalEffects
+    \inqmlmodule QtGraphicalEffects 1.0
     \brief Generates a blurred and colorized image of the source and places it
     behind the original, giving impression that the source is glowing.
 
@@ -54,7 +54,7 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects::Glow::source
+    \qmlproperty variant QtGraphicalEffects1.0::Glow::source
 
     This property defines the source item that is going to be used as source for
     the generated glow.
@@ -62,7 +62,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::Glow::radius
+    \qmlproperty real QtGraphicalEffects1.0::Glow::radius
 
     Radius defines the softness of the glow. A larger radius causes the edges
     of the glow to appear more blurry.
@@ -104,7 +104,7 @@
 */
 
 /*!
-    \qmlproperty int QtGraphicalEffects::Glow::samples
+    \qmlproperty int QtGraphicalEffects1.0::Glow::samples
 
     This property defines how many samples are taken per pixel when edge softening
     blur calculation is done. Larger value produces better quality, but is slower
@@ -124,7 +124,7 @@
 */
 
 /*!
-    \qmlproperty color QtGraphicalEffects::Glow::color
+    \qmlproperty color QtGraphicalEffects1.0::Glow::color
 
     This property defines the RGBA color value which is used for the glow.
 
@@ -160,7 +160,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::Glow::spread
+    \qmlproperty real QtGraphicalEffects1.0::Glow::spread
 
     This property defines how large part of the glow color is strenghtened near
     the source edges.
@@ -197,7 +197,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects::Glow::fast
+    \qmlproperty bool QtGraphicalEffects1.0::Glow::fast
 
     This property selects the blurring algorithm that is used to produce the
     softness for the effect. Setting this to true enables fast algorithm,
@@ -233,7 +233,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects::Glow::cached
+    \qmlproperty bool QtGraphicalEffects1.0::Glow::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.

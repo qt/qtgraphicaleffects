@@ -27,7 +27,7 @@
 
 /*!
     \qmlclass ConicalGradient
-    \inqmlmodule QtGraphicalEffects
+    \inqmlmodule QtGraphicalEffects 1.0
     \brief Draws a conical gradient.
 
     A gradient is defined by two or more colors, which are blended seamlessly.
@@ -49,7 +49,7 @@
 */
 
 /*!
-    \qmlproperty Gradient QtGraphicalEffects::ConicalGradient::gradient
+    \qmlproperty Gradient QtGraphicalEffects1.0::ConicalGradient::gradient
 
     A gradient is defined by two or more colors, which are blended seamlessly.
     The colors are specified as a set of GradientStop child items, each of which
@@ -125,7 +125,7 @@ Gradient {
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects::ConicalGradient::source
+    \qmlproperty variant QtGraphicalEffects1.0::ConicalGradient::source
 
     This property defines the item that is going to be filled with gradient. Source
     item gets rendered into an intermediate pixel buffer and the alpha values
@@ -158,7 +158,7 @@ Gradient {
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::ConicalGradient::angle
+    \qmlproperty real QtGraphicalEffects1.0::ConicalGradient::angle
 
     This property defines the starting angle where the color at the gradient
     position of 0.0 is rendered. Colors at larger position values are rendered
@@ -191,8 +191,8 @@ Gradient {
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::ConicalGradient::horizontalOffset
-    \qmlproperty real QtGraphicalEffects::ConicalGradient::verticalOffset
+    \qmlproperty real QtGraphicalEffects1.0::ConicalGradient::horizontalOffset
+    \qmlproperty real QtGraphicalEffects1.0::ConicalGradient::verticalOffset
 
     The HorizontalOffset and verticalOffset properties define the offset in
     pixels for the center point of the gradient compared to the item center.
@@ -225,7 +225,7 @@ Gradient {
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects::ConicalGradient::cached
+    \qmlproperty bool QtGraphicalEffects1.0::ConicalGradient::cached
 
     This property allows the effect output pixels to be cached in order to improve the rendering performance.
 

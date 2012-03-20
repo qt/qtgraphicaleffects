@@ -27,12 +27,12 @@
 
 /*!
     \qmlclass RecursiveBlur
-    \inqmlmodule QtGraphicalEffects
+    \inqmlmodule QtGraphicalEffects 1.0
     \brief Blurs repeatedly, providing a strong blur effect.
 
     The RecursiveBlur effect softens the image by blurring it with an algorithm
     that uses a recursive feedback loop to blur the source multiple times. The
-    effect may give more blurry results than \l {QtGraphicalEffects::GaussianBlur} {GaussianBlur} or \l FastBlur,
+    effect may give more blurry results than \l {QtGraphicalEffects1.0::GaussianBlur} {GaussianBlur} or \l FastBlur,
     but the result is produced asynchronously and takes more time.
 
     \table
@@ -52,13 +52,13 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects::RecursiveBlur::source
+    \qmlproperty variant QtGraphicalEffects1.0::RecursiveBlur::source
 
     This property defines the source item that is going to be blurred.
 
 */
 /*!
-    \qmlproperty real QtGraphicalEffects::RecursiveBlur::radius
+    \qmlproperty real QtGraphicalEffects1.0::RecursiveBlur::radius
 
     This property defines the distance of neighboring pixels which influence
     the blurring of individual pixels. A larger radius provides better quality,
@@ -93,7 +93,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects::RecursiveBlur::transparentBorder
+    \qmlproperty bool QtGraphicalEffects1.0::RecursiveBlur::transparentBorder
 
     This property defines the blur behavior near the edges of the item, where
     the pixel blurring is affected by the pixels outside the source edges.
@@ -131,7 +131,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects::RecursiveBlur::cached
+    \qmlproperty bool QtGraphicalEffects1.0::RecursiveBlur::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.
@@ -148,14 +148,14 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::RecursiveBlur::progress
+    \qmlproperty real QtGraphicalEffects1.0::RecursiveBlur::progress
 
     This property holds the progress of asynchronous source blurring process, from 0.0 (nothing blurred) to 1.0 (finished).
 
 */
 
 /*!
-    \qmlproperty int QtGraphicalEffects::RecursiveBlur::loops
+    \qmlproperty int QtGraphicalEffects1.0::RecursiveBlur::loops
 
     This property defines the amount of blur iterations that are going to be
     performed for the source. When the property changes, the iterative blurring

@@ -27,7 +27,7 @@
 
 /*!
     \qmlclass HueSaturation
-    \inqmlmodule QtGraphicalEffects
+    \inqmlmodule QtGraphicalEffects 1.0
     \brief Alters the source item colors in the HSL color space.
 
     HueSaturation is similar to the \l Colorize effect, but the hue and
@@ -52,7 +52,7 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects::HueSaturation::source
+    \qmlproperty variant QtGraphicalEffects1.0::HueSaturation::source
 
     This property defines the source item that provides the source pixels for
     the effect.
@@ -60,7 +60,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::HueSaturation::hue
+    \qmlproperty real QtGraphicalEffects1.0::HueSaturation::hue
 
     This property defines the hue value which is added to the source hue value.
 
@@ -93,7 +93,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::HueSaturation::saturation
+    \qmlproperty real QtGraphicalEffects1.0::HueSaturation::saturation
 
     This property defines the saturation value value which is added to the
     source saturation value.
@@ -127,7 +127,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::HueSaturation::lightness
+    \qmlproperty real QtGraphicalEffects1.0::HueSaturation::lightness
 
     This property defines the lightness value which is added to the source
     saturation value.
@@ -161,7 +161,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects::HueSaturation::cached
+    \qmlproperty bool QtGraphicalEffects1.0::HueSaturation::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.
