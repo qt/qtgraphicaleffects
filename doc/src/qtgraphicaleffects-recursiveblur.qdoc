@@ -102,9 +102,9 @@
     interpreted to be transparent, which is similar to OpenGL clamp-to-border
     extension. The blur is expanded slightly outside the effect item area.
 
-    If the property is set to \c false, the pixels outside the source are 
-    interpreted to contain the same color as the pixels at the edge of the item, 
-    which is similar to OpenGL clamp-to-edge behavior. The blur does not expand 
+    If the property is set to \c false, the pixels outside the source are
+    interpreted to contain the same color as the pixels at the edge of the item,
+    which is similar to OpenGL clamp-to-edge behavior. The blur does not expand
     outside the effect item area.
 
     By default, the property is set to \c false.
