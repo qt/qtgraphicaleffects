@@ -27,7 +27,7 @@
 
 /*!
     \qmlclass RadialBlur
-    \inqmlmodule QtGraphicalEffects
+    \inqmlmodule QtGraphicalEffects 1.0
     \brief Applies directional blur in a circular direction around the items center
     point.
 
@@ -35,8 +35,8 @@
     to the direction of the blur.
 
     Other available motionblur effects are
-    \l {QtGraphicalEffects::ZoomBlur} {ZoomBlur} and
-    \l {QtGraphicalEffects::DirectionalBlur} {DirectionalBlur}.
+    \l {QtGraphicalEffects1.0::ZoomBlur} {ZoomBlur} and
+    \l {QtGraphicalEffects1.0::DirectionalBlur} {DirectionalBlur}.
 
     \table
     \header
@@ -55,7 +55,7 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects::RadialBlur::source
+    \qmlproperty variant QtGraphicalEffects1.0::RadialBlur::source
 
     This property defines the source item that is going to be blurred.
 
@@ -63,7 +63,7 @@
 
 
 /*!
-    \qmlproperty real QtGraphicalEffects::RadialBlur::samples
+    \qmlproperty real QtGraphicalEffects1.0::RadialBlur::samples
 
     This property defines how many samples are taken per pixel when blur
     calculation is done. Larger value produces better quality, but is slower
@@ -78,7 +78,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::RadialBlur::angle
+    \qmlproperty real QtGraphicalEffects1.0::RadialBlur::angle
 
     This property defines the direction for the blur and at the same
     time the level of blurring. The larger the angle, the more the result
@@ -119,8 +119,8 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects::RadialBlur::horizontalOffset
-    \qmlproperty real QtGraphicalEffects::RadialBlur::verticalOffset
+    \qmlproperty real QtGraphicalEffects1.0::RadialBlur::horizontalOffset
+    \qmlproperty real QtGraphicalEffects1.0::RadialBlur::verticalOffset
 
     These properties define the offset in pixels for the perceived center point
     of the rotation.
@@ -158,7 +158,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects::RadialBlur::transparentBorder
+    \qmlproperty bool QtGraphicalEffects1.0::RadialBlur::transparentBorder
 
     This property defines the blur behavior near the edges of the item, where
     the pixel blurring is affected by the pixels outside the source edges.
@@ -177,7 +177,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects::RadialBlur::cached
+    \qmlproperty bool QtGraphicalEffects1.0::RadialBlur::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.
