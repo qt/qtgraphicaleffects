@@ -40,11 +40,11 @@
 
     \table
     \header
-        \o Source
-        \o Effect applied
+        \li Source
+        \li Effect applied
     \row
-        \o \image Original_butterfly.png
-        \o \image DirectionalBlur_butterfly.png
+        \li \image Original_butterfly.png
+        \li \image DirectionalBlur_butterfly.png
     \endtable
 
     \section1 Example
@@ -75,25 +75,25 @@
 
     \table
     \header
-    \o Output examples with different length values
-    \o
-    \o
+    \li Output examples with different length values
+    \li
+    \li
     \row
-        \o \image DirectionalBlur_length1.png
-        \o \image DirectionalBlur_length2.png
-        \o \image DirectionalBlur_length3.png
+        \li \image DirectionalBlur_length1.png
+        \li \image DirectionalBlur_length2.png
+        \li \image DirectionalBlur_length3.png
     \row
-        \o \bold { length: 0.0 }
-        \o \bold { length: 32.0 }
-        \o \bold { length: 64.0 }
+        \li \b { length: 0.0 }
+        \li \b { length: 32.0 }
+        \li \b { length: 64.0 }
     \row
-        \o \l samples: 32
-        \o \l samples: 32
-        \o \l samples: 32
+        \li \l samples: 32
+        \li \l samples: 32
+        \li \l samples: 32
     \row
-        \o \l angle: 0
-        \o \l angle: 0
-        \o \l angle: 0
+        \li \l angle: 0
+        \li \l angle: 0
+        \li \l angle: 0
     \endtable
 
 */
@@ -125,25 +125,25 @@
 
     \table
     \header
-    \o Output examples with different angle values
-    \o
-    \o
+    \li Output examples with different angle values
+    \li
+    \li
     \row
-        \o \image DirectionalBlur_angle1.png
-        \o \image DirectionalBlur_angle2.png
-        \o \image DirectionalBlur_angle3.png
+        \li \image DirectionalBlur_angle1.png
+        \li \image DirectionalBlur_angle2.png
+        \li \image DirectionalBlur_angle3.png
     \row
-        \o \bold { angle: 0.0 }
-        \o \bold { angle: 45.0 }
-        \o \bold { angle: 90.0 }
+        \li \b { angle: 0.0 }
+        \li \b { angle: 45.0 }
+        \li \b { angle: 90.0 }
     \row
-        \o \l samples: 32
-        \o \l samples: 32
-        \o \l samples: 32
+        \li \l samples: 32
+        \li \l samples: 32
+        \li \l samples: 32
     \row
-        \o \l length: 32
-        \o \l length: 32
-        \o \l length: 32
+        \li \l length: 32
+        \li \l length: 32
+        \li \l length: 32
     \endtable
 
 */

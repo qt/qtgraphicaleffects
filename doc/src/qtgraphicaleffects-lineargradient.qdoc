@@ -35,9 +35,9 @@
 
     \table
     \header
-        \o Effect applied
+        \li Effect applied
     \row
-        \o \image LinearGradient.png
+        \li \image LinearGradient.png
     \endtable
 
     \section1 Example
@@ -58,15 +58,15 @@
 
     \table
     \header
-    \o Output examples with different gradient values
-    \o
-    \o
+    \li Output examples with different gradient values
+    \li
+    \li
     \row
-        \o \image LinearGradient_gradient1.png
-        \o \image LinearGradient_gradient2.png
-        \o \image LinearGradient_gradient3.png
+        \li \image LinearGradient_gradient1.png
+        \li \image LinearGradient_gradient2.png
+        \li \image LinearGradient_gradient3.png
         \row
-        \o \bold {gradient:} \code
+        \li \b {gradient:} \code
 Gradient {
   GradientStop { position: 0.000
   color: Qt.rgba(1, 0, 0, 1) }
@@ -84,7 +84,7 @@ Gradient {
   color: Qt.rgba(1, 0, 0, 1) }
 }
     \endcode
-        \o \bold {gradient:} \code
+        \li \b {gradient:} \code
 Gradient {
   GradientStop { position: 0.0
   color: "#F0F0F0"
@@ -97,7 +97,7 @@ Gradient {
   }
 }
     \endcode
-        \o \bold {gradient:} \code
+        \li \b {gradient:} \code
 Gradient {
   GradientStop { position: 0.0
     color: "#00000000"
@@ -108,13 +108,13 @@ Gradient {
 }
     \endcode
     \row
-        \o \l start: Qt.point(0, 0)
-        \o \l start: Qt.point(0, 0)
-        \o \l start: Qt.point(0, 0)
+        \li \l start: Qt.point(0, 0)
+        \li \l start: Qt.point(0, 0)
+        \li \l start: Qt.point(0, 0)
     \row
-        \o \l end: Qt.point(300, 300)
-        \o \l end: Qt.point(300, 300)
-        \o \l end: Qt.point(300, 300)
+        \li \l end: Qt.point(300, 300)
+        \li \l end: Qt.point(300, 300)
+        \li \l end: Qt.point(300, 300)
     \endtable
 
 */
@@ -131,21 +131,21 @@ Gradient {
 
     \table
     \header
-    \o Output examples with different source values
-    \o
-    \o
+    \li Output examples with different source values
+    \li
+    \li
     \row
-        \o \image LinearGradient_maskSource1.png
-        \o \image LinearGradient_maskSource2.png
+        \li \image LinearGradient_maskSource1.png
+        \li \image LinearGradient_maskSource2.png
     \row
-        \o \bold { source: undefined }
-        \o \bold { source: Image { source: images/butterfly.png } }
+        \li \b { source: undefined }
+        \li \b { source: Image { source: images/butterfly.png } }
     \row
-        \o \l start: Qt.point(0, 0)
-        \o \l start: Qt.point(0, 0)
+        \li \l start: Qt.point(0, 0)
+        \li \l start: Qt.point(0, 0)
     \row
-        \o \l end: Qt.point(300, 300)
-        \o \l end: Qt.point(300, 300)
+        \li \l end: Qt.point(300, 300)
+        \li \l end: Qt.point(300, 300)
     \endtable
 
 */
@@ -162,21 +162,21 @@ Gradient {
 
     \table
     \header
-    \o Output examples with different start values
-    \o
-    \o
+    \li Output examples with different start values
+    \li
+    \li
     \row
-        \o \image LinearGradient_start1.png
-        \o \image LinearGradient_start2.png
-        \o \image LinearGradient_start3.png
+        \li \image LinearGradient_start1.png
+        \li \image LinearGradient_start2.png
+        \li \image LinearGradient_start3.png
     \row
-        \o \bold { start: QPoint(0, 0) }
-        \o \bold { start: QPoint(150, 150) }
-        \o \bold { start: QPoint(300, 0) }
+        \li \b { start: QPoint(0, 0) }
+        \li \b { start: QPoint(150, 150) }
+        \li \b { start: QPoint(300, 0) }
     \row
-        \o \l end: QPoint(300, 300)
-        \o \l end: QPoint(300, 300)
-        \o \l end: QPoint(300, 300)
+        \li \l end: QPoint(300, 300)
+        \li \l end: QPoint(300, 300)
+        \li \l end: QPoint(300, 300)
     \endtable
 
 */
@@ -193,21 +193,21 @@ Gradient {
 
     \table
     \header
-    \o Output examples with different end values
-    \o
-    \o
+    \li Output examples with different end values
+    \li
+    \li
     \row
-        \o \image LinearGradient_end1.png
-        \o \image LinearGradient_end2.png
-        \o \image LinearGradient_end3.png
+        \li \image LinearGradient_end1.png
+        \li \image LinearGradient_end2.png
+        \li \image LinearGradient_end3.png
     \row
-        \o \bold { end: Qt.point(300, 300) }
-        \o \bold { end: Qt.point(150, 150) }
-        \o \bold { end: Qt.point(300, 0) }
+        \li \b { end: Qt.point(300, 300) }
+        \li \b { end: Qt.point(150, 150) }
+        \li \b { end: Qt.point(300, 0) }
     \row
-        \o \l start: Qt.point(0, 0)
-        \o \l start: Qt.point(0, 0)
-        \o \l start: Qt.point(0, 0)
+        \li \l start: Qt.point(0, 0)
+        \li \l start: Qt.point(0, 0)
+        \li \l start: Qt.point(0, 0)
     \endtable
 
 */

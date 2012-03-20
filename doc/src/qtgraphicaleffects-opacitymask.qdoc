@@ -32,13 +32,13 @@
 
     \table
     \header
-        \o Source
-        \o MaskSource
-        \o Effect applied
+        \li Source
+        \li MaskSource
+        \li Effect applied
     \row
-        \o \image Original_bug.png
-        \o \image OpacityMask_mask.png
-        \o \image OpacityMask_bug.png
+        \li \image Original_bug.png
+        \li \image OpacityMask_mask.png
+        \li \image OpacityMask_bug.png
     \endtable
 
     \section1 Example
@@ -63,13 +63,13 @@
 
     \table
     \header
-        \o Original
-        \o Mask
-        \o Effect applied
+        \li Original
+        \li Mask
+        \li Effect applied
     \row
-        \o \image Original_bug.png
-        \o \image OpacityMask_mask.png
-        \o \image OpacityMask_bug.png
+        \li \image Original_bug.png
+        \li \image OpacityMask_mask.png
+        \li \image OpacityMask_bug.png
     \endtable
 
 */

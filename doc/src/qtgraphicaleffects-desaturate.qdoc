@@ -35,11 +35,11 @@
 
     \table
     \header
-        \o Source
-        \o Effect applied
+        \li Source
+        \li Effect applied
     \row
-        \o \image Original_bug.png
-        \o \image Desaturate_bug.png
+        \li \image Original_bug.png
+        \li \image Desaturate_bug.png
     \endtable
 
     \section1 Example
@@ -67,17 +67,17 @@
 
     \table
     \header
-    \o Output examples with different desaturation values
-    \o
-    \o
+    \li Output examples with different desaturation values
+    \li
+    \li
     \row
-        \o \image Desaturate_desaturation1.png
-        \o \image Desaturate_desaturation2.png
-        \o \image Desaturate_desaturation3.png
+        \li \image Desaturate_desaturation1.png
+        \li \image Desaturate_desaturation2.png
+        \li \image Desaturate_desaturation3.png
     \row
-        \o \bold { desaturation: 0.0 }
-        \o \bold { desaturation: 0.5 }
-        \o \bold { desaturation: 1.0 }
+        \li \b { desaturation: 0.0 }
+        \li \b { desaturation: 0.5 }
+        \li \b { desaturation: 1.0 }
     \endtable
 
 */

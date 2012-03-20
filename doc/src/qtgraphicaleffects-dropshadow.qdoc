@@ -41,11 +41,11 @@
 
     \table
     \header
-        \o Source
-        \o Effect applied
+        \li Source
+        \li Effect applied
     \row
-        \o \image Original_butterfly.png
-        \o \image DropShadow_butterfly.png
+        \li \image Original_butterfly.png
+        \li \image DropShadow_butterfly.png
     \endtable
 
     \section1 Example
@@ -77,37 +77,37 @@
 
     \table
     \header
-    \o Output examples with different radius values
-    \o
-    \o
+    \li Output examples with different radius values
+    \li
+    \li
     \row
-        \o \image DropShadow_radius1.png
-        \o \image DropShadow_radius2.png
-        \o \image DropShadow_radius3.png
+        \li \image DropShadow_radius1.png
+        \li \image DropShadow_radius2.png
+        \li \image DropShadow_radius3.png
     \row
-        \o \bold { radius: 0 }
-        \o \bold { radius: 6 }
-        \o \bold { radius: 12 }
+        \li \b { radius: 0 }
+        \li \b { radius: 6 }
+        \li \b { radius: 12 }
     \row
-        \o \l samples: 16
-        \o \l samples: 16
-        \o \l samples: 16
+        \li \l samples: 16
+        \li \l samples: 16
+        \li \l samples: 16
     \row
-        \o \l color: #000000
-        \o \l color: #000000
-        \o \l color: #000000
+        \li \l color: #000000
+        \li \l color: #000000
+        \li \l color: #000000
     \row
-        \o \l horizontalOffset: 0
-        \o \l horizontalOffset: 0
-        \o \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
     \row
-        \o \l verticalOffset: 20
-        \o \l verticalOffset: 20
-        \o \l verticalOffset: 20
+        \li \l verticalOffset: 20
+        \li \l verticalOffset: 20
+        \li \l verticalOffset: 20
     \row
-        \o \l spread: 0
-        \o \l spread: 0
-        \o \l spread: 0
+        \li \l spread: 0
+        \li \l spread: 0
+        \li \l spread: 0
     \endtable
 
 */
@@ -142,37 +142,37 @@
 
     \table
     \header
-    \o Output examples with different spread values
-    \o
-    \o
+    \li Output examples with different spread values
+    \li
+    \li
     \row
-        \o \image DropShadow_spread1.png
-        \o \image DropShadow_spread2.png
-        \o \image DropShadow_spread3.png
+        \li \image DropShadow_spread1.png
+        \li \image DropShadow_spread2.png
+        \li \image DropShadow_spread3.png
     \row
-        \o \bold { spread: 0.0 }
-        \o \bold { spread: 0.5 }
-        \o \bold { spread: 1.0 }
+        \li \b { spread: 0.0 }
+        \li \b { spread: 0.5 }
+        \li \b { spread: 1.0 }
     \row
-        \o \l radius: 8
-        \o \l radius: 8
-        \o \l radius: 8
+        \li \l radius: 8
+        \li \l radius: 8
+        \li \l radius: 8
     \row
-        \o \l samples: 16
-        \o \l samples: 16
-        \o \l samples: 16
+        \li \l samples: 16
+        \li \l samples: 16
+        \li \l samples: 16
     \row
-        \o \l color: #000000
-        \o \l color: #000000
-        \o \l color: #000000
+        \li \l color: #000000
+        \li \l color: #000000
+        \li \l color: #000000
     \row
-        \o \l horizontalOffset: 0
-        \o \l horizontalOffset: 0
-        \o \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
     \row
-        \o \l verticalOffset: 20
-        \o \l verticalOffset: 20
-        \o \l verticalOffset: 20
+        \li \l verticalOffset: 20
+        \li \l verticalOffset: 20
+        \li \l verticalOffset: 20
     \endtable
 
 */
@@ -186,37 +186,37 @@
 
     \table
     \header
-    \o Output examples with different color values
-    \o
-    \o
+    \li Output examples with different color values
+    \li
+    \li
     \row
-        \o \image DropShadow_color1.png
-        \o \image DropShadow_color2.png
-        \o \image DropShadow_color3.png
+        \li \image DropShadow_color1.png
+        \li \image DropShadow_color2.png
+        \li \image DropShadow_color3.png
     \row
-        \o \bold { color: #000000 }
-        \o \bold { color: #0000ff }
-        \o \bold { color: #aa000000 }
+        \li \b { color: #000000 }
+        \li \b { color: #0000ff }
+        \li \b { color: #aa000000 }
     \row
-        \o \l radius: 8
-        \o \l radius: 8
-        \o \l radius: 8
+        \li \l radius: 8
+        \li \l radius: 8
+        \li \l radius: 8
     \row
-        \o \l samples: 16
-        \o \l samples: 16
-        \o \l samples: 16
+        \li \l samples: 16
+        \li \l samples: 16
+        \li \l samples: 16
     \row
-        \o \l horizontalOffset: 0
-        \o \l horizontalOffset: 0
-        \o \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
     \row
-        \o \l verticalOffset: 20
-        \o \l verticalOffset: 20
-        \o \l verticalOffset: 20
+        \li \l verticalOffset: 20
+        \li \l verticalOffset: 20
+        \li \l verticalOffset: 20
     \row
-        \o \l spread: 0
-        \o \l spread: 0
-        \o \l spread: 0
+        \li \l spread: 0
+        \li \l spread: 0
+        \li \l spread: 0
     \endtable
 
 */
@@ -236,37 +236,37 @@
 
     \table
     \header
-    \o Output examples with different horizontalOffset values
-    \o
-    \o
+    \li Output examples with different horizontalOffset values
+    \li
+    \li
     \row
-        \o \image DropShadow_horizontalOffset1.png
-        \o \image DropShadow_horizontalOffset2.png
-        \o \image DropShadow_horizontalOffset3.png
+        \li \image DropShadow_horizontalOffset1.png
+        \li \image DropShadow_horizontalOffset2.png
+        \li \image DropShadow_horizontalOffset3.png
     \row
-        \o \bold { horizontalOffset: -20 }
-        \o \bold { horizontalOffset: 0 }
-        \o \bold { horizontalOffset: 20 }
+        \li \b { horizontalOffset: -20 }
+        \li \b { horizontalOffset: 0 }
+        \li \b { horizontalOffset: 20 }
     \row
-        \o \l radius: 4
-        \o \l radius: 4
-        \o \l radius: 4
+        \li \l radius: 4
+        \li \l radius: 4
+        \li \l radius: 4
     \row
-        \o \l samples: 16
-        \o \l samples: 16
-        \o \l samples: 16
+        \li \l samples: 16
+        \li \l samples: 16
+        \li \l samples: 16
     \row
-        \o \l color: #000000
-        \o \l color: #000000
-        \o \l color: #000000
+        \li \l color: #000000
+        \li \l color: #000000
+        \li \l color: #000000
     \row
-        \o \l verticalOffset: 0
-        \o \l verticalOffset: 0
-        \o \l verticalOffset: 0
+        \li \l verticalOffset: 0
+        \li \l verticalOffset: 0
+        \li \l verticalOffset: 0
     \row
-        \o \l spread: 0
-        \o \l spread: 0
-        \o \l spread: 0
+        \li \l spread: 0
+        \li \l spread: 0
+        \li \l spread: 0
     \endtable
 
 */
@@ -282,33 +282,33 @@
 
     \table
     \header
-    \o Output examples with different fast values
-    \o
-    \o
+    \li Output examples with different fast values
+    \li
+    \li
     \row
-        \o \image DropShadow_fast1.png
-        \o \image DropShadow_fast2.png
+        \li \image DropShadow_fast1.png
+        \li \image DropShadow_fast2.png
     \row
-        \o \bold { fast: false }
-        \o \bold { fast: true }
+        \li \b { fast: false }
+        \li \b { fast: true }
     \row
-        \o \l radius: 16
-        \o \l radius: 16
+        \li \l radius: 16
+        \li \l radius: 16
     \row
-        \o \l samples: 32
-        \o \l samples: 32
+        \li \l samples: 32
+        \li \l samples: 32
     \row
-        \o \l color: #000000
-        \o \l color: #000000
+        \li \l color: #000000
+        \li \l color: #000000
     \row
-        \o \l horizontalOffset: 0
-        \o \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
     \row
-        \o \l verticalOffset: 20
-        \o \l verticalOffset: 20
+        \li \l verticalOffset: 20
+        \li \l verticalOffset: 20
     \row
-        \o \l spread: 0
-        \o \l spread: 0
+        \li \l spread: 0
+        \li \l spread: 0
     \endtable
 
 */

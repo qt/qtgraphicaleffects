@@ -37,11 +37,11 @@
 
     \table
     \header
-        \o Source
-        \o Effect applied
+        \li Source
+        \li Effect applied
     \row
-        \o \image Original_bug.png
-        \o \image GammaAdjust_bug.png
+        \li \image Original_bug.png
+        \li \image GammaAdjust_bug.png
     \endtable
 
     \section1 Example
@@ -75,44 +75,44 @@
 
     \table
     \header
-    \o Output examples with different gamma values
-    \o
-    \o
+    \li Output examples with different gamma values
+    \li
+    \li
     \row
-        \o \image GammaAdjust_gamma1.png
-        \o \image GammaAdjust_gamma2.png
-        \o \image GammaAdjust_gamma3.png
+        \li \image GammaAdjust_gamma1.png
+        \li \image GammaAdjust_gamma2.png
+        \li \image GammaAdjust_gamma3.png
     \row
-        \o \bold { gamma: 0.5 }
-        \o \bold { gamma: 1.0 }
-        \o \bold { gamma: 2.0 }
+        \li \b { gamma: 0.5 }
+        \li \b { gamma: 1.0 }
+        \li \b { gamma: 2.0 }
     \endtable
 
     \table
     \header
-        \o Pixel luminance curves of the above images.
-        \o
-        \o
+        \li Pixel luminance curves of the above images.
+        \li
+        \li
     \row
-        \o \image GammaAdjust_gamma1_graph.png
-        \o \image GammaAdjust_gamma2_graph.png
-        \o \image GammaAdjust_gamma3_graph.png
+        \li \image GammaAdjust_gamma1_graph.png
+        \li \image GammaAdjust_gamma2_graph.png
+        \li \image GammaAdjust_gamma3_graph.png
     \row
-        \o Red curve: default gamma (1.0)
-        \o
-        \o
+        \li Red curve: default gamma (1.0)
+        \li
+        \li
     \row
-        \o Yellow curve: effect applied
-        \o
-        \o
+        \li Yellow curve: effect applied
+        \li
+        \li
     \row
-        \o X-axis: pixel original luminance
-        \o
-        \o
+        \li X-axis: pixel original luminance
+        \li
+        \li
     \row
-        \o Y-axis: pixel luminance with effect applied
-        \o
-        \o
+        \li Y-axis: pixel luminance with effect applied
+        \li
+        \li
     \endtable
 
 */

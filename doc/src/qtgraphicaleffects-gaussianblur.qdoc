@@ -36,11 +36,11 @@
 
     \table
     \header
-        \o Source
-        \o Effect applied
+        \li Source
+        \li Effect applied
     \row
-        \o \image Original_bug.png
-        \o \image GaussianBlur_bug.png
+        \li \image Original_bug.png
+        \li \image GaussianBlur_bug.png
     \endtable
 
     \section1 Example
@@ -71,25 +71,25 @@
 
     \table
     \header
-    \o Output examples with different radius values
-    \o
-    \o
+    \li Output examples with different radius values
+    \li
+    \li
     \row
-        \o \image GaussianBlur_radius1.png
-        \o \image GaussianBlur_radius2.png
-        \o \image GaussianBlur_radius3.png
+        \li \image GaussianBlur_radius1.png
+        \li \image GaussianBlur_radius2.png
+        \li \image GaussianBlur_radius3.png
     \row
-        \o \bold { radius: 0 }
-        \o \bold { radius: 4 }
-        \o \bold { radius: 8 }
+        \li \b { radius: 0 }
+        \li \b { radius: 4 }
+        \li \b { radius: 8 }
     \row
-        \o \l samples: 16
-        \o \l samples: 16
-        \o \l samples: 16
+        \li \l samples: 16
+        \li \l samples: 16
+        \li \l samples: 16
     \row
-        \o \l deviation: 3
-        \o \l deviation: 3
-        \o \l deviation: 3
+        \li \l deviation: 3
+        \li \l deviation: 3
+        \li \l deviation: 3
     \endtable
 
 */
@@ -135,25 +135,25 @@
 
     \table
     \header
-    \o Output examples with different deviation values
-    \o
-    \o
+    \li Output examples with different deviation values
+    \li
+    \li
     \row
-        \o \image GaussianBlur_deviation1.png
-        \o \image GaussianBlur_deviation2.png
-        \o \image GaussianBlur_deviation3.png
+        \li \image GaussianBlur_deviation1.png
+        \li \image GaussianBlur_deviation2.png
+        \li \image GaussianBlur_deviation3.png
     \row
-        \o \bold { deviation: 1 }
-        \o \bold { deviation: 2 }
-        \o \bold { deviation: 4 }
+        \li \b { deviation: 1 }
+        \li \b { deviation: 2 }
+        \li \b { deviation: 4 }
     \row
-        \o \l radius: 8
-        \o \l radius: 8
-        \o \l radius: 8
+        \li \l radius: 8
+        \li \l radius: 8
+        \li \l radius: 8
     \row
-        \o \l samples: 16
-        \o \l samples: 16
-        \o \l samples: 16
+        \li \l samples: 16
+        \li \l samples: 16
+        \li \l samples: 16
     \endtable
 
 */
@@ -177,24 +177,24 @@
 
     \table
     \header
-    \o Output examples with different transparentBorder values
-    \o
-    \o
+    \li Output examples with different transparentBorder values
+    \li
+    \li
     \row
-        \o \image GaussianBlur_transparentBorder1.png
-        \o \image GaussianBlur_transparentBorder2.png
+        \li \image GaussianBlur_transparentBorder1.png
+        \li \image GaussianBlur_transparentBorder2.png
     \row
-        \o \bold { transparentBorder: false }
-        \o \bold { transparentBorder: true }
+        \li \b { transparentBorder: false }
+        \li \b { transparentBorder: true }
     \row
-        \o \l radius: 8
-        \o \l radius: 8
+        \li \l radius: 8
+        \li \l radius: 8
     \row
-        \o \l samples: 16
-        \o \l samples: 16
+        \li \l samples: 16
+        \li \l samples: 16
     \row
-        \o \l deviation: 2.7
-        \o \l deviation: 2.7
+        \li \l deviation: 2.7
+        \li \l deviation: 2.7
     \endtable
 
 */

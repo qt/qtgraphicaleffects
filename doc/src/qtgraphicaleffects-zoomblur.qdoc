@@ -38,11 +38,11 @@
 
     \table
     \header
-        \o Source
-        \o Effect applied
+        \li Source
+        \li Effect applied
     \row
-        \o \image Original_butterfly.png
-        \o \image ZoomBlur_butterfly.png
+        \li \image Original_butterfly.png
+        \li \image ZoomBlur_butterfly.png
     \endtable
 
     \section1 Example
@@ -74,29 +74,29 @@
 
     \table
     \header
-    \o Output examples with different length values
-    \o
-    \o
+    \li Output examples with different length values
+    \li
+    \li
     \row
-        \o \image ZoomBlur_length1.png
-        \o \image ZoomBlur_length2.png
-        \o \image ZoomBlur_length3.png
+        \li \image ZoomBlur_length1.png
+        \li \image ZoomBlur_length2.png
+        \li \image ZoomBlur_length3.png
     \row
-        \o \bold { length: 0.0 }
-        \o \bold { length: 32.0 }
-        \o \bold { length: 48.0 }
+        \li \b { length: 0.0 }
+        \li \b { length: 32.0 }
+        \li \b { length: 48.0 }
     \row
-        \o \l samples: 32
-        \o \l samples: 32
-        \o \l samples: 32
+        \li \l samples: 32
+        \li \l samples: 32
+        \li \l samples: 32
     \row
-        \o \l horizontalOffset: 0
-        \o \l horizontalOffset: 0
-        \o \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
     \row
-        \o \l verticalOffset: 0
-        \o \l verticalOffset: 0
-        \o \l verticalOffset: 0
+        \li \l verticalOffset: 0
+        \li \l verticalOffset: 0
+        \li \l verticalOffset: 0
     \endtable
 
 */
@@ -128,29 +128,29 @@
 
     \table
     \header
-    \o Output examples with different horizontalOffset values
-    \o
-    \o
+    \li Output examples with different horizontalOffset values
+    \li
+    \li
     \row
-        \o \image ZoomBlur_horizontalOffset1.png
-        \o \image ZoomBlur_horizontalOffset2.png
-        \o \image ZoomBlur_horizontalOffset3.png
+        \li \image ZoomBlur_horizontalOffset1.png
+        \li \image ZoomBlur_horizontalOffset2.png
+        \li \image ZoomBlur_horizontalOffset3.png
     \row
-        \o \bold { horizontalOffset: 100.0 }
-        \o \bold { horizontalOffset: 0.0 }
-        \o \bold { horizontalOffset: -100.0 }
+        \li \b { horizontalOffset: 100.0 }
+        \li \b { horizontalOffset: 0.0 }
+        \li \b { horizontalOffset: -100.0 }
     \row
-        \o \l samples: 32
-        \o \l samples: 32
-        \o \l samples: 32
+        \li \l samples: 32
+        \li \l samples: 32
+        \li \l samples: 32
     \row
-        \o \l length: 32
-        \o \l length: 32
-        \o \l length: 32
+        \li \l length: 32
+        \li \l length: 32
+        \li \l length: 32
     \row
-        \o \l verticalOffset: 0
-        \o \l verticalOffset: 0
-        \o \l verticalOffset: 0
+        \li \l verticalOffset: 0
+        \li \l verticalOffset: 0
+        \li \l verticalOffset: 0
     \endtable
 
 */

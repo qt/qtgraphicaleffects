@@ -40,11 +40,11 @@
 
     \table
     \header
-        \o Source
-        \o Effect applied
+        \li Source
+        \li Effect applied
     \row
-        \o \image Original_butterfly.png
-        \o \image RadialBlur_butterfly.png
+        \li \image Original_butterfly.png
+        \li \image RadialBlur_butterfly.png
     \endtable
 
     \chapter Example Usage
@@ -91,29 +91,29 @@
 
     \table
     \header
-    \o Output examples with different angle values
-    \o
-    \o
+    \li Output examples with different angle values
+    \li
+    \li
     \row
-        \o \image RadialBlur_angle1.png
-        \o \image RadialBlur_angle2.png
-        \o \image RadialBlur_angle3.png
+        \li \image RadialBlur_angle1.png
+        \li \image RadialBlur_angle2.png
+        \li \image RadialBlur_angle3.png
     \row
-        \o \bold { angle: 0.0 }
-        \o \bold { angle: 15.0 }
-        \o \bold { angle: 30.0 }
+        \li \b { angle: 0.0 }
+        \li \b { angle: 15.0 }
+        \li \b { angle: 30.0 }
     \row
-        \o \l samples: 32
-        \o \l samples: 32
-        \o \l samples: 32
+        \li \l samples: 32
+        \li \l samples: 32
+        \li \l samples: 32
     \row
-        \o \l horizontalOffset: 0
-        \o \l horizontalOffset: 0
-        \o \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
     \row
-        \o \l verticalOffset: 0
-        \o \l verticalOffset: 0
-        \o \l verticalOffset: 0
+        \li \l verticalOffset: 0
+        \li \l verticalOffset: 0
+        \li \l verticalOffset: 0
     \endtable
 
 */
@@ -130,29 +130,29 @@
 
     \table
     \header
-    \o Output examples with different horizontalOffset values
-    \o
-    \o
+    \li Output examples with different horizontalOffset values
+    \li
+    \li
     \row
-        \o \image RadialBlur_horizontalOffset1.png
-        \o \image RadialBlur_horizontalOffset2.png
-        \o \image RadialBlur_horizontalOffset3.png
+        \li \image RadialBlur_horizontalOffset1.png
+        \li \image RadialBlur_horizontalOffset2.png
+        \li \image RadialBlur_horizontalOffset3.png
     \row
-        \o \bold { horizontalOffset: 75.0 }
-        \o \bold { horizontalOffset: 0.0 }
-        \o \bold { horizontalOffset: -75.0 }
+        \li \b { horizontalOffset: 75.0 }
+        \li \b { horizontalOffset: 0.0 }
+        \li \b { horizontalOffset: -75.0 }
     \row
-        \o \l samples: 32
-        \o \l samples: 32
-        \o \l samples: 32
+        \li \l samples: 32
+        \li \l samples: 32
+        \li \l samples: 32
     \row
-        \o \l angle: 20
-        \o \l angle: 20
-        \o \l angle: 20
+        \li \l angle: 20
+        \li \l angle: 20
+        \li \l angle: 20
     \row
-        \o \l verticalOffset: 0
-        \o \l verticalOffset: 0
-        \o \l verticalOffset: 0
+        \li \l verticalOffset: 0
+        \li \l verticalOffset: 0
+        \li \l verticalOffset: 0
     \endtable
 
 */
