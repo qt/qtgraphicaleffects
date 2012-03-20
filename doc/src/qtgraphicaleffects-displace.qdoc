@@ -33,13 +33,13 @@
 
     \table
     \header
-        \o Source
-        \o DisplacementSource
-        \o Effect applied
+        \li Source
+        \li DisplacementSource
+        \li Effect applied
     \row
-        \o \image Original_bug.png
-        \o \image Displace_map.png
-        \o \image Displace_bug.png
+        \li \image Original_bug.png
+        \li \image Displace_map.png
+        \li \image Displace_bug.png
     \endtable
 
     \section1 Example
@@ -100,17 +100,17 @@
 
     \table
     \header
-    \o Output examples with different displacement values
-    \o
-    \o
+    \li Output examples with different displacement values
+    \li
+    \li
     \row
-        \o \image Displace_displacement1.png
-        \o \image Displace_displacement2.png
-        \o \image Displace_displacement3.png
+        \li \image Displace_displacement1.png
+        \li \image Displace_displacement2.png
+        \li \image Displace_displacement3.png
     \row
-        \o \bold { displacement: -0.2 }
-        \o \bold { displacement: 0.0 }
-        \o \bold { displacement: 0.2 }
+        \li \b { displacement: -0.2 }
+        \li \b { displacement: 0.0 }
+        \li \b { displacement: 0.2 }
     \endtable
 
 */

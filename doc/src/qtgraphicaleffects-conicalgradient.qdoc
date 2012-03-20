@@ -36,9 +36,9 @@
 
     \table
     \header
-        \o Effect applied
+        \li Effect applied
     \row
-        \o \image ConicalGradient.png
+        \li \image ConicalGradient.png
     \endtable
 
     \section1 Example
@@ -59,15 +59,15 @@
 
     \table
     \header
-    \o Output examples with different gradient values
-    \o
-    \o
+    \li Output examples with different gradient values
+    \li
+    \li
     \row
-        \o \image ConicalGradient_gradient1.png
-        \o \image ConicalGradient_gradient2.png
-        \o \image ConicalGradient_gradient3.png
+        \li \image ConicalGradient_gradient1.png
+        \li \image ConicalGradient_gradient2.png
+        \li \image ConicalGradient_gradient3.png
     \row
-        \o \bold {gradient:} \code
+        \li \b {gradient:} \code
 Gradient {
   GradientStop { position: 0.000
   color: Qt.rgba(1, 0, 0, 1) }
@@ -85,7 +85,7 @@ Gradient {
   color: Qt.rgba(1, 0, 0, 1) }
 }
     \endcode
-        \o \bold {gradient:} \code
+        \li \b {gradient:} \code
 Gradient {
   GradientStop { position: 0.0
   color: "#F0F0F0"
@@ -98,7 +98,7 @@ Gradient {
   }
 }
     \endcode
-        \o \bold {gradient:} \code
+        \li \b {gradient:} \code
 Gradient {
   GradientStop { position: 0.0
     color: "#00000000"
@@ -109,17 +109,17 @@ Gradient {
 }
     \endcode
     \row
-        \o \l angle: 0
-        \o \l angle: 0
-        \o \l angle: 0
+        \li \l angle: 0
+        \li \l angle: 0
+        \li \l angle: 0
     \row
-        \o \l horizontalOffset: 0
-        \o \l horizontalOffset: 0
-        \o \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
     \row
-        \o \l verticalOffset: 0
-        \o \l verticalOffset: 0
-        \o \l verticalOffset: 0
+        \li \l verticalOffset: 0
+        \li \l verticalOffset: 0
+        \li \l verticalOffset: 0
     \endtable
 
 */
@@ -136,23 +136,23 @@ Gradient {
 
     \table
     \header
-    \o Output examples with different source values
-    \o
+    \li Output examples with different source values
+    \li
     \row
-        \o \image ConicalGradient_maskSource1.png
-        \o \image ConicalGradient_maskSource2.png
+        \li \image ConicalGradient_maskSource1.png
+        \li \image ConicalGradient_maskSource2.png
     \row
-        \o \bold { source: undefined }
-        \o \bold { source:  }
+        \li \b { source: undefined }
+        \li \b { source:  }
     \row
-        \o \l angle: 0
-        \o \l angle: 0
+        \li \l angle: 0
+        \li \l angle: 0
     \row
-        \o \l horizontalOffset: 0
-        \o \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
     \row
-        \o \l verticalOffset: 0
-        \o \l verticalOffset: 0
+        \li \l verticalOffset: 0
+        \li \l verticalOffset: 0
     \endtable
 
 */
@@ -167,25 +167,25 @@ Gradient {
 
     \table
     \header
-    \o Output examples with different angle values
-    \o
-    \o
+    \li Output examples with different angle values
+    \li
+    \li
     \row
-        \o \image ConicalGradient_angle1.png
-        \o \image ConicalGradient_angle2.png
-        \o \image ConicalGradient_angle3.png
+        \li \image ConicalGradient_angle1.png
+        \li \image ConicalGradient_angle2.png
+        \li \image ConicalGradient_angle3.png
     \row
-        \o \bold { angle: 0 }
-        \o \bold { angle: 45 }
-        \o \bold { angle: 185 }
+        \li \b { angle: 0 }
+        \li \b { angle: 45 }
+        \li \b { angle: 185 }
     \row
-        \o \l horizontalOffset: 0
-        \o \l horizontalOffset: 0
-        \o \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
     \row
-        \o \l verticalOffset: 0
-        \o \l verticalOffset: 0
-        \o \l verticalOffset: 0
+        \li \l verticalOffset: 0
+        \li \l verticalOffset: 0
+        \li \l verticalOffset: 0
     \endtable
 
 */
@@ -201,25 +201,25 @@ Gradient {
 
     \table
     \header
-    \o Output examples with different horizontalOffset values
-    \o
-    \o
+    \li Output examples with different horizontalOffset values
+    \li
+    \li
     \row
-        \o \image ConicalGradient_horizontalOffset1.png
-        \o \image ConicalGradient_horizontalOffset2.png
-        \o \image ConicalGradient_horizontalOffset3.png
+        \li \image ConicalGradient_horizontalOffset1.png
+        \li \image ConicalGradient_horizontalOffset2.png
+        \li \image ConicalGradient_horizontalOffset3.png
     \row
-        \o \bold { horizontalOffset: -50 }
-        \o \bold { horizontalOffset: 0 }
-        \o \bold { horizontalOffset: 50 }
+        \li \b { horizontalOffset: -50 }
+        \li \b { horizontalOffset: 0 }
+        \li \b { horizontalOffset: 50 }
     \row
-        \o \l angle: 0
-        \o \l angle: 0
-        \o \l angle: 0
+        \li \l angle: 0
+        \li \l angle: 0
+        \li \l angle: 0
     \row
-        \o \l verticalOffset: 0
-        \o \l verticalOffset: 0
-        \o \l verticalOffset: 0
+        \li \l verticalOffset: 0
+        \li \l verticalOffset: 0
+        \li \l verticalOffset: 0
     \endtable
 
 */

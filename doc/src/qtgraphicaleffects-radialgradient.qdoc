@@ -35,9 +35,9 @@
 
     \table
     \header
-        \o Effect applied
+        \li Effect applied
     \row
-        \o \image RadialGradient.png
+        \li \image RadialGradient.png
     \endtable
 
     \section1 Example
@@ -59,30 +59,30 @@
 
     \table
     \header
-    \o Output examples with different source values
-    \o
-    \o
+    \li Output examples with different source values
+    \li
+    \li
     \row
-        \o \image RadialGradient_maskSource1.png
-        \o \image RadialGradient_maskSource2.png
+        \li \image RadialGradient_maskSource1.png
+        \li \image RadialGradient_maskSource2.png
     \row
-        \o \bold { source: undefined }
-        \o \bold { source: Image { source: images/butterfly.png } }
+        \li \b { source: undefined }
+        \li \b { source: Image { source: images/butterfly.png } }
     \row
-        \o \l horizontalOffset: 0
-        \o \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
     \row
-        \o \l verticalOffset: 0
-        \o \l verticalOffset: 0
+        \li \l verticalOffset: 0
+        \li \l verticalOffset: 0
     \row
-        \o \l horizontalRadius: 300
-        \o \l horizontalRadius: 300
+        \li \l horizontalRadius: 300
+        \li \l horizontalRadius: 300
     \row
-        \o \l verticalRadius: 300
-        \o \l verticalRadius: 300
+        \li \l verticalRadius: 300
+        \li \l verticalRadius: 300
     \row
-        \o \l angle: 0
-        \o \l angle: 0
+        \li \l angle: 0
+        \li \l angle: 0
     \endtable
 
 */
@@ -97,33 +97,33 @@
 
     \table
     \header
-    \o Output examples with different angle values
-    \o
-    \o
+    \li Output examples with different angle values
+    \li
+    \li
     \row
-        \o \image RadialGradient_angle1.png
-        \o \image RadialGradient_angle2.png
-        \o \image RadialGradient_angle3.png
+        \li \image RadialGradient_angle1.png
+        \li \image RadialGradient_angle2.png
+        \li \image RadialGradient_angle3.png
     \row
-        \o \bold { angle: 0 }
-        \o \bold { angle: 45 }
-        \o \bold { angle: 90 }
+        \li \b { angle: 0 }
+        \li \b { angle: 45 }
+        \li \b { angle: 90 }
     \row
-        \o \l horizontalOffset: 0
-        \o \l horizontalOffset: 0
-        \o \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
     \row
-        \o \l verticalOffset: 0
-        \o \l verticalOffset: 0
-        \o \l verticalOffset: 0
+        \li \l verticalOffset: 0
+        \li \l verticalOffset: 0
+        \li \l verticalOffset: 0
     \row
-        \o \l horizontalRadius: 100
-        \o \l horizontalRadius: 100
-        \o \l horizontalRadius: 100
+        \li \l horizontalRadius: 100
+        \li \l horizontalRadius: 100
+        \li \l horizontalRadius: 100
     \row
-        \o \l verticalRadius: 300
-        \o \l verticalRadius: 300
-        \o \l verticalRadius: 300
+        \li \l verticalRadius: 300
+        \li \l verticalRadius: 300
+        \li \l verticalRadius: 300
     \endtable
 
 */
@@ -139,33 +139,33 @@
 
     \table
     \header
-    \o Output examples with different horizontalOffset values
-    \o
-    \o
+    \li Output examples with different horizontalOffset values
+    \li
+    \li
     \row
-        \o \image RadialGradient_horizontalOffset1.png
-        \o \image RadialGradient_horizontalOffset2.png
-        \o \image RadialGradient_horizontalOffset3.png
+        \li \image RadialGradient_horizontalOffset1.png
+        \li \image RadialGradient_horizontalOffset2.png
+        \li \image RadialGradient_horizontalOffset3.png
     \row
-        \o \bold { horizontalOffset: -150 }
-        \o \bold { horizontalOffset: 0 }
-        \o \bold { horizontalOffset: 150 }
+        \li \b { horizontalOffset: -150 }
+        \li \b { horizontalOffset: 0 }
+        \li \b { horizontalOffset: 150 }
     \row
-        \o \l verticalOffset: 0
-        \o \l verticalOffset: 0
-        \o \l verticalOffset: 0
+        \li \l verticalOffset: 0
+        \li \l verticalOffset: 0
+        \li \l verticalOffset: 0
     \row
-        \o \l horizontalRadius: 300
-        \o \l horizontalRadius: 300
-        \o \l horizontalRadius: 300
+        \li \l horizontalRadius: 300
+        \li \l horizontalRadius: 300
+        \li \l horizontalRadius: 300
     \row
-        \o \l verticalRadius: 300
-        \o \l verticalRadius: 300
-        \o \l verticalRadius: 300
+        \li \l verticalRadius: 300
+        \li \l verticalRadius: 300
+        \li \l verticalRadius: 300
     \row
-        \o \l angle: 0
-        \o \l angle: 0
-        \o \l angle: 0
+        \li \l angle: 0
+        \li \l angle: 0
+        \li \l angle: 0
     \endtable
 
 */
@@ -184,30 +184,30 @@
 
     \table
     \header
-    \o Output examples with different horizontalRadius values
-    \o
-    \o
+    \li Output examples with different horizontalRadius values
+    \li
+    \li
     \row
-        \o \image RadialGradient_horizontalRadius1.png
-        \o \image RadialGradient_horizontalRadius2.png
+        \li \image RadialGradient_horizontalRadius1.png
+        \li \image RadialGradient_horizontalRadius2.png
     \row
-        \o \bold { horizontalRadius: 300 }
-        \o \bold { horizontalRadius: 100 }
+        \li \b { horizontalRadius: 300 }
+        \li \b { horizontalRadius: 100 }
     \row
-        \o \l horizontalOffset: 0
-        \o \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
     \row
-        \o \l verticalOffset: 0
-        \o \l verticalOffset: 0
+        \li \l verticalOffset: 0
+        \li \l verticalOffset: 0
     \row
-        \o \l verticalRadius: 300
-        \o \l verticalRadius: 300
+        \li \l verticalRadius: 300
+        \li \l verticalRadius: 300
     \row
-        \o \l angle: 0
-        \o \l angle: 0
+        \li \l angle: 0
+        \li \l angle: 0
     \row
-        \o \l gradient: QQuickGradient(0xa05fb10)
-        \o \l gradient: QQuickGradient(0xa05fb10)
+        \li \l gradient: QQuickGradient(0xa05fb10)
+        \li \l gradient: QQuickGradient(0xa05fb10)
     \endtable
 
 */
@@ -223,15 +223,15 @@
 
     \table
     \header
-    \o Output examples with different gradient values
-    \o
-    \o
+    \li Output examples with different gradient values
+    \li
+    \li
     \row
-        \o \image RadialGradient_gradient1.png
-        \o \image RadialGradient_gradient2.png
-        \o \image RadialGradient_gradient3.png
+        \li \image RadialGradient_gradient1.png
+        \li \image RadialGradient_gradient2.png
+        \li \image RadialGradient_gradient3.png
     \row
-        \o \bold {gradient:} \code
+        \li \b {gradient:} \code
 Gradient {
   GradientStop { position: 0.000
   color: Qt.rgba(1, 0, 0, 1) }
@@ -249,7 +249,7 @@ Gradient {
   color: Qt.rgba(1, 0, 0, 1) }
 }
     \endcode
-        \o \bold {gradient:} \code
+        \li \b {gradient:} \code
 Gradient {
   GradientStop { position: 0.0
   color: "#F0F0F0"
@@ -262,7 +262,7 @@ Gradient {
   }
 }
     \endcode
-        \o \bold {gradient:} \code
+        \li \b {gradient:} \code
 Gradient {
   GradientStop { position: 0.0
     color: "#00000000"
@@ -273,25 +273,25 @@ Gradient {
 }
     \endcode
     \row
-        \o \l horizontalOffset: 0
-        \o \l horizontalOffset: 0
-        \o \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
+        \li \l horizontalOffset: 0
     \row
-        \o \l verticalOffset: 0
-        \o \l verticalOffset: 0
-        \o \l verticalOffset: 0
+        \li \l verticalOffset: 0
+        \li \l verticalOffset: 0
+        \li \l verticalOffset: 0
     \row
-        \o \l horizontalRadius: 300
-        \o \l horizontalRadius: 300
-        \o \l horizontalRadius: 300
+        \li \l horizontalRadius: 300
+        \li \l horizontalRadius: 300
+        \li \l horizontalRadius: 300
     \row
-        \o \l verticalRadius: 300
-        \o \l verticalRadius: 300
-        \o \l verticalRadius: 300
+        \li \l verticalRadius: 300
+        \li \l verticalRadius: 300
+        \li \l verticalRadius: 300
     \row
-        \o \l angle: 0
-        \o \l angle: 0
-        \o \l angle: 0
+        \li \l angle: 0
+        \li \l angle: 0
+        \li \l angle: 0
     \endtable
 
 */

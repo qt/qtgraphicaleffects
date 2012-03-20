@@ -35,11 +35,11 @@
 
     \table
     \header
-        \o Source
-        \o Effect applied
+        \li Source
+        \li Effect applied
     \row
-        \o \image Original_butterfly_black.png
-        \o \image ColorOverlay_butterfly.png
+        \li \image Original_butterfly_black.png
+        \li \image ColorOverlay_butterfly.png
     \endtable
 
     \section1 Example
@@ -66,17 +66,17 @@
 
     \table
     \header
-    \o Output examples with different color values
-    \o
-    \o
+    \li Output examples with different color values
+    \li
+    \li
     \row
-        \o \image ColorOverlay_color1.png
-        \o \image ColorOverlay_color2.png
-        \o \image ColorOverlay_color3.png
+        \li \image ColorOverlay_color1.png
+        \li \image ColorOverlay_color2.png
+        \li \image ColorOverlay_color3.png
     \row
-        \o \bold { color: #80ff0000 }
-        \o \bold { color: #8000ff00 }
-        \o \bold { color: #800000ff }
+        \li \b { color: #80ff0000 }
+        \li \b { color: #8000ff00 }
+        \li \b { color: #800000ff }
     \endtable
 
 */

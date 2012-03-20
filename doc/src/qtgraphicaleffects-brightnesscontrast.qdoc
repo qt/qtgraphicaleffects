@@ -37,11 +37,11 @@
 
     \table
     \header
-        \o Source
-        \o Effect applied
+        \li Source
+        \li Effect applied
     \row
-        \o \image Original_bug.png
-        \o \image BrightnessContrast_bug.png
+        \li \image Original_bug.png
+        \li \image BrightnessContrast_bug.png
     \endtable
 
     \section1 Example
@@ -70,21 +70,21 @@
 
     \table
     \header
-    \o Output examples with different brightness values
-    \o
-    \o
+    \li Output examples with different brightness values
+    \li
+    \li
     \row
-        \o \image BrightnessContrast_brightness1.png
-        \o \image BrightnessContrast_brightness2.png
-        \o \image BrightnessContrast_brightness3.png
+        \li \image BrightnessContrast_brightness1.png
+        \li \image BrightnessContrast_brightness2.png
+        \li \image BrightnessContrast_brightness3.png
     \row
-        \o \bold { brightness: -0.25 }
-        \o \bold { brightness: 0 }
-        \o \bold { brightness: 0.5 }
+        \li \b { brightness: -0.25 }
+        \li \b { brightness: 0 }
+        \li \b { brightness: 0.5 }
     \row
-        \o \l contrast: 0
-        \o \l contrast: 0
-        \o \l contrast: 0
+        \li \l contrast: 0
+        \li \l contrast: 0
+        \li \l contrast: 0
     \endtable
 
 */
@@ -99,30 +99,30 @@
 
     \table
     \header
-        \o Contrast adjustment curve
+        \li Contrast adjustment curve
     \row
-        \o \image BrightnessContrast_contrast_graph.png
+        \li \image BrightnessContrast_contrast_graph.png
     \endtable
 
    The value ranges from -1.0 to 1.0. By default, the property is set to \c 0.0 (no change).
 
     \table
     \header
-    \o Output examples with different contrast values
-    \o
-    \o
+    \li Output examples with different contrast values
+    \li
+    \li
     \row
-        \o \image BrightnessContrast_contrast1.png
-        \o \image BrightnessContrast_contrast2.png
-        \o \image BrightnessContrast_contrast3.png
+        \li \image BrightnessContrast_contrast1.png
+        \li \image BrightnessContrast_contrast2.png
+        \li \image BrightnessContrast_contrast3.png
     \row
-        \o \bold { contrast: -0.5 }
-        \o \bold { contrast: 0 }
-        \o \bold { contrast: 0.5 }
+        \li \b { contrast: -0.5 }
+        \li \b { contrast: 0 }
+        \li \b { contrast: 0.5 }
     \row
-        \o \l brightness: 0
-        \o \l brightness: 0
-        \o \l brightness: 0
+        \li \l brightness: 0
+        \li \l brightness: 0
+        \li \l brightness: 0
     \endtable
 
 */

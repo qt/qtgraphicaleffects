@@ -40,13 +40,13 @@
 
     \table
     \header
-        \o Source
-        \o MaskSource
-        \o Effect applied
+        \li Source
+        \li MaskSource
+        \li Effect applied
     \row
-        \o \image Original_butterfly.png
-        \o \image MaskedBlur_mask.png
-        \o \image MaskedBlur_butterfly.png
+        \li \image Original_butterfly.png
+        \li \image MaskedBlur_mask.png
+        \li \image MaskedBlur_butterfly.png
     \endtable
 
     \section1 Example
@@ -91,29 +91,29 @@
 
     \table
     \header
-    \o Output examples with different radius values
-    \o
-    \o
+    \li Output examples with different radius values
+    \li
+    \li
     \row
-        \o \image MaskedBlur_radius1.png
-        \o \image MaskedBlur_radius2.png
-        \o \image MaskedBlur_radius3.png
+        \li \image MaskedBlur_radius1.png
+        \li \image MaskedBlur_radius2.png
+        \li \image MaskedBlur_radius3.png
     \row
-        \o \bold { radius: 0 }
-        \o \bold { radius: 8 }
-        \o \bold { radius: 16 }
+        \li \b { radius: 0 }
+        \li \b { radius: 8 }
+        \li \b { radius: 16 }
     \row
-        \o \l samples: 32
-        \o \l samples: 32
-        \o \l samples: 32
+        \li \l samples: 32
+        \li \l samples: 32
+        \li \l samples: 32
     \row
-        \o \l transparentBorder: false
-        \o \l transparentBorder: false
-        \o \l transparentBorder: false
+        \li \l transparentBorder: false
+        \li \l transparentBorder: false
+        \li \l transparentBorder: false
     \row
-        \o \l fast: false
-        \o \l fast: false
-        \o \l fast: false
+        \li \l fast: false
+        \li \l fast: false
+        \li \l fast: false
     \endtable
 
 */
@@ -156,24 +156,24 @@
 
     \table
     \header
-    \o Output examples with different transparentBorder values
-    \o
-    \o
+    \li Output examples with different transparentBorder values
+    \li
+    \li
     \row
-        \o \image MaskedBlur_transparentBorder1.png
-        \o \image MaskedBlur_transparentBorder2.png
+        \li \image MaskedBlur_transparentBorder1.png
+        \li \image MaskedBlur_transparentBorder2.png
     \row
-        \o \bold { transparentBorder: false }
-        \o \bold { transparentBorder: true }
+        \li \b { transparentBorder: false }
+        \li \b { transparentBorder: true }
     \row
-        \o \l radius: 64
-        \o \l radius: 64
+        \li \l radius: 64
+        \li \l radius: 64
     \row
-        \o \l samples: 32
-        \o \l samples: 32
+        \li \l samples: 32
+        \li \l samples: 32
     \row
-        \o \l fast: true
-        \o \l fast: true
+        \li \l fast: true
+        \li \l fast: true
     \endtable
 
 */
@@ -189,24 +189,24 @@
 
     \table
     \header
-    \o Output examples with different fast values
-    \o
-    \o
+    \li Output examples with different fast values
+    \li
+    \li
     \row
-        \o \image MaskedBlur_fast1.png
-        \o \image MaskedBlur_fast2.png
+        \li \image MaskedBlur_fast1.png
+        \li \image MaskedBlur_fast2.png
     \row
-        \o \bold { fast: false }
-        \o \bold { fast: true }
+        \li \b { fast: false }
+        \li \b { fast: true }
     \row
-        \o \l radius: 16
-        \o \l radius: 16
+        \li \l radius: 16
+        \li \l radius: 16
     \row
-        \o \l samples: 32
-        \o \l samples: 32
+        \li \l samples: 32
+        \li \l samples: 32
     \row
-        \o \l transparentBorder: false
-        \o \l transparentBorder: false
+        \li \l transparentBorder: false
+        \li \l transparentBorder: false
     \endtable
 
 */

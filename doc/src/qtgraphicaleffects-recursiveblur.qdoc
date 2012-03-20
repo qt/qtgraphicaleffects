@@ -37,11 +37,11 @@
 
     \table
     \header
-        \o Source
-        \o Effect applied
+        \li Source
+        \li Effect applied
     \row
-        \o \image Original_bug.png
-        \o \image RecursiveBlur_bug.png
+        \li \image Original_bug.png
+        \li \image RecursiveBlur_bug.png
     \endtable
 
     \section1 Example
@@ -64,7 +64,7 @@
     the blurring of individual pixels. A larger radius provides better quality,
     but is slower to render.
 
-    \bold Note: The radius value in this effect is not intended to be changed or
+    \b Note: The radius value in this effect is not intended to be changed or
     animated frequently. The correct way to use it is to set the correct value
     and keep it unchanged for the whole duration of the iterative blur sequence.
 
@@ -73,21 +73,21 @@
 
     \table
     \header
-    \o Output examples with different radius values
-    \o
-    \o
+    \li Output examples with different radius values
+    \li
+    \li
     \row
-        \o \image RecursiveBlur_radius1.png
-        \o \image RecursiveBlur_radius2.png
-        \o \image RecursiveBlur_radius3.png
+        \li \image RecursiveBlur_radius1.png
+        \li \image RecursiveBlur_radius2.png
+        \li \image RecursiveBlur_radius3.png
     \row
-        \o \bold { radius: 2.5 }
-        \o \bold { radius: 4.5 }
-        \o \bold { radius: 7.5 }
+        \li \b { radius: 2.5 }
+        \li \b { radius: 4.5 }
+        \li \b { radius: 7.5 }
     \row
-        \o \l loops: 20
-        \o \l loops: 20
-        \o \l loops: 20
+        \li \l loops: 20
+        \li \l loops: 20
+        \li \l loops: 20
     \endtable
 
 */
@@ -111,21 +111,21 @@
 
     \table
     \header
-    \o Output examples with different transparentBorder values
-    \o
-    \o
+    \li Output examples with different transparentBorder values
+    \li
+    \li
     \row
-        \o \image RecursiveBlur_transparentBorder1.png
-        \o \image RecursiveBlur_transparentBorder2.png
+        \li \image RecursiveBlur_transparentBorder1.png
+        \li \image RecursiveBlur_transparentBorder2.png
     \row
-        \o \bold { transparentBorder: false }
-        \o \bold { transparentBorder: true }
+        \li \b { transparentBorder: false }
+        \li \b { transparentBorder: true }
     \row
-        \o \l loops: 20
-        \o \l loops: 20
+        \li \l loops: 20
+        \li \l loops: 20
     \row
-        \o \l radius: 7.5
-        \o \l radius: 7.5
+        \li \l radius: 7.5
+        \li \l radius: 7.5
     \endtable
 
 */
@@ -173,21 +173,21 @@
 
     \table
     \header
-    \o Output examples with different loops values
-    \o
-    \o
+    \li Output examples with different loops values
+    \li
+    \li
     \row
-        \o \image RecursiveBlur_loops1.png
-        \o \image RecursiveBlur_loops2.png
-        \o \image RecursiveBlur_loops3.png
+        \li \image RecursiveBlur_loops1.png
+        \li \image RecursiveBlur_loops2.png
+        \li \image RecursiveBlur_loops3.png
     \row
-        \o \bold { loops: 4 }
-        \o \bold { loops: 20 }
-        \o \bold { loops: 70 }
+        \li \b { loops: 4 }
+        \li \b { loops: 20 }
+        \li \b { loops: 70 }
     \row
-        \o \l radius: 7.5
-        \o \l radius: 7.5
-        \o \l radius: 7.5
+        \li \l radius: 7.5
+        \li \l radius: 7.5
+        \li \l radius: 7.5
     \endtable
 
 */

@@ -37,11 +37,11 @@
 
     \table
     \header
-        \o Source
-        \o Effect applied
+        \li Source
+        \li Effect applied
     \row
-        \o \image Original_bug.png
-        \o \image HueSaturation_bug.png
+        \li \image Original_bug.png
+        \li \image HueSaturation_bug.png
     \endtable
 
     \section1 Example
@@ -69,25 +69,25 @@
 
     \table
     \header
-    \o Output examples with different hue values
-    \o
-    \o
+    \li Output examples with different hue values
+    \li
+    \li
     \row
-        \o \image HueSaturation_hue1.png
-        \o \image HueSaturation_hue2.png
-        \o \image HueSaturation_hue3.png
+        \li \image HueSaturation_hue1.png
+        \li \image HueSaturation_hue2.png
+        \li \image HueSaturation_hue3.png
     \row
-        \o \bold { hue: -0.3 }
-        \o \bold { hue: 0.0 }
-        \o \bold { hue: 0.3 }
+        \li \b { hue: -0.3 }
+        \li \b { hue: 0.0 }
+        \li \b { hue: 0.3 }
     \row
-        \o \l saturation: 0
-        \o \l saturation: 0
-        \o \l saturation: 0
+        \li \l saturation: 0
+        \li \l saturation: 0
+        \li \l saturation: 0
     \row
-        \o \l lightness: 0
-        \o \l lightness: 0
-        \o \l lightness: 0
+        \li \l lightness: 0
+        \li \l lightness: 0
+        \li \l lightness: 0
     \endtable
 
 */
@@ -103,25 +103,25 @@
 
     \table
     \header
-    \o Output examples with different saturation values
-    \o
-    \o
+    \li Output examples with different saturation values
+    \li
+    \li
     \row
-        \o \image HueSaturation_saturation1.png
-        \o \image HueSaturation_saturation2.png
-        \o \image HueSaturation_saturation3.png
+        \li \image HueSaturation_saturation1.png
+        \li \image HueSaturation_saturation2.png
+        \li \image HueSaturation_saturation3.png
     \row
-        \o \bold { saturation: -0.8 }
-        \o \bold { saturation: 0.0 }
-        \o \bold { saturation: 1.0 }
+        \li \b { saturation: -0.8 }
+        \li \b { saturation: 0.0 }
+        \li \b { saturation: 1.0 }
     \row
-        \o \l hue: 0
-        \o \l hue: 0
-        \o \l hue: 0
+        \li \l hue: 0
+        \li \l hue: 0
+        \li \l hue: 0
     \row
-        \o \l lightness: 0
-        \o \l lightness: 0
-        \o \l lightness: 0
+        \li \l lightness: 0
+        \li \l lightness: 0
+        \li \l lightness: 0
     \endtable
 
 */
@@ -137,25 +137,25 @@
 
     \table
     \header
-    \o Output examples with different lightness values
-    \o
-    \o
+    \li Output examples with different lightness values
+    \li
+    \li
     \row
-        \o \image HueSaturation_lightness1.png
-        \o \image HueSaturation_lightness2.png
-        \o \image HueSaturation_lightness3.png
+        \li \image HueSaturation_lightness1.png
+        \li \image HueSaturation_lightness2.png
+        \li \image HueSaturation_lightness3.png
     \row
-        \o \bold { lightness: -0.5 }
-        \o \bold { lightness: 0.0 }
-        \o \bold { lightness: 0.5 }
+        \li \b { lightness: -0.5 }
+        \li \b { lightness: 0.0 }
+        \li \b { lightness: 0.5 }
     \row
-        \o \l hue: 0
-        \o \l hue: 0
-        \o \l hue: 0
+        \li \l hue: 0
+        \li \l hue: 0
+        \li \l hue: 0
     \row
-        \o \l saturation: 0
-        \o \l saturation: 0
-        \o \l saturation: 0
+        \li \l saturation: 0
+        \li \l saturation: 0
+        \li \l saturation: 0
     \endtable
 
 */

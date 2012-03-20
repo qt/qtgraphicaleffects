@@ -40,11 +40,11 @@
 
     \table
     \header
-        \o Source
-        \o Effect applied
+        \li Source
+        \li Effect applied
     \row
-        \o \image Original_bug.png
-        \o \image FastBlur_bug.png
+        \li \image Original_bug.png
+        \li \image FastBlur_bug.png
     \endtable
 
     \section1 Example
@@ -73,17 +73,17 @@
 
     \table
     \header
-    \o Output examples with different blur values
-    \o
-    \o
+    \li Output examples with different blur values
+    \li
+    \li
     \row
-        \o \image FastBlur_radius1.png
-        \o \image FastBlur_radius2.png
-        \o \image FastBlur_radius3.png
+        \li \image FastBlur_radius1.png
+        \li \image FastBlur_radius2.png
+        \li \image FastBlur_radius3.png
     \row
-        \o \bold { radius: 0 }
-        \o \bold { radius: 32 }
-        \o \bold { radius: 64 }
+        \li \b { radius: 0 }
+        \li \b { radius: 32 }
+        \li \b { radius: 64 }
     \endtable
 */
 
@@ -106,18 +106,18 @@
 
     \table
     \header
-    \o Output examples with different transparentBorder values
-    \o
-    \o
+    \li Output examples with different transparentBorder values
+    \li
+    \li
     \row
-        \o \image FastBlur_transparentBorder1.png
-        \o \image FastBlur_transparentBorder2.png
+        \li \image FastBlur_transparentBorder1.png
+        \li \image FastBlur_transparentBorder2.png
     \row
-        \o \bold { transparentBorder: false }
-        \o \bold { transparentBorder: true }
+        \li \b { transparentBorder: false }
+        \li \b { transparentBorder: true }
     \row
-        \o \l radius: 64
-        \o \l radius: 64
+        \li \l radius: 64
+        \li \l radius: 64
     \endtable
 
 */
