@@ -30,22 +30,32 @@
 \page qml-graphicaleffects-index.html
 \brief Qt Graphical Effects module is a Qt Quick Add-On module.
 
-The Qt Graphical Effects module provides a set of QML components for building
-visually impressive user interfaces.
-Over twenty ready-made QML graphical effect elements are currently available.
-The effects include code for blending, masking, blurring, coloring, and much more.
+The Qt Graphical Effects module provides a set of QML types for easily adding
+visually impressive configurable effects to user interfaces. Effects are visual
+items that can be added to Qt Quick user interface like UI components.
 
-The API for each effect is a set of QML properties which can be animated just
-like any other QML properties. The element documentation contains property descriptions
-and basic usage examples. Currently there is no C++ API.
-
-Effects have been implemented with QML and GLSL.
+The API consists of over 20 effects provided as separate QML types. The effects
+cover functional areas such as blending, masking, blurring, coloring, and much more.
 
 \section1 Getting started
 To load Qt Graphical Effects, add the following import statement to your .qml file:
 \snippet snippets/Blend-example.qml import
 
-\section1 Elements
+To use the effects, simply add specific effect declaration to the QML scene and
+configure the effects properties. Effects have one or more source properties for
+setting the input graphics for which the specific effect is applied to and then
+presented in the effect item itself. The source can be another, often hidden,
+item in the QML scene. More complex effects can have multiple sources. Source item
+type can be any QML type, even video or another effect. Pipelining multiple effects
+together is a simple way to create even more impressive output.
+
+Each effect has a set of properties that can be used to configure the effect output.
+Properties can be animated just like any other QML properties. The QML type
+documentation contains property descriptions and basic usage examples.
+
+Currently there is no C++ API.
+
+\section1 Components
 
 The following list presents the functional division of components that are part of Qt Graphical Effects:
 
