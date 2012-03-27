@@ -30,24 +30,24 @@
 \page qml-graphicaleffects-index.html
 \brief Qt Graphical Effects module is a Qt Quick Add-On module.
 
-The Qt Graphical Effects module provides a set of QML types for easily adding
-visually impressive configurable effects to user interfaces. Effects are visual
-items that can be added to Qt Quick user interface like UI components.
+The Qt Graphical Effects module provides a set of QML types for adding visually
+impressive and configurable effects to user interfaces. Effects are visual
+items that can be added to Qt Quick user interface as UI components.
 
 The API consists of over 20 effects provided as separate QML types. The effects
-cover functional areas such as blending, masking, blurring, coloring, and much more.
+cover functional areas such as blending, masking, blurring, coloring, and many more.
 
 \section1 Getting started
 To load Qt Graphical Effects, add the following import statement to your .qml file:
 \snippet snippets/Blend-example.qml import
 
-To use the effects, simply add specific effect declaration to the QML scene and
+To use the effects, simply add a specific effect declaration to the QML scene and
 configure the effects properties. Effects have one or more source properties for
-setting the input graphics for which the specific effect is applied to and then
-presented in the effect item itself. The source can be another, often hidden,
-item in the QML scene. More complex effects can have multiple sources. Source item
-type can be any QML type, even video or another effect. Pipelining multiple effects
-together is a simple way to create even more impressive output.
+specifying the visual input for which the effect is applied to. The altered visual
+output is then presented in the effect item itself. The source can be another,
+often hidden, item in the QML scene. More complex effects can have multiple sources.
+The source item type can be any QML type, even video or another effect. Pipelining
+multiple effects together is a simple way to create even more impressive output.
 
 Each effect has a set of properties that can be used to configure the effect output.
 Properties can be animated just like any other QML properties. The QML type
