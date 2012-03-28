@@ -114,7 +114,7 @@ VisualItemModel {
         width: size
         height: size
         source: butterfly
-        samples: 32
+        samples: 24
         property string __name: "RadialBlur"
         property variant __properties: ["samples", "angle", "horizontalOffset", "verticalOffset"]
         property string __varyingProperty: "angle"
@@ -125,7 +125,7 @@ VisualItemModel {
         width: size
         height: size
         source: butterfly
-        samples: 32
+        samples: 24
         angle: 20
         property string __name: "RadialBlur"
         property variant __properties: ["samples", "angle", "horizontalOffset", "verticalOffset"]
@@ -137,7 +137,7 @@ VisualItemModel {
         width: size
         height: size
         source: butterfly
-        samples: 32
+        samples: 24
         angle: 20
         property string __name: "RadialBlur"
         property variant __properties: ["samples", "angle", "horizontalOffset", "verticalOffset"]
@@ -150,7 +150,7 @@ VisualItemModel {
         width: size
         height: size
         source: butterfly
-        samples: 32
+        samples: 24
         length: 32
         property string __name: "DirectionalBlur"
         property variant __properties: ["samples", "angle", "length"]
@@ -162,7 +162,7 @@ VisualItemModel {
         width: size
         height: size
         source: butterfly
-        samples: 32
+        samples: 24
         property string __name: "DirectionalBlur"
         property variant __properties: ["samples", "angle", "length"]
         property string __varyingProperty: "length"
@@ -174,7 +174,7 @@ VisualItemModel {
         width: size
         height: size
         source: butterfly
-        samples: 32
+        samples: 24
         length: 32
         property string __name: "ZoomBlur"
         property variant __properties: ["samples", "length", "horizontalOffset", "verticalOffset"]
@@ -186,7 +186,7 @@ VisualItemModel {
         width: size
         height: size
         source: butterfly
-        samples: 32
+        samples: 24
         length: 32
         property string __name: "ZoomBlur"
         property variant __properties: ["samples", "length", "horizontalOffset", "verticalOffset"]
@@ -198,7 +198,7 @@ VisualItemModel {
         width: size
         height: size
         source: butterfly
-        samples: 32
+        samples: 24
         property string __name: "ZoomBlur"
         property variant __properties: ["samples", "length", "horizontalOffset", "verticalOffset"]
         property string __varyingProperty: "length"
