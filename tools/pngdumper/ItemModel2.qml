@@ -150,7 +150,7 @@ VisualItemModel {
         source: butterfly
         horizontalOffset: 0
         verticalOffset: 0
-        samples: 32
+        samples: 24
         property string __name: "InnerShadow"
         property variant __properties: ["radius", "samples", "color", "horizontalOffset", "verticalOffset", "spread"]
         property string __varyingProperty: "radius"
@@ -163,7 +163,7 @@ VisualItemModel {
         horizontalOffset: 0
         verticalOffset: 0
         radius: 16
-        samples: 32
+        samples: 24
         property string __name: "InnerShadow"
         property variant __properties: ["radius", "samples", "color", "horizontalOffset", "verticalOffset", "spread"]
         property string __varyingProperty: "horizontalOffset"
@@ -176,7 +176,7 @@ VisualItemModel {
         horizontalOffset: 0
         verticalOffset: 0
         radius: 16
-        samples: 32
+        samples: 24
         property string __name: "InnerShadow"
         property variant __properties: ["radius", "samples", "color", "horizontalOffset", "verticalOffset", "spread"]
         property string __varyingProperty: "verticalOffset"
@@ -189,7 +189,7 @@ VisualItemModel {
         horizontalOffset: 0
         verticalOffset: 0
         radius: 16
-        samples: 32
+        samples: 24
         property string __name: "InnerShadow"
         property variant __properties: ["radius", "samples", "color", "horizontalOffset", "verticalOffset", "spread"]
         property string __varyingProperty: "spread"
@@ -203,7 +203,7 @@ VisualItemModel {
         verticalOffset: 0
         radius: 16
         spread: 0.2
-        samples: 32
+        samples: 24
         property string __name: "InnerShadow"
         property variant __properties: ["radius", "samples", "color", "horizontalOffset", "verticalOffset", "spread", "fast"]
         property string __varyingProperty: "fast"
@@ -218,7 +218,7 @@ VisualItemModel {
         verticalOffset: 0
         radius: 16
         spread: 0.2
-        samples: 32
+        samples: 24
         property string __name: "InnerShadow"
         property variant __properties: ["radius", "samples", "color", "horizontalOffset", "verticalOffset", "spread"]
         property string __varyingProperty: "color"

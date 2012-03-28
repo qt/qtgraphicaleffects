@@ -46,7 +46,7 @@ Rectangle {
     width: 300
     height: width
     property real size: width
-    property real timerInterval: 200
+    property real timerInterval: 1
     property color background: "white"
     property bool checkerboard: false
     color: background
@@ -185,26 +185,21 @@ Rectangle {
             // Ugly workaround for listview not updating itself
             list.contentX = 1
             eval("list.currentItem."+list.currentItem.__varyingProperty+"=list.currentItem.__values[0]");
-            timer.running = true
             list.contentX = 0
+            var filename = list.currentItem.__name + "_" + list.currentItem.__varyingProperty + "1.png"
+            filename = filename.replace(/\"/g,"")
+            capturer.grabItem(container, filename)
         }
     }
 
-    Timer {
-        id: timer
-        interval: timerInterval
-        repeat: true
-        property int i: 0
 
-        onTriggered: {
-            var value = list.currentItem.__values[i];
-            var filename = list.currentItem.__name + "_" + list.currentItem.__varyingProperty + (i + 1) + ".png"
-            filename = filename.replace(/\"/g,"")
-            //filename = filename.toLowerCase();
-            capturer.grabItem(container, filename)
-            //console.log(filename)
-
+    property int i: 0
+    Connections {
+        target: capturer
+        onImageSaved: {
             if (i >= list.currentItem.__values.length - 1) {
+                var filename = list.currentItem.__name + "_" + list.currentItem.__varyingProperty + (i + 1) + ".png"
+                filename = filename.replace(/\"/g,"")
                 capturer.document("\\table\n")
                 capturer.document("\\header\n")
                 capturer.document("\\o Output examples with different " + list.currentItem.__varyingProperty + " values\n")
@@ -241,6 +236,18 @@ Rectangle {
             } else i++
 
             eval("list.currentItem."+list.currentItem.__varyingProperty+"=list.currentItem.__values[i]");
+            timer.running = true
+        }
+    }
+
+    Timer {
+        id: timer
+        interval: timerInterval
+        running: false
+        onTriggered: {
+            var filename = list.currentItem.__name + "_" + list.currentItem.__varyingProperty + (i + 1) + ".png"
+            filename = filename.replace(/\"/g,"")
+            capturer.grabItem(container, filename)
         }
     }
 }

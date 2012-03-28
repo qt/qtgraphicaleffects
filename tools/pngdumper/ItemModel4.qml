@@ -48,7 +48,7 @@ VisualItemModel {
         height: size
         source: butterfly
         maskSource: blurMask
-        samples: 32
+        samples: 24
         property string __name: "MaskedBlur"
         property variant __properties: ["radius", "samples", "transparentBorder", "fast"]
         property string __varyingProperty: "radius"
@@ -60,7 +60,7 @@ VisualItemModel {
         source: butterfly
         maskSource: blurMask
         radius: 16
-        samples: 32
+        samples: 24
         property string __name: "MaskedBlur"
         property variant __properties: ["radius", "samples", "transparentBorder", "fast"]
         property string __varyingProperty: "fast"
@@ -73,7 +73,7 @@ VisualItemModel {
         source: bug
         maskSource: blurMask
         radius: 64
-        samples: 32
+        samples: 24
         fast: true
         property string __name: "MaskedBlur"
         property variant __properties: ["radius", "samples", "transparentBorder", "fast"]

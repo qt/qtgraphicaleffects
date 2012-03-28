@@ -55,12 +55,15 @@ ItemCapturer::~ItemCapturer()
 void ItemCapturer::grabItem(QQuickItem *item, QString filename)
 {
     QImage img = canvas()->grabFrameBuffer();
+    while (img.width() * img.height() == 0)
+        img = canvas()->grabFrameBuffer();
     QQuickItem *rootItem = canvas()->rootItem();
     QRectF rectf = rootItem->mapRectFromItem(item, QRectF(0, 0, item->width(), item->height()));
     QDir pwd = QDir().dirName();
     pwd.mkdir("output");
     img = img.copy(rectf.toRect());
     img.save("output/" + filename);
+    emit imageSaved();
 }
 
 void ItemCapturer::document(QString s)

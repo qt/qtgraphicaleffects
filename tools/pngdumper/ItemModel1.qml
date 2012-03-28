@@ -252,7 +252,7 @@ VisualItemModel {
         //horizontalOffset: 3
         verticalOffset: 20
         radius: 16
-        samples: 32
+        samples: 24
         property string __name: "DropShadow"
         property variant __properties: ["radius", "samples", "color", "horizontalOffset", "verticalOffset", "spread", "fast"]
         property string __varyingProperty: "fast"
@@ -299,7 +299,7 @@ VisualItemModel {
         height: size
         source: butterfly
         radius: 16
-        samples: 32
+        samples: 24
         spread: 0.3
         property string __name: "Glow"
         property variant __properties: ["radius", "samples", "color", "spread", "fast"]
