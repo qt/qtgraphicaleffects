@@ -55,6 +55,10 @@ public:
 
     Q_INVOKABLE void grabItem(QQuickItem *item, QString filename);
     Q_INVOKABLE void document(QString s);
+
+signals:
+     void imageSaved();
+
 };
 
 QML_DECLARE_TYPE(ItemCapturer)
