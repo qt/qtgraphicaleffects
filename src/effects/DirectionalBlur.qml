@@ -103,7 +103,7 @@ Item {
 
                 PLACEHOLDER_UNROLLED_LOOP
 
-                gl_FragColor *= qt_Opacity;
+                gl_FragColor *= weight * qt_Opacity;
            }
         "
 
@@ -112,8 +112,7 @@ Item {
             var expandSteps = ""
 
             if (transparentBorder) {
-                expandSteps += "texCoord.s = (texCoord.s - expand.x) / (1.0 - 2.0 * expand.x);"
-                expandSteps += "texCoord.t = (texCoord.t - expand.y) / (1.0 - 2.0 * expand.y);"
+                expandSteps += "texCoord = (texCoord - expand) / (1.0 - 2.0 * expand);"
             }
 
             var unrolledLoop = "gl_FragColor += texture2D(source, texCoord);\n"
@@ -121,7 +120,7 @@ Item {
             if (rootItem.samples > 1) {
                 unrolledLoop = ""
                 for (var i = 0; i < rootItem.samples; i++)
-                    unrolledLoop += "gl_FragColor += texture2D(source, texCoord) * weight; texCoord += shift;\n"
+                    unrolledLoop += "gl_FragColor += texture2D(source, texCoord); texCoord += shift;\n"
             }
 
             shader = shader.replace("PLACEHOLDER_EXPAND_STEPS", expandSteps)
