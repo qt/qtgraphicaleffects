@@ -46,9 +46,9 @@
         \li MaskSource
         \li Effect applied
     \row
-        \li \image Original_butterfly.png
+        \li \image Original_bug.png
         \li \image MaskedBlur_mask.png
-        \li \image MaskedBlur_butterfly.png
+        \li \image MaskedBlur_bug.png
     \endtable
 
     \section1 Example
@@ -105,9 +105,9 @@
         \li \b { radius: 8 }
         \li \b { radius: 16 }
     \row
-        \li \l samples: 32
-        \li \l samples: 32
-        \li \l samples: 32
+        \li \l samples: 24
+        \li \l samples: 24
+        \li \l samples: 24
     \row
         \li \l transparentBorder: false
         \li \l transparentBorder: false
@@ -171,8 +171,8 @@
         \li \l radius: 64
         \li \l radius: 64
     \row
-        \li \l samples: 32
-        \li \l samples: 32
+        \li \l samples: 24
+        \li \l samples: 24
     \row
         \li \l fast: true
         \li \l fast: true
@@ -204,8 +204,8 @@
         \li \l radius: 16
         \li \l radius: 16
     \row
-        \li \l samples: 32
-        \li \l samples: 32
+        \li \l samples: 24
+        \li \l samples: 24
     \row
         \li \l transparentBorder: false
         \li \l transparentBorder: false

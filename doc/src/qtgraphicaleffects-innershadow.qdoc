@@ -90,9 +90,9 @@
         \li \b { radius: 6 }
         \li \b { radius: 12 }
     \row
-        \li \l samples: 32
-        \li \l samples: 32
-        \li \l samples: 32
+        \li \l samples: 24
+        \li \l samples: 24
+        \li \l samples: 24
     \row
         \li \l color: #000000
         \li \l color: #000000
@@ -159,9 +159,9 @@
         \li \l radius: 16
         \li \l radius: 16
     \row
-        \li \l samples: 32
-        \li \l samples: 32
-        \li \l samples: 32
+        \li \l samples: 24
+        \li \l samples: 24
+        \li \l samples: 24
     \row
         \li \l color: #000000
         \li \l color: #000000
@@ -203,9 +203,9 @@
         \li \l radius: 16
         \li \l radius: 16
     \row
-        \li \l samples: 32
-        \li \l samples: 32
-        \li \l samples: 32
+        \li \l samples: 24
+        \li \l samples: 24
+        \li \l samples: 24
     \row
         \li \l horizontalOffset: 0
         \li \l horizontalOffset: 0
@@ -253,9 +253,9 @@
         \li \l radius: 16
         \li \l radius: 16
     \row
-        \li \l samples: 32
-        \li \l samples: 32
-        \li \l samples: 32
+        \li \l samples: 24
+        \li \l samples: 24
+        \li \l samples: 24
     \row
         \li \l color: #000000
         \li \l color: #000000
@@ -296,8 +296,8 @@
         \li \l radius: 16
         \li \l radius: 16
     \row
-        \li \l samples: 32
-        \li \l samples: 32
+        \li \l samples: 24
+        \li \l samples: 24
     \row
         \li \l color: #000000
         \li \l color: #000000

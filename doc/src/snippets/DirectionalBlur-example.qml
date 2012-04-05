@@ -47,19 +47,19 @@ Item {
     height: 300
 
     Image {
-        id: butterfly
-        source: "images/butterfly.png"
+        id: bug
+        source: "images/bug.jpg"
         sourceSize: Qt.size(parent.width, parent.height)
         smooth: true
         visible: false
     }
 
     DirectionalBlur {
-        anchors.fill: butterfly
-        source: butterfly
+        anchors.fill: bug
+        source: bug
         angle: 90
         length: 32
-        samples: 32
+        samples: 24
     }
 }
 //! [example]

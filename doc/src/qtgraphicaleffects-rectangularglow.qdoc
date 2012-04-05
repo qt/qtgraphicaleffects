@@ -39,10 +39,8 @@
 
     \table
     \header
-        \li Source
         \li Effect applied
     \row
-        \li \image RectangularGlow_original.png
         \li \image RectangularGlow_applied.png
     \endtable
 

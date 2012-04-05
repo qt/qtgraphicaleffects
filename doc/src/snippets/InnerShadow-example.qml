@@ -60,11 +60,12 @@ Item {
 
     InnerShadow {
         anchors.fill: butterfly
-        radius: 16.0
-        samples: 32
-        color: "black"
+        radius: 8.0
+        samples: 16
+        horizontalOffset: -3
+        verticalOffset: 3
+        color: "#b0000000"
         source: butterfly
     }
-
 }
 //! [example]
