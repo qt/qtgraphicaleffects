@@ -48,10 +48,10 @@ Item {
 
     ConicalGradient {
         anchors.fill: parent
-        angle: 45.0
+        angle: 0.0
         gradient: Gradient {
-            GradientStop { position: 0.0; color: "#45071C" }
-            GradientStop { position: 1.0; color: "#FDC000" }
+            GradientStop { position: 0.0; color: "white" }
+            GradientStop { position: 1.0; color: "black" }
         }
     }
 }

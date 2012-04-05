@@ -48,8 +48,8 @@ Item {
     RadialGradient {
         anchors.fill: parent
         gradient: Gradient {
-            GradientStop { position: 0.0; color: "#FDC000" }
-            GradientStop { position: 1.0; color: "#45071C" }
+            GradientStop { position: 0.0; color: "white" }
+            GradientStop { position: 0.5; color: "black" }
         }
     }
 }

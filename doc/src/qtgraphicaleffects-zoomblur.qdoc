@@ -43,8 +43,8 @@
         \li Source
         \li Effect applied
     \row
-        \li \image Original_butterfly.png
-        \li \image ZoomBlur_butterfly.png
+        \li \image Original_bug.png
+        \li \image ZoomBlur_bug.png
     \endtable
 
     \section1 Example
@@ -88,9 +88,9 @@
         \li \b { length: 32.0 }
         \li \b { length: 48.0 }
     \row
-        \li \l samples: 32
-        \li \l samples: 32
-        \li \l samples: 32
+        \li \l samples: 24
+        \li \l samples: 24
+        \li \l samples: 24
     \row
         \li \l horizontalOffset: 0
         \li \l horizontalOffset: 0
@@ -142,9 +142,9 @@
         \li \b { horizontalOffset: 0.0 }
         \li \b { horizontalOffset: -100.0 }
     \row
-        \li \l samples: 32
-        \li \l samples: 32
-        \li \l samples: 32
+        \li \l samples: 24
+        \li \l samples: 24
+        \li \l samples: 24
     \row
         \li \l length: 32
         \li \l length: 32

@@ -47,29 +47,31 @@ Item {
     height: 300
 
     Image {
-        id: butterfly
-        source: "images/butterfly.png"
+        id: bug
+        source: "images/bug.jpg"
         sourceSize: Qt.size(parent.width, parent.height)
         smooth: true
         visible: false
     }
 
-    Rectangle {
+    LinearGradient {
         id: mask
-        anchors.fill: butterfly
-        visible: false
+        anchors.fill: bug
         gradient: Gradient {
-                 GradientStop { position: 0.3; color: "#ff000000" }
-                 GradientStop { position: 0.7; color: "#00000000" }
+            GradientStop { position: 0.2; color: "#ffffffff" }
+            GradientStop { position: 0.5; color: "#00ffffff" }
         }
+        start: Qt.point(0, 0)
+        end: Qt.point(300, 0)
+        visible: false
     }
 
     MaskedBlur {
-        anchors.fill: butterfly
-        source: butterfly
+        anchors.fill: bug
+        source: bug
         maskSource: mask
         radius: 16
-        samples: 32
+        samples: 24
     }
 }
 //! [example]

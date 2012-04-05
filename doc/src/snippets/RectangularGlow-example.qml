@@ -47,6 +47,7 @@ Item {
     height: 300
 
     Rectangle {
+        id: background
         anchors.fill: parent
         color: "black"
     }
@@ -62,7 +63,7 @@ Item {
 
     Rectangle {
         id: rect
-        color: "#cc4b00"
+        color: "black"
         anchors.centerIn: parent
         width: Math.round(parent.width / 1.5)
         height: Math.round(parent.height / 2)

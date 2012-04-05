@@ -47,17 +47,17 @@ Item {
     height: 300
 
     Image {
-        id: butterfly
-        source: "images/butterfly.png"
+        id: bug
+        source: "images/bug.jpg"
         sourceSize: Qt.size(parent.width, parent.height)
         smooth: true
         visible: false
     }
 
     RadialBlur {
-        anchors.fill: butterfly
-        source: butterfly
-        samples: 32
+        anchors.fill: bug
+        source: bug
+        samples: 24
         angle: 30
     }
 }

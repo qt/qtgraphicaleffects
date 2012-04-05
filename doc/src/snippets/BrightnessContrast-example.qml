@@ -57,8 +57,8 @@ Item {
     BrightnessContrast {
         anchors.fill: bug
         source: bug
-        brightness: -0.2
-        contrast: 0.3
+        brightness: 0.5
+        contrast: 0.5
     }
 }
 //! [example]

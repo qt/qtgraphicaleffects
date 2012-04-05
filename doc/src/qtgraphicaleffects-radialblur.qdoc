@@ -45,8 +45,8 @@
         \li Source
         \li Effect applied
     \row
-        \li \image Original_butterfly.png
-        \li \image RadialBlur_butterfly.png
+        \li \image Original_bug.png
+        \li \image RadialBlur_bug.png
     \endtable
 
     \chapter Example Usage
@@ -105,9 +105,9 @@
         \li \b { angle: 15.0 }
         \li \b { angle: 30.0 }
     \row
-        \li \l samples: 32
-        \li \l samples: 32
-        \li \l samples: 32
+        \li \l samples: 24
+        \li \l samples: 24
+        \li \l samples: 24
     \row
         \li \l horizontalOffset: 0
         \li \l horizontalOffset: 0
@@ -144,9 +144,9 @@
         \li \b { horizontalOffset: 0.0 }
         \li \b { horizontalOffset: -75.0 }
     \row
-        \li \l samples: 32
-        \li \l samples: 32
-        \li \l samples: 32
+        \li \l samples: 24
+        \li \l samples: 24
+        \li \l samples: 24
     \row
         \li \l angle: 20
         \li \l angle: 20

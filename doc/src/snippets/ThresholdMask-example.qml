@@ -46,6 +46,7 @@ Item {
     height: 300
 
     Image {
+        id: background
         anchors.fill: parent
         source: "images/checker.png"
         smooth: true

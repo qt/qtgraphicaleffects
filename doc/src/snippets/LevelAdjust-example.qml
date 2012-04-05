@@ -57,8 +57,8 @@ Item {
     LevelAdjust {
         anchors.fill: butterfly
         source: butterfly
-        minimumOutput: "#00000000"
-        maximumOutput: "#FF1010FF"
+        minimumOutput: "#00ffffff"
+        maximumOutput: "#ff000000"
     }
 }
 //! [example]

@@ -60,15 +60,6 @@ Item {
         sourceSize: Qt.size(parent.width, parent.height)
         smooth: true
         visible: false
-        Text {
-            text: "MASK"
-            font.pixelSize: 60
-            font.bold: true
-            anchors.bottom: parent.bottom
-            anchors.left: parent.left
-            anchors.right: parent.right
-            horizontalAlignment: Text.AlignHCenter
-        }
     }
 
     OpacityMask {

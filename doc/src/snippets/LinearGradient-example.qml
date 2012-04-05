@@ -49,10 +49,10 @@ Item {
     LinearGradient {
         anchors.fill: parent
         start: Qt.point(0, 0)
-        end: Qt.point(300, 300)
+        end: Qt.point(0, 300)
         gradient: Gradient {
-            GradientStop { position: 0.0; color: "#45071C" }
-            GradientStop { position: 1.0; color: "#FDC000" }
+            GradientStop { position: 0.0; color: "white" }
+            GradientStop { position: 1.0; color: "black" }
         }
     }
 }

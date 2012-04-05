@@ -57,7 +57,7 @@ Item {
     Colorize {
         anchors.fill: bug
         source: bug
-        hue: 0.5
+        hue: 0.0
         saturation: 0.5
         lightness: -0.2
     }
