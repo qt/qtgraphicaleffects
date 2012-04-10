@@ -27,7 +27,7 @@
 
 /*!
 \title Qt Graphical Effects
-\page qml-graphicaleffects-index.html
+\page index.html
 \brief Qt Graphical Effects module is a Qt Quick Add-On module.
 
 The Qt Graphical Effects module provides a set of QML types for adding visually
