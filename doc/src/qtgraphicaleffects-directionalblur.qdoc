@@ -101,7 +101,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::DirectionalBlur::samples
+    \qmlproperty int QtGraphicalEffects1.0::DirectionalBlur::samples
 
     This property defines how many samples are taken per pixel when blur
     calculation is done. Larger value produces better quality, but is slower
