@@ -43,6 +43,31 @@ import QtGraphicalEffects 1.0
 
 VisualItemModel {
 
+    ThresholdMask {
+        width: size
+        height: size
+        source: bug
+        maskSource: fog
+        threshold: 0.4
+        property string __name: "ThresholdMask"
+        property variant __properties: ["spread", "threshold"]
+        property string __varyingProperty: "spread"
+        property variant __values: ["0.0", "0.2", "0.8"]
+        function init() { checkerboard = true }
+    }
+    ThresholdMask {
+        width: size
+        height: size
+        source: bug
+        maskSource: fog
+        spread: 0.2
+        property string __name: "ThresholdMask"
+        property variant __properties: ["spread", "threshold"]
+        property string __varyingProperty: "threshold"
+        property variant __values: ["0.0", "0.5", "0.7"]
+        function uninit() { checkerboard = false }
+    }
+
     RecursiveBlur {
         function init() {
             timer.interval = 2000
@@ -83,31 +108,6 @@ VisualItemModel {
             timer.interval = timerInterval
             checkerboard = false
         }
-    }
-
-    ThresholdMask {
-        width: size
-        height: size
-        source: bug
-        maskSource: fog
-        threshold: 0.4
-        property string __name: "ThresholdMask"
-        property variant __properties: ["spread", "threshold"]
-        property string __varyingProperty: "spread"
-        property variant __values: ["0.0", "0.2", "0.8"]
-        function init() { checkerboard = true }
-    }
-    ThresholdMask {
-        width: size
-        height: size
-        source: bug
-        maskSource: fog
-        spread: 0.2
-        property string __name: "ThresholdMask"
-        property variant __properties: ["spread", "threshold"]
-        property string __varyingProperty: "threshold"
-        property variant __values: ["0.0", "0.5", "0.7"]
-        function uninit() { checkerboard = false }
     }
 
     RadialBlur {
