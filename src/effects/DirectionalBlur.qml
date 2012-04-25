@@ -72,7 +72,7 @@ Item {
         property real len: rootItem.length
         property bool transparentBorder: rootItem.transparentBorder
         property real samples: rootItem.samples
-        property real weight: 1 / rootItem.samples
+        property real weight: 1.0 / Math.max(1.0, rootItem.samples)
         property variant expandPixels: transparentBorder ? Qt.size(rootItem.samples, rootItem.samples) : Qt.size(0,0)
         property variant expand: transparentBorder ? Qt.size(expandPixels.width / width, expandPixels.height / height) : Qt.size(0,0)
         property variant delta: Qt.size(1.0 / rootItem.width * Math.cos((rootItem.angle + 90) * Math.PI/180), 1.0 / rootItem.height * Math.sin((rootItem.angle + 90) * Math.PI/180))
