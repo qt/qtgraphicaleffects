@@ -77,16 +77,9 @@ Item {
         y: transparentBorder ? -maximumRadius - 1: 0
         width: horizontalBlur.width
         height: horizontalBlur.height
-
         horizontalStep: 0.0
         verticalStep: 1.0 / parent.height
-
-        source: ShaderEffectSource {
-            sourceItem: horizontalBlur
-            hideSource: true
-            visible: false
-            smooth: true
-        }
+        source: horizontalBlur
         enableMask: true
         maskSource: maskSourceProxy.output
         radius: rootItem.radius
@@ -98,10 +91,8 @@ Item {
         id: horizontalBlur
         width: transparentBorder ? parent.width + 2 * maximumRadius + 2 : parent.width
         height: transparentBorder ? parent.height + 2 * maximumRadius + 2  : parent.height
-
         horizontalStep: 1.0 / parent.width
         verticalStep: 0.0
-
         source: sourceProxy.output
         enableMask: true
         maskSource: maskSourceProxy.output
