@@ -75,6 +75,7 @@ Item {
         property real horizontalOffset: rootItem.horizontalOffset / rootItem.width
         property real verticalOffset: rootItem.verticalOffset / rootItem.height
 
+        visible: false
         fragmentShader: "
             uniform highp sampler2D original;
             uniform lowp float qt_Opacity;
@@ -97,14 +98,7 @@ Item {
         anchors.fill: parent
         horizontalStep: 0.0
         verticalStep: 1.0 / parent.height
-
-        source: ShaderEffectSource {
-            sourceItem: horizontalBlur
-            hideSource: true
-            visible: false
-            smooth: true
-        }
-
+        source: horizontalBlur
         radius: rootItem.radius
         maximumRadius: rootItem.maximumRadius
         visible: false
@@ -114,11 +108,9 @@ Item {
         id: horizontalBlur
         width: transparentBorder ? parent.width + 2 * maximumRadius : parent.width
         height: parent.height
-
         horizontalStep: 1.0 / parent.width
         verticalStep: 0.0
-
-        source: ShaderEffectSource { sourceItem: shadowItem; hideSource: true; smooth: true }
+        source: shadowItem
         radius: rootItem.radius
         maximumRadius: rootItem.maximumRadius
         visible: false
@@ -128,7 +120,6 @@ Item {
         id: blurredSource
         sourceItem: blurItem
         live: true
-        hideSource: true
         smooth: true
     }
 
