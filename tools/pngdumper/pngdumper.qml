@@ -186,9 +186,8 @@ Rectangle {
             list.contentX = 1
             eval("list.currentItem."+list.currentItem.__varyingProperty+"=list.currentItem.__values[0]");
             list.contentX = 0
-            var filename = list.currentItem.__name + "_" + list.currentItem.__varyingProperty + "1.png"
-            filename = filename.replace(/\"/g,"")
-            capturer.grabItem(container, filename)
+            if (list.currentItem.init != undefined) list.currentItem.init()
+            timer.running = true
         }
     }
 
