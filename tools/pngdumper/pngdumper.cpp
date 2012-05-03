@@ -68,5 +68,5 @@ void ItemCapturer::grabItem(QQuickItem *item, QString filename)
 
 void ItemCapturer::document(QString s)
 {
-    printf(s.toAscii().data());
+    printf(s.toLatin1().data());
 }
