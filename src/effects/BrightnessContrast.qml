@@ -84,10 +84,8 @@ Item {
                 highp float c = 1.0 + contrast;
                 highp float contrastGainFactor = 1.0 + c * c * c * c * step(0.0, contrast);
                 pixelColor.rgb = ((pixelColor.rgb - 0.5) * (contrastGainFactor * contrast + 1.0)) + 0.5;
-                pixelColor.rgb += brightness;
-                pixelColor.rgb *= pixelColor.a;
-                pixelColor.rgb = mix(pixelColor.rgb, vec3(1.0, 1.0, 1.0), brightness);
-                gl_FragColor = pixelColor * qt_Opacity;
+                pixelColor.rgb = mix(pixelColor.rgb, vec3(step(0.0, brightness)), abs(brightness));
+                gl_FragColor = vec4(pixelColor.rgb * pixelColor.a, pixelColor.a) * qt_Opacity;
             }
         "
     }
