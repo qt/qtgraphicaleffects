@@ -42,7 +42,7 @@
 #include "pngdumper_plugin.h"
 #include "pngdumper.h"
 
-#include <QtDeclarative/qdeclarative.h>
+#include <QtQml/qqml.h>
 
 void ItemcapturerPlugin::registerTypes(const char *uri)
 {
