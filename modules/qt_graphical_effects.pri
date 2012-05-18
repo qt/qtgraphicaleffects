@@ -11,6 +11,6 @@ QT.qtgraphicaleffects.sources = $$QT_MODULE_BASE/src
 QT.qtgraphicaleffects.libs = $$QT_MODULE_LIB_BASE
 QT.qtgraphicaleffects.plugins = $$QT_MODULE_PLUGIN_BASE
 QT.qtgraphicaleffects.imports = $$QT_MODULE_IMPORT_BASE
-QT.qtgraphicaleffects.depends = core declarative
+QT.qtgraphicaleffects.depends = core qml
 
 QT_CONFIG += qtgraphicaleffects

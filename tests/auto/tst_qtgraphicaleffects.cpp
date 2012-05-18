@@ -40,7 +40,7 @@
 ****************************************************************************/
 
 #include <qtest.h>
-#include <QtDeclarative>
+#include <QtQml>
 
 class tst_qtgraphicaleffects : public QObject
 {
@@ -76,13 +76,13 @@ private slots:
     void zoomBlur();
 
 private:
-    QString componentErrors(const QDeclarativeComponent*) const;
+    QString componentErrors(const QQmlComponent*) const;
 
     QString importSelf;
-    QDeclarativeEngine engine;
+    QQmlEngine engine;
 };
 
-QString tst_qtgraphicaleffects::componentErrors(const QDeclarativeComponent* component) const
+QString tst_qtgraphicaleffects::componentErrors(const QQmlComponent* component) const
 {
     if (!component) {
         return "(null component)";
@@ -90,7 +90,7 @@ QString tst_qtgraphicaleffects::componentErrors(const QDeclarativeComponent* com
 
     QStringList out;
 
-    foreach (QDeclarativeError const& error, component->errors()) {
+    foreach (QQmlError const& error, component->errors()) {
         out << error.toString();
     }
 
@@ -128,10 +128,10 @@ void tst_qtgraphicaleffects::brightnessContrast()
             "width: 50; height: 50\n"
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "}";
-    QDeclarativeComponent component(&engine);
+    QQmlComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
-    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
+    QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QQmlComponent::Ready);
     QObject *obj = component.create();
     QVERIFY(obj != 0);
 
@@ -153,10 +153,10 @@ void tst_qtgraphicaleffects::colorize()
             "width: 50; height: 50\n"
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "}";
-    QDeclarativeComponent component(&engine);
+    QQmlComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
-    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
+    QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QQmlComponent::Ready);
     QObject *obj = component.create();
     QVERIFY(obj != 0);
 
@@ -179,10 +179,10 @@ void tst_qtgraphicaleffects::fastBlur()
             "width: 50; height: 50\n"
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "}";
-    QDeclarativeComponent component(&engine);
+    QQmlComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
-    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
+    QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QQmlComponent::Ready);
     QObject *obj = component.create();
     QVERIFY(obj != 0);
 
@@ -204,10 +204,10 @@ void tst_qtgraphicaleffects::desaturate()
             "width: 50; height: 50\n"
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "}";
-    QDeclarativeComponent component(&engine);
+    QQmlComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
-    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
+    QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QQmlComponent::Ready);
     QObject *obj = component.create();
     QVERIFY(obj != 0);
 
@@ -228,10 +228,10 @@ void tst_qtgraphicaleffects::hueSaturation()
             "width: 50; height: 50\n"
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "}";
-    QDeclarativeComponent component(&engine);
+    QQmlComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
-    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
+    QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QQmlComponent::Ready);
     QObject *obj = component.create();
     QVERIFY(obj != 0);
 
@@ -255,10 +255,10 @@ void tst_qtgraphicaleffects::opacityMask()
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "maskSource: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "}";
-    QDeclarativeComponent component(&engine);
+    QQmlComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
-    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
+    QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QQmlComponent::Ready);
     QObject *obj = component.create();
     QVERIFY(obj != 0);
 
@@ -278,10 +278,10 @@ void tst_qtgraphicaleffects::radialGradient()
             "RadialGradient {"
             "width: 50; height: 50\n"
             "}";
-    QDeclarativeComponent component(&engine);
+    QQmlComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
-    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
+    QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QQmlComponent::Ready);
     QObject *obj = component.create();
     QVERIFY(obj != 0);
 
@@ -306,10 +306,10 @@ void tst_qtgraphicaleffects::linearGradient()
             "LinearGradient {"
             "width: 50; height: 50\n"
             "}";
-    QDeclarativeComponent component(&engine);
+    QQmlComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
-    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
+    QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QQmlComponent::Ready);
     QObject *obj = component.create();
     QVERIFY(obj != 0);
 
@@ -331,10 +331,10 @@ void tst_qtgraphicaleffects::rectangularGlow()
             "RectangularGlow {"
             "width: 50; height: 50\n"
             "}";
-    QDeclarativeComponent component(&engine);
+    QQmlComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
-    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
+    QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QQmlComponent::Ready);
     QObject *obj = component.create();
     QVERIFY(obj != 0);
 
@@ -356,10 +356,10 @@ void tst_qtgraphicaleffects::conicalGradient()
             "ConicalGradient {"
             "width: 50; height: 50\n"
             "}";
-    QDeclarativeComponent component(&engine);
+    QQmlComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
-    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
+    QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QQmlComponent::Ready);
     QObject *obj = component.create();
     QVERIFY(obj != 0);
 
@@ -383,10 +383,10 @@ void tst_qtgraphicaleffects::colorOverlay()
             "width: 50; height: 50\n"
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "}";
-    QDeclarativeComponent component(&engine);
+    QQmlComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
-    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
+    QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QQmlComponent::Ready);
     QObject *obj = component.create();
     QVERIFY(obj != 0);
 
@@ -406,10 +406,10 @@ void tst_qtgraphicaleffects::gaussianBlur()
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "width: 50; height: 50\n"
             "}";
-    QDeclarativeComponent component(&engine);
+    QQmlComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
-    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
+    QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QQmlComponent::Ready);
     QObject *obj = component.create();
     QVERIFY(obj != 0);
 
@@ -436,10 +436,10 @@ void tst_qtgraphicaleffects::dropShadow()
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "width: 50; height: 50\n"
             "}";
-    QDeclarativeComponent component(&engine);
+    QQmlComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
-    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
+    QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QQmlComponent::Ready);
     QObject *obj = component.create();
     QVERIFY(obj != 0);
 
@@ -468,10 +468,10 @@ void tst_qtgraphicaleffects::innerShadow()
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "width: 50; height: 50\n"
             "}";
-    QDeclarativeComponent component(&engine);
+    QQmlComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
-    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
+    QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QQmlComponent::Ready);
     QObject *obj = component.create();
     QVERIFY(obj != 0);
 
@@ -498,10 +498,10 @@ void tst_qtgraphicaleffects::gammaAdjust()
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "width: 50; height: 50\n"
             "}";
-    QDeclarativeComponent component(&engine);
+    QQmlComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
-    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
+    QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QQmlComponent::Ready);
     QObject *obj = component.create();
     //qDebug() << component.errorString();
     QVERIFY(obj != 0);
@@ -524,10 +524,10 @@ void tst_qtgraphicaleffects::thresholdMask()
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "maskSource: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "}";
-    QDeclarativeComponent component(&engine);
+    QQmlComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
-    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
+    QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QQmlComponent::Ready);
     QObject *obj = component.create();
     QVERIFY(obj != 0);
 
@@ -550,10 +550,10 @@ void tst_qtgraphicaleffects::glow()
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "width: 50; height: 50\n"
             "}";
-    QDeclarativeComponent component(&engine);
+    QQmlComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
-    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
+    QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QQmlComponent::Ready);
     QObject *obj = component.create();
     QVERIFY(obj != 0);
 
@@ -579,10 +579,10 @@ void tst_qtgraphicaleffects::blend()
             "foregroundSource: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "width: 50; height: 50\n"
             "}";
-    QDeclarativeComponent component(&engine);
+    QQmlComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
-    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
+    QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QQmlComponent::Ready);
     QObject *obj = component.create();
     QVERIFY(obj != 0);
 
@@ -605,10 +605,10 @@ void tst_qtgraphicaleffects::displace()
             "displacementSource: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "width: 50; height: 50\n"
             "}";
-    QDeclarativeComponent component(&engine);
+    QQmlComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
-    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
+    QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QQmlComponent::Ready);
     QObject *obj = component.create();
     QVERIFY(obj != 0);
 
@@ -630,10 +630,10 @@ void tst_qtgraphicaleffects::recursiveBlur()
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "width: 50; height: 50\n"
             "}";
-    QDeclarativeComponent component(&engine);
+    QQmlComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
-    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
+    QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QQmlComponent::Ready);
     QObject *obj = component.create();
     QVERIFY(obj != 0);
 
@@ -657,10 +657,10 @@ void tst_qtgraphicaleffects::directionalBlur()
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "width: 50; height: 50\n"
             "}";
-    QDeclarativeComponent component(&engine);
+    QQmlComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
-    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
+    QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QQmlComponent::Ready);
     QObject *obj = component.create();
     QVERIFY(obj != 0);
 
@@ -684,10 +684,10 @@ void tst_qtgraphicaleffects::radialBlur()
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "width: 50; height: 50\n"
             "}";
-    QDeclarativeComponent component(&engine);
+    QQmlComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
-    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
+    QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QQmlComponent::Ready);
     QObject *obj = component.create();
     QVERIFY(obj != 0);
 
@@ -712,10 +712,10 @@ void tst_qtgraphicaleffects::zoomBlur()
             "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "width: 50; height: 50\n"
             "}";
-    QDeclarativeComponent component(&engine);
+    QQmlComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
-    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
+    QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QQmlComponent::Ready);
     QObject *obj = component.create();
 
     // Default values
@@ -738,10 +738,10 @@ void tst_qtgraphicaleffects::levelAdjust()
             "LevelAdjust {"
             "width: 50; height: 50\n"
             "}";
-    QDeclarativeComponent component(&engine);
+    QQmlComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
-    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
+    QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QQmlComponent::Ready);
     QObject *obj = component.create();
     QVERIFY(obj != 0);
 
@@ -766,10 +766,10 @@ void tst_qtgraphicaleffects::maskedBlur()
             "maskSource: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
             "width: 50; height: 50\n"
             "}";
-    QDeclarativeComponent component(&engine);
+    QQmlComponent component(&engine);
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QVERIFY2(component.status() != QDeclarativeComponent::Error, qPrintable(componentErrors(&component)));
-    QTRY_COMPARE(component.status(), QDeclarativeComponent::Ready);
+    QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
+    QTRY_COMPARE(component.status(), QQmlComponent::Ready);
     QObject *obj = component.create();
     QVERIFY(obj != 0);
 

@@ -41,7 +41,7 @@
 
 #include "pngdumper.h"
 
-#include <QtDeclarative/qdeclarative.h>
+#include <QtQml/qqml.h>
 
 ItemCapturer::ItemCapturer(QQuickItem *parent):
     QQuickItem(parent)

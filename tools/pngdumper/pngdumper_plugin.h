@@ -42,9 +42,9 @@
 #ifndef ITEMCAPTURER_PLUGIN_H
 #define ITEMCAPTURER_PLUGIN_H
 
-#include <QtDeclarative/QDeclarativeExtensionPlugin>
+#include <QtQml/QQmlExtensionPlugin>
 
-class ItemcapturerPlugin : public QDeclarativeExtensionPlugin
+class ItemcapturerPlugin : public QQmlExtensionPlugin
 {
     Q_OBJECT
     
