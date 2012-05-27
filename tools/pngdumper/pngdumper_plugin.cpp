@@ -49,5 +49,3 @@ void ItemcapturerPlugin::registerTypes(const char *uri)
     qmlRegisterType<ItemCapturer>(uri, 1, 0, "ItemCapturer");
 }
 
-Q_EXPORT_PLUGIN2(Itemcapturer, ItemcapturerPlugin)
-
