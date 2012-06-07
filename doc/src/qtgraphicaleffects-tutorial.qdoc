@@ -1,0 +1,55 @@
+/****************************************************************************
+**
+** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies).
+** Contact: http://www.qt-project.org/
+**
+** This file is part of the documentation of the Qt Graphical Effects module.
+**
+** $QT_BEGIN_LICENSE:FDL$
+** GNU Free Documentation License
+** Alternatively, this file may be used under the terms of the GNU Free
+** Documentation License version 1.3 as published by the Free Software
+** Foundation and appearing in the file included in the packaging of
+** this file.
+**
+** Other Usage
+** Alternatively, this file may be used in accordance with the terms
+** and conditions contained in a signed written agreement between you
+** and Nokia.
+**
+**
+**
+**
+**
+** $QT_END_LICENSE$
+**
+****************************************************************************/
+
+/*!
+\title Tutorial with code snippets
+\page tutorial.html
+\brief Adjusts brightness and contrast.
+
+This effect adjusts the source item colors.
+Brightness adjustment changes the perceived luminance of the source item.
+Contrast adjustment increases or decreases the color
+and brightness variations.
+
+\inqmlmodule QtGraphicalEffects 1.0
+
+
+\table
+\header
+    \li Source
+    \li Effect applied
+\row
+    \li \image Original_bug.png
+    \li \image BrightnessContrast_bug.png
+\endtable
+
+\section1 Example
+
+The following example shows how to apply the effect.
+\snippet snippets/BrightnessContrast-example.qml example
+
+*/

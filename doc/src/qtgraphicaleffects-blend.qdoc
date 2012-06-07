@@ -30,6 +30,7 @@
     \inqmlmodule QtGraphicalEffects 1.0
     \since QtGraphicalEffects 1.0
     \inherits QtQuick2::Item
+    \ingroup blend
     \brief Merges two source items by using a blend mode.
 
     Blend mode can be selected with the \l mode property.
@@ -53,21 +54,21 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::Blend::source
+    \qmlproperty variant Blend::source
 
     This property defines the source item that is going to be the base when \l foregroundSource is blended over it.
 
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::Blend::foregroundSource
+    \qmlproperty variant Blend::foregroundSource
 
     This property defines the item that is going to be blended over the \l source.
 
 */
 
 /*!
-    \qmlproperty string QtGraphicalEffects1.0::Blend::mode
+    \qmlproperty string Blend::mode
 
     This property defines the mode which is used when foregroundSource is blended over source. Values are
     case insensitive.
@@ -225,7 +226,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::Blend::cached
+    \qmlproperty bool Blend::cached
 
     This property allows the effect output pixels to be cached in order to improve the rendering performance.
 

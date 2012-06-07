@@ -30,6 +30,7 @@
     \inqmlmodule QtGraphicalEffects 1.0
     \since QtGraphicalEffects 1.0
     \inherits QtQuick2::Item
+    \ingroup color
     \brief Alters the colors of the source item by applying an overlay color.
 
     The effect is similar to what happens when a colorized glass is put on top
@@ -52,7 +53,7 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::ColorOverlay::source
+    \qmlproperty variant ColorOverlay::source
 
     This property defines the source item that provides the source pixels for
     the effect.
@@ -60,7 +61,7 @@
 */
 
 /*!
-    \qmlproperty color QtGraphicalEffects1.0::ColorOverlay::color
+    \qmlproperty color ColorOverlay::color
 
     This property defines the RGBA color value which is used to colorize the source.
 
@@ -84,7 +85,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::Colorize::cached
+    \qmlproperty bool Colorize::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.

@@ -30,6 +30,7 @@
     \inqmlmodule QtGraphicalEffects 1.0
     \since QtGraphicalEffects 1.0
     \inherits QtQuick2::Item
+    \ingroup distortion
     \brief Moves the pixels of the source item according to the given
     displacement map.
 
@@ -52,7 +53,7 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::Displace::source
+    \qmlproperty variant Displace::source
 
     This property defines the source item for the pixels that are going to be
     displaced according to the data from \l displacementSource.
@@ -60,7 +61,7 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::Displace::displacementSource
+    \qmlproperty variant Displace::displacementSource
 
     This property defines the item that is going to be used as the displacement
     map. The displacementSource item gets rendered into the intermediate pixel
@@ -90,7 +91,7 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::Displace::displacement
+    \qmlproperty variant Displace::displacement
 
     This property defines the scale for the displacement. The bigger scale, the
     bigger the displacement of the pixels. The value set to 0.0 causes no
@@ -119,7 +120,7 @@
 
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::Displace::cached
+    \qmlproperty bool Displace::cached
 
     This property allows the effect output pixels to be cached in order to improve the rendering performance.
 

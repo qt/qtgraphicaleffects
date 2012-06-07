@@ -30,6 +30,7 @@
     \inqmlmodule QtGraphicalEffects 1.0
     \since QtGraphicalEffects 1.0
     \inherits QtQuick2::Item
+    \ingroup color
     \brief Reduces the saturation of the colors.
 
    Desaturated pixel values are calculated as averages of the original RGB
@@ -52,7 +53,7 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::Desaturate::source
+    \qmlproperty variant Desaturate::source
 
     This property defines the source item that provides the source pixels to the
     effect.
@@ -60,7 +61,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::Desaturate::desaturation
+    \qmlproperty real Desaturate::desaturation
 
     This property defines how much the source colors are desaturated.
 
@@ -85,7 +86,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::Desaturate::cached
+    \qmlproperty bool Desaturate::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.

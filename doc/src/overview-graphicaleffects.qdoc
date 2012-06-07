@@ -1,0 +1,59 @@
+ /** This file is part of the Qt Graphical Effects API
+
+    Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies).
+    All rights reserved.
+
+    Name:  Qt Graphical Effects
+    Version:  1.0
+    Contact:  mt-eap-support@nokia.com
+
+    This software, including documentation, is protected by copyright
+    controlled by Nokia Corporation.  All rights reserved.  Copying,
+    including reproducing, storing, adapting or translating, any or all
+    of this material requires prior written consent of Nokia Corporation.
+    This material also contains confidential information which may
+    not be disclosed to others without the prior written consent
+    of Nokia.*/
+
+    /*!
+    \page graphicaleffects-overview.html
+    \title Overview of Qt Graphical Effects API
+    \brief Overview of the Qt Graphical Effects API main fuctionalities and use cases.
+
+    Each effect has a set of properties that can be used to configure the effect output.
+    Properties can be animated just like any other QML properties. The QML type
+    documentation contains property descriptions and basic usage examples.
+
+    Currently there is no C++ API.
+
+    \section1 QML API
+
+    The following list presents the functional division of types that are part of Qt Graphical Effects:
+
+    \section1 Blend
+        \annotatedlist blend
+
+    \section1 Color
+        \annotatedlist color
+
+    \section1 Gradient
+        \annotatedlist gradient
+
+    \section1 Distortion
+        \annotatedlist distortion
+
+    \section1 Drop Shadow
+        \annotatedlist drop_shadow
+
+    \section1 Blur
+        \annotatedlist blur
+
+    \section1 Motion Blur
+        \annotatedlist motion_blur
+
+    \section1 Glow
+        \annotatedlist glow
+
+    \section1 Mask
+        \annotatedlist mask
+    */

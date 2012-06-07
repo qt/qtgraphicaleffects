@@ -30,6 +30,7 @@
     \inqmlmodule QtGraphicalEffects 1.0
     \since QtGraphicalEffects 1.0
     \inherits QtQuick2::Item
+    \ingroup drop_shadow
     \brief Generates a colorized and blurred shadow inside the
     source.
 
@@ -57,7 +58,7 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::InnerShadow::source
+    \qmlproperty variant InnerShadow::source
 
     This property defines the source item that is going to be used as the source
     for the generated shadow.
@@ -65,7 +66,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::InnerShadow::radius
+    \qmlproperty real InnerShadow::radius
 
     Radius defines the softness of the shadow. A larger radius causes the edges
     of the shadow to appear more blurry.
@@ -114,7 +115,7 @@
 */
 
 /*!
-    \qmlproperty int QtGraphicalEffects1.0::InnerShadow::samples
+    \qmlproperty int InnerShadow::samples
 
     This property defines how many samples are taken per pixel when edge softening
     blur calculation is done. Larger value produces better quality, but is slower
@@ -134,7 +135,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::InnerShadow::spread
+    \qmlproperty real InnerShadow::spread
 
     This property defines how large part of the shadow color is strenghtened near
     the source edges.
@@ -179,7 +180,7 @@
 */
 
 /*!
-    \qmlproperty color QtGraphicalEffects1.0::InnerShadow::color
+    \qmlproperty color InnerShadow::color
 
     This property defines the RGBA color value which is used for the shadow.
 
@@ -223,8 +224,8 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::InnerShadow::horizontalOffset
-    \qmlproperty real QtGraphicalEffects1.0::InnerShadow::verticalOffset
+    \qmlproperty real InnerShadow::horizontalOffset
+    \qmlproperty real InnerShadow::verticalOffset
 
     HorizontalOffset and verticalOffset properties define the offset
     for the rendered shadow compared to the InnerShadow item position. Often, the
@@ -273,7 +274,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::InnerShadow::fast
+    \qmlproperty bool InnerShadow::fast
 
     This property selects the blurring algorithm that is used to produce the
     softness for the effect. Setting this to true enables fast algorithm,
@@ -315,7 +316,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::InnerShadow::cached
+    \qmlproperty bool InnerShadow::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.

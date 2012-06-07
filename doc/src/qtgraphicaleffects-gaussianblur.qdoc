@@ -30,11 +30,12 @@
     \inqmlmodule QtGraphicalEffects 1.0
     \since QtGraphicalEffects 1.0
     \inherits QtQuick2::Item
+    \ingroup blur
     \brief Applies a higher quality blur effect.
 
     GaussianBlur effect softens the image by blurring it with an algorithm that
     uses the Gaussian function to calculate the effect. The effect produces
-    higher quality than \l FastBlur, but is slower to render.
+    higher quality than \l {FastBlur} {FastBlur}, but is slower to render.
 
     \table
     \header
@@ -53,13 +54,13 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::GaussianBlur::source
+    \qmlproperty variant GaussianBlur::source
 
     This property defines the source item that is going to be blurred.
 
 */
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::GaussianBlur::radius
+    \qmlproperty real GaussianBlur::radius
 
     This property defines the distance of the neighboring pixels which affect
     the blurring of an individual pixel. A larger radius increases the blur
@@ -97,7 +98,7 @@
 */
 
 /*!
-    \qmlproperty int QtGraphicalEffects1.0::GaussianBlur::samples
+    \qmlproperty int GaussianBlur::samples
 
     This property defines how many samples are taken per pixel when blur
     calculation is done. Larger value produces better quality, but is slower
@@ -115,7 +116,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::GaussianBlur::deviation
+    \qmlproperty real GaussianBlur::deviation
 
     This property is a parameter to the gaussian function that is used when
     calculating neighboring pixel weights for the blurring. A larger deviation
@@ -161,7 +162,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::GaussianBlur::transparentBorder
+    \qmlproperty bool GaussianBlur::transparentBorder
 
     This property defines the blur behavior near the edges of the item, where
     the pixel blurring is affected by the pixels outside the source edges.
@@ -202,7 +203,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::GaussianBlur::cached
+    \qmlproperty bool GaussianBlur::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.
