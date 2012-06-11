@@ -30,6 +30,7 @@
     \inqmlmodule QtGraphicalEffects 1.0
     \since QtGraphicalEffects 1.0
     \inherits QtQuick2::Item
+    \ingroup qtgraphicaleffects-motion-blur
     \brief Applies directional blur effect towards source items center point.
 
     Effect creates perceived impression that the source item appears to be
