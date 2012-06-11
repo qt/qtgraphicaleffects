@@ -30,6 +30,7 @@
     \inqmlmodule QtGraphicalEffects 1.0
     \since QtGraphicalEffects 1.0
     \inherits QtQuick2::Item
+    \ingroup qtgraphicaleffects-gradient
     \brief Draws a conical gradient.
 
     A gradient is defined by two or more colors, which are blended seamlessly.

@@ -30,6 +30,7 @@
     \inqmlmodule QtGraphicalEffects 1.0
     \since QtGraphicalEffects 1.0
     \inherits QtQuick2::Item
+    \ingroup qtgraphicaleffects-blend
     \brief Merges two source items by using a blend mode.
 
     Blend mode can be selected with the \l{Blend::mode}{mode} property.
