@@ -30,6 +30,7 @@
     \inqmlmodule QtGraphicalEffects 1.0
     \since QtGraphicalEffects 1.0
     \inherits QtQuick2::Item
+    \ingroup qtgraphicaleffects-blur
     \brief Applies a higher quality blur effect.
 
     GaussianBlur effect softens the image by blurring it with an algorithm that
