@@ -55,7 +55,7 @@
     \qmlproperty variant QtGraphicalEffects1.0::Displace::source
 
     This property defines the source item for the pixels that are going to be
-    displaced according to the data from \l displacementSource.
+    displaced according to the data from \l{Displace::displacementSource}{displacementSource}.
 
 */
 
@@ -73,7 +73,7 @@
     Alternatively, the displacement map for this effect can also be a QML
     element which is colored appropriately. Like any QML element, it can be
     animated. It is recommended that the size of the diplacement map matches the
-    size of the \l source.
+    size of the \l{Displace::source}{source}.
 
     The displace data is interpreted in the RGBA format. For every pixel: the
     red channel stores the x-axis displacement, and the green channel stores the

@@ -159,7 +159,7 @@ Gradient {
     position of 0.0 is rendered. Colors at larger position values are rendered
     linearly towards the end point. The point is given in pixels and the default
     value is Qt.point(0, 0).
-    Setting the default values for the start and \l end results in a full height
+    Setting the default values for the start and \l{LinearGradient::end}{end} results in a full height
     linear gradient on the y-axis.
 
     \table
@@ -190,7 +190,7 @@ Gradient {
     of 1.0 is rendered. Colors at smaller position values are rendered linearly
     towards the start point. The point is given in pixels and the default value
     is Qt.point(0, height).
-    Setting the default values for the \l start and end results in a full height
+    Setting the default values for the \l{LinearGradient::start}{start} and end results in a full height
     linear gradient on the y-axis.
 
     \table
