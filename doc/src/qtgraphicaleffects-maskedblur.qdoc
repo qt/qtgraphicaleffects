@@ -59,14 +59,14 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::MaskedBlur::source
+    \qmlproperty variant MaskedBlur::source
 
     This property defines the source item that is going to be blurred.
 
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::MaskedBlur::maskSource
+    \qmlproperty variant MaskedBlur::maskSource
 
     This property defines the item that is controlling the final intensity of the
     blur. The pixel alpha channel value from maskSource defines the actual blur
@@ -79,7 +79,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::MaskedBlur::radius
+    \qmlproperty real MaskedBlur::radius
 
     This property defines the distance of the neighboring pixels which affect
     the blurring of an individual pixel. A larger radius increases the blur
@@ -121,7 +121,7 @@
 */
 
 /*!
-    \qmlproperty int QtGraphicalEffects1.0::MaskedBlur::samples
+    \qmlproperty int MaskedBlur::samples
 
     This property defines how many samples are taken per pixel when blur
     calculation is done. Larger value produces better quality, but is slower
@@ -140,7 +140,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::MaskedBlur::transparentBorder
+    \qmlproperty bool MaskedBlur::transparentBorder
 
     This property defines the blur behavior near the edges of the item, where
     the pixel blurring is affected by the pixels outside the source edges.
@@ -181,7 +181,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::MaskedBlur::fast
+    \qmlproperty bool MaskedBlur::fast
 
     This property selects the blurring algorithm that is used to produce the
     blur. Setting this to true enables fast algorithm, setting value to false
@@ -214,7 +214,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::MaskedBlur::cached
+    \qmlproperty bool MaskedBlur::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.

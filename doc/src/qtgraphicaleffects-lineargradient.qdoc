@@ -50,7 +50,7 @@
 */
 
 /*!
-    \qmlproperty Gradient QtGraphicalEffects1.0::LinearGradient::gradient
+    \qmlproperty Gradient LinearGradient::gradient
 
     A gradient is defined by two or more colors, which are blended seamlessly.
     The colors are specified as a set of GradientStop child items, each of which
@@ -122,7 +122,7 @@ Gradient {
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::LinearGradient::source
+    \qmlproperty variant LinearGradient::source
 
     This property defines the item that is going to be filled with gradient. Source
     item gets rendered into an intermediate pixel buffer and the alpha values
@@ -153,7 +153,7 @@ Gradient {
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::LinearGradient::start
+    \qmlproperty variant LinearGradient::start
 
     This property defines the starting point where the color at gradient
     position of 0.0 is rendered. Colors at larger position values are rendered
@@ -184,7 +184,7 @@ Gradient {
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::LinearGradient::end
+    \qmlproperty variant LinearGradient::end
 
     This property defines the ending point where the color at gradient position
     of 1.0 is rendered. Colors at smaller position values are rendered linearly
@@ -215,7 +215,7 @@ Gradient {
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::LinearGradient::cached
+    \qmlproperty bool LinearGradient::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.

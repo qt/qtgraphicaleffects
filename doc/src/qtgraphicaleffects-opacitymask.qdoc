@@ -51,14 +51,14 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::OpacityMask::source
+    \qmlproperty variant OpacityMask::source
 
     This property defines the source item that is going to be masked.
 
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::OpacityMask::maskSource
+    \qmlproperty variant OpacityMask::maskSource
 
     This property defines the item that is going to be used as the mask. The mask item gets rendered into an intermediate pixel buffer and
     the alpha values from the result are used to determine the source item's pixels visibility in the display.
@@ -77,7 +77,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::OpacityMask::cached
+    \qmlproperty bool OpacityMask::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.

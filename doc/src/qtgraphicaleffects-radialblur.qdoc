@@ -37,8 +37,8 @@
     to the direction of the blur.
 
     Other available motionblur effects are
-    \l {QtGraphicalEffects1.0::ZoomBlur} {ZoomBlur} and
-    \l {QtGraphicalEffects1.0::DirectionalBlur} {DirectionalBlur}.
+    \l {ZoomBlur} {ZoomBlur} and
+    \l {DirectionalBlur} {DirectionalBlur}.
 
     \table
     \header
@@ -57,7 +57,7 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::RadialBlur::source
+    \qmlproperty variant RadialBlur::source
 
     This property defines the source item that is going to be blurred.
 
@@ -65,7 +65,7 @@
 
 
 /*!
-    \qmlproperty int QtGraphicalEffects1.0::RadialBlur::samples
+    \qmlproperty int RadialBlur::samples
 
     This property defines how many samples are taken per pixel when blur
     calculation is done. Larger value produces better quality, but is slower
@@ -80,7 +80,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::RadialBlur::angle
+    \qmlproperty real RadialBlur::angle
 
     This property defines the direction for the blur and at the same
     time the level of blurring. The larger the angle, the more the result
@@ -121,8 +121,8 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::RadialBlur::horizontalOffset
-    \qmlproperty real QtGraphicalEffects1.0::RadialBlur::verticalOffset
+    \qmlproperty real RadialBlur::horizontalOffset
+    \qmlproperty real RadialBlur::verticalOffset
 
     These properties define the offset in pixels for the perceived center point
     of the rotation.
@@ -160,7 +160,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::RadialBlur::transparentBorder
+    \qmlproperty bool RadialBlur::transparentBorder
 
     This property defines the blur behavior near the edges of the item, where
     the pixel blurring is affected by the pixels outside the source edges.
@@ -179,7 +179,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::RadialBlur::cached
+    \qmlproperty bool RadialBlur::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.

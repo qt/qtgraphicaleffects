@@ -36,10 +36,10 @@
     of a grayscale image. Colorize uses the hue, saturation, and lightness (HSL)
     color space. You can specify a desired value for each property. You can
     shift all HSL values with the
-    \l {QtGraphicalEffects1.0::HueSaturation}{HueSaturation} effect.
+    \l {HueSaturation}{HueSaturation} effect.
 
     Alternatively, you can use the
-    \l {QtGraphicalEffects1.0::ColorOverlay}{ColorOverlay} effect to colorize the
+    \l {ColorOverlay}{ColorOverlay} effect to colorize the
     source item in the RGBA color space.
 
     \table
@@ -59,7 +59,7 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::Colorize::source
+    \qmlproperty variant Colorize::source
 
     This property defines the source item that provides the source pixels for
     the effect.
@@ -67,7 +67,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::Colorize::hue
+    \qmlproperty real Colorize::hue
 
     This property defines the hue value which is used to colorize the source.
 
@@ -107,7 +107,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::Colorize::saturation
+    \qmlproperty real Colorize::saturation
 
     This property defines the saturation value which is used to colorize the
     source.
@@ -141,7 +141,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::Colorize::lightness
+    \qmlproperty real Colorize::lightness
 
     This property defines how much the source lightness value is increased or
     decreased.
@@ -178,7 +178,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::Colorize::cached
+    \qmlproperty bool Colorize::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.

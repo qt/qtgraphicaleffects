@@ -61,63 +61,63 @@ The following list presents the functional division of types that are part of Qt
 
 Blend
 \list
-\li \l {QtGraphicalEffects1.0::Blend}{Blend} - merges two source items by using a blend mode
+\li \l {Blend}{Blend} - merges two source items by using a blend mode
 \endlist
 
 Color
 \list
-\li \l {QtGraphicalEffects1.0::BrightnessContrast}{BrightnessContrast} - adjusts brightness and contrast
-\li \l {QtGraphicalEffects1.0::Colorize}{Colorize} - sets color in the HSL color space
-\li \l {QtGraphicalEffects1.0::ColorOverlay}{ColorOverlay} - applies a color layer
-\li \l {QtGraphicalEffects1.0::Desaturate}{Desaturate} - reduces color saturation
-\li \l {QtGraphicalEffects1.0::GammaAdjust}{GammaAdjust} - adjusts luminance
-\li \l {QtGraphicalEffects1.0::HueSaturation}{HueSaturation} - adjusts colors in the HSL color space
-\li \l {QtGraphicalEffects1.0::LevelAdjust}{LevelAdjust} - adjusts colors in the RGB color space
+\li \l {BrightnessContrast}{BrightnessContrast} - adjusts brightness and contrast
+\li \l {Colorize}{Colorize} - sets color in the HSL color space
+\li \l {ColorOverlay}{ColorOverlay} - applies a color layer
+\li \l {Desaturate}{Desaturate} - reduces color saturation
+\li \l {GammaAdjust}{GammaAdjust} - adjusts luminance
+\li \l {HueSaturation}{HueSaturation} - adjusts colors in the HSL color space
+\li \l {LevelAdjust}{LevelAdjust} - adjusts colors in the RGB color space
 \endlist
 
 Gradient
 \list
-\li \l {QtGraphicalEffects1.0::ConicalGradient}{ConicalGradient} - draws a conical gradient
-\li \l {QtGraphicalEffects1.0::LinearGradient}{LinearGradient} - draws a linear gradient
-\li \l {QtGraphicalEffects1.0::RadialGradient}{RadialGradient} - draws a radial gradient
+\li \l {ConicalGradient}{ConicalGradient} - draws a conical gradient
+\li \l {LinearGradient}{LinearGradient} - draws a linear gradient
+\li \l {RadialGradient}{RadialGradient} - draws a radial gradient
 \endlist
 
 Distortion
 \list
-\li \l {QtGraphicalEffects1.0::Displace}{Displace} - moves the pixels of the source item according to the specified displacement source
+\li \l {Displace}{Displace} - moves the pixels of the source item according to the specified displacement source
 \endlist
 
 Drop Shadow
 \list
-\li \l {QtGraphicalEffects1.0::DropShadow}{DropShadow} - draws a drop shadow
-\li \l {QtGraphicalEffects1.0::InnerShadow}{InnerShadow} - draws an inner shadow
+\li \l {DropShadow}{DropShadow} - draws a drop shadow
+\li \l {InnerShadow}{InnerShadow} - draws an inner shadow
 \endlist
 
 Blur
 \list
-\li \l {QtGraphicalEffects1.0::FastBlur}{FastBlur} - applies a fast blur effect
-\li \l {QtGraphicalEffects1.0::GaussianBlur}{GaussianBlur} - applies a higher quality blur effect
-\li \l {QtGraphicalEffects1.0::MaskedBlur}{MaskedBlur} - applies a varying intensity blur effect
-\li \l {QtGraphicalEffects1.0::RecursiveBlur}{RecursiveBlur} - blurs repeatedly, providing a strong blur effect
+\li \l {FastBlur}{FastBlur} - applies a fast blur effect
+\li \l {GaussianBlur}{GaussianBlur} - applies a higher quality blur effect
+\li \l {MaskedBlur}{MaskedBlur} - applies a varying intensity blur effect
+\li \l {RecursiveBlur}{RecursiveBlur} - blurs repeatedly, providing a strong blur effect
 \endlist
 
 Motion Blur
 \list
-\li \l {QtGraphicalEffects1.0::DirectionalBlur}{DirectionalBlur} - applies a directional motion blur effect
-\li \l {QtGraphicalEffects1.0::RadialBlur}{RadialBlur} - applies a radial motion blur effect
-\li \l {QtGraphicalEffects1.0::ZoomBlur}{ZoomBlur} - applies a zoom motion blur effect
+\li \l {DirectionalBlur}{DirectionalBlur} - applies a directional motion blur effect
+\li \l {RadialBlur}{RadialBlur} - applies a radial motion blur effect
+\li \l {ZoomBlur}{ZoomBlur} - applies a zoom motion blur effect
 \endlist
 
 Glow
 \list
-\li \l {QtGraphicalEffects1.0::Glow}{Glow} - draws an outer glow effect
-\li \l {QtGraphicalEffects1.0::RectangularGlow}{RectangularGlow} - draws a rectangular outer glow effect
+\li \l {Glow}{Glow} - draws an outer glow effect
+\li \l {RectangularGlow}{RectangularGlow} - draws a rectangular outer glow effect
 \endlist
 
 Mask
 \list
-\li \l {QtGraphicalEffects1.0::OpacityMask}{OpacityMask} - masks the source item with another item
-\li \l {QtGraphicalEffects1.0::ThresholdMask}{ThresholdMask} - masks the source item with another item and applies a threshold value
+\li \l {OpacityMask}{OpacityMask} - masks the source item with another item
+\li \l {ThresholdMask}{ThresholdMask} - masks the source item with another item and applies a threshold value
 \endlist
 
 */

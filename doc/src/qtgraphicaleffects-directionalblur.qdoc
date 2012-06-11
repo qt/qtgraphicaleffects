@@ -37,8 +37,8 @@
     each pixel, therefore setting the direction to 0 and 180 provides the
     same result.
 
-    Other available motionblur effects are \l {QtGraphicalEffects1.0::ZoomBlur} {ZoomBlur} and
-    \l {QtGraphicalEffects1.0::RadialBlur} {RadialBlur}.
+    Other available motionblur effects are \l {ZoomBlur} {ZoomBlur} and
+    \l {RadialBlur} {RadialBlur}.
 
     \table
     \header
@@ -57,14 +57,14 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::DirectionalBlur::source
+    \qmlproperty variant DirectionalBlur::source
 
     This property defines the source item that is going to be blurred.
 
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::DirectionalBlur::length
+    \qmlproperty real DirectionalBlur::length
 
     This property defines the percieved amount of movement for each pixel.
     The movement is divided evenly to both sides of each pixel.
@@ -101,7 +101,7 @@
 */
 
 /*!
-    \qmlproperty int QtGraphicalEffects1.0::DirectionalBlur::samples
+    \qmlproperty int DirectionalBlur::samples
 
     This property defines how many samples are taken per pixel when blur
     calculation is done. Larger value produces better quality, but is slower
@@ -116,7 +116,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::DirectionalBlur::angle
+    \qmlproperty real DirectionalBlur::angle
 
     This property defines the direction for the blur. Blur is applied to
     both sides of each pixel, therefore setting the direction to 0 and 180
@@ -152,7 +152,7 @@
 
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::DirectionalBlur::transparentBorder
+    \qmlproperty bool DirectionalBlur::transparentBorder
 
     This property defines the blur behavior near the edges of the item, where
     the pixel blurring is affected by the pixels outside the source edges.
@@ -171,7 +171,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::DirectionalBlur::cached
+    \qmlproperty bool DirectionalBlur::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.
