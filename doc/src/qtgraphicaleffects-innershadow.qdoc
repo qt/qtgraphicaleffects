@@ -38,7 +38,7 @@
     rendering speed of the shadow might not be the highest possible. The
     rendering speed is reduced especially if the shadow edges are heavily
     softened. For use cases that require faster rendering speed and for which the
-    highest possible visual quality is not necessary, property \l fast can be
+    highest possible visual quality is not necessary, property \l{InnerShadow::fast}{fast} can be
     set to true.
 
     \table
@@ -71,7 +71,7 @@
     Radius defines the softness of the shadow. A larger radius causes the edges
     of the shadow to appear more blurry.
 
-    Depending on the radius value, value of the \l samples should be set to sufficiently
+    Depending on the radius value, value of the \l{InnerShadow::samples}{samples} should be set to sufficiently
     large to ensure the visual quality.
 
     The value ranges from 0.0 (no blur) to inf. By default, the property is set to
@@ -130,7 +130,7 @@
     This property is not intended to be animated. Changing this property may
     cause the underlying OpenGL shaders to be recompiled.
 
-    When \l fast property is set to true, this property has no effect.
+    When \l{InnerShadow::fast}{fast} property is set to true, this property has no effect.
 
 */
 

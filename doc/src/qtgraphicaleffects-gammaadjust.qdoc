@@ -35,7 +35,7 @@
 
     GammaAdjust is applied to each pixel according to the curve which is
     pre-defined as a power-law expression, where the property gamma is used as the
-    reciprocal scaling exponent. Refer to the property documentation of \l gamma
+    reciprocal scaling exponent. Refer to the property documentation of \l{GammaAdjust::gamma}{gamma}
     for more details.
 
     \table

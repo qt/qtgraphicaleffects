@@ -38,7 +38,7 @@
     speed of the effect may not be the highest possible. The rendering speed is
     reduced especially if the glow edges are heavily softened.
     For use cases that require faster rendering speed and the highest possible
-    visual quality is not necessary, property \l fast can be set to true.
+    visual quality is not necessary, property \l{Glow::fast}{fast} can be set to true.
 
     \table
     \header
@@ -70,7 +70,7 @@
     Radius defines the softness of the glow. A larger radius causes the edges
     of the glow to appear more blurry.
 
-    Depending on the radius value, value of the \l samples should be set to sufficiently
+    Depending on the radius value, value of the \l{Glow::samples}{samples} should be set to sufficiently
     large to ensure the visual quality.
 
     The value ranges from 0.0 (no blur) to inf. By default, the property is set to

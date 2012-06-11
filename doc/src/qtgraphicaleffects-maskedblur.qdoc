@@ -37,9 +37,9 @@
     can be controlled for each pixel using maskSource so that some parts of the
     source are blurred more than others. By default the effect produces a high quality
     result, thus the rendering speed may not be the highest possible.
-    The rendering speed is reduced especially if the \l samples is large.
+    The rendering speed is reduced especially if the \l{MaskedBlur::samples}{samples} is large.
     For use cases that require faster rendering speed and the highest possible visual
-    quality is not necessary, property \l fast can be set to true.
+    quality is not necessary, property \l{MaskedBlur::fast}{fast} can be set to true.
 
     \table
     \header
@@ -72,7 +72,7 @@
     This property defines the item that is controlling the final intensity of the
     blur. The pixel alpha channel value from maskSource defines the actual blur
     radius that is going to be used for blurring the corresponding source pixel.
-    Opaque maskSource pixels produce blur with specified \l radius, while transparent
+    Opaque maskSource pixels produce blur with specified \l{MaskedBlur::radius}{radius}, while transparent
     pixels suppress the blur completely. Semitransparent maskSource pixels produce
     blur with a radius that is interpolated according to the pixel transparency
     level.
@@ -86,7 +86,7 @@
     the blurring of an individual pixel. A larger radius increases the blur
     effect.
 
-    Depending on the radius value, value of the \l samples should be set to
+    Depending on the radius value, value of the \l{MaskedBlur::samples}{samples} should be set to
     sufficiently large to ensure the visual quality.
 
     The value ranges from 0.0 (no blur) to inf. By default, the property is set to
@@ -137,7 +137,7 @@
     This property is not intended to be animated. Changing this property may
     cause the underlying OpenGL shaders to be recompiled.
 
-    When \l fast property is set to true, this property has no effect.
+    When \l{MaskedBlur::fast}{fast} property is set to true, this property has no effect.
 */
 
 /*!
