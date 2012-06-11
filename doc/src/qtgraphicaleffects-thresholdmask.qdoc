@@ -30,6 +30,7 @@
     \inqmlmodule QtGraphicalEffects 1.0
     \since QtGraphicalEffects 1.0
     \inherits QtQuick2::Item
+    \ingroup qtgraphicaleffects-mask
     \brief Masks the source item with another item and applies a threshold value.
 
     The masking behavior can be controlled with the \l threshold value for the

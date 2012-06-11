@@ -30,6 +30,7 @@
     \inqmlmodule QtGraphicalEffects 1.0
     \since QtGraphicalEffects 1.0
     \inherits QtQuick2::Item
+    \ingroup qtgraphicaleffects-color
     \brief Alters the source item colors in the HSL color space.
 
     HueSaturation is similar to the \l Colorize effect, but the hue and
