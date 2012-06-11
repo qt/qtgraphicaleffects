@@ -30,6 +30,7 @@
     \inqmlmodule QtGraphicalEffects 1.0
     \since QtGraphicalEffects 1.0
     \inherits QtQuick2::Item
+    \ingroup qtgraphicaleffects-glow
     \brief Generates a blurred and colorized rectangle, which gives
     the impression that the source is glowing.
 
