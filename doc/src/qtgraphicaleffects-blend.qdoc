@@ -32,7 +32,7 @@
     \inherits QtQuick2::Item
     \brief Merges two source items by using a blend mode.
 
-    Blend mode can be selected with the \l mode property.
+    Blend mode can be selected with the \l{Blend::mode}{mode} property.
 
     \table
     \header
@@ -55,14 +55,14 @@
 /*!
     \qmlproperty variant QtGraphicalEffects1.0::Blend::source
 
-    This property defines the source item that is going to be the base when \l foregroundSource is blended over it.
+    This property defines the source item that is going to be the base when \l{Blend::foregroundSource}{foregroundSource} is blended over it.
 
 */
 
 /*!
     \qmlproperty variant QtGraphicalEffects1.0::Blend::foregroundSource
 
-    This property defines the item that is going to be blended over the \l source.
+    This property defines the item that is going to be blended over the \l{Blend::source}{source}.
 
 */
 

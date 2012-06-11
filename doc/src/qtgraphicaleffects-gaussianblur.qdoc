@@ -34,7 +34,7 @@
 
     GaussianBlur effect softens the image by blurring it with an algorithm that
     uses the Gaussian function to calculate the effect. The effect produces
-    higher quality than \l FastBlur, but is slower to render.
+    higher quality than \l{QtGraphicalEffects1::FastBlur}{FastBlur}, but is slower to render.
 
     \table
     \header
@@ -65,7 +65,7 @@
     the blurring of an individual pixel. A larger radius increases the blur
     effect.
 
-    Depending on the radius value, value of the \l samples should be set to
+    Depending on the radius value, value of the \l{GaussianBlur::samples}{samples} should be set to
     sufficiently large to ensure the visual quality.
 
     The value ranges from 0.0 (no blur) to inf. By default, the property is set to

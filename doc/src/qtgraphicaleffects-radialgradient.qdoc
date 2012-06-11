@@ -93,9 +93,9 @@
     \qmlproperty real QtGraphicalEffects1.0::RadialGradient::angle
 
     This property defines the rotation of the gradient around its center point.
-    The rotation is only visible when the \l horizontalRadius and \l
-    verticalRadius properties are not equal. The angle is given in degrees and
-    the default value is \c 0.
+    The rotation is only visible when the \l{RadialGradient::horizontalRadius}{horizontalRadius}
+    and \l{RadialGradient::verticalRadius}{verticalRadius} properties are not equal. The angle
+    is given in degrees and the default value is \c 0.
 
     \table
     \header

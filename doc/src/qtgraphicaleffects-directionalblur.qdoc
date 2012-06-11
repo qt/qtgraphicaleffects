@@ -37,8 +37,8 @@
     each pixel, therefore setting the direction to 0 and 180 provides the
     same result.
 
-    Other available motionblur effects are \l {QtGraphicalEffects1.0::ZoomBlur} {ZoomBlur} and
-    \l {QtGraphicalEffects1.0::RadialBlur} {RadialBlur}.
+    Other available motionblur effects are \l{QtGraphicalEffects1::ZoomBlur}{ZoomBlur} and
+    \l{QtGraphicalEffects1::RadialBlur}{RadialBlur}.
 
     \table
     \header
@@ -69,7 +69,7 @@
     This property defines the percieved amount of movement for each pixel.
     The movement is divided evenly to both sides of each pixel.
 
-    The quality of the blur depends on \l samples property. If length value is
+    The quality of the blur depends on \l{DirectionalBlur::samples}{samples} property. If length value is
     large, more samples are needed to keep the visual quality at high level.
 
     The value ranges from 0.0 to inf.
