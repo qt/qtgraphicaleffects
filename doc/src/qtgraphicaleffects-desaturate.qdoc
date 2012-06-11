@@ -30,6 +30,7 @@
     \inqmlmodule QtGraphicalEffects 1.0
     \since QtGraphicalEffects 1.0
     \inherits QtQuick2::Item
+    \ingroup qtgraphicaleffects-color
     \brief Reduces the saturation of the colors.
 
    Desaturated pixel values are calculated as averages of the original RGB

@@ -30,6 +30,7 @@
     \inqmlmodule QtGraphicalEffects 1.0
     \since QtGraphicalEffects 1.0
     \inherits QtQuick2::Item
+    \ingroup qtgraphicaleffects-color
     \brief Adjusts color levels in the RGBA color space.
 
     This effect adjusts the source item colors separately for each color channel.
