@@ -112,11 +112,11 @@
 /*!
     \qmlproperty real QtGraphicalEffects1.0::ThresholdMask::spread
 
-    This property defines the smoothness of the mask edges near the \l threshold
-    alpha value. Setting spread to 0.0 uses mask normally with the specified
-    threshold. Setting higher spread values softens the transition from the
-    transparent mask pixels towards opaque mask pixels by adding interpolated
-    values between them.
+    This property defines the smoothness of the mask edges near the
+    \l{ThresholdMask::threshold}{threshold} alpha value. Setting spread to 0.0
+    uses mask normally with the specified threshold. Setting higher spread values
+    softens the transition from the transparent mask pixels towards opaque mask
+    pixels by adding interpolated values between them.
 
     The value ranges from 0.0 (sharp mask edge) to 1.0 (smooth mask edge). By default, the property is set to \c 0.0.
 
