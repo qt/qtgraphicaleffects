@@ -37,8 +37,8 @@
     to the direction of the blur.
 
     Other available motionblur effects are
-    \l {QtGraphicalEffects1.0::ZoomBlur} {ZoomBlur} and
-    \l {QtGraphicalEffects1.0::DirectionalBlur} {DirectionalBlur}.
+    \l{QtGraphicalEffects1::ZoomBlur}{ZoomBlur} and
+    \l{QtGraphicalEffects1::DirectionalBlur}{DirectionalBlur}.
 
     \table
     \header
@@ -84,7 +84,7 @@
 
     This property defines the direction for the blur and at the same
     time the level of blurring. The larger the angle, the more the result
-    becomes blurred. The quality of the blur depends on \l samples property.
+    becomes blurred. The quality of the blur depends on \l{RadialBlur::samples}{samples} property.
     If angle value is large, more samples are needed to keep the visual quality
     at high level.
 
