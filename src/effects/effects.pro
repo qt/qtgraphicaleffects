@@ -4,7 +4,7 @@ TARGETPATH = "QtGraphicalEffects"
 
 plugin.files += $$PWD/qmldir
 plugin.files += $$PWD/*.qml
-plugin.files += $$PWD/internal
+plugin.files += $$PWD/private
 plugin.path =  $$[QT_INSTALL_IMPORTS]/$$TARGETPATH
 !isEmpty(DESTDIR): plugin.path = $$DESTDIR
 
