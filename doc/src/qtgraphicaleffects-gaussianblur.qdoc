@@ -54,13 +54,13 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::GaussianBlur::source
+    \qmlproperty variant QtGraphicalEffects1::GaussianBlur::source
 
     This property defines the source item that is going to be blurred.
 
 */
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::GaussianBlur::radius
+    \qmlproperty real QtGraphicalEffects1::GaussianBlur::radius
 
     This property defines the distance of the neighboring pixels which affect
     the blurring of an individual pixel. A larger radius increases the blur
@@ -98,7 +98,7 @@
 */
 
 /*!
-    \qmlproperty int QtGraphicalEffects1.0::GaussianBlur::samples
+    \qmlproperty int QtGraphicalEffects1::GaussianBlur::samples
 
     This property defines how many samples are taken per pixel when blur
     calculation is done. Larger value produces better quality, but is slower
@@ -116,7 +116,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::GaussianBlur::deviation
+    \qmlproperty real QtGraphicalEffects1::GaussianBlur::deviation
 
     This property is a parameter to the gaussian function that is used when
     calculating neighboring pixel weights for the blurring. A larger deviation
@@ -162,7 +162,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::GaussianBlur::transparentBorder
+    \qmlproperty bool QtGraphicalEffects1::GaussianBlur::transparentBorder
 
     This property defines the blur behavior near the edges of the item, where
     the pixel blurring is affected by the pixels outside the source edges.
@@ -203,7 +203,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::GaussianBlur::cached
+    \qmlproperty bool QtGraphicalEffects1::GaussianBlur::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.

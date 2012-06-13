@@ -60,7 +60,7 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::Colorize::source
+    \qmlproperty variant QtGraphicalEffects1::Colorize::source
 
     This property defines the source item that provides the source pixels for
     the effect.
@@ -68,7 +68,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::Colorize::hue
+    \qmlproperty real QtGraphicalEffects1::Colorize::hue
 
     This property defines the hue value which is used to colorize the source.
 
@@ -108,7 +108,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::Colorize::saturation
+    \qmlproperty real QtGraphicalEffects1::Colorize::saturation
 
     This property defines the saturation value which is used to colorize the
     source.
@@ -142,7 +142,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::Colorize::lightness
+    \qmlproperty real QtGraphicalEffects1::Colorize::lightness
 
     This property defines how much the source lightness value is increased or
     decreased.
@@ -179,7 +179,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::Colorize::cached
+    \qmlproperty bool QtGraphicalEffects1::Colorize::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.

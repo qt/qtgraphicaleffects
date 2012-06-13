@@ -51,7 +51,7 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::RadialGradient::source
+    \qmlproperty variant QtGraphicalEffects1::RadialGradient::source
 
     This property defines the item that is going to be filled with gradient. Source
     item gets rendered into an intermediate pixel buffer and the alpha values
@@ -91,7 +91,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::RadialGradient::angle
+    \qmlproperty real QtGraphicalEffects1::RadialGradient::angle
 
     This property defines the rotation of the gradient around its center point.
     The rotation is only visible when the \l{RadialGradient::horizontalRadius}{horizontalRadius}
@@ -132,8 +132,8 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::RadialGradient::horizontalOffset
-    \qmlproperty real QtGraphicalEffects1.0::RadialGradient::verticalOffset
+    \qmlproperty real QtGraphicalEffects1::RadialGradient::horizontalOffset
+    \qmlproperty real QtGraphicalEffects1::RadialGradient::verticalOffset
 
     The HorizontalOffset and verticalOffset properties define the offset in
     pixels for the center point of the gradient compared to the item center.
@@ -174,8 +174,8 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::RadialGradient::horizontalRadius
-    \qmlproperty real QtGraphicalEffects1.0::RadialGradient::verticalRadius
+    \qmlproperty real QtGraphicalEffects1::RadialGradient::horizontalRadius
+    \qmlproperty real QtGraphicalEffects1::RadialGradient::verticalRadius
 
     The HorizontalRadius and verticalRadius properties define the shape and size
     of the radial gradient. If the radiuses are equal, the shape of the gradient
@@ -216,7 +216,7 @@
 */
 
 /*!
-    \qmlproperty Gradient QtGraphicalEffects1.0::RadialGradient::gradient
+    \qmlproperty Gradient QtGraphicalEffects1::RadialGradient::gradient
 
     A gradient is defined by two or more colors, which are blended seamlessly.
     The colors are specified as a set of GradientStop child items, each of which
@@ -300,7 +300,7 @@ Gradient {
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::RadialGradient::cached
+    \qmlproperty bool QtGraphicalEffects1::RadialGradient::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.

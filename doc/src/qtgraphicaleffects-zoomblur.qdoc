@@ -56,14 +56,14 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::ZoomBlur::source
+    \qmlproperty variant QtGraphicalEffects1::ZoomBlur::source
 
     This property defines the source item that is going to be blurred.
 
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::ZoomBlur::length
+    \qmlproperty real QtGraphicalEffects1::ZoomBlur::length
 
     This property defines the maximum perceived amount of movement for each
     pixel. The amount is smaller near the center and reaches the specified
@@ -105,7 +105,7 @@
 */
 
 /*!
-    \qmlproperty int QtGraphicalEffects1.0::ZoomBlur::samples
+    \qmlproperty int QtGraphicalEffects1::ZoomBlur::samples
 
     This property defines how many samples are taken per pixel when blur
     calculation is done. Larger value produces better quality, but is slower
@@ -120,8 +120,8 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::ZoomBlur::horizontalOffset
-    \qmlproperty real QtGraphicalEffects1.0::ZoomBlur::verticalOffset
+    \qmlproperty real QtGraphicalEffects1::ZoomBlur::horizontalOffset
+    \qmlproperty real QtGraphicalEffects1::ZoomBlur::verticalOffset
 
     These properties define an offset in pixels for the blur direction center
     point.
@@ -160,7 +160,7 @@
 
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::ZoomBlur::transparentBorder
+    \qmlproperty bool QtGraphicalEffects1::ZoomBlur::transparentBorder
 
     This property defines the blur behavior near the edges of the item, where
     the pixel blurring is affected by the pixels outside the source edges.
@@ -179,7 +179,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::ZoomBlur::cached
+    \qmlproperty bool QtGraphicalEffects1::ZoomBlur::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.

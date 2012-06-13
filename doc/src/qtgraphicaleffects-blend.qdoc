@@ -54,21 +54,21 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::Blend::source
+    \qmlproperty variant QtGraphicalEffects1::Blend::source
 
     This property defines the source item that is going to be the base when \l{Blend::foregroundSource}{foregroundSource} is blended over it.
 
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::Blend::foregroundSource
+    \qmlproperty variant QtGraphicalEffects1::Blend::foregroundSource
 
     This property defines the item that is going to be blended over the \l{Blend::source}{source}.
 
 */
 
 /*!
-    \qmlproperty string QtGraphicalEffects1.0::Blend::mode
+    \qmlproperty string QtGraphicalEffects1::Blend::mode
 
     This property defines the mode which is used when foregroundSource is blended over source. Values are
     case insensitive.
@@ -226,7 +226,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::Blend::cached
+    \qmlproperty bool QtGraphicalEffects1::Blend::cached
 
     This property allows the effect output pixels to be cached in order to improve the rendering performance.
 

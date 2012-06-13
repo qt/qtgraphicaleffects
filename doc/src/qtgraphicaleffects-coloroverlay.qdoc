@@ -53,7 +53,7 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::ColorOverlay::source
+    \qmlproperty variant QtGraphicalEffects1::ColorOverlay::source
 
     This property defines the source item that provides the source pixels for
     the effect.
@@ -61,7 +61,7 @@
 */
 
 /*!
-    \qmlproperty color QtGraphicalEffects1.0::ColorOverlay::color
+    \qmlproperty color QtGraphicalEffects1::ColorOverlay::color
 
     This property defines the RGBA color value which is used to colorize the source.
 
@@ -85,7 +85,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::Colorize::cached
+    \qmlproperty bool QtGraphicalEffects1::Colorize::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.
