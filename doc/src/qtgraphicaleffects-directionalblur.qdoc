@@ -58,14 +58,14 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::DirectionalBlur::source
+    \qmlproperty variant QtGraphicalEffects1::DirectionalBlur::source
 
     This property defines the source item that is going to be blurred.
 
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::DirectionalBlur::length
+    \qmlproperty real QtGraphicalEffects1::DirectionalBlur::length
 
     This property defines the percieved amount of movement for each pixel.
     The movement is divided evenly to both sides of each pixel.
@@ -102,7 +102,7 @@
 */
 
 /*!
-    \qmlproperty int QtGraphicalEffects1.0::DirectionalBlur::samples
+    \qmlproperty int QtGraphicalEffects1::DirectionalBlur::samples
 
     This property defines how many samples are taken per pixel when blur
     calculation is done. Larger value produces better quality, but is slower
@@ -117,7 +117,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::DirectionalBlur::angle
+    \qmlproperty real QtGraphicalEffects1::DirectionalBlur::angle
 
     This property defines the direction for the blur. Blur is applied to
     both sides of each pixel, therefore setting the direction to 0 and 180
@@ -153,7 +153,7 @@
 
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::DirectionalBlur::transparentBorder
+    \qmlproperty bool QtGraphicalEffects1::DirectionalBlur::transparentBorder
 
     This property defines the blur behavior near the edges of the item, where
     the pixel blurring is affected by the pixels outside the source edges.
@@ -172,7 +172,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::DirectionalBlur::cached
+    \qmlproperty bool QtGraphicalEffects1::DirectionalBlur::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.

@@ -55,13 +55,13 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::RecursiveBlur::source
+    \qmlproperty variant QtGraphicalEffects1::RecursiveBlur::source
 
     This property defines the source item that is going to be blurred.
 
 */
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::RecursiveBlur::radius
+    \qmlproperty real QtGraphicalEffects1::RecursiveBlur::radius
 
     This property defines the distance of neighboring pixels which influence
     the blurring of individual pixels. A larger radius provides better quality,
@@ -96,7 +96,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::RecursiveBlur::transparentBorder
+    \qmlproperty bool QtGraphicalEffects1::RecursiveBlur::transparentBorder
 
     This property defines the blur behavior near the edges of the item, where
     the pixel blurring is affected by the pixels outside the source edges.
@@ -134,7 +134,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::RecursiveBlur::cached
+    \qmlproperty bool QtGraphicalEffects1::RecursiveBlur::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.
@@ -151,14 +151,14 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::RecursiveBlur::progress
+    \qmlproperty real QtGraphicalEffects1::RecursiveBlur::progress
 
     This property holds the progress of asynchronous source blurring process, from 0.0 (nothing blurred) to 1.0 (finished).
 
 */
 
 /*!
-    \qmlproperty int QtGraphicalEffects1.0::RecursiveBlur::loops
+    \qmlproperty int QtGraphicalEffects1::RecursiveBlur::loops
 
     This property defines the amount of blur iterations that are going to be
     performed for the source. When the property changes, the iterative blurring

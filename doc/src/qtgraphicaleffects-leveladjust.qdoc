@@ -53,7 +53,7 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::LevelAdjust::source
+    \qmlproperty variant QtGraphicalEffects1::LevelAdjust::source
 
     This property defines the source item that provides the source pixels for
     the effect.
@@ -61,7 +61,7 @@
 */
 
 /*!
-    \qmlproperty color QtGraphicalEffects1.0::LevelAdjust::minimumInput
+    \qmlproperty color QtGraphicalEffects1::LevelAdjust::minimumInput
 
     This property defines the minimum input level for each color channel. It sets
     the black-point, all pixels having lower value than this property are rendered
@@ -123,7 +123,7 @@
 */
 
 /*!
-    \qmlproperty color QtGraphicalEffects1.0::LevelAdjust::maximumInput
+    \qmlproperty color QtGraphicalEffects1::LevelAdjust::maximumInput
 
     This property defines the maximum input level for each color channel.
     It sets the white-point, all pixels having higher value than this
@@ -186,7 +186,7 @@
 */
 
 /*!
-    \qmlproperty color QtGraphicalEffects1.0::LevelAdjust::minimumOutput
+    \qmlproperty color QtGraphicalEffects1::LevelAdjust::minimumOutput
 
     This property defines the minimum output level for each color channel.
     Increasing the value lightens the dark areas, reducing the contrast.
@@ -247,7 +247,7 @@
 */
 
 /*!
-    \qmlproperty color QtGraphicalEffects1.0::LevelAdjust::maximumOutput
+    \qmlproperty color QtGraphicalEffects1::LevelAdjust::maximumOutput
 
     This property defines the maximum output level for each color channel.
     Decreasing the value darkens the light areas, reducing the contrast.
@@ -309,7 +309,7 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::LevelAdjust::gamma
+    \qmlproperty variant QtGraphicalEffects1::LevelAdjust::gamma
 
     This property defines the change factor for how the value of each pixel
     color channel is altered according to the equation:
@@ -375,7 +375,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::LevelAdjust::cached
+    \qmlproperty bool QtGraphicalEffects1::LevelAdjust::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.

@@ -53,7 +53,7 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::Desaturate::source
+    \qmlproperty variant QtGraphicalEffects1::Desaturate::source
 
     This property defines the source item that provides the source pixels to the
     effect.
@@ -61,7 +61,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::Desaturate::desaturation
+    \qmlproperty real QtGraphicalEffects1::Desaturate::desaturation
 
     This property defines how much the source colors are desaturated.
 
@@ -86,7 +86,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::Desaturate::cached
+    \qmlproperty bool QtGraphicalEffects1::Desaturate::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.

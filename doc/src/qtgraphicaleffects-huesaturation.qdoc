@@ -55,7 +55,7 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::HueSaturation::source
+    \qmlproperty variant QtGraphicalEffects1::HueSaturation::source
 
     This property defines the source item that provides the source pixels for
     the effect.
@@ -63,7 +63,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::HueSaturation::hue
+    \qmlproperty real QtGraphicalEffects1::HueSaturation::hue
 
     This property defines the hue value which is added to the source hue value.
 
@@ -96,7 +96,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::HueSaturation::saturation
+    \qmlproperty real QtGraphicalEffects1::HueSaturation::saturation
 
     This property defines the saturation value value which is added to the
     source saturation value.
@@ -130,7 +130,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::HueSaturation::lightness
+    \qmlproperty real QtGraphicalEffects1::HueSaturation::lightness
 
     This property defines the lightness value which is added to the source
     saturation value.
@@ -164,7 +164,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::HueSaturation::cached
+    \qmlproperty bool QtGraphicalEffects1::HueSaturation::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.

@@ -36,7 +36,7 @@
 
     This effect is intended to have good performance. The shape of the glow is
     limited to a rectangle with a custom corner radius. For situations where
-    custom shapes are required, consider \l {QtGraphicalEffects1.0::Glow} {Glow} effect.
+    custom shapes are required, consider \l {QtGraphicalEffects1::Glow} {Glow} effect.
 
     \table
     \header
@@ -53,7 +53,7 @@
 */
 
 /*!
-    \qmlproperty color QtGraphicalEffects1.0::RectangularGlow::color
+    \qmlproperty color QtGraphicalEffects1::RectangularGlow::color
 
     This property defines the RGBA color value which is used for the glow.
 
@@ -89,7 +89,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::RectangularGlow::glowRadius
+    \qmlproperty real QtGraphicalEffects1::RectangularGlow::glowRadius
 
     This property defines how many pixels outside the item area are reached by
     the glow.
@@ -127,7 +127,7 @@
 */
 
 /*!
-    \qmlproperty color QtGraphicalEffects1.0::RectangularGlow::spread
+    \qmlproperty color QtGraphicalEffects1::RectangularGlow::spread
 
     This property defines how large part of the glow color is strenghtened near
     the source edges.
@@ -164,7 +164,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::RectangularGlow::cornerRadius
+    \qmlproperty real QtGraphicalEffects1::RectangularGlow::cornerRadius
 
     This property defines the corner radius that is used to draw a glow with
     rounded corners.
@@ -205,7 +205,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::RectangularGlow::cached
+    \qmlproperty bool QtGraphicalEffects1::RectangularGlow::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.

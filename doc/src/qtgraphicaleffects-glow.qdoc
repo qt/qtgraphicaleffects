@@ -57,7 +57,7 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::Glow::source
+    \qmlproperty variant QtGraphicalEffects1::Glow::source
 
     This property defines the source item that is going to be used as source for
     the generated glow.
@@ -65,7 +65,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::Glow::radius
+    \qmlproperty real QtGraphicalEffects1::Glow::radius
 
     Radius defines the softness of the glow. A larger radius causes the edges
     of the glow to appear more blurry.
@@ -107,7 +107,7 @@
 */
 
 /*!
-    \qmlproperty int QtGraphicalEffects1.0::Glow::samples
+    \qmlproperty int QtGraphicalEffects1::Glow::samples
 
     This property defines how many samples are taken per pixel when edge softening
     blur calculation is done. Larger value produces better quality, but is slower
@@ -127,7 +127,7 @@
 */
 
 /*!
-    \qmlproperty color QtGraphicalEffects1.0::Glow::color
+    \qmlproperty color QtGraphicalEffects1::Glow::color
 
     This property defines the RGBA color value which is used for the glow.
 
@@ -163,7 +163,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::Glow::spread
+    \qmlproperty real QtGraphicalEffects1::Glow::spread
 
     This property defines how large part of the glow color is strenghtened near
     the source edges.
@@ -200,7 +200,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::Glow::fast
+    \qmlproperty bool QtGraphicalEffects1::Glow::fast
 
     This property selects the blurring algorithm that is used to produce the
     softness for the effect. Setting this to true enables fast algorithm,
@@ -236,7 +236,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::Glow::cached
+    \qmlproperty bool QtGraphicalEffects1::Glow::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.

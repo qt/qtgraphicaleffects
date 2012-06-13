@@ -55,7 +55,7 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::GammaAdjust::source
+    \qmlproperty variant QtGraphicalEffects1::GammaAdjust::source
 
     This property defines the source item for which the luminance is going to be
     adjusted.
@@ -63,7 +63,7 @@
 */
 
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::GammaAdjust::gamma
+    \qmlproperty real QtGraphicalEffects1::GammaAdjust::gamma
 
     This property defines the change factor for how the luminance of each pixel
     is altered according to the equation:
@@ -122,7 +122,7 @@
 
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::GammaAdjust::cached
+    \qmlproperty bool QtGraphicalEffects1::GammaAdjust::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.

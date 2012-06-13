@@ -58,13 +58,13 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::FastBlur::source
+    \qmlproperty variant QtGraphicalEffects1::FastBlur::source
 
     This property defines the source item that is going to be blurred.
 
 */
 /*!
-    \qmlproperty real QtGraphicalEffects1.0::FastBlur::radius
+    \qmlproperty real QtGraphicalEffects1::FastBlur::radius
 
     This property defines the distance of the neighboring pixels which affect
     the blurring of an individual pixel. A larger radius increases the blur
@@ -91,7 +91,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::FastBlur::transparentBorder
+    \qmlproperty bool QtGraphicalEffects1::FastBlur::transparentBorder
 
     This property defines the blur behavior near the edges of the item, where
     the pixel blurring is affected by the pixels outside the source edges.
@@ -126,7 +126,7 @@
 */
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::FastBlur::cached
+    \qmlproperty bool QtGraphicalEffects1::FastBlur::cached
 
     This property allows the effect output pixels to be cached in order to
     improve the rendering performance.

@@ -53,7 +53,7 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::Displace::source
+    \qmlproperty variant QtGraphicalEffects1::Displace::source
 
     This property defines the source item for the pixels that are going to be
     displaced according to the data from \l{Displace::displacementSource}{displacementSource}.
@@ -61,7 +61,7 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::Displace::displacementSource
+    \qmlproperty variant QtGraphicalEffects1::Displace::displacementSource
 
     This property defines the item that is going to be used as the displacement
     map. The displacementSource item gets rendered into the intermediate pixel
@@ -91,7 +91,7 @@
 */
 
 /*!
-    \qmlproperty variant QtGraphicalEffects1.0::Displace::displacement
+    \qmlproperty variant QtGraphicalEffects1::Displace::displacement
 
     This property defines the scale for the displacement. The bigger scale, the
     bigger the displacement of the pixels. The value set to 0.0 causes no
@@ -120,7 +120,7 @@
 
 
 /*!
-    \qmlproperty bool QtGraphicalEffects1.0::Displace::cached
+    \qmlproperty bool QtGraphicalEffects1::Displace::cached
 
     This property allows the effect output pixels to be cached in order to improve the rendering performance.
 
