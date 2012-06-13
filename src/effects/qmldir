@@ -22,5 +22,4 @@ RadialGradient 1.0 RadialGradient.qml
 RecursiveBlur 1.0 RecursiveBlur.qml
 RectangularGlow 1.0 RectangularGlow.qml
 ThresholdMask 1.0 ThresholdMask.qml
-SourceProxy 1.0 SourceProxy.qml
 ZoomBlur 1.0 ZoomBlur.qml
