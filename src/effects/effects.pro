@@ -1,24 +1,42 @@
-TEMPLATE = subdirs
+CXX_MODULE = qml
+TARGET  = graphicaleffectsplugin
+TARGETPATH = QtGraphicalEffects
 
-TARGETPATH = "QtGraphicalEffects"
+QT += qml
 
-plugin.files += $$PWD/qmldir
-plugin.files += $$PWD/*.qml
-plugin.files += $$PWD/private
-plugin.path =  $$[QT_INSTALL_IMPORTS]/$$TARGETPATH
-!isEmpty(DESTDIR): plugin.path = $$DESTDIR
+QML_FILES = \
+    Blend.qml \
+    ColorOverlay.qml \
+    DirectionalBlur.qml \
+    FastBlur.qml \
+    Glow.qml \
+    LevelAdjust.qml \
+    OpacityMask.qml \
+    RectangularGlow.qml \
+    ZoomBlur.qml \
+    BrightnessContrast.qml \
+    ConicalGradient.qml \
+    Displace.qml \
+    GammaAdjust.qml \
+    HueSaturation.qml \
+    LinearGradient.qml \
+    RadialBlur.qml \
+    RecursiveBlur.qml \
+    Colorize.qml \
+    Desaturate.qml \
+    DropShadow.qml \
+    GaussianBlur.qml \
+    InnerShadow.qml \
+    MaskedBlur.qml \
+    RadialGradient.qml \
+    ThresholdMask.qml \
+    private/FastGlow.qml \
+    private/FastMaskedBlur.qml \
+    private/GaussianGlow.qml \
+    private/GaussianMaskedBlur.qml \
+    private/FastInnerShadow.qml \
+    private/GaussianDirectionalBlur.qml \
+    private/GaussianInnerShadow.qml \
+    private/SourceProxy.qml
 
-OTHER_FILES = *.qml \
-              qmldir
-
-INSTALLS += plugin
-
-MODULE = graphical_effects
-MODULE_PRI = $$section(PWD, /, 0, -3)/modules/qt_graphical_effects.pri
-MODULE_BASE_DIR = $$section(PWD, /, 0, -3)
-MODULE_BASE_OUTDIR = $$section(OUT_PWD, /, 0, -3)
-MODULE_PROFILE_DIR = $$MODULE_BASE_DIR
-MODULE_QMAKE_OUTDIR = $$MODULE_BASE_OUTDIR
-load(qt_module_fwdpri)
-CONFIG += qt_no_install_library
-load(qt_installs)
+load(qml_plugin)
