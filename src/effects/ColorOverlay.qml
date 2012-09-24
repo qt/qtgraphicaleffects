@@ -41,10 +41,79 @@
 import QtQuick 2.0
 import "private"
 
+/*!
+    \qmltype ColorOverlay
+    \inqmlmodule QtGraphicalEffects 1.0
+    \since QtGraphicalEffects 1.0
+    \inherits QtQuick2::Item
+    \ingroup qtgraphicaleffects-color
+    \brief Alters the colors of the source item by applying an overlay color.
+
+    The effect is similar to what happens when a colorized glass is put on top
+    of a grayscale image. The color for the overlay is given in the RGBA format.
+
+    \table
+    \header
+        \li Source
+        \li Effect applied
+    \row
+        \li \image Original_butterfly.png
+        \li \image ColorOverlay_butterfly.png
+    \endtable
+
+    \section1 Example
+
+    The following example shows how to apply the effect.
+    \snippet ColorOverlay-example.qml example
+
+*/
 Item {
     id: rootItem
+
+    /*!
+        This property defines the source item that provides the source pixels
+        for the effect.
+    */
     property variant source
+
+    /*!
+        This property defines the RGBA color value which is used to colorize the
+        source.
+
+        By default, the property is set to \c "transparent".
+
+        \table
+        \header
+        \li Output examples with different color values
+        \li
+        \li
+        \row
+            \li \image ColorOverlay_color1.png
+            \li \image ColorOverlay_color2.png
+            \li \image ColorOverlay_color3.png
+        \row
+            \li \b { color: #80ff0000 }
+            \li \b { color: #8000ff00 }
+            \li \b { color: #800000ff }
+        \endtable
+
+    */
     property color color: "transparent"
+
+    /*!
+        This property allows the effect output pixels to be cached in order to
+        improve the rendering performance.
+
+        Every time the source or effect properties are changed, the pixels in
+        the cache must be updated. Memory consumption is increased, because an
+        extra buffer of memory is required for storing the effect output.
+
+        It is recommended to disable the cache when the source or the effect
+        properties are animated.
+
+        By default, the property is set to \c false.
+
+    */
     property bool cached: false
 
     SourceProxy {

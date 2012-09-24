@@ -39,7 +39,7 @@ cover functional areas such as blending, masking, blurring, coloring, and many m
 
 \section1 Getting started
 To load Qt Graphical Effects, add the following import statement to your .qml file:
-\snippet snippets/Blend-example.qml import
+\snippet Blend-example.qml import
 
 To use the effects, simply add a specific effect declaration to the QML scene and
 configure the effects properties. Effects have one or more source properties for
@@ -54,6 +54,8 @@ Properties can be animated just like any other QML properties. The QML type
 documentation contains property descriptions and basic usage examples.
 
 Currently there is no C++ API.
+
+\section1 Effects
 
 The \l{Graphical Effects} page has a list of the effects available.
 

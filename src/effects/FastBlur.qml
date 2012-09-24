@@ -41,11 +41,120 @@
 import QtQuick 2.0
 import "private"
 
+/*!
+    \qmltype FastBlur
+    \inqmlmodule QtGraphicalEffects 1.0
+    \since QtGraphicalEffects 1.0
+    \inherits QtQuick2::Item
+    \ingroup qtgraphicaleffects-blur
+    \brief Applies a fast blur effect to one or more source items.
+
+    FastBlur offers lower blur quality than
+    \l{QtGraphicalEffects1::GaussianBlur}{GaussianBlur}, but it is faster to
+    render. The FastBlur effect softens the source content by blurring it with
+    algorithm which uses the source content downscaling and bilinear filtering.
+    Use this effect in situations where the source content is rapidly changing
+    and the highest possible blur quality is not
+    needed.
+
+    \table
+    \header
+        \li Source
+        \li Effect applied
+    \row
+        \li \image Original_bug.png
+        \li \image FastBlur_bug.png
+    \endtable
+
+    \section1 Example
+
+    The following example shows how to apply the effect.
+    \snippet FastBlur-example.qml example
+
+*/
 Item {
     id: rootItem
+
+    /*!
+        This property defines the source item that is going to be blurred.
+    */
     property variant source
+
+    /*!
+        This property defines the distance of the neighboring pixels which affect
+        the blurring of an individual pixel. A larger radius increases the blur
+        effect. FastBlur algorithm may internally reduce the accuracy of the radius in order to
+        provide good rendering performance.
+
+        The value ranges from 0.0 (no blur) to inf. Visual quality of the blur is reduced when
+        radius exceeds value 64. By default, the property is set to \c 0.0 (no blur).
+
+        \table
+        \header
+        \li Output examples with different blur values
+        \li
+        \li
+        \row
+            \li \image FastBlur_radius1.png
+            \li \image FastBlur_radius2.png
+            \li \image FastBlur_radius3.png
+        \row
+            \li \b { radius: 0 }
+            \li \b { radius: 32 }
+            \li \b { radius: 64 }
+        \endtable
+    */
     property real radius: 0.0
+
+    /*!
+        This property defines the blur behavior near the edges of the item,
+        where the pixel blurring is affected by the pixels outside the source
+        edges.
+
+        If the property is set to \c true, the pixels outside the source are
+        interpreted to be transparent, which is similar to OpenGL
+        clamp-to-border extension. The blur is expanded slightly outside the
+        effect item area.
+
+        If the property is set to \c false, the pixels outside the source are
+        interpreted to contain the same color as the pixels at the edge of the
+        item, which is similar to OpenGL clamp-to-edge behavior. The blur does
+        not expand outside the effect item area.
+
+        By default, the property is set to \c false.
+
+        \table
+        \header
+        \li Output examples with different transparentBorder values
+        \li
+        \li
+        \row
+            \li \image FastBlur_transparentBorder1.png
+            \li \image FastBlur_transparentBorder2.png
+        \row
+            \li \b { transparentBorder: false }
+            \li \b { transparentBorder: true }
+        \row
+            \li \l radius: 64
+            \li \l radius: 64
+        \endtable
+    */
     property bool transparentBorder: false
+
+    /*!
+        This property allows the effect output pixels to be cached in order to
+        improve the rendering performance.
+
+        Every time the source or effect properties are changed, the pixels in
+        the cache must be updated. Memory consumption is increased, because an
+        extra buffer of memory is required for storing the effect output.
+
+        It is recommended to disable the cache when the source or the effect
+        properties are animated.
+
+        By default, the property is set to \c false.
+
+    */
     property bool cached: false
 
     SourceProxy {
