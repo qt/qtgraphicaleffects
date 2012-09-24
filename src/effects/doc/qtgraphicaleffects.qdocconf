@@ -1,0 +1,46 @@
+include(../../../doc/global/qt-html-templates-offline.qdocconf)
+include(../../../doc/global/qt-module-defaults.qdocconf)
+
+project                 = QtGraphicalEffects
+description             = Qt Graphical Effects Reference Documentation
+url                     = http://qt-project.org/doc/qt-5.0/qtgraphicaleffects-index.html
+version                 = 5.0.0
+
+qhp.projects            = QtGraphicalEffects
+
+qhp.QtGraphicalEffects.file                = qtgraphicaleffects.qhp
+qhp.QtGraphicalEffects.namespace           = org.qt-project.qtgraphicaleffects.500
+qhp.QtGraphicalEffects.virtualFolder       = qdoc
+qhp.QtGraphicalEffects.indexTitle          = Qt Graphical Effects Reference Documentation
+qhp.QtGraphicalEffects.indexRoot           =
+
+qhp.QtGraphicalEffects.filterAttributes    = qtgraphicaleffects 5.0.0 qtrefdoc
+qhp.QtGraphicalEffects.customFilters.Qt.name = QtGraphicalEffects 5.0.0
+qhp.QtGraphicalEffects.customFilters.Qt.filterAttributes = qtgraphicaleffects 5.0.0
+qhp.QtGraphicalEffects.subprojects         = classes overviews examples
+qhp.QtGraphicalEffects.subprojects.classes.title = Classes
+qhp.QtGraphicalEffects.subprojects.classes.indexTitle = Qt Graphical Effects's Classes
+qhp.QtGraphicalEffects.subprojects.classes.selectors = class fake:headerfile
+qhp.QtGraphicalEffects.subprojects.classes.sortPages = true
+qhp.QtGraphicalEffects.subprojects.overviews.title = Overviews
+qhp.QtGraphicalEffects.subprojects.overviews.indexTitle = All Overviews and HOWTOs
+qhp.QtGraphicalEffects.subprojects.overviews.selectors = fake:page,group,module
+qhp.QtGraphicalEffects.subprojects.examples.title = Qt Graphical Effects Examples
+qhp.QtGraphicalEffects.subprojects.examples.indexTitle = Qt Graphical Effects Examples
+qhp.QtGraphicalEffects.subprojects.examples.selectors = fake:example
+
+outputdir               = ../../../doc/qtgraphicaleffects
+tagfile                 = ../../../doc/qtgraphicaleffects/qtgraphicaleffects.tags
+
+headerdirs  += .. \
+
+sourcedirs  += .. \
+
+
+exampledirs += ../../../examples/graphicaleffects \
+               snippets/
+
+
+imagedirs   += images
+
+depends += qtqml qtquick qtbase

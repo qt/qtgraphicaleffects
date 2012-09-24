@@ -41,13 +41,207 @@
 import QtQuick 2.0
 import "private"
 
+/*!
+    \qmltype LinearGradient
+    \inqmlmodule QtGraphicalEffects 1.0
+    \since QtGraphicalEffects 1.0
+    \inherits QtQuick2::Item
+    \ingroup qtgraphicaleffects-gradient
+    \brief Draws a linear gradient.
+
+    A gradient is defined by two or more colors, which are blended seamlessly.
+    The colors start from the given start point and end to the given end point.
+
+    \table
+    \header
+        \li Effect applied
+    \row
+        \li \image LinearGradient.png
+    \endtable
+
+    \section1 Example
+
+    The following example shows how to apply the effect.
+    \snippet LinearGradient-example.qml example
+
+*/
 Item {
     id: rootItem
+
+    /*!
+        This property defines the starting point where the color at gradient
+        position of 0.0 is rendered. Colors at larger position values are
+        rendered linearly towards the end point. The point is given in pixels
+        and the default value is Qt.point(0, 0). Setting the default values for
+        the start and \l{LinearGradient::end}{end} results in a full height
+        linear gradient on the y-axis.
+
+        \table
+        \header
+        \li Output examples with different start values
+        \li
+        \li
+        \row
+            \li \image LinearGradient_start1.png
+            \li \image LinearGradient_start2.png
+            \li \image LinearGradient_start3.png
+        \row
+            \li \b { start: QPoint(0, 0) }
+            \li \b { start: QPoint(150, 150) }
+            \li \b { start: QPoint(300, 0) }
+        \row
+            \li \l end: QPoint(300, 300)
+            \li \l end: QPoint(300, 300)
+            \li \l end: QPoint(300, 300)
+        \endtable
+
+    */
     property variant start: Qt.point(0, 0)
+
+    /*!
+        This property defines the ending point where the color at gradient
+        position of 1.0 is rendered. Colors at smaller position values are
+        rendered linearly towards the start point. The point is given in pixels
+        and the default value is Qt.point(0, height). Setting the default values
+        for the \l{LinearGradient::start}{start} and end results in a full
+        height linear gradient on the y-axis.
+
+        \table
+        \header
+        \li Output examples with different end values
+        \li
+        \li
+        \row
+            \li \image LinearGradient_end1.png
+            \li \image LinearGradient_end2.png
+            \li \image LinearGradient_end3.png
+        \row
+            \li \b { end: Qt.point(300, 300) }
+            \li \b { end: Qt.point(150, 150) }
+            \li \b { end: Qt.point(300, 0) }
+        \row
+            \li \l start: Qt.point(0, 0)
+            \li \l start: Qt.point(0, 0)
+            \li \l start: Qt.point(0, 0)
+        \endtable
+
+    */
     property variant end: Qt.point(0, height)
+
+    /*!
+        This property allows the effect output pixels to be cached in order to
+        improve the rendering performance.
+
+        Every time the source or effect properties are changed, the pixels in
+        the cache must be updated. Memory consumption is increased, because an
+        extra buffer of memory is required for storing the effect output.
+
+        It is recommended to disable the cache when the source or the effect
+        properties are animated.
+
+        By default, the property is set to \c false.
+    */
     property bool cached: false
+
+    /*!
+        This property defines the item that is going to be filled with gradient.
+        Source item gets rendered into an intermediate pixel buffer and the
+        alpha values from the result are used to determine the gradient's pixels
+        visibility in the display. The default value for source is undefined and
+        in that case whole effect area is filled with gradient.
+
+        \table
+        \header
+        \li Output examples with different source values
+        \li
+        \li
+        \row
+            \li \image LinearGradient_maskSource1.png
+            \li \image LinearGradient_maskSource2.png
+        \row
+            \li \b { source: undefined }
+            \li \b { source: Image { source: images/butterfly.png } }
+        \row
+            \li \l start: Qt.point(0, 0)
+            \li \l start: Qt.point(0, 0)
+        \row
+            \li \l end: Qt.point(300, 300)
+            \li \l end: Qt.point(300, 300)
+        \endtable
+
+    */
     property variant source
 
+
+    /*!
+        A gradient is defined by two or more colors, which are blended
+        seamlessly. The colors are specified as a set of GradientStop child
+        items, each of which defines a position on the gradient from 0.0 to 1.0
+        and a color. The position of each GradientStop is defined by the
+        position property, and the color is definded by the color property.
+
+        \table
+        \header
+        \li Output examples with different gradient values
+        \li
+        \li
+        \row
+            \li \image LinearGradient_gradient1.png
+            \li \image LinearGradient_gradient2.png
+            \li \image LinearGradient_gradient3.png
+            \row
+            \li \b {gradient:} \code
+    Gradient {
+      GradientStop { position: 0.000
+      color: Qt.rgba(1, 0, 0, 1) }
+      GradientStop { position: 0.167;
+      color: Qt.rgba(1, 1, 0, 1) }
+      GradientStop { position: 0.333;
+      color: Qt.rgba(0, 1, 0, 1) }
+      GradientStop { position: 0.500;
+      color: Qt.rgba(0, 1, 1, 1) }
+      GradientStop { position: 0.667;
+      color: Qt.rgba(0, 0, 1, 1) }
+      GradientStop { position: 0.833;
+      color: Qt.rgba(1, 0, 1, 1) }
+      GradientStop { position: 1.000;
+      color: Qt.rgba(1, 0, 0, 1) }
+    }
+        \endcode
+            \li \b {gradient:} \code
+    Gradient {
+      GradientStop { position: 0.0
+      color: "#F0F0F0"
+      }
+      GradientStop { position: 0.5
+      color: "#000000"
+      }
+      GradientStop { position: 1.0
+      color: "#F0F0F0"
+      }
+    }
+        \endcode
+            \li \b {gradient:} \code
+    Gradient {
+      GradientStop { position: 0.0
+        color: "#00000000"
+      }
+      GradientStop { position: 1.0
+        color: "#FF000000"
+      }
+    }
+        \endcode
+        \row
+            \li \l start: Qt.point(0, 0)
+            \li \l start: Qt.point(0, 0)
+            \li \l start: Qt.point(0, 0)
+        \row
+            \li \l end: Qt.point(300, 300)
+            \li \l end: Qt.point(300, 300)
+            \li \l end: Qt.point(300, 300)
+        \endtable
+
+    */
     property Gradient gradient: Gradient {
         GradientStop { position: 0.0; color: "white" }
         GradientStop { position: 1.0; color: "black" }

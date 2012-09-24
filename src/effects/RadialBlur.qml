@@ -41,14 +41,170 @@
 import QtQuick 2.0
 import "private"
 
+/*!
+    \qmltype RadialBlur
+    \inqmlmodule QtGraphicalEffects 1.0
+    \since QtGraphicalEffects 1.0
+    \inherits QtQuick2::Item
+    \ingroup qtgraphicaleffects-motion-blur
+    \brief Applies directional blur in a circular direction around the items
+    center point.
+
+    Effect creates perceived impression that the source item appears to be
+    rotating to the direction of the blur.
+
+    Other available motionblur effects are
+    \l{QtGraphicalEffects1::ZoomBlur}{ZoomBlur} and
+    \l{QtGraphicalEffects1::DirectionalBlur}{DirectionalBlur}.
+
+    \table
+    \header
+        \li Source
+        \li Effect applied
+    \row
+        \li \image Original_bug.png
+        \li \image RadialBlur_bug.png
+    \endtable
+
+    \section1 Example Usage
+
+    The following example shows how to apply the effect.
+    \snippet RadialBlur-example.qml example
+*/
 Item {
     id: rootItem
+
+    /*!
+        This property defines the source item that is going to be blurred.
+    */
     property variant source
+
+    /*!
+        This property defines the direction for the blur and at the same time
+        the level of blurring. The larger the angle, the more the result becomes
+        blurred. The quality of the blur depends on
+        \l{RadialBlur::samples}{samples} property. If angle value is large, more
+        samples are needed to keep the visual quality at high level.
+
+        Allowed values are between 0.0 and 360.0. By default the property is set
+        to \c 0.0.
+
+        \table
+        \header
+        \li Output examples with different angle values
+        \li
+        \li
+        \row
+            \li \image RadialBlur_angle1.png
+            \li \image RadialBlur_angle2.png
+            \li \image RadialBlur_angle3.png
+        \row
+            \li \b { angle: 0.0 }
+            \li \b { angle: 15.0 }
+            \li \b { angle: 30.0 }
+        \row
+            \li \l samples: 24
+            \li \l samples: 24
+            \li \l samples: 24
+        \row
+            \li \l horizontalOffset: 0
+            \li \l horizontalOffset: 0
+            \li \l horizontalOffset: 0
+        \row
+            \li \l verticalOffset: 0
+            \li \l verticalOffset: 0
+            \li \l verticalOffset: 0
+        \endtable
+    */
     property real angle: 0.0
+
+    /*!
+        This property defines how many samples are taken per pixel when blur
+        calculation is done. Larger value produces better quality, but is slower
+        to render.
+
+        This property is not intended to be animated. Changing this property may
+        cause the underlying OpenGL shaders to be recompiled.
+
+        Allowed values are between 0 and inf (practical maximum depends on GPU).
+        By default the property is set to \c 0 (no samples).
+
+    */
     property int samples: 0
+
+    /*!
+        \qmlproperty real QtGraphicalEffects1::RadialBlur::horizontalOffset
+        \qmlproperty real QtGraphicalEffects1::RadialBlur::verticalOffset
+
+        These properties define the offset in pixels for the perceived center
+        point of the rotation.
+
+        Allowed values are between -inf and inf.
+        By default these properties are set to \c 0.
+
+        \table
+        \header
+        \li Output examples with different horizontalOffset values
+        \li
+        \li
+        \row
+            \li \image RadialBlur_horizontalOffset1.png
+            \li \image RadialBlur_horizontalOffset2.png
+            \li \image RadialBlur_horizontalOffset3.png
+        \row
+            \li \b { horizontalOffset: 75.0 }
+            \li \b { horizontalOffset: 0.0 }
+            \li \b { horizontalOffset: -75.0 }
+        \row
+            \li \l samples: 24
+            \li \l samples: 24
+            \li \l samples: 24
+        \row
+            \li \l angle: 20
+            \li \l angle: 20
+            \li \l angle: 20
+        \row
+            \li \l verticalOffset: 0
+            \li \l verticalOffset: 0
+            \li \l verticalOffset: 0
+        \endtable
+    */
     property real horizontalOffset: 0.0
     property real verticalOffset: 0.0
+
+    /*!
+        This property defines the blur behavior near the edges of the item,
+        where the pixel blurring is affected by the pixels outside the source
+        edges.
+
+        If the property is set to \c true, the pixels outside the source are
+        interpreted to be transparent, which is similar to OpenGL
+        clamp-to-border extension. The blur is expanded slightly outside the
+        effect item area.
+
+        If the property is set to \c false, the pixels outside the source are
+        interpreted to contain the same color as the pixels at the edge of the
+        item, which is similar to OpenGL clamp-to-edge behavior. The blur does
+        not expand outside the effect item area.
+
+        By default, the property is set to \c false.
+    */
     property bool transparentBorder: false
+
+    /*!
+        This property allows the effect output pixels to be cached in order to
+        improve the rendering performance.
+
+        Every time the source or effect properties are changed, the pixels in
+        the cache must be updated. Memory consumption is increased, because an
+        extra buffer of memory is required for storing the effect output.
+
+        It is recommended to disable the cache when the source or the effect
+        properties are animated.
+
+        By default, the property is set to \c false.
+
+    */
     property bool cached: false
 
     SourceProxy {
