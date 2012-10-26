@@ -1,4 +1,3 @@
-include(../../../doc/global/qt-html-templates-offline.qdocconf)
 include(../../../doc/global/qt-module-defaults.qdocconf)
 
 project                 = QtGraphicalEffects
