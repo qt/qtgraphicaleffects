@@ -1,7 +1,7 @@
 
 CONFIG += testcase
 
-QT += opengl qml testlib quick
+QT += qml testlib quick
 
 TARGET = tst_qtgraphicaleffects
 
