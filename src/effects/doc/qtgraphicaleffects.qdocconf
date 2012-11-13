@@ -1,34 +1,29 @@
-include(../../../doc/global/qt-module-defaults.qdocconf)
+include($$QT_INSTALL_DOCS/global/qt-module-defaults.qdocconf)
 
 project                 = QtGraphicalEffects
 description             = Qt Graphical Effects Reference Documentation
-url                     = http://qt-project.org/doc/qt-5.0/qtgraphicaleffects-index.html
+url                     = http://qt-project.org/doc/qtgraphicaleffects/
 version                 = 5.0.0
 
 qhp.projects            = QtGraphicalEffects
 
 qhp.QtGraphicalEffects.file                = qtgraphicaleffects.qhp
 qhp.QtGraphicalEffects.namespace           = org.qt-project.qtgraphicaleffects.500
-qhp.QtGraphicalEffects.virtualFolder       = qdoc
-qhp.QtGraphicalEffects.indexTitle          = Qt Graphical Effects Reference Documentation
+qhp.QtGraphicalEffects.virtualFolder       = qtgraphicaleffects
+qhp.QtGraphicalEffects.indexTitle          = Qt Graphical Effects
 qhp.QtGraphicalEffects.indexRoot           =
 
 qhp.QtGraphicalEffects.filterAttributes    = qtgraphicaleffects 5.0.0 qtrefdoc
 qhp.QtGraphicalEffects.customFilters.Qt.name = QtGraphicalEffects 5.0.0
 qhp.QtGraphicalEffects.customFilters.Qt.filterAttributes = qtgraphicaleffects 5.0.0
-qhp.QtGraphicalEffects.subprojects         = classes overviews examples
-qhp.QtGraphicalEffects.subprojects.classes.title = Classes
-qhp.QtGraphicalEffects.subprojects.classes.indexTitle = Qt Graphical Effects's Classes
-qhp.QtGraphicalEffects.subprojects.classes.selectors = class fake:headerfile
-qhp.QtGraphicalEffects.subprojects.classes.sortPages = true
-qhp.QtGraphicalEffects.subprojects.overviews.title = Overviews
-qhp.QtGraphicalEffects.subprojects.overviews.indexTitle = All Overviews and HOWTOs
-qhp.QtGraphicalEffects.subprojects.overviews.selectors = fake:page,group,module
-qhp.QtGraphicalEffects.subprojects.examples.title = Qt Graphical Effects Examples
-qhp.QtGraphicalEffects.subprojects.examples.indexTitle = Qt Graphical Effects Examples
-qhp.QtGraphicalEffects.subprojects.examples.selectors = fake:example
 
-outputdir               = ../../../doc/qtgraphicaleffects
+qhp.QtGraphicalEffects.subprojects         = qmltypes
+qhp.QtGraphicalEffects.subprojects.qmltypes.title = QML Types
+qhp.QtGraphicalEffects.subprojects.qmltypes.indexTitle = Graphical Effects
+qhp.QtGraphicalEffects.subprojects.qmltypes.selectors = class fake:headerfile
+qhp.QtGraphicalEffects.subprojects.qmltypes.sortPages = true
+
+outputdir               = $$QT_INSTALL_DOCS/qtgraphicaleffects
 tagfile                 = ../../../doc/qtgraphicaleffects/qtgraphicaleffects.tags
 
 headerdirs  += .. \
