@@ -35,4 +35,5 @@ QML_FILES = \
     private/GaussianMaskedBlur.qml \
     private/SourceProxy.qml
 
+QMAKE_DOCS = $$PWD/doc/qtgraphicaleffects.qdocconf
 load(qml_module)
