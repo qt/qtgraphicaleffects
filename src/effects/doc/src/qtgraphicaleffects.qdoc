@@ -26,6 +26,26 @@
 ****************************************************************************/
 
 /*!
+    \qmlmodule QtGraphicalEffects 1.0
+    \title Qt Graphical Effect QML Types
+    \ingroup qmlmodules
+
+    \brief The Qt Graphical Effects module provides a range of stunning
+    visual effects that can be applied to Qt Quick applications.
+
+    The \l{qtgraphicaleffects-index.html}{Qt Graphical Effects} module provides a set of QML types for
+    adding visually impressive and configurable effects to user
+    interfaces. Effects are visual items that can be added to Qt Quick
+    user interface as UI components.
+
+    To use the types in this module, import the module with the following line:
+    \qml
+    import QtGraphicalEffects 1.0
+    \endqml
+
+ */
+
+/*!
 \title Qt Graphical Effects
 \page qtgraphicaleffects-index.html
 \brief Qt Graphical Effects module is a Qt Quick Add-On module.
