@@ -1,7 +1,7 @@
 TEMPLATE = lib
 TARGET = pngdumper
 QT += core quick
-CONFIG += qt plugin
+CONFIG += plugin
 
 TARGET = $$qtLibraryTarget($$TARGET)
 uri = com.nokia.mt.pngdumper
