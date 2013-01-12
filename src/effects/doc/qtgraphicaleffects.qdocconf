@@ -8,7 +8,7 @@ version                 = 5.0.1
 qhp.projects            = QtGraphicalEffects
 
 qhp.QtGraphicalEffects.file                = qtgraphicaleffects.qhp
-qhp.QtGraphicalEffects.namespace           = org.qt-project.qtgraphicaleffects.500
+qhp.QtGraphicalEffects.namespace           = org.qt-project.qtgraphicaleffects.501
 qhp.QtGraphicalEffects.virtualFolder       = qtgraphicaleffects
 qhp.QtGraphicalEffects.indexTitle          = Qt Graphical Effects
 qhp.QtGraphicalEffects.indexRoot           =
