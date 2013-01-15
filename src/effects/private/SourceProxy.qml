@@ -43,7 +43,7 @@ import QtQuick 2.0
 Item {
     id: rootItem
     property variant input
-    property variant output: input
+    property variant output
     property variant sourceRect
     visible: false
 
