@@ -295,6 +295,7 @@ Item {
     SourceProxy {
         id: sourceProxy
         input: rootItem.source
+        sourceRect: rootItem.transparentBorder ? Qt.rect(-1, -1, parent.width + 2.0, parent.height + 2.0) : Qt.rect(0, 0, 0, 0)
     }
     ShaderEffect {
         anchors.fill: parent
