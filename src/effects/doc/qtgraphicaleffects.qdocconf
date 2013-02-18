@@ -2,20 +2,20 @@ include($QT_INSTALL_DOCS/global/qt-module-defaults.qdocconf)
 
 project                 = QtGraphicalEffects
 description             = Qt Graphical Effects Reference Documentation
-url                     = http://qt-project.org/doc/qtgraphicaleffects/
-version                 = 5.0.1
+url                     = http://qt-project.org/doc/qt-$QT_VER/qtgraphicaleffects/
+version                 = $QT_VERSION
 
 qhp.projects            = QtGraphicalEffects
 
 qhp.QtGraphicalEffects.file                = qtgraphicaleffects.qhp
-qhp.QtGraphicalEffects.namespace           = org.qt-project.qtgraphicaleffects.501
+qhp.QtGraphicalEffects.namespace           = org.qt-project.qtgraphicaleffects.$QT_VERSION_TAG
 qhp.QtGraphicalEffects.virtualFolder       = qtgraphicaleffects
 qhp.QtGraphicalEffects.indexTitle          = Qt Graphical Effects
 qhp.QtGraphicalEffects.indexRoot           =
 
-qhp.QtGraphicalEffects.filterAttributes    = qtgraphicaleffects 5.0.1 qtrefdoc
-qhp.QtGraphicalEffects.customFilters.Qt.name = QtGraphicalEffects 5.0.1
-qhp.QtGraphicalEffects.customFilters.Qt.filterAttributes = qtgraphicaleffects 5.0.1
+qhp.QtGraphicalEffects.filterAttributes    = qtgraphicaleffects $QT_VERSION qtrefdoc
+qhp.QtGraphicalEffects.customFilters.Qt.name = QtGraphicalEffects $QT_VERSION
+qhp.QtGraphicalEffects.customFilters.Qt.filterAttributes = qtgraphicaleffects $QT_VERSION
 
 qhp.QtGraphicalEffects.subprojects         = qmltypes
 qhp.QtGraphicalEffects.subprojects.qmltypes.title = QML Types
