@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2012 Digia Plc and/or its subsidiary(-ies).
+** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
 ** Contact: http://www.qt-project.org/legal
 **
 ** This file is part of the Qt Graphical Effects module.
@@ -43,7 +43,7 @@ import QtQuick 2.0
 Item {
     id: rootItem
     property variant input
-    property variant output: input
+    property variant output
     property variant sourceRect
     visible: false
 
