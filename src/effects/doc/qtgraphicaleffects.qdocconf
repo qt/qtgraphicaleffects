@@ -37,4 +37,7 @@ exampledirs += ../../../examples/graphicaleffects \
 
 imagedirs   += images
 
-depends += qtqml qtquick qtbase
+depends += qtqml qtquick qtbase qtdoc qtcore
+
+navigation.landingpage = "Qt Graphical Effects"
+navigation.qmltypespage = "Graphical Effects"
