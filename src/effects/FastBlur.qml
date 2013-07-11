@@ -172,6 +172,7 @@ Item {
         smooth: rootItem.radius > 0
     }
 
+    /*! \internal */
     property string __internalBlurVertexShader: "
         attribute highp vec4 qt_Vertex;
         attribute highp vec2 qt_MultiTexCoord0;
@@ -192,6 +193,7 @@ Item {
         }
     "
 
+    /*! \internal */
     property string __internalBlurFragmentShader: "
         uniform lowp sampler2D source;
         uniform lowp float qt_Opacity;
