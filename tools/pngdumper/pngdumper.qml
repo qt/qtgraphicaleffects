@@ -39,7 +39,7 @@
 ****************************************************************************/
 
 import QtQuick 2.0
-import com.nokia.mt.pngdumper 1.0
+import org.qtproject.pngdumper 1.0
 
 Rectangle {
     id: main
