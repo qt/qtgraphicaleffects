@@ -4,7 +4,7 @@ QT += core quick
 CONFIG += plugin
 
 TARGET = $$qtLibraryTarget($$TARGET)
-uri = com.nokia.mt.pngdumper
+uri = org.qtproject.pngdumper
 
 # Input
 SOURCES += \
