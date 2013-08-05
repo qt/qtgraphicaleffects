@@ -42,6 +42,7 @@
 #include "pngdumper.h"
 
 #include <QtQml/qqml.h>
+#include <QtQuick/QQuickWindow>
 
 ItemCapturer::ItemCapturer(QQuickItem *parent):
     QQuickItem(parent)
@@ -54,10 +55,11 @@ ItemCapturer::~ItemCapturer()
 
 void ItemCapturer::grabItem(QQuickItem *item, QString filename)
 {
-    QImage img = canvas()->grabFrameBuffer();
+    QQuickWindow *w = window();
+    QImage img = w->grabWindow();
     while (img.width() * img.height() == 0)
-        img = canvas()->grabFrameBuffer();
-    QQuickItem *rootItem = canvas()->rootItem();
+        img = w->grabWindow();
+    QQuickItem *rootItem = w->contentItem();
     QRectF rectf = rootItem->mapRectFromItem(item, QRectF(0, 0, item->width(), item->height()));
     QDir pwd = QDir().dirName();
     pwd.mkdir("output");
