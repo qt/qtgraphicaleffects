@@ -75,6 +75,9 @@ Item {
     /*!
         This property defines the source item for which the luminance is going to be
         adjusted.
+
+        \note It is not supported to let the effect include itself, for
+        instance by setting source to the effect's parent.
     */
     property variant source
 

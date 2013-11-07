@@ -74,6 +74,9 @@ Item {
         This property defines the source item for the pixels that are going to
         be displaced according to the data from
         \l{Displace::displacementSource}{displacementSource}.
+
+        \note It is not supported to let the effect include itself, for
+        instance by setting source to the effect's parent.
     */
     property variant source
 

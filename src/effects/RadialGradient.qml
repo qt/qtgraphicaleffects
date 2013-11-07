@@ -240,6 +240,9 @@ Item {
             \li \l angle: 0
             \li \l angle: 0
         \endtable
+
+        \note It is not supported to let the effect include itself, for
+        instance by setting source to the effect's parent.
     */
     property variant source
 

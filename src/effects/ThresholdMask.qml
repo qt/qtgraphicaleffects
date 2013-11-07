@@ -74,6 +74,9 @@ Item {
 
     /*!
         This property defines the source item that is going to be masked.
+
+        \note It is not supported to let the effect include itself, for
+        instance by setting source to the effect's parent.
     */
     property variant source
 
@@ -93,6 +96,9 @@ Item {
             \li \image ThresholdMask_mask.png
             \li \image ThresholdMask_bug.png
         \endtable
+
+        \note It is not supported to let the effect include itself, for
+        instance by setting maskSource to the effect's parent.
     */
     property variant maskSource
 
