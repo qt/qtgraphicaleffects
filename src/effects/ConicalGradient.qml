@@ -181,6 +181,9 @@ Item {
             \li \l verticalOffset: 0
         \endtable
 
+
+        \note It is not supported to let the effect include itself, for
+        instance by setting source to the effect's parent.
     */
     property variant source
 

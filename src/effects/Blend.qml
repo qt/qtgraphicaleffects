@@ -75,12 +75,18 @@ Item {
     /*!
         This property defines the source item that is going to be the base when
         \l{Blend::foregroundSource}{foregroundSource} is blended over it.
+
+        \note It is not supported to let the effect include itself, for
+        instance by setting source to the effect's parent.
     */
     property variant source
 
     /*!
         This property defines the item that is going to be blended over the
         \l{Blend::source}{source}.
+
+        \note It is not supported to let the effect include itself, for
+        instance by setting foregroundSource to the effect's parent.
     */
     property variant foregroundSource
 

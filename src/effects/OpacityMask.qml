@@ -71,6 +71,9 @@ Item {
 
     /*!
         This property defines the source item that is going to be masked.
+
+        \note It is not supported to let the effect include itself, for
+        instance by setting source to the effect's parent.
     */
     property variant source
 
@@ -105,6 +108,9 @@ Item {
         properties are animated.
 
         By default, the property is set to \c false.
+
+        \note It is not supported to let the effect include itself, for
+        instance by setting maskSource to the effect's parent.
     */
     property bool cached: false
 
