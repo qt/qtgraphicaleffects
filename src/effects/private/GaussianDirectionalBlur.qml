@@ -102,7 +102,7 @@ Item {
         property variant factor_21_23: Qt.vector3d(gwts[21], gwts[22], gwts[23]);
         property variant factor_24_26: Qt.vector3d(gwts[24], gwts[25], gwts[26]);
         property variant factor_27_29: Qt.vector3d(gwts[27], gwts[28], gwts[29]);
-        property variant factor_30_32: Qt.vector3d(gwts[30], gwts[31], gwts[32]);
+        property variant factor_30_31: Qt.point(gwts[30], gwts[31]);
 
         property color color: rootItem.color
         property real spread: 1.0 - (rootItem.spread * 0.98)
@@ -176,9 +176,8 @@ Item {
             "gl_FragColor += texture2D(source, texCoord) * factor_27_29.y; texCoord += shift;",
             "gl_FragColor += texture2D(source, texCoord) * factor_27_29.z; texCoord += shift;",
 
-            "gl_FragColor += texture2D(source, texCoord) * factor_30_32.x; texCoord += shift;",
-            "gl_FragColor += texture2D(source, texCoord) * factor_30_32.y; texCoord += shift;",
-            "gl_FragColor += texture2D(source, texCoord) * factor_30_32.z; texCoord += shift;"
+            "gl_FragColor += texture2D(source, texCoord) * factor_30_31.x; texCoord += shift;",
+            "gl_FragColor += texture2D(source, texCoord) * factor_30_31.y; texCoord += shift;"
         ]
 
             var shader = fragmentShaderBegin
@@ -253,7 +252,7 @@ Item {
             uniform highp vec3 factor_21_23;
             uniform highp vec3 factor_24_26;
             uniform highp vec3 factor_27_29;
-            uniform highp vec3 factor_30_32;
+            uniform highp vec3 factor_30_31;
             uniform highp float gaussianSum;
             uniform highp float expandX;
             uniform highp float expandY;
