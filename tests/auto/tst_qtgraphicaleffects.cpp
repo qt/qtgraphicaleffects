@@ -102,7 +102,7 @@ void tst_qtgraphicaleffects::initTestCase()
     QString import;
 
     // Allow the test to work whether or not the module is yet installed.
-    if (QFile::exists(QLibraryInfo::location(QLibraryInfo::ImportsPath) + "/QtGraphicalEffects")) {
+    if (QFile::exists(QLibraryInfo::location(QLibraryInfo::Qml2ImportsPath) + "/QtGraphicalEffects")) {
         // Module is installed - import it the nice way
         import = "QtGraphicalEffects";
     }
