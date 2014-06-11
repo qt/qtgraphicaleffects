@@ -20,7 +20,7 @@ qhp.QtGraphicalEffects.customFilters.Qt.filterAttributes = qtgraphicaleffects $Q
 qhp.QtGraphicalEffects.subprojects         = qmltypes
 qhp.QtGraphicalEffects.subprojects.qmltypes.title = QML Types
 qhp.QtGraphicalEffects.subprojects.qmltypes.indexTitle = Graphical Effects
-qhp.QtGraphicalEffects.subprojects.qmltypes.selectors = fake:qmlclass
+qhp.QtGraphicalEffects.subprojects.qmltypes.selectors = qmlclass
 qhp.QtGraphicalEffects.subprojects.qmltypes.sortPages = true
 
 outputdir               = $$QT_INSTALL_DOCS/qtgraphicaleffects
