@@ -57,8 +57,8 @@ import "private"
     softened.
 
     For use cases that require faster rendering speed and for which the highest
-    possible visual quality is not necessary, property
-    \l{DropShadow::fast}{fast} can be set to true.
+    possible visual quality is not necessary, the
+    \l{DropShadow::fast}{fast} property can be set to \c true.
 
     \table
     \header
