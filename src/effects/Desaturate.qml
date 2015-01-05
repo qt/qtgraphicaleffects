@@ -83,7 +83,7 @@ Item {
         This property defines how much the source colors are desaturated.
 
         The value ranges from 0.0 (no change) to 1.0 (desaturated). By default,
-        the property is set to \c 0.0 (no chnage).
+        the property is set to \c 0.0 (no change).
 
         \table
         \header
