@@ -1,3 +1,4 @@
+classname QtGraphicalEffectsPlugin
 Blend 1.0 Blend.qml
 BrightnessContrast 1.0 BrightnessContrast.qml
 Colorize 1.0 Colorize.qml
@@ -24,3 +25,4 @@ RectangularGlow 1.0 RectangularGlow.qml
 ThresholdMask 1.0 ThresholdMask.qml
 ZoomBlur 1.0 ZoomBlur.qml
 designersupported
+

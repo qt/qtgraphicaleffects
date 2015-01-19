@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2015 The Qt Company Ltd.
+** Copyright (C) 2015 Jolla Ltd, author: <gunnar.sletta@jollamobile.com>
 ** Contact: http://www.qt.io/licensing/
 **
 ** This file is part of the Qt Graphical Effects module.
@@ -38,68 +38,73 @@
 **
 ****************************************************************************/
 
-import QtQuick 2.0
 import QtGraphicalEffects.private 1.0
+import QtQuick 2.4
 
-Item {
-    id: rootItem
-    property variant source
-    property variant maskSource
-    property real radius: 0.0
-    property int maximumRadius: 0
-    property bool cached: false
-    property bool transparentBorder: false
+Rectangle {
 
-    SourceProxy {
-        id: sourceProxy
-        input: rootItem.source
-        sourceRect: rootItem.transparentBorder ? Qt.rect(-1, -1, parent.width + 2.0, parent.height + 2.0) : Qt.rect(0, 0, 0, 0)
+    Rectangle {
+        width: parent.width
+        height: 1
+        color: "lightsteelblue"
     }
 
-    SourceProxy {
-        id: maskSourceProxy
-        input: rootItem.maskSource
-        sourceRect: rootItem.transparentBorder ? Qt.rect(-1, -1, parent.width + 2.0, parent.height + 2.0) : Qt.rect(0, 0, 0, 0)
+    id: root
+
+    height: 40
+    width: parent.width
+
+    property alias proxyInterpolation: proxy.interpolation
+    property bool proxyPadding: false
+
+    property string sourcing; // "layered", "shadersource", "none";
+
+    property bool smoothness: true
+    property bool padding: false
+
+    property alias label: text.text
+
+
+    property bool expectProxy: false
+
+    color: proxy.active ? "darkred" : "darkblue"
+
+    Text {
+        id: text
+        color: "white"
+        font.pixelSize: 14
+        font.bold: true
+
+        anchors.centerIn: parent
+
+        layer.enabled: root.sourcing == "layered"
+        layer.smooth: root.smoothness
+        layer.sourceRect: padding ? Qt.rect(-1, -1, text.width, text.height) : Qt.rect(0, 0, 0, 0);
     }
 
     ShaderEffectSource {
-        id: cacheItem
-        anchors.fill: blur
-        visible: rootItem.cached
-        smooth: true
-        sourceItem: blur
-        live: true
-        hideSource: visible
+        id: shaderSource
+        sourceItem: text
+        smooth: root.smoothness
+        sourceRect: padding ? Qt.rect(-1, -1, text.width, text.height) : Qt.rect(0, 0, 0, 0);
     }
 
-    GaussianDirectionalBlur {
-        id: blur
-        x: transparentBorder ? -maximumRadius - 1: 0
-        y: transparentBorder ? -maximumRadius - 1: 0
-        width: horizontalBlur.width
-        height: horizontalBlur.height
-        horizontalStep: 0.0
-        verticalStep: 1.0 / parent.height
-        source: horizontalBlur
-        enableMask: true
-        maskSource: maskSourceProxy.output
-        radius: rootItem.radius
-        maximumRadius: rootItem.maximumRadius
-        transparentBorder: rootItem.transparentBorder
-    }
-
-    GaussianDirectionalBlur {
-        id: horizontalBlur
-        width: transparentBorder ? parent.width + 2 * maximumRadius + 2 : parent.width
-        height: transparentBorder ? parent.height + 2 * maximumRadius + 2  : parent.height
-        horizontalStep: 1.0 / parent.width
-        verticalStep: 0.0
-        source: sourceProxy.output
-        enableMask: true
-        maskSource: maskSourceProxy.output
-        radius: rootItem.radius
-        maximumRadius: rootItem.maximumRadius
-        transparentBorder: rootItem.transparentBorder
+    SourceProxy {
+        id: proxy
+        input: sourcing == "shadersource" ? shaderSource : text;
         visible: false
+        sourceRect: proxyPadding ? Qt.rect(-1, -1, text.width, text.height) : Qt.rect(0, 0, 0, 0);
     }
+
+    Text {
+        color: "red"
+        anchors.right: parent.right
+        anchors.verticalCenter: parent.verticalCenter;
+        rotation: 45
+        text: "FAIL"
+        font.pixelSize: 12
+        font.bold: true
+        visible: root.expectProxy != proxy.active
+    }
+
 }
