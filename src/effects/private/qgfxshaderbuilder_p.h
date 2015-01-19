@@ -31,34 +31,29 @@
 **
 ****************************************************************************/
 
-#include <QtQml/qqmlextensionplugin.h>
-#include <QtQml/qqml.h>
-#include <QtQml/qqmlengine.h>
+#ifndef QGFXSHADERBUILDER_P_H
+#define QGFXSHADERBUILDER_P_H
 
-#include "qgfxsourceproxy_p.h"
-#include "qgfxshaderbuilder_p.h"
+#include <QtCore/QObject>
+#include <QtCore/QVariantMap>
+
+#include <QtQml/QJSValue>
 
 QT_BEGIN_NAMESPACE
 
-static QObject *qgfxshaderbuilder_provider(QQmlEngine *, QJSEngine *)
-{
-    return new QGfxShaderBuilder();
-}
-
-class QtGraphicalEffectsPlugin : public QQmlExtensionPlugin
+class QGfxShaderBuilder : public QObject
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QQmlExtensionInterface")
 
 public:
-    virtual void registerTypes(const char *uri)
-    {
-        Q_ASSERT(QByteArray(uri) == QByteArrayLiteral("QtGraphicalEffects.private"));
-        qmlRegisterType<QGfxSourceProxy>(uri, 1, 0, "SourceProxy");
-        qmlRegisterSingletonType<QGfxShaderBuilder>(uri, 1, 0, "ShaderBuilder", qgfxshaderbuilder_provider);
-    }
+    QGfxShaderBuilder();
+
+    Q_INVOKABLE QVariantMap gaussianBlur(const QJSValue &parameters);
+
+private:
+    int m_maxBlurSamples;
 };
 
 QT_END_NAMESPACE
 
-#include "plugin.moc"
+#endif // QGFXSHADERBUILDER_P_H

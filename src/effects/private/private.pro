@@ -7,10 +7,12 @@ QT += quick qml
 QT += quick-private gui-private core-private qml-private
 
 SOURCES += plugin.cpp \
+           qgfxshaderbuilder.cpp \
            qgfxsourceproxy.cpp
 
 HEADERS += \
-           qgfxsourceproxy_p.h
+           qgfxsourceproxy_p.h \
+           qgfxshaderbuilder_p.h
 
 QML_FILES = \
     FastGlow.qml \

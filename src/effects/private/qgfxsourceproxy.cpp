@@ -102,13 +102,12 @@ void QGfxSourceProxy::useProxy()
 
 void QGfxSourceProxy::updatePolish()
 {
-    QQuickItemPrivate *d = QQuickItemPrivate::get(m_input);
-
     if (m_input == 0) {
         setOutput(0);
         return;
     }
 
+    QQuickItemPrivate *d = QQuickItemPrivate::get(m_input);
     QQuickImage *image = qobject_cast<QQuickImage *>(m_input);
     QQuickShaderEffectSource *shaderSource = qobject_cast<QQuickShaderEffectSource *>(m_input);
     bool layered = d->extra.isAllocated() && d->extra->transparentForPositioner;
@@ -117,14 +116,8 @@ void QGfxSourceProxy::updatePolish()
         if (layered) {
             shaderSource->setSourceRect(m_sourceRect);
             shaderSource->setSmooth(m_interpolation != NearestInterpolation);
-            setOutput(m_input);
-        } else if ((shaderSource->sourceRect() != m_sourceRect)
-            || (m_interpolation == LinearInterpolation && !shaderSource->smooth())
-            || (m_interpolation == NearestInterpolation && shaderSource->smooth())) {
-            useProxy();
-        } else {
-            setOutput(m_input);
         }
+        setOutput(m_input);
 
     } else if (image && image->fillMode() == QQuickImage::Stretch && m_input->childItems().size() == 0) {
         // item is an image with default tiling, use directly

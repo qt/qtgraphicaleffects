@@ -1,6 +1,7 @@
 /****************************************************************************
 **
 ** Copyright (C) 2015 The Qt Company Ltd.
+** Copyright (C) 2015 Jolla Ltd, author: <gunnar.sletta@jollamobile.com>
 ** Contact: http://www.qt.io/licensing/
 **
 ** This file is part of the Qt Graphical Effects module.
@@ -39,6 +40,7 @@
 ****************************************************************************/
 
 import QtQuick 2.0
+import QtQuick.Window 2.1
 import QtGraphicalEffects.private 1.0
 
 /*!
@@ -68,9 +70,13 @@ import QtGraphicalEffects.private 1.0
     The following example shows how to apply the effect.
     \snippet GaussianBlur-example.qml example
 
+    Performing blur live is a costly operation. Fullscreen gaussian blur
+    with even a moderate number of samples will only run at 60 fps on highend
+    graphics hardware.
+
 */
 Item {
-    id: rootItem
+    id: root
 
     /*!
         This property defines the source item that is going to be blurred.
@@ -91,6 +97,8 @@ Item {
 
         The value ranges from 0.0 (no blur) to inf. By default, the property is
         set to \c 0.0 (no blur).
+
+        By default, this property is set to \c 4.
 
         \table
         \header
@@ -116,7 +124,7 @@ Item {
         \endtable
 
     */
-    property real radius: 0.0
+    property real radius: Math.floor(samples / 2);
 
     /*!
         This property defines how many samples are taken per pixel when blur
@@ -124,16 +132,16 @@ Item {
         to render.
 
         Ideally, this value should be twice as large as the highest required
-        radius value, for example, if the radius is animated between 0.0 and
-        4.0, samples should be set to 8.
+        radius value plus 1, for example, if the radius is animated between 0.0
+        and 4.0, samples should be set to 9.
 
-        The value ranges from 0 to 32. By default, the property is set to \c 0.
+        By default, the property is set to \c 9.
 
-        This property is not intended to be animated. Changing this property may
+        \warn This property is not intended to be animated. Changing this property may
         cause the underlying OpenGL shaders to be recompiled.
 
     */
-    property int samples: 0
+    property int samples: 9
 
     /*!
         This property is a parameter to the gaussian function that is used when
@@ -220,6 +228,10 @@ Item {
             \li \l deviation: 2.7
         \endtable
 
+        \warn This property is not intended to be animated. Changing this property may
+        cause the underlying OpenGL shaders to be recompiled.
+
+
     */
     property bool transparentBorder: false
 
@@ -238,58 +250,95 @@ Item {
     */
     property bool cached: false
 
+
+    // private members...
+    property int _paddedTexWidth: transparentBorder ? width + 2 * _kernelRadius: width;
+    property int _paddedTexHeight: transparentBorder ? height  + 2 * _kernelRadius: height;
+    property int _kernelRadius: Math.max(0, samples / 2);
+    property int _kernelSize: _kernelRadius * 2 + 1;
+    property int _dpr: Screen.devicePixelRatio;
+    property bool _alphaOnly: false;
+
+    property alias _output: sourceProxy.output;
+    property alias _outputRect: sourceProxy.sourceRect;
+    property alias _color: verticalBlur.color;
+    property real _thickness: 0;
+
+    onSamplesChanged: rebuildShaders();
+    on_KernelSizeChanged: rebuildShaders();
+    onDeviationChanged: rebuildShaders();
+    on_DprChanged: rebuildShaders();
+    Component.onCompleted: rebuildShaders();
+
+    function rebuildShaders() {
+        if (samples < 1)
+            return;
+
+        var params = {
+            radius: _kernelRadius,
+            deviation: deviation,
+            alphaOnly: root._alphaOnly,
+            masked: false
+        }
+        var shaders = ShaderBuilder.gaussianBlur(params);
+        horizontalBlur.fragmentShader = shaders.fragmentShader;
+        horizontalBlur.vertexShader = shaders.vertexShader;
+    }
+
     SourceProxy {
         id: sourceProxy
-        input: rootItem.source
-        sourceRect: rootItem.transparentBorder ? Qt.rect(-1, -1, parent.width + 2.0, parent.height + 2.0) : Qt.rect(0, 0, 0, 0)
+        interpolation: SourceProxy.LinearInterpolation
+        input: root.source
+        sourceRect: root.transparentBorder
+                    ? Qt.rect(-root._kernelRadius, 0, root._paddedTexWidth, parent.height)
+                    : Qt.rect(0, 0, 0, 0)
+    }
+
+    ShaderEffect {
+        id: horizontalBlur
+        width: root.transparentBorder ? root._paddedTexWidth : root.width
+        height: root.height;
+        property Item source: sourceProxy.output;
+        property real deviation: root.deviation
+        property real radius: root._kernelRadius
+        property real spread: root.radius / root._kernelRadius;
+        property var step: Qt.vector2d(1 / (root._paddedTexWidth * root._dpr), 0);
+        property color color: "white"
+        property real thickness: Math.max(0, Math.min(0.98, 1 - root._thickness * 0.98));
+        layer.enabled: true
+        layer.smooth: true
+        layer.sourceRect: root.transparentBorder
+                          ? Qt.rect(0, -root._kernelRadius, width, root._paddedTexHeight)
+                          : Qt.rect(0, 0, 0, 0)
+        visible: false
+        blending: false
+    }
+
+    ShaderEffect {
+        id: verticalBlur
+        x: transparentBorder ? -root._kernelRadius : 0
+        y: x;
+        width: root.transparentBorder ? root._paddedTexWidth: root.width
+        height: root.transparentBorder ? root._paddedTexHeight : root.height;
+        fragmentShader: horizontalBlur.fragmentShader
+        vertexShader: horizontalBlur.vertexShader
+        property Item source: horizontalBlur
+        property real deviation: horizontalBlur.deviation
+        property real radius: horizontalBlur.radius
+        property real spread: horizontalBlur.spread
+        property var step: Qt.vector2d(0, 1 / (root._paddedTexHeight * root._dpr));
+        property color color: "black"
+        property real thickness: horizontalBlur.thickness;
+        visible: true;
     }
 
     ShaderEffectSource {
         id: cacheItem
         anchors.fill: verticalBlur
-        visible: rootItem.cached
+        visible: root.cached
         smooth: true
         sourceItem: verticalBlur
-        live: true
         hideSource: visible
     }
 
-    GaussianDirectionalBlur {
-        id: verticalBlur
-        x: transparentBorder ? -maximumRadius - 1 : 0
-        y: transparentBorder ? -maximumRadius - 1 : 0
-        width: horizontalBlur.width
-        height: horizontalBlur.height
-
-        horizontalStep: 0.0
-        verticalStep: 1.0 / parent.height
-
-        source: ShaderEffectSource {
-            id: horizontalBlurSource
-            sourceItem: horizontalBlur
-            hideSource: true
-            visible: false
-            smooth: true
-        }
-
-        deviation: rootItem.deviation
-        radius: rootItem.radius
-        maximumRadius: rootItem.samples * 0.5
-        transparentBorder: rootItem.transparentBorder
-    }
-
-    GaussianDirectionalBlur {
-        id: horizontalBlur
-        width: transparentBorder ? parent.width + 2 * maximumRadius + 2 : parent.width
-        height: transparentBorder ? parent.height + 2 * maximumRadius + 2  : parent.height
-
-        horizontalStep: 1.0 / parent.width
-        verticalStep: 0.0
-
-        source: sourceProxy.output
-        deviation: rootItem.deviation
-        radius: rootItem.radius
-        maximumRadius: rootItem.samples / 2.0
-        transparentBorder: rootItem.transparentBorder
-    }
 }
