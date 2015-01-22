@@ -96,7 +96,7 @@ void QGfxSourceProxy::useProxy()
         m_proxy = new QQuickShaderEffectSource(this);
     m_proxy->setSourceRect(m_sourceRect);
     m_proxy->setSourceItem(m_input);
-    m_proxy->setSmooth(true);
+    m_proxy->setSmooth(m_interpolation != NearestInterpolation);
     setOutput(m_proxy);
 }
 
@@ -111,23 +111,20 @@ void QGfxSourceProxy::updatePolish()
 
     QQuickImage *image = qobject_cast<QQuickImage *>(m_input);
     QQuickShaderEffectSource *shaderSource = qobject_cast<QQuickShaderEffectSource *>(m_input);
-    bool layered = d->extra.isAllocated() && d->extra->layer && d->extra->layer->enabled();
+    bool layered = d->extra.isAllocated() && d->extra->transparentForPositioner;
 
     if (shaderSource) {
-        if ((shaderSource->sourceRect() != m_sourceRect)
+        if (layered) {
+            shaderSource->setSourceRect(m_sourceRect);
+            shaderSource->setSmooth(m_interpolation != NearestInterpolation);
+            setOutput(m_input);
+        } else if ((shaderSource->sourceRect() != m_sourceRect)
             || (m_interpolation == LinearInterpolation && !shaderSource->smooth())
-            || (m_interpolation == NearestInterpolation && shaderSource->smooth()))
+            || (m_interpolation == NearestInterpolation && shaderSource->smooth())) {
             useProxy();
-        else
+        } else {
             setOutput(m_input);
-
-    } else if (layered) {
-        if ((d->extra->layer->sourceRect() != m_sourceRect)
-            || (m_interpolation == LinearInterpolation && !d->extra->layer->smooth())
-            || (m_interpolation == NearestInterpolation && d->extra->layer->smooth()))
-            useProxy();
-        else
-            setOutput(m_input);
+        }
 
     } else if (image && image->fillMode() == QQuickImage::Stretch && m_input->childItems().size() == 0) {
         // item is an image with default tiling, use directly

@@ -97,6 +97,20 @@ Rectangle {
     }
 
     Text {
+        id: autoConfLabel;
+        // This will be shown when the source is a layer which has different
+        // attributes set than what the source proxy expects. The source proxy
+        // will then configure the layer.
+        color: "#00ff00"
+        anchors.right: parent.right
+        anchors.verticalCenter: parent.verticalCenter;
+        text: "(configured)"
+        font.pixelSize: 12
+        font.bold: true
+        visible: root.expectProxy != proxy.active && !proxy.active && root.sourcing == "layered";
+    }
+
+    Text {
         color: "red"
         anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter;
@@ -104,7 +118,7 @@ Rectangle {
         text: "FAIL"
         font.pixelSize: 12
         font.bold: true
-        visible: root.expectProxy != proxy.active
+        visible: root.expectProxy != proxy.active && !autoConfLabel.visible
     }
 
 }
