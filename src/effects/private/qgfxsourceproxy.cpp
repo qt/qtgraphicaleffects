@@ -133,7 +133,7 @@ void QGfxSourceProxy::updatePolish()
         // item is an image with default tiling, use directly
         setOutput(m_input);
 
-    } else if (m_input->isTextureProvider() && m_input->childItems().size() == 0) {
+    } else if (!image && m_input->isTextureProvider() && m_input->childItems().size() == 0) {
         // item is a texture provider without children, use directly...
         setOutput(m_input);
 
