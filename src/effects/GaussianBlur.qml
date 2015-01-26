@@ -137,7 +137,7 @@ Item {
 
         By default, the property is set to \c 9.
 
-        \warn This property is not intended to be animated. Changing this property may
+        \note This property is not intended to be animated. Changing this property may
         cause the underlying OpenGL shaders to be recompiled.
 
     */
@@ -227,11 +227,6 @@ Item {
             \li \l deviation: 2.7
             \li \l deviation: 2.7
         \endtable
-
-        \warn This property is not intended to be animated. Changing this property may
-        cause the underlying OpenGL shaders to be recompiled.
-
-
     */
     property bool transparentBorder: false
 
@@ -252,25 +247,36 @@ Item {
 
 
     // private members...
+    /*! \internal */
     property int _paddedTexWidth: transparentBorder ? width + 2 * _kernelRadius: width;
+    /*! \internal */
     property int _paddedTexHeight: transparentBorder ? height  + 2 * _kernelRadius: height;
+    /*! \internal */
     property int _kernelRadius: Math.max(0, samples / 2);
+    /*! \internal */
     property int _kernelSize: _kernelRadius * 2 + 1;
+    /*! \internal */
     property int _dpr: Screen.devicePixelRatio;
+    /*! \internal */
     property bool _alphaOnly: false;
 
+    /*! \internal */
     property alias _output: sourceProxy.output;
+    /*! \internal */
     property alias _outputRect: sourceProxy.sourceRect;
+    /*! \internal */
     property alias _color: verticalBlur.color;
+    /*! \internal */
     property real _thickness: 0;
 
-    onSamplesChanged: rebuildShaders();
-    on_KernelSizeChanged: rebuildShaders();
-    onDeviationChanged: rebuildShaders();
-    on_DprChanged: rebuildShaders();
-    Component.onCompleted: rebuildShaders();
+    onSamplesChanged: _rebuildShaders();
+    on_KernelSizeChanged: _rebuildShaders();
+    onDeviationChanged: _rebuildShaders();
+    on_DprChanged: _rebuildShaders();
+    Component.onCompleted: _rebuildShaders();
 
-    function rebuildShaders() {
+    /*! \internal */
+    function _rebuildShaders() {
         if (samples < 1)
             return;
 
