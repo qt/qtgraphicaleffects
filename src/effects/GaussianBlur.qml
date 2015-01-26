@@ -53,7 +53,7 @@ import QtGraphicalEffects.private 1.0
 
     GaussianBlur effect softens the image by blurring it with an algorithm that
     uses the Gaussian function to calculate the effect. The effect produces
-    higher quality than \l{QtGraphicalEffects1::FastBlur}{FastBlur}, but is
+    higher quality than \l{QtGraphicalEffects::FastBlur}{FastBlur}, but is
     slower to render.
 
     \table

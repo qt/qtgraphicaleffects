@@ -54,15 +54,13 @@ Rectangle {
             id: normalRect
             width: 60
             height: 60
-            color: "#444"
-
+            color: "black"
+            radius: 10
             layer.enabled: true
-
             layer.effect: Glow {
-                radius: 4
-                samples: radius * 2
-                source: normalRect
-                color: "steelblue"
+                samples: 15
+                color: "blue"
+                transparentBorder: false
             }
         }
 
@@ -70,15 +68,12 @@ Rectangle {
             id: transparentBorderRect
             width: 60
             height: 60
-            color: "#444"
-
+            color: "black"
+            radius: 10
             layer.enabled: true
-
             layer.effect: Glow {
-                radius: 4
-                samples: radius * 2
-                source: transparentBorderRect
-                color: "steelblue"
+                samples: 15
+                color: "blue"
                 transparentBorder: true
             }
         }
