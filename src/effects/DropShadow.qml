@@ -53,9 +53,9 @@ import QtGraphicalEffects.private 1.0
 
     The DropShadow effect blurs the alpha channel of the input, colorizes the
     result and places it behind the source object to create a soft shadow. The
-    shadow's color can be changed using the \l color property. The location of
-    the shadow can be changed with the \l horizontalOffset and \l
-    verticalOffset properties.
+    shadow's color can be changed using the \l {DropShadow::color}{color}
+    property. The location of the shadow can be changed with the \l
+    horizontalOffset and \l verticalOffset properties.
 
     \table
     \header
