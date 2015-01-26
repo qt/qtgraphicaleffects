@@ -1,7 +1,7 @@
 /****************************************************************************
 **
-** Copyright (C) 2015 The Qt Company Ltd.
-** Contact: http://www.qt.io/licensing/
+** Copyright (C) 2015 Jolla Ltd, author: <gunnar.sletta@jollamobile.com>
+** Contact: http://www.qt-project.org/legal
 **
 ** This file is part of the Qt Graphical Effects module.
 **
@@ -38,34 +38,62 @@
 **
 ****************************************************************************/
 
-//! [example]
 import QtQuick 2.0
+import QtGraphicalEffects.private 1.0
 import QtGraphicalEffects 1.0
 
 Item {
-    width: 300
-    height: 300
+    id: root
 
-    Rectangle {
-        anchors.fill: parent
+    property variant source
+    property int radius: samples / 2
+    property int samples: 9
+    property color color: "black"
+    property int horizontalOffset: 10
+    property int verticalOffset: 10
+    property real spread: 0.0
+    property bool cached: false
+    property bool transparentBorder: true
+
+    GaussianBlur {
+        id: blur
+        width: parent.width
+        height: parent.height
+        x: horizontalOffset
+        y: verticalOffset
+        source: root.source
+        radius: root.radius
+        samples: root.samples
+        _thickness: root.spread
+        transparentBorder: root.transparentBorder
+
+
+        _color: root.color;
+        _alphaOnly: true
+        // ignoreDevicePixelRatio: root.ignoreDevicePixelRatio
+
+        ShaderEffect {
+            x: blur._outputRect.x - parent.x
+            y: blur._outputRect.y - parent.y
+            width: transparentBorder ? blur._outputRect.width : blur.width
+            height: transparentBorder ? blur._outputRect.height : blur.height
+            property variant source: blur._output;
+        }
+
     }
 
-    Image {
-        id: butterfly
-        source: "images/butterfly.png"
-        sourceSize: Qt.size(parent.width, parent.height)
+    ShaderEffectSource {
+        id: cacheItem
+        x: -blur._kernelRadius + horizontalOffset
+        y: -blur._kernelRadius + verticalOffset
+        width: blur.width + 2 * blur._kernelRadius
+        height: blur.height + 2 * blur._kernelRadius
+        visible: root.cached
         smooth: true
-        visible: false
+        sourceRect: Qt.rect(-blur._kernelRadius, -blur._kernelRadius, width, height);
+        sourceItem: blur
+        hideSource: visible
     }
 
-    DropShadow {
-        anchors.fill: butterfly
-        horizontalOffset: 3
-        verticalOffset: 3
-        radius: 8.0
-        samples: 17
-        color: "#80000000"
-        source: butterfly
-    }
+
 }
-//! [example]

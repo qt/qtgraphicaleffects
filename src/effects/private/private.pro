@@ -15,6 +15,7 @@ HEADERS += \
            qgfxshaderbuilder_p.h
 
 QML_FILES = \
+    DropShadowBase.qml \
     FastGlow.qml \
     FastInnerShadow.qml \
     FastMaskedBlur.qml \

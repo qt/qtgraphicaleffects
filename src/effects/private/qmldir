@@ -7,3 +7,4 @@ GaussianDirectionalBlur 1.0 GaussianDirectionalBlur.qml
 GaussianGlow 1.0 GaussianGlow.qml
 GaussianInnerShadow 1.0 GaussianInnerShadow.qml
 GaussianMaskedBlur 1.0 GaussianMaskedBlur.qml
+DropShadowBase 1.0 DropShadowBase.qml

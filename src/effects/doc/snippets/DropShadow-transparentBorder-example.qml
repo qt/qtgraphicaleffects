@@ -54,15 +54,11 @@ Rectangle {
             id: normalRect
             width: 60
             height: 60
-            color: "#444"
-
+            radius: 10
+            color: "steelblue"
             layer.enabled: true
-
             layer.effect: DropShadow {
-                radius: 4
-                samples: radius * 2
-                source: normalRect
-                color: Qt.rgba(0, 0, 0, 0.5)
+                transparentBorder: false
             }
         }
 
@@ -70,15 +66,10 @@ Rectangle {
             id: transparentBorderRect
             width: 60
             height: 60
-            color: "#444"
-
+            radius: 10
+            color: "steelblue"
             layer.enabled: true
-
             layer.effect: DropShadow {
-                radius: 4
-                samples: radius * 2
-                source: transparentBorderRect
-                color: Qt.rgba(0, 0, 0, 0.5)
                 transparentBorder: true
             }
         }
