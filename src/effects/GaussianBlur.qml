@@ -91,14 +91,19 @@ Item {
         affect the blurring of an individual pixel. A larger radius increases
         the blur effect.
 
-        Depending on the radius value, value of the
-        \l{GaussianBlur::samples}{samples} should be set to sufficiently large
-        to ensure the visual quality.
+        The ideal blur is acheived by selecting \c samples and \c radius such
+        that \c {samples = 1 + radius * 2}, such as:
+
+        \table
+        \header \li Radius             \li Samples
+        \row    \li 0 \e{(no blur)}    \li 1
+        \row    \li 1                  \li 3
+        \row    \li 2                  \li 5
+        \row    \li 3                  \li 7
+        \endtable
 
         The value ranges from 0.0 (no blur) to inf. By default, the property is
-        set to \c 0.0 (no blur).
-
-        By default, this property is set to \c 4.
+        set to \c floor(samples / 2.0).
 
         \table
         \header
@@ -259,6 +264,8 @@ Item {
     property int _dpr: Screen.devicePixelRatio;
     /*! \internal */
     property bool _alphaOnly: false;
+    /*! \internal */
+    property var _maskSource: undefined
 
     /*! \internal */
     property alias _output: sourceProxy.output;
@@ -273,6 +280,7 @@ Item {
     on_KernelSizeChanged: _rebuildShaders();
     onDeviationChanged: _rebuildShaders();
     on_DprChanged: _rebuildShaders();
+    on_MaskSourceChanged: _rebuildShaders();
     Component.onCompleted: _rebuildShaders();
 
     /*! \internal */
@@ -284,7 +292,7 @@ Item {
             radius: _kernelRadius,
             deviation: deviation,
             alphaOnly: root._alphaOnly,
-            masked: false
+            masked: _maskSource != undefined
         }
         var shaders = ShaderBuilder.gaussianBlur(params);
         horizontalBlur.fragmentShader = shaders.fragmentShader;
@@ -304,13 +312,23 @@ Item {
         id: horizontalBlur
         width: root.transparentBorder ? root._paddedTexWidth : root.width
         height: root.height;
+
+        // Used by all shaders
         property Item source: sourceProxy.output;
-        property real deviation: root.deviation
-        property real radius: root._kernelRadius
         property real spread: root.radius / root._kernelRadius;
         property var step: Qt.vector2d(1 / (root._paddedTexWidth * root._dpr), 0);
+
+        // Used by fallback shader (sampleCount exceeds number of varyings)
+        property real deviation: root.deviation
+        property real radius: root._kernelRadius
+
+        // Only in use for DropShadow and Glow
         property color color: "white"
         property real thickness: Math.max(0, Math.min(0.98, 1 - root._thickness * 0.98));
+
+        // Only in use for MaskedBlur
+        property var mask: root._maskSource;
+
         layer.enabled: true
         layer.smooth: true
         layer.sourceRect: root.transparentBorder
@@ -328,14 +346,20 @@ Item {
         height: root.transparentBorder ? root._paddedTexHeight : root.height;
         fragmentShader: horizontalBlur.fragmentShader
         vertexShader: horizontalBlur.vertexShader
+
         property Item source: horizontalBlur
-        property real deviation: horizontalBlur.deviation
-        property real radius: horizontalBlur.radius
         property real spread: horizontalBlur.spread
         property var step: Qt.vector2d(0, 1 / (root._paddedTexHeight * root._dpr));
+
+        property real deviation: horizontalBlur.deviation
+        property real radius: horizontalBlur.radius
+
         property color color: "black"
         property real thickness: horizontalBlur.thickness;
-        visible: true;
+
+        property var mask: horizontalBlur.mask;
+
+        visible: true
     }
 
     ShaderEffectSource {
