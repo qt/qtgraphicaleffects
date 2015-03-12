@@ -406,13 +406,12 @@ void tst_qtgraphicaleffects::gaussianBlur()
     QVERIFY(obj != 0);
 
     // Default values
-    QCOMPARE(obj->property("radius").toDouble(), 0.0);
-    QCOMPARE(obj->property("samples").toInt(), 0);
+    QCOMPARE(obj->property("radius").toDouble(), 4.0);
+    QCOMPARE(obj->property("samples").toInt(), 9);
     QCOMPARE(obj->property("transparentBorder").toBool(), false);
 
     double res = obj->property("deviation").toDouble();
-    QVERIFY(res < 0.3000 + 0.0001);
-    QVERIFY(res > 0.3000 - 0.0001);
+    QVERIFY(res > 0.0);
 
     QCOMPARE(obj->property("cached").toBool(), false);
 
