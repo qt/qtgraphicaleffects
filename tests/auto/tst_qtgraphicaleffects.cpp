@@ -435,16 +435,15 @@ void tst_qtgraphicaleffects::dropShadow()
     QVERIFY(obj != 0);
 
     // Default values
-    QCOMPARE(obj->property("radius").toDouble(), 0.0);
-    QCOMPARE(obj->property("samples").toInt(), 0);
-    QCOMPARE(obj->property("horizontalOffset").toDouble(), 0.0);
-    QCOMPARE(obj->property("verticalOffset").toDouble(), 0.0);
+    QCOMPARE(obj->property("radius").toDouble(), 4.0);
+    QCOMPARE(obj->property("samples").toInt(), 9);
+    QCOMPARE(obj->property("horizontalOffset").toDouble(), 10.0);
+    QCOMPARE(obj->property("verticalOffset").toDouble(), 10.0);
     QCOMPARE(obj->property("cached").toBool(), false);
     QCOMPARE(obj->property("source").toInt(), 0);
     QCOMPARE(obj->property("color").toString(), QString("#000000"));
     QCOMPARE(obj->property("spread").toDouble(), 0.0);
-    QCOMPARE(obj->property("transparentBorder").toBool(), false);
-    QCOMPARE(obj->property("fast").toBool(), false);
+    QCOMPARE(obj->property("transparentBorder").toBool(), true);
 
     delete obj;
 }
@@ -549,13 +548,12 @@ void tst_qtgraphicaleffects::glow()
     QVERIFY(obj != 0);
 
     // Default values
-    QCOMPARE(obj->property("radius").toDouble(), 0.0);
-    QCOMPARE(obj->property("samples").toInt(), 0);
+    QCOMPARE(obj->property("radius").toDouble(), 4.0);
+    QCOMPARE(obj->property("samples").toInt(), 9);
     QCOMPARE(obj->property("cached").toBool(), false);
-    QCOMPARE(obj->property("spread").toDouble(), 0.0);
+    QCOMPARE(obj->property("spread").toDouble(), 0.5);
     QCOMPARE(obj->property("color").toString(), QString("#ffffff"));
-    QCOMPARE(obj->property("transparentBorder").toBool(), false);
-    QCOMPARE(obj->property("fast").toBool(), false);
+    QCOMPARE(obj->property("transparentBorder").toBool(), true);
 
     delete obj;
 }
@@ -767,11 +765,9 @@ void tst_qtgraphicaleffects::maskedBlur()
     // Default values
     QCOMPARE(obj->property("source").toInt(), 0);
     QCOMPARE(obj->property("maskSource").toInt(), 0);
-    QCOMPARE(obj->property("radius").toDouble(), 0.0);
-    QCOMPARE(obj->property("samples").toInt(), 0);
+    QCOMPARE(obj->property("radius").toDouble(), 4.0);
+    QCOMPARE(obj->property("samples").toInt(), 9);
     QCOMPARE(obj->property("cached").toBool(), false);
-    QCOMPARE(obj->property("transparentBorder").toBool(), false);
-    QCOMPARE(obj->property("fast").toBool(), false);
 
     delete obj;
 }
