@@ -44,7 +44,7 @@ class QGfxSourceProxy : public QQuickItem
 {
     Q_OBJECT
 
-    Q_PROPERTY(QQuickItem *input READ input WRITE setInput NOTIFY inputChanged)
+    Q_PROPERTY(QQuickItem *input READ input WRITE setInput NOTIFY inputChanged RESET resetInput)
     Q_PROPERTY(QQuickItem *output READ output NOTIFY outputChanged)
     Q_PROPERTY(QRectF sourceRect READ sourceRect WRITE setSourceRect NOTIFY sourceRectChanged)
 
@@ -65,6 +65,7 @@ public:
 
     QQuickItem *input() const { return m_input; }
     void setInput(QQuickItem *input);
+    void resetInput() { setInput(0); }
 
     QQuickItem *output() const { return m_output; }
 
