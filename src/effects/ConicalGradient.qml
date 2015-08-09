@@ -206,41 +206,60 @@ Item {
     \row
         \li \b {gradient:} \code
 Gradient {
-  GradientStop { position: 0.000
-  color: Qt.rgba(1, 0, 0, 1) }
-  GradientStop { position: 0.167;
-  color: Qt.rgba(1, 1, 0, 1) }
-  GradientStop { position: 0.333;
-  color: Qt.rgba(0, 1, 0, 1) }
-  GradientStop { position: 0.500;
-  color: Qt.rgba(0, 1, 1, 1) }
-  GradientStop { position: 0.667;
-  color: Qt.rgba(0, 0, 1, 1) }
-  GradientStop { position: 0.833;
-  color: Qt.rgba(1, 0, 1, 1) }
-  GradientStop { position: 1.000;
-  color: Qt.rgba(1, 0, 0, 1) }
+  GradientStop {
+     position: 0.000
+     color: Qt.rgba(1, 0, 0, 1)
+  }
+  GradientStop {
+     position: 0.167
+     color: Qt.rgba(1, 1, 0, 1)
+  }
+  GradientStop {
+     position: 0.333
+     color: Qt.rgba(0, 1, 0, 1)
+  }
+  GradientStop {
+     position: 0.500
+     color: Qt.rgba(0, 1, 1, 1)
+  }
+  GradientStop {
+     position: 0.667
+     color: Qt.rgba(0, 0, 1, 1)
+  }
+  GradientStop {
+     position: 0.833
+     color: Qt.rgba(1, 0, 1, 1)
+  }
+  GradientStop {
+     position: 1.000
+     color: Qt.rgba(1, 0, 0, 1)
+  }
 }
     \endcode
         \li \b {gradient:} \code
 Gradient {
-  GradientStop { position: 0.0
-  color: "#F0F0F0"
+  GradientStop {
+     position: 0.0
+     color: "#F0F0F0"
   }
-  GradientStop { position: 0.5
-  color: "#000000"
+  GradientStop {
+     position: 0.5
+     color: "#000000"
   }
-  GradientStop { position: 1.0
-  color: "#F0F0F0"
+  GradientStop {
+     position: 1.0
+     color: "#F0F0F0"
   }
 }
     \endcode
         \li \b {gradient:} \code
 Gradient {
-  GradientStop { position: 0.0
-    color: "#00000000"
+  GradientStop {
+     position: 0.0
+     color: "#00000000"
   }
-  GradientStop { position: 1.0
+  GradientStop {
+    position: 1.0
     color: "#FF000000"
   }
 }
