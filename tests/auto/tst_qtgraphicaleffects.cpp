@@ -437,8 +437,8 @@ void tst_qtgraphicaleffects::dropShadow()
     // Default values
     QCOMPARE(obj->property("radius").toDouble(), 4.0);
     QCOMPARE(obj->property("samples").toInt(), 9);
-    QCOMPARE(obj->property("horizontalOffset").toDouble(), 10.0);
-    QCOMPARE(obj->property("verticalOffset").toDouble(), 10.0);
+    QCOMPARE(obj->property("horizontalOffset").toDouble(), 0.0);
+    QCOMPARE(obj->property("verticalOffset").toDouble(), 0.0);
     QCOMPARE(obj->property("cached").toBool(), false);
     QCOMPARE(obj->property("source").toInt(), 0);
     QCOMPARE(obj->property("color").toString(), QString("#000000"));

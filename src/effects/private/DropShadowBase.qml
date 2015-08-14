@@ -49,8 +49,8 @@ Item {
     property int radius: samples / 2
     property int samples: 9
     property color color: "black"
-    property int horizontalOffset: 10
-    property int verticalOffset: 10
+    property int horizontalOffset: 0
+    property int verticalOffset: 0
     property real spread: 0.0
     property bool cached: false
     property bool transparentBorder: true
