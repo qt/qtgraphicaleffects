@@ -316,7 +316,7 @@ Item {
         // Used by all shaders
         property Item source: sourceProxy.output;
         property real spread: root.radius / root._kernelRadius;
-        property var step: Qt.vector2d(1 / (root._paddedTexWidth * root._dpr), 0);
+        property var dirstep: Qt.vector2d(1 / (root._paddedTexWidth * root._dpr), 0);
 
         // Used by fallback shader (sampleCount exceeds number of varyings)
         property real deviation: root.deviation
@@ -349,7 +349,7 @@ Item {
 
         property Item source: horizontalBlur
         property real spread: horizontalBlur.spread
-        property var step: Qt.vector2d(0, 1 / (root._paddedTexHeight * root._dpr));
+        property var dirstep: Qt.vector2d(0, 1 / (root._paddedTexHeight * root._dpr));
 
         property real deviation: horizontalBlur.deviation
         property real radius: horizontalBlur.radius
