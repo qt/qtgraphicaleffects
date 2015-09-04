@@ -61,6 +61,9 @@ QGfxShaderBuilder::QGfxShaderBuilder()
     // GL context's format on to the offscreen format.
     surface.setFormat(context.format());
     surface.create();
+
+    QOpenGLContext *oldContext = QOpenGLContext::currentContext();
+    QSurface *oldSurface = oldContext ? oldContext->surface() : 0;
     if (context.makeCurrent(&surface)) {
         QOpenGLFunctions *gl = context.functions();
         if (context.isOpenGLES()) {
@@ -74,7 +77,10 @@ QGfxShaderBuilder::QGfxShaderBuilder()
             gl->glGetIntegerv(GL_MAX_VARYING_FLOATS, &floats);
             m_maxBlurSamples = floats / 2.0;
         }
-        context.doneCurrent();
+        if (oldContext && oldSurface)
+            oldContext->makeCurrent(oldSurface);
+        else
+            context.doneCurrent();
     } else {
         qDebug() << "failed to acquire GL context to resolve capabilities, using defaults..";
         m_maxBlurSamples = 8; // minimum number of varyings in the ES 2.0 spec.
