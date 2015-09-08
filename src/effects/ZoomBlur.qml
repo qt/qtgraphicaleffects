@@ -52,8 +52,8 @@ import QtGraphicalEffects.private 1.0
     Effect creates perceived impression that the source item appears to be
     moving towards the center point in Z-direction or that the camera appears
     to be zooming rapidly. Other available motion blur effects are
-    \l{QtGraphicalEffects1::DirectionalBlur}{DirectionalBlur}
-    and \l{QtGraphicalEffects1::RadialBlur}{RadialBlur}.
+    \l{QtGraphicalEffects::DirectionalBlur}{DirectionalBlur}
+    and \l{QtGraphicalEffects::RadialBlur}{RadialBlur}.
 
     \table
     \header
@@ -138,8 +138,8 @@ Item {
     property int samples: 0
 
     /*!
-        \qmlproperty real QtGraphicalEffects1::ZoomBlur::horizontalOffset
-        \qmlproperty real QtGraphicalEffects1::ZoomBlur::verticalOffset
+        \qmlproperty real QtGraphicalEffects::ZoomBlur::horizontalOffset
+        \qmlproperty real QtGraphicalEffects::ZoomBlur::verticalOffset
 
         These properties define an offset in pixels for the blur direction
         center point.

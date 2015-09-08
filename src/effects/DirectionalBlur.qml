@@ -54,8 +54,8 @@ import QtGraphicalEffects.private 1.0
     each pixel, therefore setting the direction to 0 and 180 provides the
     same result.
 
-    Other available motionblur effects are \l{QtGraphicalEffects1::ZoomBlur}{ZoomBlur} and
-    \l{QtGraphicalEffects1::RadialBlur}{RadialBlur}.
+    Other available motionblur effects are \l{QtGraphicalEffects::ZoomBlur}{ZoomBlur} and
+    \l{QtGraphicalEffects::RadialBlur}{RadialBlur}.
 
     \table
     \header
