@@ -118,8 +118,8 @@ Item {
     property real angle: 0.0
 
     /*!
-    \qmlproperty real QtGraphicalEffects1::ConicalGradient::horizontalOffset
-    \qmlproperty real QtGraphicalEffects1::ConicalGradient::verticalOffset
+    \qmlproperty real QtGraphicalEffects::ConicalGradient::horizontalOffset
+    \qmlproperty real QtGraphicalEffects::ConicalGradient::verticalOffset
 
     The horizontalOffset and verticalOffset properties define the offset in
     pixels for the center point of the gradient compared to the item center.

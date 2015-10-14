@@ -50,7 +50,7 @@ import QtGraphicalEffects.private 1.0
     \brief Applies a fast blur effect to one or more source items.
 
     FastBlur offers lower blur quality than
-    \l{QtGraphicalEffects1::GaussianBlur}{GaussianBlur}, but it is faster to
+    \l{QtGraphicalEffects::GaussianBlur}{GaussianBlur}, but it is faster to
     render. The FastBlur effect softens the source content by blurring it with
     algorithm which uses the source content downscaling and bilinear filtering.
     Use this effect in situations where the source content is rapidly changing

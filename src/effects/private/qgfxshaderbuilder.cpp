@@ -61,6 +61,9 @@ QGfxShaderBuilder::QGfxShaderBuilder()
     // GL context's format on to the offscreen format.
     surface.setFormat(context.format());
     surface.create();
+
+    QOpenGLContext *oldContext = QOpenGLContext::currentContext();
+    QSurface *oldSurface = oldContext ? oldContext->surface() : 0;
     if (context.makeCurrent(&surface)) {
         QOpenGLFunctions *gl = context.functions();
         if (context.isOpenGLES()) {
@@ -74,7 +77,10 @@ QGfxShaderBuilder::QGfxShaderBuilder()
             gl->glGetIntegerv(GL_MAX_VARYING_FLOATS, &floats);
             m_maxBlurSamples = floats / 2.0;
         }
-        context.doneCurrent();
+        if (oldContext && oldSurface)
+            oldContext->makeCurrent(oldSurface);
+        else
+            context.doneCurrent();
     } else {
         qDebug() << "failed to acquire GL context to resolve capabilities, using defaults..";
         m_maxBlurSamples = 8; // minimum number of varyings in the ES 2.0 spec.
@@ -219,7 +225,7 @@ QByteArray qgfx_gaussianVertexShader(QGfxGaussSample *p, int samples)
               "attribute highp vec2 qt_MultiTexCoord0;\n\n"
               "uniform highp mat4 qt_Matrix;\n"
               "uniform highp float spread;\n"
-              "uniform highp vec2 step;\n\n";
+              "uniform highp vec2 dirstep;\n\n";
 
     qgfx_declareBlurVaryings(shader, p, samples);
 
@@ -231,7 +237,7 @@ QByteArray qgfx_gaussianVertexShader(QGfxGaussSample *p, int samples)
         shader += p[i].name;
         shader += " = qt_MultiTexCoord0";
         if (p[i].pos != 0.0) {
-            shader += " + spread * step * float(";
+            shader += " + spread * dirstep * float(";
             shader += QByteArray::number(p[i].pos);
             shader += ')';
         }
@@ -313,7 +319,7 @@ QVariantMap QGfxShaderBuilder::gaussianBlur(const QJSValue &parameters)
             "uniform highp sampler2D source;\n"
             "uniform lowp float qt_Opacity;\n"
             "uniform mediump float spread;\n"
-            "uniform highp vec2 step;\n";
+            "uniform highp vec2 dirstep;\n";
         if (alphaOnly) {
             fragShader += "uniform lowp vec4 color;\n"
                           "uniform lowp float thickness;\n";
@@ -327,7 +333,7 @@ QVariantMap QGfxShaderBuilder::gaussianBlur(const QJSValue &parameters)
             fragShader += "    mediump float result = 0.0;\n";
         else
             fragShader += "    mediump vec4 result = vec4(0);\n";
-        fragShader += "    highp vec2 pixelStep = step * spread;\n";
+        fragShader += "    highp vec2 pixelStep = dirstep * spread;\n";
         if (masked)
             fragShader += "    pixelStep *= texture2D(mask, qt_TexCoord0).a;\n";
 

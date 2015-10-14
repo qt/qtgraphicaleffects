@@ -49,7 +49,7 @@ import QtGraphicalEffects.private 1.0
     \ingroup qtgraphicaleffects-color
     \brief Alters the source item colors in the HSL color space.
 
-    HueSaturation is similar to the \l{QtGraphicalEffects1::Colorize}{Colorize}
+    HueSaturation is similar to the \l{QtGraphicalEffects::Colorize}{Colorize}
     effect, but the hue and saturation property values are handled differently.
     The HueSaturation effect always shifts the hue, saturation, and lightness
     from the original, instead of setting them.

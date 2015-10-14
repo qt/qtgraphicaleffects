@@ -53,10 +53,10 @@ import QtGraphicalEffects.private 1.0
     of a grayscale image. Colorize uses the hue, saturation, and lightness (HSL)
     color space. You can specify a desired value for each property. You can
     shift all HSL values with the
-    \l{QtGraphicalEffects1::HueSaturation}{HueSaturation} effect.
+    \l{QtGraphicalEffects::HueSaturation}{HueSaturation} effect.
 
     Alternatively, you can use the
-    \l{QtGraphicalEffects1::ColorOverlay}{ColorOverlay} effect to colorize the
+    \l{QtGraphicalEffects::ColorOverlay}{ColorOverlay} effect to colorize the
     source item in the RGBA color space.
 
     \table

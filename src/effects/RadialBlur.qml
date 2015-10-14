@@ -54,8 +54,8 @@ import QtGraphicalEffects.private 1.0
     rotating to the direction of the blur.
 
     Other available motionblur effects are
-    \l{QtGraphicalEffects1::ZoomBlur}{ZoomBlur} and
-    \l{QtGraphicalEffects1::DirectionalBlur}{DirectionalBlur}.
+    \l{QtGraphicalEffects::ZoomBlur}{ZoomBlur} and
+    \l{QtGraphicalEffects::DirectionalBlur}{DirectionalBlur}.
 
     \table
     \header
@@ -136,8 +136,8 @@ Item {
     property int samples: 0
 
     /*!
-        \qmlproperty real QtGraphicalEffects1::RadialBlur::horizontalOffset
-        \qmlproperty real QtGraphicalEffects1::RadialBlur::verticalOffset
+        \qmlproperty real QtGraphicalEffects::RadialBlur::horizontalOffset
+        \qmlproperty real QtGraphicalEffects::RadialBlur::verticalOffset
 
         These properties define the offset in pixels for the perceived center
         point of the rotation.

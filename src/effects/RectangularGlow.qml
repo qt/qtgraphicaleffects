@@ -52,7 +52,7 @@ import QtGraphicalEffects.private 1.0
 
     This effect is intended to have good performance. The shape of the glow is
     limited to a rectangle with a custom corner radius. For situations where
-    custom shapes are required, consider \l {QtGraphicalEffects1::Glow} {Glow}
+    custom shapes are required, consider \l {QtGraphicalEffects::Glow} {Glow}
     effect.
 
     \table

@@ -52,8 +52,8 @@ import QtGraphicalEffects.private 1.0
     The RecursiveBlur effect softens the image by blurring it with an algorithm
     that uses a recursive feedback loop to blur the source multiple times. The
     effect may give more blurry results than
-    \l{QtGraphicalEffects1::GaussianBlur}{GaussianBlur} or
-    \l{QtGraphicalEffects1::FastBlur}{FastBlur}, but the result is produced
+    \l{QtGraphicalEffects::GaussianBlur}{GaussianBlur} or
+    \l{QtGraphicalEffects::FastBlur}{FastBlur}, but the result is produced
     asynchronously and takes more time.
 
     \table
