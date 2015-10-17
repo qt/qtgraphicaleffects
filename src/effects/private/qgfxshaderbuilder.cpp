@@ -49,6 +49,10 @@
 #define GL_MAX_VARYING_FLOATS 0x8B4B
 #endif
 
+#ifndef GL_MAX_VARYING_VECTORS
+#define GL_MAX_VARYING_VECTORS 0x8DFC
+#endif
+
 QGfxShaderBuilder::QGfxShaderBuilder()
 {
     // The following code makes the assumption that an OpenGL context the GUI
