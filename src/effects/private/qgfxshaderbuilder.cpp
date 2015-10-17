@@ -46,7 +46,7 @@
 #endif
 
 #ifndef GL_MAX_VARYING_FLOATS
-#define GL_MAX_VARYING_FLOATS 0x8DFC
+#define GL_MAX_VARYING_FLOATS 0x8B4B
 #endif
 
 QGfxShaderBuilder::QGfxShaderBuilder()
