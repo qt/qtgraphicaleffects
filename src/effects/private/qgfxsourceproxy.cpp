@@ -110,23 +110,50 @@ void QGfxSourceProxy::updatePolish()
     QQuickItemPrivate *d = QQuickItemPrivate::get(m_input);
     QQuickImage *image = qobject_cast<QQuickImage *>(m_input);
     QQuickShaderEffectSource *shaderSource = qobject_cast<QQuickShaderEffectSource *>(m_input);
-    bool layered = d->extra.isAllocated() && d->extra->transparentForPositioner;
+    bool childless = m_input->childItems().size() == 0;
+    bool interpOk = m_interpolation == AnyInterpolation
+                    || (m_interpolation == LinearInterpolation && m_input->smooth() == true)
+                    || (m_interpolation == NearestInterpolation && m_input->smooth() == false);
 
-    if (shaderSource) {
-        if (layered) {
-            shaderSource->setSourceRect(m_sourceRect);
-            shaderSource->setSmooth(m_interpolation != NearestInterpolation);
+
+    // Layer logic is handled via QObject properties since the class is not
+    // private exported..
+    bool maybeLayered = d->extra.isAllocated() && d->extra->layer;
+    QObject *layer = 0;
+    if (maybeLayered) {
+        layer = qvariant_cast<QObject *>(m_input->property("layer"));
+        if (!layer || !layer->property("enabled").toBool())
+            layer = 0;
+    }
+
+    // A bit crude test, but we're only using source rect for
+    // blurring+transparent edge, so this is good enough.
+    bool padded = m_sourceRect.x() < 0 || m_sourceRect.y() < 0;
+
+    bool direct = false;
+
+    if (layer) {
+        // Item layer which we can configure to our needs
+        layer->setProperty("sourceRect", m_sourceRect);
+        layer->setProperty("smooth", m_interpolation != NearestInterpolation);
+        direct = true;
+
+    } else if (childless && interpOk) {
+
+        if (shaderSource) {
+            if (shaderSource->sourceRect() == m_sourceRect)
+                direct = true;
+
+        } else if (!padded && ((image && image->fillMode() == QQuickImage::Stretch)
+                                || (!image && m_input->isTextureProvider())
+                              )
+                  ) {
+            direct = true;
         }
-        setOutput(m_input);
+    }
 
-    } else if (image && image->fillMode() == QQuickImage::Stretch && m_input->childItems().size() == 0) {
-        // item is an image with default tiling, use directly
+    if (direct) {
         setOutput(m_input);
-
-    } else if (!image && m_input->isTextureProvider() && m_input->childItems().size() == 0) {
-        // item is a texture provider without children, use directly...
-        setOutput(m_input);
-
     } else {
         useProxy();
     }

@@ -223,19 +223,19 @@ Item {
                 label: "source: none\nproxy: any-interpolation"
                 sourcing: "none"
                 proxyInterpolation: SourceProxy.AnyInterpolation
-                expectProxy: true
+                expectProxy: false
             }
             SourceProxyTest {
                 label: "source: none\nproxy: nearest-interpolation"
                 sourcing: "none"
                 proxyInterpolation: SourceProxy.NearestInterpolation
-                expectProxy: true
+                expectProxy: false
             }
             SourceProxyTest {
                 label: "source: none\nproxy: linear-interpolation"
                 sourcing: "none"
                 proxyInterpolation: SourceProxy.LinearInterpolation
-                expectProxy: true
+                expectProxy: false
             }
 
 

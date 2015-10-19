@@ -91,7 +91,7 @@ Rectangle {
 
     SourceProxy {
         id: proxy
-        input: sourcing == "shadersource" ? shaderSource : text;
+        input: sourcing == "shadersource" ? shaderSource : (root.sourcing == "layered" ? text : null);
         visible: false
         sourceRect: proxyPadding ? Qt.rect(-1, -1, text.width, text.height) : Qt.rect(0, 0, 0, 0);
     }
