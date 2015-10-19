@@ -62,7 +62,7 @@ Item {
         x: Math.round(horizontalOffset)
         y: Math.round(verticalOffset)
         source: root.source
-        radius: root.radius
+        radius: Math.min(Math.floor(root.samples / 2), root.radius)
         samples: root.samples
         _thickness: root.spread
         transparentBorder: root.transparentBorder
