@@ -1,4 +1,3 @@
-classname QtGraphicalEffectsPlugin
 Blend 1.0 Blend.qml
 BrightnessContrast 1.0 BrightnessContrast.qml
 Colorize 1.0 Colorize.qml
