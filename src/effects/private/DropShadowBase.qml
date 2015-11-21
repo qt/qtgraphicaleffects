@@ -46,11 +46,11 @@ Item {
     id: root
 
     property variant source
-    property int radius: samples / 2
+    property real radius: Math.floor(samples / 2)
     property int samples: 9
     property color color: "black"
-    property int horizontalOffset: 0
-    property int verticalOffset: 0
+    property real horizontalOffset: 0
+    property real verticalOffset: 0
     property real spread: 0.0
     property bool cached: false
     property bool transparentBorder: true
@@ -59,8 +59,8 @@ Item {
         id: blur
         width: parent.width
         height: parent.height
-        x: horizontalOffset
-        y: verticalOffset
+        x: Math.round(horizontalOffset)
+        y: Math.round(verticalOffset)
         source: root.source
         radius: root.radius
         samples: root.samples

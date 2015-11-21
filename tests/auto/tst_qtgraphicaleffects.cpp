@@ -457,14 +457,11 @@ void tst_qtgraphicaleffects::dropShadow()
     QVERIFY(obj != 0);
 
     // Default values
-    QEXPECT_FAIL("", "QTBUG-48625", Continue);
     QCOMPARE(obj->property("radius").type(), QVariant::Double);
     QCOMPARE(obj->property("radius").toDouble(), 4.0);
     QCOMPARE(obj->property("samples").toInt(), 9);
-    QEXPECT_FAIL("", "QTBUG-48625", Continue);
     QCOMPARE(obj->property("horizontalOffset").type(), QVariant::Double);
     QCOMPARE(obj->property("horizontalOffset").toDouble(), 0.0);
-    QEXPECT_FAIL("", "QTBUG-48625", Continue);
     QCOMPARE(obj->property("verticalOffset").type(), QVariant::Double);
     QCOMPARE(obj->property("verticalOffset").toDouble(), 0.0);
     QCOMPARE(obj->property("cached").toBool(), false);
@@ -583,7 +580,6 @@ void tst_qtgraphicaleffects::glow()
     QVERIFY(obj != 0);
 
     // Default values
-    QEXPECT_FAIL("", "QTBUG-48625", Continue);
     QCOMPARE(obj->property("radius").type(), QVariant::Double);
     QCOMPARE(obj->property("radius").toDouble(), 4.0);
     QCOMPARE(obj->property("samples").toInt(), 9);

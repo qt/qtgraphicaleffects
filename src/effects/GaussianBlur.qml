@@ -253,9 +253,9 @@ Item {
 
     // private members...
     /*! \internal */
-    property int _paddedTexWidth: transparentBorder ? width + 2 * _kernelRadius: width;
+    property int _paddedTexWidth: transparentBorder ? width + 2 * radius: width;
     /*! \internal */
-    property int _paddedTexHeight: transparentBorder ? height  + 2 * _kernelRadius: height;
+    property int _paddedTexHeight: transparentBorder ? height  + 2 * radius: height;
     /*! \internal */
     property int _kernelRadius: Math.max(0, samples / 2);
     /*! \internal */
@@ -285,14 +285,13 @@ Item {
 
     /*! \internal */
     function _rebuildShaders() {
-        if (samples < 1)
-            return;
-
         var params = {
             radius: _kernelRadius,
-            deviation: deviation,
+            // Limit deviation to something very small avoid getting NaN in the shader.
+            deviation: Math.max(0.00001, deviation),
             alphaOnly: root._alphaOnly,
-            masked: _maskSource != undefined
+            masked: _maskSource != undefined,
+            fallback: root.radius != _kernelRadius
         }
         var shaders = ShaderBuilder.gaussianBlur(params);
         horizontalBlur.fragmentShader = shaders.fragmentShader;
@@ -304,7 +303,7 @@ Item {
         interpolation: SourceProxy.LinearInterpolation
         input: root.source
         sourceRect: root.transparentBorder
-                    ? Qt.rect(-root._kernelRadius, 0, root._paddedTexWidth, parent.height)
+                    ? Qt.rect(-root.radius, 0, root._paddedTexWidth, parent.height)
                     : Qt.rect(0, 0, 0, 0)
     }
 
@@ -320,7 +319,6 @@ Item {
 
         // Used by fallback shader (sampleCount exceeds number of varyings)
         property real deviation: root.deviation
-        property real radius: root._kernelRadius
 
         // Only in use for DropShadow and Glow
         property color color: "white"
@@ -332,7 +330,7 @@ Item {
         layer.enabled: true
         layer.smooth: true
         layer.sourceRect: root.transparentBorder
-                          ? Qt.rect(0, -root._kernelRadius, width, root._paddedTexHeight)
+                          ? Qt.rect(0, -root.radius, width, root._paddedTexHeight)
                           : Qt.rect(0, 0, 0, 0)
         visible: false
         blending: false
@@ -340,7 +338,7 @@ Item {
 
     ShaderEffect {
         id: verticalBlur
-        x: transparentBorder ? -root._kernelRadius : 0
+        x: transparentBorder ? -root.radius : 0
         y: x;
         width: root.transparentBorder ? root._paddedTexWidth: root.width
         height: root.transparentBorder ? root._paddedTexHeight : root.height;
@@ -352,7 +350,6 @@ Item {
         property var dirstep: Qt.vector2d(0, 1 / (root._paddedTexHeight * root._dpr));
 
         property real deviation: horizontalBlur.deviation
-        property real radius: horizontalBlur.radius
 
         property color color: "black"
         property real thickness: horizontalBlur.thickness;

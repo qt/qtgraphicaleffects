@@ -46,7 +46,11 @@
 #endif
 
 #ifndef GL_MAX_VARYING_FLOATS
-#define GL_MAX_VARYING_FLOATS 0x8DFC
+#define GL_MAX_VARYING_FLOATS 0x8B4B
+#endif
+
+#ifndef GL_MAX_VARYING_VECTORS
+#define GL_MAX_VARYING_VECTORS 0x8DFC
 #endif
 
 QGfxShaderBuilder::QGfxShaderBuilder()
@@ -308,10 +312,11 @@ QVariantMap QGfxShaderBuilder::gaussianBlur(const QJSValue &parameters)
     int requestedSamples = requestedRadius * 2 + 1;
     int samples = 1 + requestedSamples / 2;
     int radius = requestedSamples / 4;
+    bool fallback = parameters.property(QStringLiteral("fallback")).toBool();
 
     QVariantMap result;
 
-    if (samples > m_maxBlurSamples || masked) {
+    if (samples > m_maxBlurSamples || masked || fallback) {
         QByteArray fragShader;
         if (masked)
             fragShader += "uniform mediump sampler2D mask;\n";
@@ -350,9 +355,9 @@ QVariantMap QGfxShaderBuilder::gaussianBlur(const QJSValue &parameters)
                 fragShader += ".a";
             fragShader += ";\n";
         }
-        fragShader += "    const mediump float wSum = ";
+        fragShader += "    const mediump float wSum = float(";
         fragShader += QByteArray::number(wSum);
-        fragShader += ";\n"
+        fragShader += ");\n"
             "    gl_FragColor = ";
         if (alphaOnly)
             fragShader += "mix(vec4(0), color, clamp((result / wSum) / thickness, 0.0, 1.0)) * qt_Opacity;\n";
