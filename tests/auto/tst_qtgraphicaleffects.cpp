@@ -405,7 +405,7 @@ void tst_qtgraphicaleffects::colorOverlay()
 
     // Default values
     QCOMPARE(obj->property("cached").toBool(), false);
-    QCOMPARE(obj->property("color").toString(), QString("#000000"));
+    QCOMPARE(obj->property("color").toString(), QString("#00000000"));
 
     delete obj;
 }
@@ -782,9 +782,9 @@ void tst_qtgraphicaleffects::levelAdjust()
 
     // Default values
     QCOMPARE(obj->property("source").toInt(), 0);
-    QCOMPARE(obj->property("minimumInput").toString(), QString("#000000"));
+    QCOMPARE(obj->property("minimumInput").toString(), QString("#00000000"));
     QCOMPARE(obj->property("maximumInput").toString(), QString("#ffffff"));
-    QCOMPARE(obj->property("minimumOutput").toString(), QString("#000000"));
+    QCOMPARE(obj->property("minimumOutput").toString(), QString("#00000000"));
     QCOMPARE(obj->property("maximumOutput").toString(), QString("#ffffff"));
     QCOMPARE(obj->property("cached").toBool(), false);
 
