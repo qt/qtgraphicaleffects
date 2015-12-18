@@ -1,7 +1,7 @@
 /****************************************************************************
 **
-** Copyright (C) 2015 Jolla Ltd, author: <gunnar.sletta@jollamobile.com>
-** Contact: http://www.qt-project.org/legal
+** Copyright (C) 2015 The Qt Company Ltd.
+** Contact: http://www.qt.io/licensing/
 **
 ** This file is part of the Qt Graphical Effects module of the Qt Toolkit.
 **
@@ -35,35 +35,26 @@
 #include <QtQml/qqml.h>
 #include <QtQml/qqmlengine.h>
 
-#include "qgfxsourceproxy_p.h"
-#include "qgfxshaderbuilder_p.h"
-
 static void initResources()
 {
 #ifdef QT_STATIC
-    Q_INIT_RESOURCE(qmake_QtGraphicalEffects_private);
+    Q_INIT_RESOURCE(qmake_QtGraphicalEffects);
 #endif
 }
 
 QT_BEGIN_NAMESPACE
 
-static QObject *qgfxshaderbuilder_provider(QQmlEngine *, QJSEngine *)
-{
-    return new QGfxShaderBuilder();
-}
-
-class QtGraphicalEffectsPrivatePlugin : public QQmlExtensionPlugin
+class QtGraphicalEffectsPlugin : public QQmlExtensionPlugin
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QQmlExtensionInterface")
 
 public:
-    QtGraphicalEffectsPrivatePlugin(QObject *parent = 0) : QQmlExtensionPlugin(parent) { initResources(); }
+    QtGraphicalEffectsPlugin(QObject *parent = 0) : QQmlExtensionPlugin(parent) { initResources(); }
     virtual void registerTypes(const char *uri)
     {
-        Q_ASSERT(QByteArray(uri) == QByteArrayLiteral("QtGraphicalEffects.private"));
-        qmlRegisterType<QGfxSourceProxy>(uri, 1, 0, "SourceProxy");
-        qmlRegisterSingletonType<QGfxShaderBuilder>(uri, 1, 0, "ShaderBuilder", qgfxshaderbuilder_provider);
+        Q_ASSERT(QLatin1String(uri) == QLatin1String("QtGraphicalEffects"));
+        Q_UNUSED(uri);
     }
 };
 

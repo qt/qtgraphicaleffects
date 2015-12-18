@@ -1,6 +1,6 @@
 module QtGraphicalEffects.private
 plugin qtgraphicaleffectsprivate
-classname QtGraphicalEffectsPlugin
+classname QtGraphicalEffectsPrivatePlugin
 FastGlow 1.0 FastGlow.qml
 FastInnerShadow 1.0 FastInnerShadow.qml
 FastMaskedBlur 1.0 FastMaskedBlur.qml
