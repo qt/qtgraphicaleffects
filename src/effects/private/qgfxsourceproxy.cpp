@@ -100,6 +100,17 @@ void QGfxSourceProxy::useProxy()
     setOutput(m_proxy);
 }
 
+QObject *QGfxSourceProxy::findLayer(QQuickItem *item)
+{
+    QQuickItemPrivate *d = QQuickItemPrivate::get(item);
+    if (d->extra.isAllocated() && d->extra->layer) {
+        QObject *layer = qvariant_cast<QObject *>(item->property("layer"));
+        if (layer && layer->property("enabled").toBool())
+            return layer;
+    }
+    return 0;
+}
+
 void QGfxSourceProxy::updatePolish()
 {
     if (m_input == 0) {
@@ -107,7 +118,6 @@ void QGfxSourceProxy::updatePolish()
         return;
     }
 
-    QQuickItemPrivate *d = QQuickItemPrivate::get(m_input);
     QQuickImage *image = qobject_cast<QQuickImage *>(m_input);
     QQuickShaderEffectSource *shaderSource = qobject_cast<QQuickShaderEffectSource *>(m_input);
     bool childless = m_input->childItems().size() == 0;
@@ -115,15 +125,16 @@ void QGfxSourceProxy::updatePolish()
                     || (m_interpolation == LinearInterpolation && m_input->smooth() == true)
                     || (m_interpolation == NearestInterpolation && m_input->smooth() == false);
 
-
-    // Layer logic is handled via QObject properties since the class is not
-    // private exported..
-    bool maybeLayered = d->extra.isAllocated() && d->extra->layer;
-    QObject *layer = 0;
-    if (maybeLayered) {
-        layer = qvariant_cast<QObject *>(m_input->property("layer"));
-        if (!layer || !layer->property("enabled").toBool())
-            layer = 0;
+    // Layers can be used in two different ways. Option 1 is when the item is
+    // used as input to a separate ShaderEffect component. In this case,
+    // m_input will be the item itself.
+    QObject *layer = findLayer(m_input);
+    if (!layer && shaderSource) {
+        // Alternatively, the effect is applied via layer.effect, and the
+        // input to the effect will be the layer's internal ShaderEffectSource
+        // item. In this case, we need to backtrack and find the item that has
+        // the layer and configure it accordingly.
+        layer = findLayer(shaderSource->sourceItem());
     }
 
     // A bit crude test, but we're only using source rect for
@@ -133,7 +144,10 @@ void QGfxSourceProxy::updatePolish()
     bool direct = false;
 
     if (layer) {
-        // Item layer which we can configure to our needs
+        // Auto-configure the layer so interpolation and padding works as
+        // expected without allocating additional FBOs. In edgecases, where
+        // this feature is undesiered, the user can simply use
+        // ShaderEffectSource rather than layer.
         layer->setProperty("sourceRect", m_sourceRect);
         layer->setProperty("smooth", m_interpolation != NearestInterpolation);
         direct = true;

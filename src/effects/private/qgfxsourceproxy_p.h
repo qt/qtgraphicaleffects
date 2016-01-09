@@ -90,6 +90,7 @@ signals:
 private:
     void setOutput(QQuickItem *output);
     void useProxy();
+    static QObject *findLayer(QQuickItem *);
 
     QRectF m_sourceRect;
     QQuickItem *m_input;
