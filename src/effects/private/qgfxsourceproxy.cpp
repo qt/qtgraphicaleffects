@@ -106,6 +106,17 @@ void QGfxSourceProxy::useProxy()
     setOutput(m_proxy);
 }
 
+QObject *QGfxSourceProxy::findLayer(QQuickItem *item)
+{
+    QQuickItemPrivate *d = QQuickItemPrivate::get(item);
+    if (d->extra.isAllocated() && d->extra->layer) {
+        QObject *layer = qvariant_cast<QObject *>(item->property("layer"));
+        if (layer && layer->property("enabled").toBool())
+            return layer;
+    }
+    return 0;
+}
+
 void QGfxSourceProxy::updatePolish()
 {
     if (m_input == 0) {
@@ -113,26 +124,56 @@ void QGfxSourceProxy::updatePolish()
         return;
     }
 
-    QQuickItemPrivate *d = QQuickItemPrivate::get(m_input);
     QQuickImage *image = qobject_cast<QQuickImage *>(m_input);
     QQuickShaderEffectSource *shaderSource = qobject_cast<QQuickShaderEffectSource *>(m_input);
-    bool layered = d->extra.isAllocated() && d->extra->transparentForPositioner;
+    bool childless = m_input->childItems().size() == 0;
+    bool interpOk = m_interpolation == AnyInterpolation
+                    || (m_interpolation == LinearInterpolation && m_input->smooth() == true)
+                    || (m_interpolation == NearestInterpolation && m_input->smooth() == false);
 
-    if (shaderSource) {
-        if (layered) {
-            shaderSource->setSourceRect(m_sourceRect);
-            shaderSource->setSmooth(m_interpolation != NearestInterpolation);
+    // Layers can be used in two different ways. Option 1 is when the item is
+    // used as input to a separate ShaderEffect component. In this case,
+    // m_input will be the item itself.
+    QObject *layer = findLayer(m_input);
+    if (!layer && shaderSource) {
+        // Alternatively, the effect is applied via layer.effect, and the
+        // input to the effect will be the layer's internal ShaderEffectSource
+        // item. In this case, we need to backtrack and find the item that has
+        // the layer and configure it accordingly.
+        layer = findLayer(shaderSource->sourceItem());
+    }
+
+    // A bit crude test, but we're only using source rect for
+    // blurring+transparent edge, so this is good enough.
+    bool padded = m_sourceRect.x() < 0 || m_sourceRect.y() < 0;
+
+    bool direct = false;
+
+    if (layer) {
+        // Auto-configure the layer so interpolation and padding works as
+        // expected without allocating additional FBOs. In edgecases, where
+        // this feature is undesiered, the user can simply use
+        // ShaderEffectSource rather than layer.
+        layer->setProperty("sourceRect", m_sourceRect);
+        layer->setProperty("smooth", m_interpolation != NearestInterpolation);
+        direct = true;
+
+    } else if (childless && interpOk) {
+
+        if (shaderSource) {
+            if (shaderSource->sourceRect() == m_sourceRect)
+                direct = true;
+
+        } else if (!padded && ((image && image->fillMode() == QQuickImage::Stretch)
+                                || (!image && m_input->isTextureProvider())
+                              )
+                  ) {
+            direct = true;
         }
-        setOutput(m_input);
+    }
 
-    } else if (image && image->fillMode() == QQuickImage::Stretch && m_input->childItems().size() == 0) {
-        // item is an image with default tiling, use directly
+    if (direct) {
         setOutput(m_input);
-
-    } else if (!image && m_input->isTextureProvider() && m_input->childItems().size() == 0) {
-        // item is a texture provider without children, use directly...
-        setOutput(m_input);
-
     } else {
         useProxy();
     }
