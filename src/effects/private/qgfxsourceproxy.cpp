@@ -102,6 +102,8 @@ void QGfxSourceProxy::useProxy()
 
 QObject *QGfxSourceProxy::findLayer(QQuickItem *item)
 {
+    if (!item)
+        return 0;
     QQuickItemPrivate *d = QQuickItemPrivate::get(item);
     if (d->extra.isAllocated() && d->extra->layer) {
         QObject *layer = qvariant_cast<QObject *>(item->property("layer"));
