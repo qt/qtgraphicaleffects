@@ -155,7 +155,7 @@ void QGfxSourceProxy::updatePolish()
     } else if (childless && interpOk) {
 
         if (shaderSource) {
-            if (shaderSource->sourceRect() == m_sourceRect)
+            if (shaderSource->sourceRect() == m_sourceRect || m_sourceRect.isEmpty())
                 direct = true;
 
         } else if (!padded && ((image && image->fillMode() == QQuickImage::Stretch)
