@@ -108,6 +108,8 @@ void QGfxSourceProxy::useProxy()
 
 QObject *QGfxSourceProxy::findLayer(QQuickItem *item)
 {
+    if (!item)
+        return 0;
     QQuickItemPrivate *d = QQuickItemPrivate::get(item);
     if (d->extra.isAllocated() && d->extra->layer) {
         QObject *layer = qvariant_cast<QObject *>(item->property("layer"));
@@ -161,7 +163,7 @@ void QGfxSourceProxy::updatePolish()
     } else if (childless && interpOk) {
 
         if (shaderSource) {
-            if (shaderSource->sourceRect() == m_sourceRect)
+            if (shaderSource->sourceRect() == m_sourceRect || m_sourceRect.isEmpty())
                 direct = true;
 
         } else if (!padded && ((image && image->fillMode() == QQuickImage::Stretch)
