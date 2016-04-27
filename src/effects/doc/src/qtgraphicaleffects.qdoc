@@ -75,8 +75,10 @@ documentation contains property descriptions and basic usage examples.
 
 Currently there is no C++ API.
 
-\section1 Effects
+\section1 Reference
 
-The \l{Graphical Effects} page has a list of the effects available.
+\list
+\li \l {Graphical Effects}{QML Types}
+\endlist
 
 */
