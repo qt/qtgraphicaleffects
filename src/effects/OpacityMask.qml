@@ -114,6 +114,21 @@ Item {
     */
     property bool cached: false
 
+    /*!
+        This property controls how the alpha values of the sourceMask will behave.
+
+        If this property is \c false, the resulting opacity is the source alpha
+        multiplied with the mask alpha, \c{As * Am}.
+
+        If this property is \c true, the resulting opacity is the source alpha
+        multiplied with the inverse of the mask alpha, \c{As * (1 - Am)}.
+
+        The default is \c false.
+
+        \since 5.7
+    */
+    property bool invert: false
+
     SourceProxy {
         id: sourceProxy
         input: rootItem.source
@@ -147,7 +162,9 @@ Item {
             uniform lowp sampler2D source;
             uniform lowp sampler2D maskSource;
             void main(void) {
-                gl_FragColor = texture2D(source, qt_TexCoord0.st) * (texture2D(maskSource, qt_TexCoord0.st).a) * qt_Opacity;
+                gl_FragColor = texture2D(source, qt_TexCoord0.st) * ("
+                    + (invert ? "1.0 - " : "")
+                    + "texture2D(maskSource, qt_TexCoord0.st).a) * qt_Opacity;
             }
         "
     }
