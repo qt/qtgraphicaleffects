@@ -59,6 +59,8 @@ Rectangle {
             layer.enabled: true
             layer.effect: DropShadow {
                 transparentBorder: false
+                horizontalOffset: 8
+                verticalOffset: 8
             }
         }
 
@@ -71,6 +73,8 @@ Rectangle {
             layer.enabled: true
             layer.effect: DropShadow {
                 transparentBorder: true
+                horizontalOffset: 8
+                verticalOffset: 8
             }
         }
     }
