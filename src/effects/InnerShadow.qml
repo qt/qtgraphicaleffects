@@ -66,6 +66,8 @@ import QtGraphicalEffects.private 1.0
         \li \image InnerShadow_butterfly.png
     \endtable
 
+    \note This effect is available when running with OpenGL.
+
     \section1 Example
 
     The following example shows how to apply the effect.

@@ -74,6 +74,8 @@ import QtGraphicalEffects.private 1.0
     When the source is static, the \l cached property can be set to allocate
     another buffer to avoid performing the blur every time it is drawn.
 
+    \note This effect is available when running with OpenGL.
+
     \section1 Example
 
     The following example shows how to apply the effect.

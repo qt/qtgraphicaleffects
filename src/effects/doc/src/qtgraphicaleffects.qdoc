@@ -75,6 +75,14 @@ documentation contains property descriptions and basic usage examples.
 
 Currently there is no C++ API.
 
+\note Some effects may not be available with all graphics APIs. OpenGL, which is
+used by default in most cases, has full support for all of them.  However, the
+\c software backend for instance does not support effects at all. Therefore,
+when running with graphics APIs other than OpenGL, refer to the documentation of
+the QML types in question to check if the effect is available. For more
+information on the Qt Quick scene graph backends, see
+\l{qtquick-visualcanvas-adaptations.html}{Scene Graph Adaptations}.
+
 \section1 Reference
 
 \list

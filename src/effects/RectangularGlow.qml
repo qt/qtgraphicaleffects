@@ -62,6 +62,8 @@ import QtGraphicalEffects.private 1.0
         \li \image RectangularGlow_applied.png
     \endtable
 
+    \note This effect is available when running with OpenGL.
+
     \section1 Example
 
     The following example shows how to apply the effect.

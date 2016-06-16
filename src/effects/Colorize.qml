@@ -68,6 +68,8 @@ import QtGraphicalEffects.private 1.0
         \li \image Colorize_bug.png
     \endtable
 
+    \note This effect is available when running with OpenGL.
+    s
     \section1 Example
 
     The following example shows how to apply the effect.
