@@ -37,7 +37,7 @@
 **
 ****************************************************************************/
 
-import QtQuick 2.0
+import QtQuick 2.8
 import QtGraphicalEffects.private 1.0
 
 /*!
@@ -380,7 +380,14 @@ Item {
         property string blendModeSubtract: "result.rgb = max(rgb1 - rgb2, vec3(0.0));"
         property string blendModeSoftLight: "result.rgb = rgb1 * ((1.0 - rgb1) * rgb2 + (1.0 - (1.0 - rgb1) * (1.0 - rgb2)));"
 
-        property string fragmentShaderBegin: "
+        property string fragmentCoreShaderWorkaround: (GraphicsInfo.profile === GraphicsInfo.OpenGLCoreProfile ? "#version 150 core
+            #define varying in
+            #define texture2D texture
+            out vec4 fragColor;
+            #define gl_FragColor fragColor
+        " : "")
+
+        property string fragmentShaderBegin: fragmentCoreShaderWorkaround + "
             varying mediump vec2 qt_TexCoord0;
             uniform highp float qt_Opacity;
             uniform lowp sampler2D backgroundSource;

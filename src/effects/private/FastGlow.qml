@@ -64,42 +64,9 @@ Item {
         hideSource: visible
     }
 
-    property string __internalBlurVertexShader: "
-        attribute highp vec4 qt_Vertex;
-        attribute highp vec2 qt_MultiTexCoord0;
-        uniform highp mat4 qt_Matrix;
-        uniform highp float yStep;
-        uniform highp float xStep;
-        varying highp vec2 qt_TexCoord0;
-        varying highp vec2 qt_TexCoord1;
-        varying highp vec2 qt_TexCoord2;
-        varying highp vec2 qt_TexCoord3;
+    property string __internalBlurVertexShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders/fastblur_internal.vert"
 
-        void main() {
-            qt_TexCoord0 = vec2(qt_MultiTexCoord0.x + xStep, qt_MultiTexCoord0.y + yStep * 0.36);
-            qt_TexCoord1 = vec2(qt_MultiTexCoord0.x + xStep * 0.36, qt_MultiTexCoord0.y - yStep);
-            qt_TexCoord2 = vec2(qt_MultiTexCoord0.x - xStep * 0.36, qt_MultiTexCoord0.y + yStep);
-            qt_TexCoord3 = vec2(qt_MultiTexCoord0.x - xStep, qt_MultiTexCoord0.y - yStep * 0.36);
-            gl_Position = qt_Matrix * qt_Vertex;
-        }
-    "
-
-    property string __internalBlurFragmentShader: "
-        uniform lowp sampler2D source;
-        uniform lowp float qt_Opacity;
-        varying highp vec2 qt_TexCoord0;
-        varying highp vec2 qt_TexCoord1;
-        varying highp vec2 qt_TexCoord2;
-        varying highp vec2 qt_TexCoord3;
-
-        void main() {
-            highp vec4 sourceColor = (texture2D(source, qt_TexCoord0) +
-            texture2D(source, qt_TexCoord1) +
-            texture2D(source, qt_TexCoord2) +
-            texture2D(source, qt_TexCoord3)) * 0.25;
-            gl_FragColor = sourceColor * qt_Opacity;
-        }
-   "
+    property string __internalBlurFragmentShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders/fastblur_internal.frag"
 
     ShaderEffect {
         id: level0
@@ -359,35 +326,6 @@ Item {
 
         onLodChanged: calculateWeights()
 
-        fragmentShader: "
-            uniform lowp sampler2D source1;
-            uniform lowp sampler2D source2;
-            uniform lowp sampler2D source3;
-            uniform lowp sampler2D source4;
-            uniform lowp sampler2D source5;
-            uniform mediump float weight1;
-            uniform mediump float weight2;
-            uniform mediump float weight3;
-            uniform mediump float weight4;
-            uniform mediump float weight5;
-            uniform highp vec4 color;
-            uniform highp float spread;
-            uniform lowp float qt_Opacity;
-            varying mediump vec2 qt_TexCoord0;
-
-            highp float linearstep(highp float e0, highp float e1, highp float x) {
-                return clamp((x - e0) / (e1 - e0), 0.0, 1.0);
-            }
-
-            void main() {
-                lowp vec4 sourceColor = texture2D(source1, qt_TexCoord0) * weight1;
-                sourceColor += texture2D(source2, qt_TexCoord0) * weight2;
-                sourceColor += texture2D(source3, qt_TexCoord0) * weight3;
-                sourceColor += texture2D(source4, qt_TexCoord0) * weight4;
-                sourceColor += texture2D(source5, qt_TexCoord0) * weight5;
-                sourceColor = mix(vec4(0), color, linearstep(0.0, spread, sourceColor.a));
-                gl_FragColor = sourceColor * qt_Opacity;
-            }
-        "
+        fragmentShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders/fastglow.frag"
     }
 }

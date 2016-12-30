@@ -60,6 +60,7 @@
 #endif
 
 QGfxShaderBuilder::QGfxShaderBuilder()
+    : m_coreProfile(false)
 {
     // The following code makes the assumption that an OpenGL context the GUI
     // thread will get the same capabilities as the render thread's OpenGL
@@ -82,6 +83,7 @@ QGfxShaderBuilder::QGfxShaderBuilder()
             int components;
             gl->glGetIntegerv(GL_MAX_VARYING_COMPONENTS, &components);
             m_maxBlurSamples = components / 2.0;
+            m_coreProfile = context.format().profile() == QSurfaceFormat::CoreProfile;
         } else {
             int floats;
             gl->glGetIntegerv(GL_MAX_VARYING_FLOATS, &floats);
@@ -182,6 +184,15 @@ static void qgfx_declareBlurVaryings(QByteArray &shader, QGfxGaussSample *s, int
     }
 }
 
+static void qgfx_declareCoreBlur(QByteArray &shader, const QByteArray& direction, QGfxGaussSample *s, int samples)
+{
+    for (int i=0; i<samples; ++i) {
+        shader += direction + " vec2 ";
+        shader += s[i].name;
+        shader += ";\n";
+    }
+}
+
 static void qgfx_buildGaussSamplePoints(QGfxGaussSample *p, int samples, int radius, qreal deviation)
 {
 
@@ -259,6 +270,38 @@ QByteArray qgfx_gaussianVertexShader(QGfxGaussSample *p, int samples)
     return shader;
 }
 
+QByteArray qgfx_gaussianVertexCoreShader(QGfxGaussSample *p, int samples)
+{
+    QByteArray shader;
+    shader.reserve(1024);
+    shader += "#version 150 core\n"
+              "in vec4 qt_Vertex;\n"
+              "in vec2 qt_MultiTexCoord0;\n\n"
+              "uniform mat4 qt_Matrix;\n"
+              "uniform float spread;\n"
+              "uniform vec2 dirstep;\n\n";
+
+    qgfx_declareCoreBlur(shader, "out", p, samples);
+
+    shader += "\nvoid main() {\n"
+              "    gl_Position = qt_Matrix * qt_Vertex;\n\n";
+
+    for (int i=0; i<samples; ++i) {
+        shader += "    ";
+        shader += p[i].name;
+        shader += " = qt_MultiTexCoord0";
+        if (p[i].pos != 0.0) {
+            shader += " + spread * dirstep * float(";
+            shader += QByteArray::number(p[i].pos);
+            shader += ')';
+        }
+        shader += ";\n";
+    }
+
+    shader += "}\n";
+
+    return shader;
+}
 
 QByteArray qgfx_gaussianFragmentShader(QGfxGaussSample *p, int samples, bool alphaOnly)
 {
@@ -307,6 +350,182 @@ QByteArray qgfx_gaussianFragmentShader(QGfxGaussSample *p, int samples, bool alp
     return shader;
 }
 
+QByteArray qgfx_gaussianFragmentCoreShader(QGfxGaussSample *p, int samples, bool alphaOnly)
+{
+    QByteArray shader;
+    shader.reserve(1024);
+    shader += "#version 150 core\n"
+              "uniform sampler2D source;\n"
+              "uniform float qt_Opacity;\n";
+
+    if (alphaOnly) {
+        shader += "uniform vec4 color;\n"
+                  "uniform float thickness;\n";
+    }
+
+    shader += "out vec4 fragColor;\n";
+
+    qgfx_declareCoreBlur(shader, "in", p, samples);
+
+    shader += "\nvoid main() {\n"
+              "    fragColor = ";
+    if (alphaOnly)
+        shader += "mix(vec4(0), color, clamp((";
+    else
+        shader += "(";
+
+    qreal sum = 0;
+    for (int i=0; i<samples; ++i)
+        sum += p[i].weight;
+
+    for (int i=0; i<samples; ++i) {
+        shader += "\n                    + float(";
+        shader += QByteArray::number(p[i].weight / sum);
+        shader += ") * texture(source, ";
+        shader += p[i].name;
+        shader += ")";
+        if (alphaOnly)
+            shader += ".a";
+    }
+
+    shader += "\n                   )";
+    if (alphaOnly)
+        shader += "/thickness, 0.0, 1.0))";
+    shader += "* qt_Opacity;\n}";
+
+    return shader;
+}
+
+static QByteArray qgfx_fallbackVertexShader()
+{
+    return "attribute highp vec4 qt_Vertex;\n"
+           "attribute highp vec2 qt_MultiTexCoord0;\n"
+           "uniform highp mat4 qt_Matrix;\n"
+           "varying highp vec2 qt_TexCoord0;\n"
+           "void main() {\n"
+           "    gl_Position = qt_Matrix * qt_Vertex;\n"
+           "    qt_TexCoord0 = qt_MultiTexCoord0;\n"
+           "}\n";
+}
+
+static QByteArray qgfx_fallbackCoreVertexShader()
+{
+    return "#version 150 core\n"
+           "in vec4 qt_Vertex;\n"
+           "in vec2 qt_MultiTexCoord0;\n"
+           "uniform mat4 qt_Matrix;\n"
+           "out vec2 qt_TexCoord0;\n"
+           "void main() {\n"
+           "    gl_Position = qt_Matrix * qt_Vertex;\n"
+           "    qt_TexCoord0 = qt_MultiTexCoord0;\n"
+           "}\n";
+}
+
+static QByteArray qgfx_fallbackFragmentShader(int requestedRadius, qreal deviation, bool masked, bool alphaOnly)
+{
+    QByteArray fragShader;
+    if (masked)
+        fragShader += "uniform mediump sampler2D mask;\n";
+    fragShader +=
+        "uniform highp sampler2D source;\n"
+        "uniform lowp float qt_Opacity;\n"
+        "uniform mediump float spread;\n"
+        "uniform highp vec2 dirstep;\n";
+    if (alphaOnly) {
+        fragShader += "uniform lowp vec4 color;\n"
+                      "uniform lowp float thickness;\n";
+    }
+    fragShader +=
+        "\n"
+        "varying highp vec2 qt_TexCoord0;\n"
+        "\n"
+        "void main() {\n";
+    if (alphaOnly)
+        fragShader += "    mediump float result = 0.0;\n";
+    else
+        fragShader += "    mediump vec4 result = vec4(0);\n";
+    fragShader += "    highp vec2 pixelStep = dirstep * spread;\n";
+    if (masked)
+        fragShader += "    pixelStep *= texture2D(mask, qt_TexCoord0).a;\n";
+
+    float wSum = 0;
+    for (int r=-requestedRadius; r<=requestedRadius; ++r) {
+        float w = qgfx_gaussian(r, deviation);
+        wSum += w;
+        fragShader += "    result += float(";
+        fragShader += QByteArray::number(w);
+        fragShader += ") * texture2D(source, qt_TexCoord0 + pixelStep * float(";
+        fragShader += QByteArray::number(r);
+        fragShader += "))";
+        if (alphaOnly)
+            fragShader += ".a";
+        fragShader += ";\n";
+    }
+    fragShader += "    const mediump float wSum = float(";
+    fragShader += QByteArray::number(wSum);
+    fragShader += ");\n"
+        "    gl_FragColor = ";
+    if (alphaOnly)
+        fragShader += "mix(vec4(0), color, clamp((result / wSum) / thickness, 0.0, 1.0)) * qt_Opacity;\n";
+    else
+        fragShader += "(qt_Opacity / wSum) * result;\n";
+    fragShader += "}\n";
+
+    return fragShader;
+}
+
+static QByteArray qgfx_fallbackCoreFragmentShader(int requestedRadius, qreal deviation, bool masked, bool alphaOnly)
+{
+    QByteArray fragShader = "#version 150 core\n";
+    if (masked)
+        fragShader += "uniform sampler2D mask;\n";
+    fragShader +=
+        "uniform sampler2D source;\n"
+        "uniform float qt_Opacity;\n"
+        "uniform float spread;\n"
+        "uniform vec2 dirstep;\n";
+    if (alphaOnly) {
+        fragShader += "uniform vec4 color;\n"
+                      "uniform float thickness;\n";
+    }
+    fragShader +=
+        "out vec4 fragColor;\n"
+        "in vec2 qt_TexCoord0;\n"
+        "\n"
+        "void main() {\n";
+    if (alphaOnly)
+        fragShader += "    float result = 0.0;\n";
+    else
+        fragShader += "    vec4 result = vec4(0);\n";
+    fragShader += "    vec2 pixelStep = dirstep * spread;\n";
+    if (masked)
+        fragShader += "    pixelStep *= texture(mask, qt_TexCoord0).a;\n";
+
+    float wSum = 0;
+    for (int r=-requestedRadius; r<=requestedRadius; ++r) {
+        float w = qgfx_gaussian(r, deviation);
+        wSum += w;
+        fragShader += "    result += float(";
+        fragShader += QByteArray::number(w);
+        fragShader += ") * texture(source, qt_TexCoord0 + pixelStep * float(";
+        fragShader += QByteArray::number(r);
+        fragShader += "))";
+        if (alphaOnly)
+            fragShader += ".a";
+        fragShader += ";\n";
+    }
+    fragShader += "    const float wSum = float(";
+    fragShader += QByteArray::number(wSum);
+    fragShader += ");\n"
+        "    fragColor = ";
+    if (alphaOnly)
+        fragShader += "mix(vec4(0), color, clamp((result / wSum) / thickness, 0.0, 1.0)) * qt_Opacity;\n";
+    else
+        fragShader += "(qt_Opacity / wSum) * result;\n";
+    fragShader += "}\n";
+
+    return fragShader;
+}
 
 QVariantMap QGfxShaderBuilder::gaussianBlur(const QJSValue &parameters)
 {
@@ -323,73 +542,27 @@ QVariantMap QGfxShaderBuilder::gaussianBlur(const QJSValue &parameters)
     QVariantMap result;
 
     if (samples > m_maxBlurSamples || masked || fallback) {
-        QByteArray fragShader;
-        if (masked)
-            fragShader += "uniform mediump sampler2D mask;\n";
-        fragShader +=
-            "uniform highp sampler2D source;\n"
-            "uniform lowp float qt_Opacity;\n"
-            "uniform mediump float spread;\n"
-            "uniform highp vec2 dirstep;\n";
-        if (alphaOnly) {
-            fragShader += "uniform lowp vec4 color;\n"
-                          "uniform lowp float thickness;\n";
-        }
-        fragShader +=
-            "\n"
-            "varying highp vec2 qt_TexCoord0;\n"
-            "\n"
-            "void main() {\n";
-        if (alphaOnly)
-            fragShader += "    mediump float result = 0.0;\n";
-        else
-            fragShader += "    mediump vec4 result = vec4(0);\n";
-        fragShader += "    highp vec2 pixelStep = dirstep * spread;\n";
-        if (masked)
-            fragShader += "    pixelStep *= texture2D(mask, qt_TexCoord0).a;\n";
 
-        float wSum = 0;
-        for (int r=-requestedRadius; r<=requestedRadius; ++r) {
-            float w = qgfx_gaussian(r, deviation);
-            wSum += w;
-            fragShader += "    result += float(";
-            fragShader += QByteArray::number(w);
-            fragShader += ") * texture2D(source, qt_TexCoord0 + pixelStep * float(";
-            fragShader += QByteArray::number(r);
-            fragShader += "))";
-            if (alphaOnly)
-                fragShader += ".a";
-            fragShader += ";\n";
+        if (m_coreProfile) {
+            result[QStringLiteral("fragmentShader")] = qgfx_fallbackCoreFragmentShader(requestedRadius, deviation, masked, alphaOnly);
+            result[QStringLiteral("vertexShader")] = qgfx_fallbackCoreVertexShader();
+        } else {
+            result[QStringLiteral("fragmentShader")] = qgfx_fallbackFragmentShader(requestedRadius, deviation, masked, alphaOnly);
+            result[QStringLiteral("vertexShader")] = qgfx_fallbackVertexShader();
         }
-        fragShader += "    const mediump float wSum = float(";
-        fragShader += QByteArray::number(wSum);
-        fragShader += ");\n"
-            "    gl_FragColor = ";
-        if (alphaOnly)
-            fragShader += "mix(vec4(0), color, clamp((result / wSum) / thickness, 0.0, 1.0)) * qt_Opacity;\n";
-        else
-            fragShader += "(qt_Opacity / wSum) * result;\n";
-        fragShader += "}\n";
-        result[QStringLiteral("fragmentShader")] = fragShader;
-
-        result[QStringLiteral("vertexShader")] =
-            "attribute highp vec4 qt_Vertex;\n"
-            "attribute highp vec2 qt_MultiTexCoord0;\n"
-            "uniform highp mat4 qt_Matrix;\n"
-            "varying highp vec2 qt_TexCoord0;\n"
-            "void main() {\n"
-            "    gl_Position = qt_Matrix * qt_Vertex;\n"
-            "    qt_TexCoord0 = qt_MultiTexCoord0;\n"
-            "}\n";
         return result;
     }
 
     QVarLengthArray<QGfxGaussSample, 64> p(samples);
     qgfx_buildGaussSamplePoints(p.data(), samples, radius, deviation);
 
-    result[QStringLiteral("fragmentShader")] = qgfx_gaussianFragmentShader(p.data(), samples, alphaOnly);
-    result[QStringLiteral("vertexShader")] = qgfx_gaussianVertexShader(p.data(), samples);
-
+    if (m_coreProfile) {
+        result[QStringLiteral("fragmentShader")] = qgfx_gaussianFragmentCoreShader(p.data(), samples, alphaOnly);
+        result[QStringLiteral("vertexShader")] = qgfx_gaussianVertexCoreShader(p.data(), samples);
+    } else {
+        result[QStringLiteral("fragmentShader")] = qgfx_gaussianFragmentShader(p.data(), samples, alphaOnly);
+        result[QStringLiteral("vertexShader")] = qgfx_gaussianVertexShader(p.data(), samples);
+    }
     return result;
 }
 

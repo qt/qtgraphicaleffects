@@ -37,7 +37,7 @@
 **
 ****************************************************************************/
 
-import QtQuick 2.0
+import QtQuick 2.8
 import QtGraphicalEffects.private 1.0
 
 Item {
@@ -180,7 +180,10 @@ Item {
             "gl_FragColor += texture2D(source, texCoord) * factor_30_31.y; texCoord += shift;"
         ]
 
-            var shader = fragmentShaderBegin
+            var shader = ""
+            if (GraphicsInfo.profile == GraphicsInfo.OpenGLCoreProfile)
+                shader += "#version 150 core\n#define varying in\n#define gl_FragColor fragColor\n#define texture2D texture\nout vec4 fragColor;\n"
+            shader += fragmentShaderBegin
             var samples = maxRadius * 2
             if (samples > 32) {
                 console.log("DirectionalGaussianBlur.qml WARNING: Maximum of blur radius (16) exceeded!")

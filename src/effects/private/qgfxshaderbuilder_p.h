@@ -58,6 +58,7 @@ public:
 
 private:
     int m_maxBlurSamples;
+    bool m_coreProfile;
 };
 
 QT_END_NAMESPACE

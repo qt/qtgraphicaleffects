@@ -392,68 +392,13 @@ Item {
 
         anchors.fill: parent
 
-        vertexShader: "
-            attribute highp vec4 qt_Vertex;
-            attribute highp vec2 qt_MultiTexCoord0;
-            uniform highp mat4 qt_Matrix;
-            uniform highp vec2 matrixData;
-            uniform highp float horizontalRatio;
-            uniform highp float verticalRatio;
-            uniform highp vec2 center;
-            varying highp vec2 qt_TexCoord0;
-            varying highp vec2 qt_TexCoord1;
-            varying highp vec2 centerPoint;
-
-            void main() {
-                highp vec2 ratio = vec2(horizontalRatio, verticalRatio);
-
-                // Rotation matrix
-                highp mat2 rot = mat2(matrixData.y, -matrixData.x,
-                                      matrixData.x,  matrixData.y);
-
-                qt_TexCoord0 = qt_MultiTexCoord0;
-
-                qt_TexCoord1 = qt_MultiTexCoord0;
-                qt_TexCoord1 -= center;
-                qt_TexCoord1 *= rot;
-                qt_TexCoord1 += center;
-                qt_TexCoord1 *= ratio;
-
-                centerPoint = center * ratio;
-
-                gl_Position = qt_Matrix * qt_Vertex;
-            }
-        "
+        vertexShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders/radialgradient.vert"
 
         fragmentShader: maskSource == undefined ? noMaskShader : maskShader
 
         onFragmentShaderChanged: horizontalRatioChanged()
 
-        property string maskShader: "
-            uniform lowp sampler2D gradientImage;
-            uniform lowp sampler2D maskSource;
-            uniform lowp float qt_Opacity;
-            varying highp vec2 qt_TexCoord0;
-            varying highp vec2 qt_TexCoord1;
-            varying highp vec2 centerPoint;
-
-            void main() {
-                lowp vec4 gradientColor = texture2D(gradientImage, vec2(0.0, 2.0 * distance(qt_TexCoord1, centerPoint)));
-                lowp float maskAlpha = texture2D(maskSource, qt_TexCoord0).a;
-                gl_FragColor = gradientColor * maskAlpha * qt_Opacity;
-            }
-        "
-
-        property string noMaskShader: "
-            uniform lowp sampler2D gradientImage;
-            uniform lowp float qt_Opacity;
-            varying highp vec2 qt_TexCoord1;
-            varying highp vec2 centerPoint;
-
-            void main() {
-                lowp vec4 gradientColor = texture2D(gradientImage, vec2(0.0, 2.0 * distance(qt_TexCoord1, centerPoint)));
-                gl_FragColor = gradientColor * qt_Opacity;
-            }
-        "
+        property string maskShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders/radialgradient_mask.frag"
+        property string noMaskShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders/radialgradient_nomask.frag"
     }
 }

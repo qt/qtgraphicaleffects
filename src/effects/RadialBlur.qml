@@ -37,7 +37,7 @@
 **
 ****************************************************************************/
 
-import QtQuick 2.0
+import QtQuick 2.8
 import QtGraphicalEffects.private 1.0
 
 /*!
@@ -286,7 +286,10 @@ Item {
         "
 
         function buildFragmentShader() {
-            var shader = fragmentShaderSkeleton
+            var shader = ""
+            if (GraphicsInfo.profile == GraphicsInfo.OpenGLCoreProfile)
+                shader += "#version 150 core\n#define varying in\n#define gl_FragColor fragColor\n#define texture2D texture\nout vec4 fragColor;\n"
+            shader += fragmentShaderSkeleton
             var expandSteps = ""
 
             if (transparentBorder) {

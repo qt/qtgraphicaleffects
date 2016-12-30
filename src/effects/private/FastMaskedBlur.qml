@@ -68,42 +68,9 @@ Item {
         smooth: rootItem.blur > 0
     }
 
-    property string __internalBlurVertexShader: "
-        attribute highp vec4 qt_Vertex;
-        attribute highp vec2 qt_MultiTexCoord0;
-        uniform highp mat4 qt_Matrix;
-        uniform highp float yStep;
-        uniform highp float xStep;
-        varying highp vec2 qt_TexCoord0;
-        varying highp vec2 qt_TexCoord1;
-        varying highp vec2 qt_TexCoord2;
-        varying highp vec2 qt_TexCoord3;
+    property string __internalBlurVertexShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders/fastblur_internal.vert"
 
-        void main() {
-            qt_TexCoord0 = vec2(qt_MultiTexCoord0.x + xStep, qt_MultiTexCoord0.y + yStep * 0.36);
-            qt_TexCoord1 = vec2(qt_MultiTexCoord0.x + xStep * 0.36, qt_MultiTexCoord0.y - yStep);
-            qt_TexCoord2 = vec2(qt_MultiTexCoord0.x - xStep * 0.36, qt_MultiTexCoord0.y + yStep);
-            qt_TexCoord3 = vec2(qt_MultiTexCoord0.x - xStep, qt_MultiTexCoord0.y - yStep * 0.36);
-            gl_Position = qt_Matrix * qt_Vertex;
-        }
-    "
-
-    property string __internalBlurFragmentShader: "
-        uniform lowp sampler2D source;
-        uniform lowp float qt_Opacity;
-        varying highp vec2 qt_TexCoord0;
-        varying highp vec2 qt_TexCoord1;
-        varying highp vec2 qt_TexCoord2;
-        varying highp vec2 qt_TexCoord3;
-
-        void main() {
-            highp vec4 sourceColor = (texture2D(source, qt_TexCoord0) +
-            texture2D(source, qt_TexCoord1) +
-            texture2D(source, qt_TexCoord2) +
-            texture2D(source, qt_TexCoord3)) * 0.25;
-            gl_FragColor = sourceColor * qt_Opacity;
-        }
-   "
+    property string __internalBlurFragmentShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders/fastblur_internal.frag"
 
     ShaderEffect {
         id: mask0
@@ -275,58 +242,6 @@ Item {
         width: transparentBorder ? parent.width + 128 : parent.width
         height: transparentBorder ? parent.height + 128 : parent.height
 
-        fragmentShader: "
-            uniform lowp sampler2D mask;
-            uniform lowp sampler2D source1;
-            uniform lowp sampler2D source2;
-            uniform lowp sampler2D source3;
-            uniform lowp sampler2D source4;
-            uniform lowp sampler2D source5;
-            uniform lowp sampler2D source6;
-            uniform lowp float lod;
-            uniform lowp float qt_Opacity;
-            varying mediump vec2 qt_TexCoord0;
-
-            mediump float weight(mediump float v) {
-                if (v <= 0.0)
-                    return 1.0;
-
-                if (v >= 0.5)
-                    return 0.0;
-
-                return 1.0 - v * 2.0;
-            }
-
-            void main() {
-
-                lowp vec4 maskColor = texture2D(mask, qt_TexCoord0);
-                mediump float l = lod * maskColor.a;
-
-                mediump float w1 = weight(abs(l - 0.100));
-                mediump float w2 = weight(abs(l - 0.300));
-                mediump float w3 = weight(abs(l - 0.500));
-                mediump float w4 = weight(abs(l - 0.700));
-                mediump float w5 = weight(abs(l - 0.900));
-                mediump float w6 = weight(abs(l - 1.100));
-
-                mediump float sum = w1 + w2 + w3 + w4 + w5 + w6;
-                mediump float weight1 = w1 / sum;
-                mediump float weight2 = w2 / sum;
-                mediump float weight3 = w3 / sum;
-                mediump float weight4 = w4 / sum;
-                mediump float weight5 = w5 / sum;
-                mediump float weight6 = w6 / sum;
-
-                lowp vec4 sourceColor = texture2D(source1, qt_TexCoord0) * weight1;
-                sourceColor += texture2D(source2, qt_TexCoord0) * weight2;
-                sourceColor += texture2D(source3, qt_TexCoord0) * weight3;
-                sourceColor += texture2D(source4, qt_TexCoord0) * weight4;
-                sourceColor += texture2D(source5, qt_TexCoord0) * weight5;
-                sourceColor += texture2D(source6, qt_TexCoord0) * weight6;
-
-                gl_FragColor = sourceColor * qt_Opacity;
-
-            }
-        "
+        fragmentShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders/fastmaskedblur.frag"
     }
 }

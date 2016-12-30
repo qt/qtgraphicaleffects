@@ -311,56 +311,13 @@ Item {
         property real angle: Math.atan2(dx, dy)
         property variant matrixData: Qt.point(Math.sin(angle), Math.cos(angle))
 
-        vertexShader: "
-            attribute highp vec4 qt_Vertex;
-            attribute highp vec2 qt_MultiTexCoord0;
-            uniform highp mat4 qt_Matrix;
-            varying highp vec2 qt_TexCoord0;
-            varying highp vec2 qt_TexCoord1;
-            uniform highp vec2 startPoint;
-            uniform highp float l;
-            uniform highp vec2 matrixData;
-
-            void main() {
-                highp mat2 rot = mat2(matrixData.y, -matrixData.x,
-                                      matrixData.x,  matrixData.y);
-
-                qt_TexCoord0 = qt_MultiTexCoord0;
-
-                qt_TexCoord1 = qt_MultiTexCoord0 * l;
-                qt_TexCoord1 -= startPoint * l;
-                qt_TexCoord1 *= rot;
-
-                gl_Position = qt_Matrix * qt_Vertex;
-            }
-        "
+        vertexShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders/lineargradient.vert"
 
         fragmentShader: maskSource == undefined ? noMaskShader : maskShader
 
         onFragmentShaderChanged: lChanged()
 
-        property string maskShader: "
-            uniform lowp sampler2D source;
-            uniform lowp sampler2D maskSource;
-            uniform lowp float qt_Opacity;
-            varying highp vec2 qt_TexCoord0;
-            varying highp vec2 qt_TexCoord1;
-
-            void main() {
-                lowp vec4 gradientColor = texture2D(source, qt_TexCoord1);
-                lowp float maskAlpha = texture2D(maskSource, qt_TexCoord0).a;
-                gl_FragColor = gradientColor * maskAlpha * qt_Opacity;
-            }
-        "
-
-        property string noMaskShader: "
-            uniform lowp sampler2D source;
-            uniform lowp float qt_Opacity;
-            varying highp vec2 qt_TexCoord1;
-
-            void main() {
-                gl_FragColor = texture2D(source, qt_TexCoord1) * qt_Opacity;
-            }
-        "
+        property string maskShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders/lineargradient_mask.frag"
+        property string noMaskShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders/lineargradient_nomask.frag"
     }
 }

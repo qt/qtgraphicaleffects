@@ -30,7 +30,10 @@ QML_FILES = \
     ThresholdMask.qml \
     ZoomBlur.qml \
 
-!static: CONFIG += qmlcache
+# !static: CONFIG += qmlcache
+
+RESOURCES += \
+    qtgraphicaleffectsshaders.qrc
 
 QMAKE_DOCS = $$PWD/doc/qtgraphicaleffects.qdocconf
 SOURCES += plugin.cpp

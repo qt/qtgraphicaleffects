@@ -27,7 +27,7 @@
 ****************************************************************************/
 
 import QtQuick 2.0
-import "../../../src/effects"
+import QtGraphicalEffects 1.0
 
 TestCaseTemplate {
     ImageSource {
