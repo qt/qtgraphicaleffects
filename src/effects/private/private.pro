@@ -24,4 +24,6 @@ QML_FILES = \
     GaussianInnerShadow.qml \
     GaussianMaskedBlur.qml
 
+!static: CONFIG += qmlcache
+
 load(qml_plugin)
