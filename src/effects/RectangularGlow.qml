@@ -109,11 +109,11 @@ Item {
     property real glowRadius: 0.0
 
     /*!
-        This property defines how large part of the glow color is strenghtened
+        This property defines how large part of the glow color is strengthened
         near the source edges.
 
-        The value ranges from 0.0 (no strenght increase) to 1.0 (maximum
-        strenght increase). By default, the property is set to \c 0.0.
+        The value ranges from 0.0 (no strength increase) to 1.0 (maximum
+        strength increase). By default, the property is set to \c 0.0.
 
         \table
         \header
