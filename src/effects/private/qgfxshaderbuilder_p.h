@@ -57,7 +57,7 @@ public:
     Q_INVOKABLE QVariantMap gaussianBlur(const QJSValue &parameters);
 
 private:
-    int m_maxBlurSamples;
+    int m_maxBlurSamples = 0;
     bool m_coreProfile;
 };
 

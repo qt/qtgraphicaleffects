@@ -155,7 +155,7 @@ Item {
     property int samples: 0
 
     /*!
-        This property defines how large part of the shadow color is strenghtened
+        This property defines how large part of the shadow color is strengthened
         near the source edges.
 
         The value ranges from 0.0 to 1.0. By default, the property is set to \c
