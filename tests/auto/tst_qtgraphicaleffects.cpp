@@ -471,6 +471,10 @@ void tst_qtgraphicaleffects::dropShadow()
 
 void tst_qtgraphicaleffects::innerShadow()
 {
+#ifdef SKIP_INNERSHADOW_TEST
+    QSKIP("Skipping due to QTBUG-65211");
+#endif
+
     // Creation
     QString componentStr = "import QtQuick 2.0\n"
             + importSelf +
