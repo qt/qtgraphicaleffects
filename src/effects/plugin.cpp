@@ -45,6 +45,7 @@ static void initResources()
 {
 #ifdef QT_STATIC
     Q_INIT_RESOURCE(qmake_QtGraphicalEffects);
+    Q_INIT_RESOURCE(qtgraphicaleffectsshaders);
 #endif
 }
 
