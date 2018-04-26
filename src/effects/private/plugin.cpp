@@ -44,13 +44,6 @@
 #include "qgfxsourceproxy_p.h"
 #include "qgfxshaderbuilder_p.h"
 
-static void initResources()
-{
-#ifdef QT_STATIC
-    Q_INIT_RESOURCE(qmake_QtGraphicalEffects_private);
-#endif
-}
-
 QT_BEGIN_NAMESPACE
 
 static QObject *qgfxshaderbuilder_provider(QQmlEngine *, QJSEngine *)
@@ -64,7 +57,7 @@ class QtGraphicalEffectsPrivatePlugin : public QQmlExtensionPlugin
     Q_PLUGIN_METADATA(IID QQmlExtensionInterface_iid)
 
 public:
-    QtGraphicalEffectsPrivatePlugin(QObject *parent = 0) : QQmlExtensionPlugin(parent) { initResources(); }
+    QtGraphicalEffectsPrivatePlugin(QObject *parent = 0) : QQmlExtensionPlugin(parent) { }
     virtual void registerTypes(const char *uri)
     {
         Q_ASSERT(QByteArray(uri) == QByteArrayLiteral("QtGraphicalEffects.private"));
