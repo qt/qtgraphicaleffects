@@ -32,7 +32,7 @@ Rectangle {
     id: main
 
     width: 950
-    height: 620
+    height: 800
     color: '#171717'
 
     ListView {
