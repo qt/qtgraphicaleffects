@@ -27,6 +27,7 @@
 ****************************************************************************/
 
 #include <qtest.h>
+#include <QtCore/qscopedpointer.h>
 #include <QtQml>
 
 class tst_qtgraphicaleffects : public QObject
@@ -119,8 +120,8 @@ void tst_qtgraphicaleffects::brightnessContrast()
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
     QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
     QTRY_COMPARE(component.status(), QQmlComponent::Ready);
-    QObject *obj = component.create();
-    QVERIFY(obj != 0);
+    QScopedPointer<QObject> obj(component.create());
+    QVERIFY(!obj.isNull());
 
     // Default values
     QCOMPARE(obj->property("brightness").type(), QVariant::Double);
@@ -129,8 +130,6 @@ void tst_qtgraphicaleffects::brightnessContrast()
     QCOMPARE(obj->property("contrast").toDouble(), 0.0);
     QCOMPARE(obj->property("source").toInt(), 0);
     QCOMPARE(obj->property("cached").toBool(), false);
-
-    delete obj;
 }
 
 void tst_qtgraphicaleffects::colorize()
@@ -146,8 +145,8 @@ void tst_qtgraphicaleffects::colorize()
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
     QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
     QTRY_COMPARE(component.status(), QQmlComponent::Ready);
-    QObject *obj = component.create();
-    QVERIFY(obj != 0);
+    QScopedPointer<QObject> obj(component.create());
+    QVERIFY(!obj.isNull());
 
     // Default values
     QCOMPARE(obj->property("hue").type(), QVariant::Double);
@@ -158,8 +157,6 @@ void tst_qtgraphicaleffects::colorize()
     QCOMPARE(obj->property("lightness").toDouble(), 0.0);
     QCOMPARE(obj->property("source").toInt(), 0);
     QCOMPARE(obj->property("cached").toBool(), false);
-
-    delete obj;
 }
 
 void tst_qtgraphicaleffects::fastBlur()
@@ -175,8 +172,8 @@ void tst_qtgraphicaleffects::fastBlur()
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
     QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
     QTRY_COMPARE(component.status(), QQmlComponent::Ready);
-    QObject *obj = component.create();
-    QVERIFY(obj != 0);
+    QScopedPointer<QObject> obj(component.create());
+    QVERIFY(!obj.isNull());
 
     // Default values
     QCOMPARE(obj->property("radius").type(), QVariant::Double);
@@ -184,8 +181,6 @@ void tst_qtgraphicaleffects::fastBlur()
     QCOMPARE(obj->property("transparentBorder").toBool(), false);
     QCOMPARE(obj->property("source").toInt(), 0);
     QCOMPARE(obj->property("cached").toBool(), false);
-
-    delete obj;
 }
 
 void tst_qtgraphicaleffects::desaturate()
@@ -201,16 +196,14 @@ void tst_qtgraphicaleffects::desaturate()
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
     QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
     QTRY_COMPARE(component.status(), QQmlComponent::Ready);
-    QObject *obj = component.create();
-    QVERIFY(obj != 0);
+    QScopedPointer<QObject> obj(component.create());
+    QVERIFY(!obj.isNull());
 
     // Default values
     QCOMPARE(obj->property("desaturation").type(), QVariant::Double);
     QCOMPARE(obj->property("desaturation").toDouble(), 0.0);
     QCOMPARE(obj->property("source").toInt(), 0);
     QCOMPARE(obj->property("cached").toBool(), false);
-
-    delete obj;
 }
 
 void tst_qtgraphicaleffects::hueSaturation()
@@ -226,8 +219,8 @@ void tst_qtgraphicaleffects::hueSaturation()
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
     QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
     QTRY_COMPARE(component.status(), QQmlComponent::Ready);
-    QObject *obj = component.create();
-    QVERIFY(obj != 0);
+    QScopedPointer<QObject> obj(component.create());
+    QVERIFY(!obj.isNull());
 
     // Default values
     QCOMPARE(obj->property("hue").type(), QVariant::Double);
@@ -238,8 +231,6 @@ void tst_qtgraphicaleffects::hueSaturation()
     QCOMPARE(obj->property("lightness").toDouble(), 0.0);
     QCOMPARE(obj->property("source").toInt(), 0);
     QCOMPARE(obj->property("cached").toBool(), false);
-
-    delete obj;
 }
 
 void tst_qtgraphicaleffects::opacityMask()
@@ -256,15 +247,13 @@ void tst_qtgraphicaleffects::opacityMask()
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
     QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
     QTRY_COMPARE(component.status(), QQmlComponent::Ready);
-    QObject *obj = component.create();
-    QVERIFY(obj != 0);
+    QScopedPointer<QObject> obj(component.create());
+    QVERIFY(!obj.isNull());
 
     // Default values
     QCOMPARE(obj->property("source").toInt(), 0);
     QCOMPARE(obj->property("maskSource").toInt(), 0);
     QCOMPARE(obj->property("cached").toBool(), false);
-
-    delete obj;
 }
 
 void tst_qtgraphicaleffects::radialGradient()
@@ -279,8 +268,8 @@ void tst_qtgraphicaleffects::radialGradient()
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
     QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
     QTRY_COMPARE(component.status(), QQmlComponent::Ready);
-    QObject *obj = component.create();
-    QVERIFY(obj != 0);
+    QScopedPointer<QObject> obj(component.create());
+    QVERIFY(!obj.isNull());
 
     // Default values
     QCOMPARE(obj->property("gradient").toInt(), 0);
@@ -296,8 +285,6 @@ void tst_qtgraphicaleffects::radialGradient()
     QCOMPARE(obj->property("angle").type(), QVariant::Double);
     QCOMPARE(obj->property("angle").toDouble(), 0.0);
     QCOMPARE(obj->property("cached").toBool(), false);
-
-    delete obj;
 }
 
 void tst_qtgraphicaleffects::linearGradient()
@@ -312,8 +299,8 @@ void tst_qtgraphicaleffects::linearGradient()
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
     QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
     QTRY_COMPARE(component.status(), QQmlComponent::Ready);
-    QObject *obj = component.create();
-    QVERIFY(obj != 0);
+    QScopedPointer<QObject> obj(component.create());
+    QVERIFY(!obj.isNull());
 
     // Default values
     QCOMPARE(obj->property("gradient").toInt(), 0);
@@ -321,8 +308,6 @@ void tst_qtgraphicaleffects::linearGradient()
     QCOMPARE(obj->property("end").toPointF(), QPointF(0.0, 50.0));
     QCOMPARE(obj->property("source").toInt(), 0);
     QCOMPARE(obj->property("cached").toBool(), false);
-
-    delete obj;
 }
 
 void tst_qtgraphicaleffects::rectangularGlow()
@@ -337,8 +322,8 @@ void tst_qtgraphicaleffects::rectangularGlow()
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
     QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
     QTRY_COMPARE(component.status(), QQmlComponent::Ready);
-    QObject *obj = component.create();
-    QVERIFY(obj != 0);
+    QScopedPointer<QObject> obj(component.create());
+    QVERIFY(!obj.isNull());
 
     // Default values
     QCOMPARE(obj->property("spread").type(), QVariant::Double);
@@ -349,8 +334,6 @@ void tst_qtgraphicaleffects::rectangularGlow()
     QCOMPARE(obj->property("cornerRadius").type(), QVariant::Double);
     QCOMPARE(obj->property("cornerRadius").toDouble(), 0.0);
     QCOMPARE(obj->property("cached").toBool(), false);
-
-    delete obj;
 }
 
 void tst_qtgraphicaleffects::conicalGradient()
@@ -365,8 +348,8 @@ void tst_qtgraphicaleffects::conicalGradient()
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
     QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
     QTRY_COMPARE(component.status(), QQmlComponent::Ready);
-    QObject *obj = component.create();
-    QVERIFY(obj != 0);
+    QScopedPointer<QObject> obj(component.create());
+    QVERIFY(!obj.isNull());
 
     // Default values
     QCOMPARE(obj->property("angle").type(), QVariant::Double);
@@ -378,8 +361,6 @@ void tst_qtgraphicaleffects::conicalGradient()
     QCOMPARE(obj->property("verticalOffset").toDouble(), 0.0);
     QCOMPARE(obj->property("source").toInt(), 0);
     QCOMPARE(obj->property("cached").toBool(), false);
-
-    delete obj;
 }
 
 void tst_qtgraphicaleffects::colorOverlay()
@@ -395,14 +376,12 @@ void tst_qtgraphicaleffects::colorOverlay()
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
     QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
     QTRY_COMPARE(component.status(), QQmlComponent::Ready);
-    QObject *obj = component.create();
-    QVERIFY(obj != 0);
+    QScopedPointer<QObject> obj(component.create());
+    QVERIFY(!obj.isNull());
 
     // Default values
     QCOMPARE(obj->property("cached").toBool(), false);
     QCOMPARE(obj->property("color").toString(), QString("#00000000"));
-
-    delete obj;
 }
 
 void tst_qtgraphicaleffects::gaussianBlur()
@@ -418,8 +397,8 @@ void tst_qtgraphicaleffects::gaussianBlur()
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
     QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
     QTRY_COMPARE(component.status(), QQmlComponent::Ready);
-    QObject *obj = component.create();
-    QVERIFY(obj != 0);
+    QScopedPointer<QObject> obj(component.create());
+    QVERIFY(!obj.isNull());
 
     // Default values
     QCOMPARE(obj->property("radius").type(), QVariant::Double);
@@ -431,8 +410,6 @@ void tst_qtgraphicaleffects::gaussianBlur()
     QVERIFY(res > 0.0);
 
     QCOMPARE(obj->property("cached").toBool(), false);
-
-    delete obj;
 }
 
 void tst_qtgraphicaleffects::dropShadow()
@@ -448,8 +425,8 @@ void tst_qtgraphicaleffects::dropShadow()
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
     QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
     QTRY_COMPARE(component.status(), QQmlComponent::Ready);
-    QObject *obj = component.create();
-    QVERIFY(obj != 0);
+    QScopedPointer<QObject> obj(component.create());
+    QVERIFY(!obj.isNull());
 
     // Default values
     QCOMPARE(obj->property("radius").type(), QVariant::Double);
@@ -465,8 +442,6 @@ void tst_qtgraphicaleffects::dropShadow()
     QCOMPARE(obj->property("spread").type(), QVariant::Double);
     QCOMPARE(obj->property("spread").toDouble(), 0.0);
     QCOMPARE(obj->property("transparentBorder").toBool(), true);
-
-    delete obj;
 }
 
 void tst_qtgraphicaleffects::innerShadow()
@@ -482,8 +457,8 @@ void tst_qtgraphicaleffects::innerShadow()
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
     QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
     QTRY_COMPARE(component.status(), QQmlComponent::Ready);
-    QObject *obj = component.create();
-    QVERIFY(obj != 0);
+    QScopedPointer<QObject> obj(component.create());
+    QVERIFY(!obj.isNull());
 
     // Default values
     QCOMPARE(obj->property("radius").type(), QVariant::Double);
@@ -499,8 +474,6 @@ void tst_qtgraphicaleffects::innerShadow()
     QCOMPARE(obj->property("spread").type(), QVariant::Double);
     QCOMPARE(obj->property("spread").toDouble(), 0.0);
     QCOMPARE(obj->property("fast").toBool(), false);
-
-    delete obj;
 }
 
 void tst_qtgraphicaleffects::gammaAdjust()
@@ -516,17 +489,14 @@ void tst_qtgraphicaleffects::gammaAdjust()
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
     QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
     QTRY_COMPARE(component.status(), QQmlComponent::Ready);
-    QObject *obj = component.create();
-    //qDebug() << component.errorString();
-    QVERIFY(obj != 0);
+    QScopedPointer<QObject> obj(component.create());
+    QVERIFY(!obj.isNull());
 
     // Default values
     QCOMPARE(obj->property("gamma").type(), QVariant::Double);
     QCOMPARE(obj->property("gamma").toDouble(), 1.0);
     QCOMPARE(obj->property("source").toInt(), 0);
     QCOMPARE(obj->property("cached").toBool(), false);
-
-    delete obj;
 }
 
 void tst_qtgraphicaleffects::thresholdMask()
@@ -543,8 +513,8 @@ void tst_qtgraphicaleffects::thresholdMask()
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
     QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
     QTRY_COMPARE(component.status(), QQmlComponent::Ready);
-    QObject *obj = component.create();
-    QVERIFY(obj != 0);
+    QScopedPointer<QObject> obj(component.create());
+    QVERIFY(!obj.isNull());
 
     // Default values
     QCOMPARE(obj->property("source").toInt(), 0);
@@ -554,8 +524,6 @@ void tst_qtgraphicaleffects::thresholdMask()
     QCOMPARE(obj->property("threshold").toDouble(), 0.0);
     QCOMPARE(obj->property("spread").type(), QVariant::Double);
     QCOMPARE(obj->property("spread").toDouble(), 0.0);
-
-    delete obj;
 }
 
 void tst_qtgraphicaleffects::glow()
@@ -571,8 +539,8 @@ void tst_qtgraphicaleffects::glow()
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
     QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
     QTRY_COMPARE(component.status(), QQmlComponent::Ready);
-    QObject *obj = component.create();
-    QVERIFY(obj != 0);
+    QScopedPointer<QObject> obj(component.create());
+    QVERIFY(!obj.isNull());
 
     // Default values
     QCOMPARE(obj->property("radius").type(), QVariant::Double);
@@ -583,8 +551,6 @@ void tst_qtgraphicaleffects::glow()
     QCOMPARE(obj->property("spread").toDouble(), 0.5);
     QCOMPARE(obj->property("color").toString(), QString("#ffffff"));
     QCOMPARE(obj->property("transparentBorder").toBool(), true);
-
-    delete obj;
 }
 
 void tst_qtgraphicaleffects::blend()
@@ -601,16 +567,14 @@ void tst_qtgraphicaleffects::blend()
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
     QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
     QTRY_COMPARE(component.status(), QQmlComponent::Ready);
-    QObject *obj = component.create();
-    QVERIFY(obj != 0);
+    QScopedPointer<QObject> obj(component.create());
+    QVERIFY(!obj.isNull());
 
     // Default values
     QCOMPARE(obj->property("source").toInt(), 0);
     QCOMPARE(obj->property("foregroundSource").toInt(), 0);
     QCOMPARE(obj->property("cached").toBool(), false);
     QCOMPARE(obj->property("mode").toString(), QString("normal"));
-
-    delete obj;
 }
 
 void tst_qtgraphicaleffects::displace()
@@ -627,8 +591,8 @@ void tst_qtgraphicaleffects::displace()
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
     QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
     QTRY_COMPARE(component.status(), QQmlComponent::Ready);
-    QObject *obj = component.create();
-    QVERIFY(obj != 0);
+    QScopedPointer<QObject> obj(component.create());
+    QVERIFY(!obj.isNull());
 
     // Default values
     QCOMPARE(obj->property("source").toInt(), 0);
@@ -636,8 +600,6 @@ void tst_qtgraphicaleffects::displace()
     QCOMPARE(obj->property("cached").toBool(), false);
     QCOMPARE(obj->property("displacement").type(), QVariant::Double);
     QCOMPARE(obj->property("displacement").toDouble(), 0.0);
-
-    delete obj;
 }
 
 void tst_qtgraphicaleffects::recursiveBlur()
@@ -653,8 +615,8 @@ void tst_qtgraphicaleffects::recursiveBlur()
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
     QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
     QTRY_COMPARE(component.status(), QQmlComponent::Ready);
-    QObject *obj = component.create();
-    QVERIFY(obj != 0);
+    QScopedPointer<QObject> obj(component.create());
+    QVERIFY(!obj.isNull());
 
     // Default values
     QCOMPARE(obj->property("source").toInt(), 0);
@@ -665,8 +627,6 @@ void tst_qtgraphicaleffects::recursiveBlur()
     QCOMPARE(obj->property("progress").toDouble(), 0.0);
     QCOMPARE(obj->property("transparentBorder").toBool(), false);
     QCOMPARE(obj->property("cached").toBool(), false);
-
-    delete obj;
 }
 
 void tst_qtgraphicaleffects::directionalBlur()
@@ -682,8 +642,8 @@ void tst_qtgraphicaleffects::directionalBlur()
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
     QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
     QTRY_COMPARE(component.status(), QQmlComponent::Ready);
-    QObject *obj = component.create();
-    QVERIFY(obj != 0);
+    QScopedPointer<QObject> obj(component.create());
+    QVERIFY(!obj.isNull());
 
     // Default values
     QCOMPARE(obj->property("source").toInt(), 0);
@@ -694,8 +654,6 @@ void tst_qtgraphicaleffects::directionalBlur()
     QCOMPARE(obj->property("angle").toDouble(), 0.0);
     QCOMPARE(obj->property("transparentBorder").toBool(), false);
     QCOMPARE(obj->property("cached").toBool(), false);
-
-    delete obj;
 }
 
 void tst_qtgraphicaleffects::radialBlur()
@@ -711,8 +669,8 @@ void tst_qtgraphicaleffects::radialBlur()
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
     QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
     QTRY_COMPARE(component.status(), QQmlComponent::Ready);
-    QObject *obj = component.create();
-    QVERIFY(obj != 0);
+    QScopedPointer<QObject> obj(component.create());
+    QVERIFY(!obj.isNull());
 
     // Default values
     QCOMPARE(obj->property("source").toInt(), 0);
@@ -726,8 +684,6 @@ void tst_qtgraphicaleffects::radialBlur()
     QCOMPARE(obj->property("horizontalOffset").toDouble(), 0.0);
     QCOMPARE(obj->property("verticalOffset").type(), QVariant::Double);
     QCOMPARE(obj->property("verticalOffset").toDouble(), 0.0);
-
-    delete obj;
 }
 
 void tst_qtgraphicaleffects::zoomBlur()
@@ -743,7 +699,8 @@ void tst_qtgraphicaleffects::zoomBlur()
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
     QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
     QTRY_COMPARE(component.status(), QQmlComponent::Ready);
-    QObject *obj = component.create();
+    QScopedPointer<QObject> obj(component.create());
+    QVERIFY(!obj.isNull());
 
     // Default values
     QCOMPARE(obj->property("source").toInt(), 0);
@@ -756,8 +713,6 @@ void tst_qtgraphicaleffects::zoomBlur()
     QCOMPARE(obj->property("horizontalOffset").toDouble(), 0.0);
     QCOMPARE(obj->property("verticalOffset").type(), QVariant::Double);
     QCOMPARE(obj->property("verticalOffset").toDouble(), 0.0);
-
-    delete obj;
 }
 
 void tst_qtgraphicaleffects::levelAdjust()
@@ -772,8 +727,8 @@ void tst_qtgraphicaleffects::levelAdjust()
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
     QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
     QTRY_COMPARE(component.status(), QQmlComponent::Ready);
-    QObject *obj = component.create();
-    QVERIFY(obj != 0);
+    QScopedPointer<QObject> obj(component.create());
+    QVERIFY(!obj.isNull());
 
     // Default values
     QCOMPARE(obj->property("source").toInt(), 0);
@@ -782,8 +737,6 @@ void tst_qtgraphicaleffects::levelAdjust()
     QCOMPARE(obj->property("minimumOutput").toString(), QString("#00000000"));
     QCOMPARE(obj->property("maximumOutput").toString(), QString("#ffffff"));
     QCOMPARE(obj->property("cached").toBool(), false);
-
-    delete obj;
 }
 
 void tst_qtgraphicaleffects::maskedBlur()
@@ -800,8 +753,8 @@ void tst_qtgraphicaleffects::maskedBlur()
     component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
     QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
     QTRY_COMPARE(component.status(), QQmlComponent::Ready);
-    QObject *obj = component.create();
-    QVERIFY(obj != 0);
+    QScopedPointer<QObject> obj(component.create());
+    QVERIFY(!obj.isNull());
 
     // Default values
     QCOMPARE(obj->property("source").toInt(), 0);
@@ -810,8 +763,6 @@ void tst_qtgraphicaleffects::maskedBlur()
     QCOMPARE(obj->property("radius").toDouble(), 4.0);
     QCOMPARE(obj->property("samples").toInt(), 9);
     QCOMPARE(obj->property("cached").toBool(), false);
-
-    delete obj;
 }
 
 QTEST_MAIN(tst_qtgraphicaleffects)
