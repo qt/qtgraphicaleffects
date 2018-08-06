@@ -40,7 +40,6 @@
 #include "qgfxshaderbuilder_p.h"
 
 #include <QtCore/QDebug>
-#include <QtGui/QOffscreenSurface>
 #include <QtGui/QOpenGLContext>
 #include <QtGui/QOpenGLFunctions>
 
