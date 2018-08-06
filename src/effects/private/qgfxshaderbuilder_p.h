@@ -44,6 +44,7 @@
 #include <QtCore/QVariantMap>
 
 #include <QtQml/QJSValue>
+#include <QtGui/QOffscreenSurface>
 
 QT_BEGIN_NAMESPACE
 
@@ -59,6 +60,7 @@ public:
 private:
     int m_maxBlurSamples = 0;
     bool m_coreProfile;
+    QOffscreenSurface surface;
 };
 
 QT_END_NAMESPACE
