@@ -72,7 +72,7 @@ QGfxShaderBuilder::QGfxShaderBuilder()
         return;
     }
 
-    QOffscreenSurface surface;
+    //QOffscreenSurface surface;
     // In very odd cases, we can get incompatible configs here unless we pass the
     // GL context's format on to the offscreen format.
     surface.setFormat(context.format());
