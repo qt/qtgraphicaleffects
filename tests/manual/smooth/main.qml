@@ -48,10 +48,10 @@
 **
 ****************************************************************************/
 
-import QtQuick 2.9
-import QtQuick.Window 2.3
-import QtQuick.Layouts 1.3
-import QtGraphicalEffects 1.0
+import QtQuick 2.12
+import QtQuick.Window 2.12
+import QtQuick.Layouts 1.12
+import QtGraphicalEffects 1.12
 
 /*
     A testbench for source items (and effects) that set smooth to false.
