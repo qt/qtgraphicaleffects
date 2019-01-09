@@ -1,5 +1,5 @@
-import QtQuick 2.9
-import QtQuick.Layouts 1.3
+import QtQuick 2.12
+import QtQuick.Layouts 1.12
 
 Item {
     implicitWidth: children[0].implicitWidth * children[0].scale

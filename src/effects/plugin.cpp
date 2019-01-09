@@ -53,7 +53,11 @@ public:
     virtual void registerTypes(const char *uri)
     {
         Q_ASSERT(QLatin1String(uri) == QLatin1String("QtGraphicalEffects"));
-        Q_UNUSED(uri);
+
+        qmlRegisterModule(uri, 1, 0);
+
+        // Auto-increment the import to stay in sync with ALL future QtQuick minor versions from 5.12 onward
+        qmlRegisterModule(uri, 1, QT_VERSION_MINOR);
     }
 };
 
