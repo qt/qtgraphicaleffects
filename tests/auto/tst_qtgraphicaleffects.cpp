@@ -28,6 +28,7 @@
 
 #include <qtest.h>
 #include <QtCore/qscopedpointer.h>
+#include <QtCore/QLibraryInfo>
 #include <QtQml>
 
 class tst_qtgraphicaleffects : public QObject

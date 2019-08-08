@@ -1,0 +1,58 @@
+# Generated from private.pro.
+
+#####################################################################
+## qtgraphicaleffectsprivate Plugin:
+#####################################################################
+
+add_qml_module(qtgraphicaleffectsprivate
+    CPP_PLUGIN
+    URI "QtGraphicalEffects.private"
+    RESOURCE_PREFIX "/qt-project.org/imports"
+    SOURCES
+        plugin.cpp
+        qgfxshaderbuilder.cpp qgfxshaderbuilder_p.h
+        qgfxsourceproxy.cpp qgfxsourceproxy_p.h
+    LIBRARIES
+        Qt::CorePrivate
+        Qt::GuiPrivate
+        Qt::QmlPrivate
+        Qt::QuickPrivate
+    PUBLIC_LIBRARIES
+        Qt::Core
+        Qt::Gui
+        Qt::Qml
+        Qt::Quick
+)
+
+set(qml_files
+    DropShadowBase.qml
+    FastGlow.qml
+    FastInnerShadow.qml
+    FastMaskedBlur.qml
+    GaussianDirectionalBlur.qml
+    GaussianGlow.qml
+    GaussianInnerShadow.qml
+    GaussianMaskedBlur.qml
+)
+
+add_qt_resource(qtgraphicaleffectsprivate qmake_QtGraphicalEffects_private
+    PREFIX
+        "/qt-project.org/imports/QtGraphicalEffects/private"
+    FILES
+        ${qml_files}
+)
+
+qt_install_qml_files(qtgraphicaleffectsprivate
+    FILES ${qml_files}
+)
+
+
+#### Keys ignored in scope 1:.:.:private.pro:<TRUE>:
+# CXX_MODULE = "qml"
+# _LOADED = "qml_plugin"
+
+## Scopes:
+#####################################################################
+
+#### Keys ignored in scope 2:.:.:private.pro:NOT static:
+# CONFIG = "qmlcache"
