@@ -8,7 +8,6 @@ add_qml_module(qtgraphicaleffectsprivate
     CPP_PLUGIN
     URI "QtGraphicalEffects.private"
     VERSION "1.${CMAKE_PROJECT_VERSION_MINOR}" # special case
-    RESOURCE_PREFIX "/qt-project.org/imports"
     SOURCES
         plugin.cpp
         qgfxshaderbuilder.cpp qgfxshaderbuilder_p.h
@@ -26,19 +25,17 @@ add_qml_module(qtgraphicaleffectsprivate
 )
 
 set(qml_files
-    DropShadowBase.qml
-    FastGlow.qml
-    FastInnerShadow.qml
-    FastMaskedBlur.qml
-    GaussianDirectionalBlur.qml
-    GaussianGlow.qml
-    GaussianInnerShadow.qml
-    GaussianMaskedBlur.qml
+    "DropShadowBase.qml"
+    "FastGlow.qml"
+    "FastInnerShadow.qml"
+    "FastMaskedBlur.qml"
+    "GaussianDirectionalBlur.qml"
+    "GaussianGlow.qml"
+    "GaussianInnerShadow.qml"
+    "GaussianMaskedBlur.qml"
 )
 
 add_qt_resource(qtgraphicaleffectsprivate qmake_QtGraphicalEffects_private
-    PREFIX
-        "/qt-project.org/imports/QtGraphicalEffects/private"
     FILES
         ${qml_files}
 )
@@ -54,6 +51,3 @@ qt_install_qml_files(qtgraphicaleffectsprivate
 
 ## Scopes:
 #####################################################################
-
-#### Keys ignored in scope 2:.:.:private.pro:NOT static:
-# CONFIG = "qmlcache"
