@@ -5,9 +5,13 @@
 #####################################################################
 
 add_qml_module(qtgraphicaleffectsplugin
-    CPP_PLUGIN
     URI "QtGraphicalEffects"
     VERSION "1.${CMAKE_PROJECT_VERSION_MINOR}"
+    DESIGNER_SUPPORTED
+    CLASSNAME QtGraphicalEffectsPlugin
+    DEPENDENCIES
+        QtGraphicalEffects/private/1.0
+        QtQuick.Window/2.1
     SOURCES
         plugin.cpp
     PUBLIC_LIBRARIES
@@ -89,6 +93,13 @@ add_qt_resource(qtgraphicaleffectsplugin "qtgraphicaleffectsshaders"
 )
 
 
+#### Keys ignored in scope 2:.:.:effects_plugin.pro:<TRUE>:
+# CXX_MODULE = "qml"
+# IMPORT_VERSION = "1.$$QT_MINOR_VERSION"
+# QML_FILES = "Blend.qml" "BrightnessContrast.qml" "ColorOverlay.qml" "Colorize.qml" "ConicalGradient.qml" "Desaturate.qml" "DirectionalBlur.qml" "Displace.qml" "DropShadow.qml" "FastBlur.qml" "GammaAdjust.qml" "GaussianBlur.qml" "Glow.qml" "HueSaturation.qml" "InnerShadow.qml" "LevelAdjust.qml" "LinearGradient.qml" "MaskedBlur.qml" "OpacityMask.qml" "RadialBlur.qml" "RadialGradient.qml" "RectangularGlow.qml" "RecursiveBlur.qml" "ThresholdMask.qml" "ZoomBlur.qml"
+# TARGETPATH = "QtGraphicalEffects"
+# _LOADED = "qml_plugin"
+
 set(qml_files
     "Blend.qml"
     "BrightnessContrast.qml"
@@ -116,22 +127,112 @@ set(qml_files
     "ThresholdMask.qml"
     "ZoomBlur.qml"
 )
+set_source_files_properties(Blend.qml PROPERTIES
+    QT_QML_SOURCE_VERSION "1.0"
+    QT_QML_SOURCE_INSTALL TRUE
+)
+set_source_files_properties(BrightnessContrast.qml PROPERTIES
+    QT_QML_SOURCE_VERSION "1.0"
+    QT_QML_SOURCE_INSTALL TRUE
+)
+set_source_files_properties(ColorOverlay.qml PROPERTIES
+    QT_QML_SOURCE_VERSION "1.0"
+    QT_QML_SOURCE_INSTALL TRUE
+)
+set_source_files_properties(Colorize.qml PROPERTIES
+    QT_QML_SOURCE_VERSION "1.0"
+    QT_QML_SOURCE_INSTALL TRUE
+)
+set_source_files_properties(ConicalGradient.qml PROPERTIES
+    QT_QML_SOURCE_VERSION "1.0"
+    QT_QML_SOURCE_INSTALL TRUE
+)
+set_source_files_properties(Desaturate.qml PROPERTIES
+    QT_QML_SOURCE_VERSION "1.0"
+    QT_QML_SOURCE_INSTALL TRUE
+)
+set_source_files_properties(DirectionalBlur.qml PROPERTIES
+    QT_QML_SOURCE_VERSION "1.0"
+    QT_QML_SOURCE_INSTALL TRUE
+)
+set_source_files_properties(Displace.qml PROPERTIES
+    QT_QML_SOURCE_VERSION "1.0"
+    QT_QML_SOURCE_INSTALL TRUE
+)
+set_source_files_properties(DropShadow.qml PROPERTIES
+    QT_QML_SOURCE_VERSION "1.0"
+    QT_QML_SOURCE_INSTALL TRUE
+)
+set_source_files_properties(FastBlur.qml PROPERTIES
+    QT_QML_SOURCE_VERSION "1.0"
+    QT_QML_SOURCE_INSTALL TRUE
+)
+set_source_files_properties(GammaAdjust.qml PROPERTIES
+    QT_QML_SOURCE_VERSION "1.0"
+    QT_QML_SOURCE_INSTALL TRUE
+)
+set_source_files_properties(GaussianBlur.qml PROPERTIES
+    QT_QML_SOURCE_VERSION "1.0"
+    QT_QML_SOURCE_INSTALL TRUE
+)
+set_source_files_properties(Glow.qml PROPERTIES
+    QT_QML_SOURCE_VERSION "1.0"
+    QT_QML_SOURCE_INSTALL TRUE
+)
+set_source_files_properties(HueSaturation.qml PROPERTIES
+    QT_QML_SOURCE_VERSION "1.0"
+    QT_QML_SOURCE_INSTALL TRUE
+)
+set_source_files_properties(InnerShadow.qml PROPERTIES
+    QT_QML_SOURCE_VERSION "1.0"
+    QT_QML_SOURCE_INSTALL TRUE
+)
+set_source_files_properties(LevelAdjust.qml PROPERTIES
+    QT_QML_SOURCE_VERSION "1.0"
+    QT_QML_SOURCE_INSTALL TRUE
+)
+set_source_files_properties(LinearGradient.qml PROPERTIES
+    QT_QML_SOURCE_VERSION "1.0"
+    QT_QML_SOURCE_INSTALL TRUE
+)
+set_source_files_properties(MaskedBlur.qml PROPERTIES
+    QT_QML_SOURCE_VERSION "1.0"
+    QT_QML_SOURCE_INSTALL TRUE
+)
+set_source_files_properties(OpacityMask.qml PROPERTIES
+    QT_QML_SOURCE_VERSION "1.0"
+    QT_QML_SOURCE_INSTALL TRUE
+)
+set_source_files_properties(RadialBlur.qml PROPERTIES
+    QT_QML_SOURCE_VERSION "1.0"
+    QT_QML_SOURCE_INSTALL TRUE
+)
+set_source_files_properties(RadialGradient.qml PROPERTIES
+    QT_QML_SOURCE_VERSION "1.0"
+    QT_QML_SOURCE_INSTALL TRUE
+)
+set_source_files_properties(RectangularGlow.qml PROPERTIES
+    QT_QML_SOURCE_VERSION "1.0"
+    QT_QML_SOURCE_INSTALL TRUE
+)
+set_source_files_properties(RecursiveBlur.qml PROPERTIES
+    QT_QML_SOURCE_VERSION "1.0"
+    QT_QML_SOURCE_INSTALL TRUE
+)
+set_source_files_properties(ThresholdMask.qml PROPERTIES
+    QT_QML_SOURCE_VERSION "1.0"
+    QT_QML_SOURCE_INSTALL TRUE
+)
+set_source_files_properties(ZoomBlur.qml PROPERTIES
+    QT_QML_SOURCE_VERSION "1.0"
+    QT_QML_SOURCE_INSTALL TRUE
+)
 
-add_qt_resource(qtgraphicaleffectsplugin qmake_QtGraphicalEffects
+qt6_target_qml_files(qtgraphicaleffectsplugin
     FILES
         ${qml_files}
 )
-
-qt_install_qml_files(qtgraphicaleffectsplugin
-    FILES ${qml_files}
-)
-
-
-#### Keys ignored in scope 2:.:.:effects_plugin.pro:<TRUE>:
-# CXX_MODULE = "qml"
-# IMPORT_VERSION = "1.$$QT_MINOR_VERSION"
-# _LOADED = "qml_plugin"
-add_qt_docs(
+add_qt_docs(qtgraphicaleffectsplugin
     doc/qtgraphicaleffects.qdocconf
 )
 
