@@ -56,8 +56,9 @@ public:
 
         qmlRegisterModule(uri, 1, 0);
 
-        // Auto-increment the import to stay in sync with ALL future QtQuick minor versions from 5.12 onward
-        qmlRegisterModule(uri, 1, QT_VERSION_MINOR);
+        // The minor version used to be the current Qt 5 minor. For compatibility it is the last
+        // Qt 5 release.
+        qmlRegisterModule(uri, 1, 15);
     }
 };
 
