@@ -16,19 +16,22 @@ add_qt_executable(smooth
 )
 
 # Resources:
+set(resources_resource_files
+    "CellContainer.qml"
+    "SourceImage.qml"
+    "main.qml"
+    "star.png"
+)
+
 add_qt_resource(smooth "resources"
     PREFIX
         "/"
     FILES
-        CellContainer.qml
-        SourceImage.qml
-        main.qml
-        star.png
+        ${resources_resource_files}
 )
 
 
 #### Keys ignored in scope 1:.:.:smooth.pro:<TRUE>:
-# CONFIG = "c++11"
 # QML_DESIGNER_IMPORT_PATH = <EMPTY>
 # QML_IMPORT_PATH = <EMPTY>
 
