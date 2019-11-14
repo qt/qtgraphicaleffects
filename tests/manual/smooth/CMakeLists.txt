@@ -4,7 +4,7 @@
 ## smooth Binary:
 #####################################################################
 
-add_qt_executable(smooth
+qt_add_manual_test(smooth
     GUI
     SOURCES
         main.cpp
@@ -23,7 +23,7 @@ set(resources_resource_files
     "star.png"
 )
 
-add_qt_resource(smooth "resources"
+qt_add_resource(smooth "resources"
     PREFIX
         "/"
     FILES

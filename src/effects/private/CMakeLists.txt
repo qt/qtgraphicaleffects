@@ -4,7 +4,7 @@
 ## qtgraphicaleffectsprivate Plugin:
 #####################################################################
 
-add_qml_module(qtgraphicaleffectsprivate
+qt_add_qml_module(qtgraphicaleffectsprivate
     URI "QtGraphicalEffects.private"
     CLASSNAME QtGraphicalEffectsPrivatePlugin
     VERSION "1.${CMAKE_PROJECT_VERSION_MINOR}" # special case
@@ -28,7 +28,6 @@ add_qml_module(qtgraphicaleffectsprivate
 # CXX_MODULE = "qml"
 # QML_FILES = "DropShadowBase.qml" "FastGlow.qml" "FastInnerShadow.qml" "FastMaskedBlur.qml" "GaussianDirectionalBlur.qml" "GaussianGlow.qml" "GaussianInnerShadow.qml" "GaussianMaskedBlur.qml"
 # TARGETPATH = "QtGraphicalEffects/private"
-# _LOADED = "qml_plugin"
 
 ## Scopes:
 #####################################################################

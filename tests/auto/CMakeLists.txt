@@ -4,7 +4,7 @@
 ## tst_qtgraphicaleffects Test:
 #####################################################################
 
-add_qt_test(tst_qtgraphicaleffects
+qt_add_test(tst_qtgraphicaleffects
     SOURCES
         tst_qtgraphicaleffects.cpp
     PUBLIC_LIBRARIES
