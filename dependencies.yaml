@@ -1,4 +1,4 @@
 dependencies:
   ../qtdeclarative:
-    ref: 1486a013dd91222f040dcff3ec3b9cd90c261fd0
+    ref: 925a0e499a5dbdb180fd9969a79abf96006ce4fd
     required: true
