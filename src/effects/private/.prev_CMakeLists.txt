@@ -6,26 +6,27 @@
 
 qt_add_qml_module(qtgraphicaleffectsprivate
     URI "QtGraphicalEffects.private"
+    VERSION "${CMAKE_PROJECT_VERSION}"
     CLASSNAME QtGraphicalEffectsPrivatePlugin
     SOURCES
         plugin.cpp
         qgfxshaderbuilder.cpp qgfxshaderbuilder_p.h
         qgfxsourceproxy.cpp qgfxsourceproxy_p.h
-    LIBRARIES
-        Qt::CorePrivate
-        Qt::GuiPrivate
-        Qt::QmlPrivate
-        Qt::QuickPrivate
     PUBLIC_LIBRARIES
         Qt::Core
+        Qt::CorePrivate
         Qt::Gui
+        Qt::GuiPrivate
         Qt::Qml
+        Qt::QmlPrivate
         Qt::Quick
+        Qt::QuickPrivate
 )
 
 #### Keys ignored in scope 1:.:.:private.pro:<TRUE>:
 # CXX_MODULE = "qml"
 # QML_FILES = "DropShadowBase.qml" "FastGlow.qml" "FastInnerShadow.qml" "FastMaskedBlur.qml" "GaussianDirectionalBlur.qml" "GaussianGlow.qml" "GaussianInnerShadow.qml" "GaussianMaskedBlur.qml"
+# QML_IMPORT_VERSION = "$$QT_VERSION"
 # TARGETPATH = "QtGraphicalEffects/private"
 
 ## Scopes:

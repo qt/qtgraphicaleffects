@@ -1,6 +1,7 @@
 CXX_MODULE=qml
 TARGETPATH=QtGraphicalEffects/private
 TARGET = qtgraphicaleffectsprivate
+QML_IMPORT_VERSION = $$QT_VERSION
 
 QT += quick qml
 # Needed to get a hold of QQuickShaderEffectSource, QQuickImage and QQuickItemPrivate
