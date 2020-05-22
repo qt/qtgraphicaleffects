@@ -52,7 +52,7 @@ class QtGraphicalEffectsPrivatePlugin : public QQmlExtensionPlugin
 
 public:
     QtGraphicalEffectsPrivatePlugin(QObject *parent = 0) : QQmlExtensionPlugin(parent) { }
-    virtual void registerTypes(const char *uri)
+    void registerTypes(const char *uri) override
     {
         Q_ASSERT(QByteArray(uri) == QByteArrayLiteral("QtGraphicalEffects.private"));
         qmlRegisterType<QGfxSourceProxy>(uri, 1, 0, "SourceProxy");

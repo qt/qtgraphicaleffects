@@ -50,7 +50,7 @@ class QtGraphicalEffectsPlugin : public QQmlExtensionPlugin
 
 public:
     QtGraphicalEffectsPlugin(QObject *parent = 0) : QQmlExtensionPlugin(parent) { }
-    virtual void registerTypes(const char *uri)
+    void registerTypes(const char *uri) override
     {
         Q_ASSERT(QLatin1String(uri) == QLatin1String("QtGraphicalEffects"));
 
