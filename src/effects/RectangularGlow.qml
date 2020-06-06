@@ -61,8 +61,6 @@ import QtGraphicalEffects.private 1.12
         \li \image RectangularGlow_applied.png
     \endtable
 
-    \note This effect is available when running with OpenGL.
-
     \section1 Example
 
     The following example shows how to apply the effect.
@@ -264,6 +262,6 @@ Item {
         property real spread: rootItem.spread / 2.0
         property real cornerRadius: clampedCornerRadius()
 
-        fragmentShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders/rectangularglow.frag"
+        fragmentShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders_ng/rectangularglow.frag.qsb"
     }
 }

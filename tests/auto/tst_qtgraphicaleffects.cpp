@@ -38,31 +38,23 @@ class tst_qtgraphicaleffects : public QObject
 private slots:
     void initTestCase();
 
-    void blend();
     void brightnessContrast();
     void colorize();
     void colorOverlay();
     void conicalGradient();
     void desaturate();
-    void directionalBlur();
     void displace();
     void dropShadow();
     void fastBlur();
     void gammaAdjust();
-    void gaussianBlur();
     void glow();
     void hueSaturation();
-    void innerShadow();
     void levelAdjust();
     void linearGradient();
-    void maskedBlur();
     void opacityMask();
-    void radialBlur();
     void radialGradient();
-    void recursiveBlur();
     void rectangularGlow();
     void thresholdMask();
-    void zoomBlur();
 
 private:
     QString componentErrors(const QQmlComponent*) const;
@@ -389,34 +381,6 @@ void tst_qtgraphicaleffects::colorOverlay()
     QCOMPARE(obj->property("color").toString(), QString("#00000000"));
 }
 
-void tst_qtgraphicaleffects::gaussianBlur()
-{
-    // Creation
-    QString componentStr = "import QtQuick 2.0\n"
-            + importSelf +
-            "GaussianBlur {"
-            "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
-            "width: 50; height: 50\n"
-            "}";
-    QQmlComponent component(&engine);
-    component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
-    QTRY_COMPARE(component.status(), QQmlComponent::Ready);
-    QScopedPointer<QObject> obj(component.create());
-    QVERIFY(!obj.isNull());
-
-    // Default values
-    QCOMPARE(obj->property("radius").type(), QVariant::Double);
-    QCOMPARE(obj->property("radius").toDouble(), 4.0);
-    QCOMPARE(obj->property("samples").toInt(), 9);
-    QCOMPARE(obj->property("transparentBorder").toBool(), false);
-
-    double res = obj->property("deviation").toDouble();
-    QVERIFY(res > 0.0);
-
-    QCOMPARE(obj->property("cached").toBool(), false);
-}
-
 void tst_qtgraphicaleffects::dropShadow()
 {
     // Creation
@@ -435,40 +399,7 @@ void tst_qtgraphicaleffects::dropShadow()
 
     // Default values
     QCOMPARE(obj->property("radius").type(), QVariant::Double);
-    QCOMPARE(obj->property("radius").toDouble(), 4.0);
-    QCOMPARE(obj->property("samples").toInt(), 9);
-    QCOMPARE(obj->property("horizontalOffset").type(), QVariant::Double);
-    QCOMPARE(obj->property("horizontalOffset").toDouble(), 0.0);
-    QCOMPARE(obj->property("verticalOffset").type(), QVariant::Double);
-    QCOMPARE(obj->property("verticalOffset").toDouble(), 0.0);
-    QCOMPARE(obj->property("cached").toBool(), false);
-    QCOMPARE(obj->property("source").toInt(), 0);
-    QCOMPARE(obj->property("color").toString(), QString("#000000"));
-    QCOMPARE(obj->property("spread").type(), QVariant::Double);
-    QCOMPARE(obj->property("spread").toDouble(), 0.0);
-    QCOMPARE(obj->property("transparentBorder").toBool(), true);
-}
-
-void tst_qtgraphicaleffects::innerShadow()
-{
-    // Creation
-    QString componentStr = "import QtQuick 2.0\n"
-            + importSelf +
-            "InnerShadow {"
-            "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
-            "width: 50; height: 50\n"
-            "}";
-    QQmlComponent component(&engine);
-    component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
-    QTRY_COMPARE(component.status(), QQmlComponent::Ready);
-    QScopedPointer<QObject> obj(component.create());
-    QVERIFY(!obj.isNull());
-
-    // Default values
-    QCOMPARE(obj->property("radius").type(), QVariant::Double);
     QCOMPARE(obj->property("radius").toDouble(), 0.0);
-    QCOMPARE(obj->property("samples").toInt(), 0);
     QCOMPARE(obj->property("horizontalOffset").type(), QVariant::Double);
     QCOMPARE(obj->property("horizontalOffset").toDouble(), 0.0);
     QCOMPARE(obj->property("verticalOffset").type(), QVariant::Double);
@@ -478,7 +409,7 @@ void tst_qtgraphicaleffects::innerShadow()
     QCOMPARE(obj->property("color").toString(), QString("#000000"));
     QCOMPARE(obj->property("spread").type(), QVariant::Double);
     QCOMPARE(obj->property("spread").toDouble(), 0.0);
-    QCOMPARE(obj->property("fast").toBool(), false);
+    QCOMPARE(obj->property("transparentBorder").toBool(), false);
 }
 
 void tst_qtgraphicaleffects::gammaAdjust()
@@ -549,37 +480,12 @@ void tst_qtgraphicaleffects::glow()
 
     // Default values
     QCOMPARE(obj->property("radius").type(), QVariant::Double);
-    QCOMPARE(obj->property("radius").toDouble(), 4.0);
-    QCOMPARE(obj->property("samples").toInt(), 9);
+    QCOMPARE(obj->property("radius").toDouble(), 0);
     QCOMPARE(obj->property("cached").toBool(), false);
     QCOMPARE(obj->property("spread").type(), QVariant::Double);
-    QCOMPARE(obj->property("spread").toDouble(), 0.5);
+    QCOMPARE(obj->property("spread").toDouble(), 0);
     QCOMPARE(obj->property("color").toString(), QString("#ffffff"));
-    QCOMPARE(obj->property("transparentBorder").toBool(), true);
-}
-
-void tst_qtgraphicaleffects::blend()
-{
-    // Creation
-    QString componentStr = "import QtQuick 2.0\n"
-            + importSelf +
-            "Blend {"
-            "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
-            "foregroundSource: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
-            "width: 50; height: 50\n"
-            "}";
-    QQmlComponent component(&engine);
-    component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
-    QTRY_COMPARE(component.status(), QQmlComponent::Ready);
-    QScopedPointer<QObject> obj(component.create());
-    QVERIFY(!obj.isNull());
-
-    // Default values
-    QCOMPARE(obj->property("source").toInt(), 0);
-    QCOMPARE(obj->property("foregroundSource").toInt(), 0);
-    QCOMPARE(obj->property("cached").toBool(), false);
-    QCOMPARE(obj->property("mode").toString(), QString("normal"));
+    QCOMPARE(obj->property("transparentBorder").toBool(), false);
 }
 
 void tst_qtgraphicaleffects::displace()
@@ -607,119 +513,6 @@ void tst_qtgraphicaleffects::displace()
     QCOMPARE(obj->property("displacement").toDouble(), 0.0);
 }
 
-void tst_qtgraphicaleffects::recursiveBlur()
-{
-    // Creation
-    QString componentStr = "import QtQuick 2.0\n"
-            + importSelf +
-            "RecursiveBlur {"
-            "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
-            "width: 50; height: 50\n"
-            "}";
-    QQmlComponent component(&engine);
-    component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
-    QTRY_COMPARE(component.status(), QQmlComponent::Ready);
-    QScopedPointer<QObject> obj(component.create());
-    QVERIFY(!obj.isNull());
-
-    // Default values
-    QCOMPARE(obj->property("source").toInt(), 0);
-    QCOMPARE(obj->property("loops").toInt(), 0);
-    QCOMPARE(obj->property("radius").type(), QVariant::Double);
-    QCOMPARE(obj->property("radius").toDouble(), 0.0);
-    QCOMPARE(obj->property("progress").type(), QVariant::Double);
-    QCOMPARE(obj->property("progress").toDouble(), 0.0);
-    QCOMPARE(obj->property("transparentBorder").toBool(), false);
-    QCOMPARE(obj->property("cached").toBool(), false);
-}
-
-void tst_qtgraphicaleffects::directionalBlur()
-{
-    // Creation
-    QString componentStr = "import QtQuick 2.0\n"
-            + importSelf +
-            "DirectionalBlur {"
-            "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
-            "width: 50; height: 50\n"
-            "}";
-    QQmlComponent component(&engine);
-    component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
-    QTRY_COMPARE(component.status(), QQmlComponent::Ready);
-    QScopedPointer<QObject> obj(component.create());
-    QVERIFY(!obj.isNull());
-
-    // Default values
-    QCOMPARE(obj->property("source").toInt(), 0);
-    QCOMPARE(obj->property("length").toInt(), 0);
-    QCOMPARE(obj->property("samples").type(), QVariant::Int);
-    QCOMPARE(obj->property("samples").toInt(), 0);
-    QCOMPARE(obj->property("angle").type(), QVariant::Double);
-    QCOMPARE(obj->property("angle").toDouble(), 0.0);
-    QCOMPARE(obj->property("transparentBorder").toBool(), false);
-    QCOMPARE(obj->property("cached").toBool(), false);
-}
-
-void tst_qtgraphicaleffects::radialBlur()
-{
-    // Creation
-    QString componentStr = "import QtQuick 2.0\n"
-            + importSelf +
-            "RadialBlur {"
-            "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
-            "width: 50; height: 50\n"
-            "}";
-    QQmlComponent component(&engine);
-    component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
-    QTRY_COMPARE(component.status(), QQmlComponent::Ready);
-    QScopedPointer<QObject> obj(component.create());
-    QVERIFY(!obj.isNull());
-
-    // Default values
-    QCOMPARE(obj->property("source").toInt(), 0);
-    QCOMPARE(obj->property("samples").type(), QVariant::Int);
-    QCOMPARE(obj->property("samples").toInt(), 0);
-    QCOMPARE(obj->property("angle").type(), QVariant::Double);
-    QCOMPARE(obj->property("angle").toDouble(), 0.0);
-    QCOMPARE(obj->property("transparentBorder").toBool(), false);
-    QCOMPARE(obj->property("cached").toBool(), false);
-    QCOMPARE(obj->property("horizontalOffset").type(), QVariant::Double);
-    QCOMPARE(obj->property("horizontalOffset").toDouble(), 0.0);
-    QCOMPARE(obj->property("verticalOffset").type(), QVariant::Double);
-    QCOMPARE(obj->property("verticalOffset").toDouble(), 0.0);
-}
-
-void tst_qtgraphicaleffects::zoomBlur()
-{
-    // Creation
-    QString componentStr = "import QtQuick 2.0\n"
-            + importSelf +
-            "ZoomBlur {"
-            "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
-            "width: 50; height: 50\n"
-            "}";
-    QQmlComponent component(&engine);
-    component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
-    QTRY_COMPARE(component.status(), QQmlComponent::Ready);
-    QScopedPointer<QObject> obj(component.create());
-    QVERIFY(!obj.isNull());
-
-    // Default values
-    QCOMPARE(obj->property("source").toInt(), 0);
-    QCOMPARE(obj->property("length").toInt(), 0);
-    QCOMPARE(obj->property("samples").type(), QVariant::Int);
-    QCOMPARE(obj->property("samples").toInt(), 0);
-    QCOMPARE(obj->property("transparentBorder").toBool(), false);
-    QCOMPARE(obj->property("cached").toBool(), false);
-    QCOMPARE(obj->property("horizontalOffset").type(), QVariant::Double);
-    QCOMPARE(obj->property("horizontalOffset").toDouble(), 0.0);
-    QCOMPARE(obj->property("verticalOffset").type(), QVariant::Double);
-    QCOMPARE(obj->property("verticalOffset").toDouble(), 0.0);
-}
-
 void tst_qtgraphicaleffects::levelAdjust()
 {
     // Creation
@@ -741,32 +534,6 @@ void tst_qtgraphicaleffects::levelAdjust()
     QCOMPARE(obj->property("maximumInput").toString(), QString("#ffffff"));
     QCOMPARE(obj->property("minimumOutput").toString(), QString("#00000000"));
     QCOMPARE(obj->property("maximumOutput").toString(), QString("#ffffff"));
-    QCOMPARE(obj->property("cached").toBool(), false);
-}
-
-void tst_qtgraphicaleffects::maskedBlur()
-{
-    // Creation
-    QString componentStr = "import QtQuick 2.0\n"
-            + importSelf +
-            "MaskedBlur {"
-            "source: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
-            "maskSource: ShaderEffectSource {sourceItem: Rectangle {width: 100; height: 100}}"
-            "width: 50; height: 50\n"
-            "}";
-    QQmlComponent component(&engine);
-    component.setData(componentStr.toLatin1(), QUrl::fromLocalFile(""));
-    QVERIFY2(component.status() != QQmlComponent::Error, qPrintable(componentErrors(&component)));
-    QTRY_COMPARE(component.status(), QQmlComponent::Ready);
-    QScopedPointer<QObject> obj(component.create());
-    QVERIFY(!obj.isNull());
-
-    // Default values
-    QCOMPARE(obj->property("source").toInt(), 0);
-    QCOMPARE(obj->property("maskSource").toInt(), 0);
-    QCOMPARE(obj->property("radius").type(), QVariant::Double);
-    QCOMPARE(obj->property("radius").toDouble(), 4.0);
-    QCOMPARE(obj->property("samples").toInt(), 9);
     QCOMPARE(obj->property("cached").toBool(), false);
 }
 

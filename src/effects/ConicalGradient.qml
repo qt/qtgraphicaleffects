@@ -59,8 +59,6 @@ import QtGraphicalEffects.private 1.12
         \li \image ConicalGradient.png
     \endtable
 
-    \note This effect is available when running with OpenGL.
-
     \section1 Example
 
     The following example shows how to apply the effect.
@@ -327,7 +325,7 @@ Gradient {
 
         onFragmentShaderChanged: startAngleChanged()
 
-        property string noMaskShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders/conicalgradient_nomask.frag"
-        property string maskShader:   "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders/conicalgradient_mask.frag"
+        property string noMaskShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders_ng/conicalgradient_nomask.frag.qsb"
+        property string maskShader:   "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders_ng/conicalgradient_mask.frag.qsb"
     }
 }

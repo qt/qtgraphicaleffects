@@ -48,13 +48,8 @@ import QtGraphicalEffects.private 1.12
     \ingroup qtgraphicaleffects-blur
     \brief Applies a fast blur effect to one or more source items.
 
-    FastBlur offers lower blur quality than
-    \l{QtGraphicalEffects::GaussianBlur}{GaussianBlur}, but it is faster to
-    render. The FastBlur effect softens the source content by blurring it with
-    algorithm which uses the source content downscaling and bilinear filtering.
-    Use this effect in situations where the source content is rapidly changing
-    and the highest possible blur quality is not
-    needed.
+    The FastBlur effect softens the source content by blurring it with algorithm
+    which uses the source content downscaling and bilinear filtering.
 
     \table
     \header
@@ -65,8 +60,6 @@ import QtGraphicalEffects.private 1.12
         \li \image FastBlur_bug.png
     \endtable
 
-    \note This effect is available when running with OpenGL.
-    s
     \section1 Example
 
     The following example shows how to apply the effect.
@@ -177,10 +170,10 @@ Item {
     }
 
     /*! \internal */
-    property string __internalBlurVertexShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders/fastblur_internal.vert"
+    property string __internalBlurVertexShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders_ng/fastblur_internal.vert.qsb"
 
     /*! \internal */
-    property string __internalBlurFragmentShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders/fastblur_internal.frag"
+    property string __internalBlurFragmentShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders_ng/fastblur_internal.frag.qsb"
 
     ShaderEffect {
         id: level0
@@ -437,6 +430,6 @@ Item {
 
         onLodChanged: calculateWeights()
 
-        fragmentShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders/fastblur.frag"
+        fragmentShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders_ng/fastblur.frag.qsb"
     }
 }

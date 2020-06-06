@@ -52,7 +52,7 @@ Item {
         color: root.color
     }
 
-    ShaderEffect {
+    Item { // ShaderEffect converted to an Item for now to keep it simple
         id: map
         anchors.left: parent.left
         anchors.leftMargin: 10
@@ -62,54 +62,6 @@ Item {
         height: width
         opacity: 0.01
         property real hue: root.hue
-
-        fragmentShader: "
-        varying mediump vec2 qt_TexCoord0;
-        uniform highp float qt_Opacity;
-        uniform highp float hue;
-
-        highp float hueToIntensity(highp float v1, highp float v2, highp float h) {
-            h = fract(h);
-            if (h < 1.0 / 6.0)
-                return v1 + (v2 - v1) * 6.0 * h;
-            else if (h < 1.0 / 2.0)
-                return v2;
-            else if (h < 2.0 / 3.0)
-                return v1 + (v2 - v1) * 6.0 * (2.0 / 3.0 - h);
-
-            return v1;
-        }
-
-        highp vec3 HSLtoRGB(highp vec3 color) {
-            highp float h = color.x;
-            highp float l = color.z;
-            highp float s = color.y;
-
-            if (s < 1.0 / 256.0)
-                return vec3(l, l, l);
-
-            highp float v1;
-            highp float v2;
-            if (l < 0.5)
-                v2 = l * (1.0 + s);
-            else
-                v2 = (l + s) - (s * l);
-
-            v1 = 2.0 * l - v2;
-
-            highp float d = 1.0 / 3.0;
-            highp float r = hueToIntensity(v1, v2, h + d);
-            highp float g = hueToIntensity(v1, v2, h);
-            highp float b = hueToIntensity(v1, v2, h - d);
-            return vec3(r, g, b);
-        }
-
-        void main() {
-            lowp vec4 c = vec4(1.0);
-            c.rgb = HSLtoRGB(vec3(hue, 1.0 - qt_TexCoord0.t, qt_TexCoord0.s));
-            gl_FragColor = c * qt_Opacity;
-        }
-        "
 
         MouseArea {
             id: mapMouseArea

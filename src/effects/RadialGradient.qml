@@ -58,8 +58,6 @@ import QtGraphicalEffects.private 1.12
         \li \image RadialGradient.png
     \endtable
 
-    \note This effect is available when running with OpenGL.
-
     \section1 Example
 
     The following example shows how to apply the effect.
@@ -398,13 +396,13 @@ Item {
 
         anchors.fill: parent
 
-        vertexShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders/radialgradient.vert"
+        vertexShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders_ng/radialgradient.vert.qsb"
 
         fragmentShader: maskSource == undefined ? noMaskShader : maskShader
 
         onFragmentShaderChanged: horizontalRatioChanged()
 
-        property string maskShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders/radialgradient_mask.frag"
-        property string noMaskShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders/radialgradient_nomask.frag"
+        property string maskShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders_ng/radialgradient_mask.frag.qsb"
+        property string noMaskShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders_ng/radialgradient_nomask.frag.qsb"
     }
 }

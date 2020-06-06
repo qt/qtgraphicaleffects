@@ -42,14 +42,8 @@
 #include <QtQml/qqmlengine.h>
 
 #include "qgfxsourceproxy_p.h"
-#include "qgfxshaderbuilder_p.h"
 
 QT_BEGIN_NAMESPACE
-
-static QObject *qgfxshaderbuilder_provider(QQmlEngine *, QJSEngine *)
-{
-    return new QGfxShaderBuilder();
-}
 
 class QtGraphicalEffectsPrivatePlugin : public QQmlExtensionPlugin
 {
@@ -62,7 +56,6 @@ public:
     {
         Q_ASSERT(QByteArray(uri) == QByteArrayLiteral("QtGraphicalEffects.private"));
         qmlRegisterType<QGfxSourceProxy>(uri, 1, 0, "SourceProxy");
-        qmlRegisterSingletonType<QGfxShaderBuilder>(uri, 1, 0, "ShaderBuilder", qgfxshaderbuilder_provider);
 
         // The minor version used to be the current Qt 5 minor. For compatibility it is the last
         // Qt 5 release.

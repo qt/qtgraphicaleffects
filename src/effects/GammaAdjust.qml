@@ -62,8 +62,6 @@ import QtGraphicalEffects.private 1.12
         \li \image GammaAdjust_bug.png
     \endtable
 
-    \note This effect is available when running with OpenGL.
-
     \section1 Example
 
     The following example shows how to apply the effect.
@@ -179,6 +177,6 @@ luminance = pow(original_luminance, 1.0 / gamma); // The luminance is assumed to
 
         anchors.fill: parent
 
-        fragmentShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders/gammaadjust.frag"
+        fragmentShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders_ng/gammaadjust.frag.qsb"
     }
 }

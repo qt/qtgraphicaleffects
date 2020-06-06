@@ -58,8 +58,6 @@ import QtGraphicalEffects.private 1.12
         \li \image LinearGradient.png
     \endtable
 
-    \note This effect is available when running with OpenGL.
-
     \section1 Example
 
     The following example shows how to apply the effect.
@@ -311,13 +309,13 @@ Item {
         property real angle: Math.atan2(dx, dy)
         property variant matrixData: Qt.point(Math.sin(angle), Math.cos(angle))
 
-        vertexShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders/lineargradient.vert"
+        vertexShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders_ng/lineargradient.vert.qsb"
 
         fragmentShader: maskSource == undefined ? noMaskShader : maskShader
 
         onFragmentShaderChanged: lChanged()
 
-        property string maskShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders/lineargradient_mask.frag"
-        property string noMaskShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders/lineargradient_nomask.frag"
+        property string maskShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders_ng/lineargradient_mask.frag.qsb"
+        property string noMaskShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders_ng/lineargradient_nomask.frag.qsb"
     }
 }

@@ -30,21 +30,13 @@ import QtQuick 2.12
 
 ListModel {
     id: testcaseModel
-    ListElement { name: "TestBlend.qml"; group: "Blend"; last: true }
     ListElement { name: "TestDisplace.qml"; group: "Distortion"; last: true }
     ListElement { name: "TestOpacityMask.qml"; group: "Mask" }
     ListElement { name: "TestThresholdMask.qml"; group: "Mask"; last: true }
     ListElement { name: "TestGlow.qml"; group: "Glow" }
     ListElement { name: "TestRectangularGlow.qml"; group: "Glow"; last: true }
     ListElement { name: "TestFastBlur.qml"; group: "Blur" }
-    ListElement { name: "TestGaussianBlur.qml"; group: "Blur" }
-    ListElement { name: "TestMaskedBlur.qml"; group: "Blur" }
-    ListElement { name: "TestRecursiveBlur.qml"; group: "Blur"; last: true }
-    ListElement { name: "TestDirectionalBlur.qml"; group: "Motion Blur";  }
-    ListElement { name: "TestRadialBlur.qml"; group: "Motion Blur";  }
-    ListElement { name: "TestZoomBlur.qml"; group: "Motion Blur"; last: true }
     ListElement { name: "TestDropShadow.qml"; group: "Drop Shadow" }
-    ListElement { name: "TestInnerShadow.qml"; group: "Drop Shadow"; last: true }
     ListElement { name: "TestLinearGradient.qml"; group: "Gradient" }
     ListElement { name: "TestConicalGradient.qml"; group: "Gradient" }
     ListElement { name: "TestRadialGradient.qml"; group: "Gradient"; last: true }

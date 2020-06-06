@@ -60,8 +60,6 @@ import QtGraphicalEffects.private 1.12
         \li \image LevelAdjust_butterfly.png
     \endtable
 
-    \note This effect is available when running with OpenGL.
-
     \section1 Example
 
     The following example shows how to apply the effect.
@@ -435,6 +433,6 @@ Item {
         property variant gamma: Qt.vector3d(1.0 / Math.max(rootItem.gamma.x, 0.0001), 1.0 / Math.max(rootItem.gamma.y, 0.0001), 1.0 / Math.max(rootItem.gamma.z, 0.0001))
         anchors.fill: parent
 
-        fragmentShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders/leveladjust.frag"
+        fragmentShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders_ng/leveladjust.frag.qsb"
     }
 }

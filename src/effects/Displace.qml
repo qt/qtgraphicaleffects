@@ -60,8 +60,6 @@ import QtGraphicalEffects.private 1.12
         \li \image Displace_bug.png
     \endtable
 
-    \note This effect is available when running with OpenGL.
-
     \section1 Example
 
     The following example shows how to apply the effect.
@@ -185,6 +183,6 @@ Item {
 
         anchors.fill: parent
 
-        fragmentShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders/displace.frag"
+        fragmentShader: "qrc:/qt-project.org/imports/QtGraphicalEffects/shaders_ng/displace.frag.qsb"
     }
 }

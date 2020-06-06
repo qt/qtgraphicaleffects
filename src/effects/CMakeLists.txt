@@ -21,68 +21,30 @@ add_qml_module(qtgraphicaleffectsplugin
 
 # Resources:
 set(qtgraphicaleffectsshaders_resource_files
-    "shaders/+glslcore/brightnesscontrast.frag"
-    "shaders/+glslcore/colorize.frag"
-    "shaders/+glslcore/coloroverlay.frag"
-    "shaders/+glslcore/conicalgradient_mask.frag"
-    "shaders/+glslcore/conicalgradient_nomask.frag"
-    "shaders/+glslcore/desaturate.frag"
-    "shaders/+glslcore/displace.frag"
-    "shaders/+glslcore/fastblur.frag"
-    "shaders/+glslcore/fastblur_internal.frag"
-    "shaders/+glslcore/fastblur_internal.vert"
-    "shaders/+glslcore/fastglow.frag"
-    "shaders/+glslcore/fastinnershadow.frag"
-    "shaders/+glslcore/fastinnershadow_level0.frag"
-    "shaders/+glslcore/fastmaskedblur.frag"
-    "shaders/+glslcore/gammaadjust.frag"
-    "shaders/+glslcore/gaussianinnershadow.frag"
-    "shaders/+glslcore/gaussianinnershadow_shadow.frag"
-    "shaders/+glslcore/huesaturation.frag"
-    "shaders/+glslcore/leveladjust.frag"
-    "shaders/+glslcore/lineargradient.vert"
-    "shaders/+glslcore/lineargradient_mask.frag"
-    "shaders/+glslcore/lineargradient_nomask.frag"
-    "shaders/+glslcore/opacitymask.frag"
-    "shaders/+glslcore/opacitymask_invert.frag"
-    "shaders/+glslcore/radialgradient.vert"
-    "shaders/+glslcore/radialgradient_mask.frag"
-    "shaders/+glslcore/radialgradient_nomask.frag"
-    "shaders/+glslcore/rectangularglow.frag"
-    "shaders/+glslcore/recursiveblur.frag"
-    "shaders/+glslcore/recursiveblur.vert"
-    "shaders/+glslcore/thresholdmask.frag"
-    "shaders/brightnesscontrast.frag"
-    "shaders/colorize.frag"
-    "shaders/coloroverlay.frag"
-    "shaders/conicalgradient_mask.frag"
-    "shaders/conicalgradient_nomask.frag"
-    "shaders/desaturate.frag"
-    "shaders/displace.frag"
-    "shaders/fastblur.frag"
-    "shaders/fastblur_internal.frag"
-    "shaders/fastblur_internal.vert"
-    "shaders/fastglow.frag"
-    "shaders/fastinnershadow.frag"
-    "shaders/fastinnershadow_level0.frag"
-    "shaders/fastmaskedblur.frag"
-    "shaders/gammaadjust.frag"
-    "shaders/gaussianinnershadow.frag"
-    "shaders/gaussianinnershadow_shadow.frag"
-    "shaders/huesaturation.frag"
-    "shaders/leveladjust.frag"
-    "shaders/lineargradient.vert"
-    "shaders/lineargradient_mask.frag"
-    "shaders/lineargradient_nomask.frag"
-    "shaders/opacitymask.frag"
-    "shaders/opacitymask_invert.frag"
-    "shaders/radialgradient.vert"
-    "shaders/radialgradient_mask.frag"
-    "shaders/radialgradient_nomask.frag"
-    "shaders/rectangularglow.frag"
-    "shaders/recursiveblur.frag"
-    "shaders/recursiveblur.vert"
-    "shaders/thresholdmask.frag"
+    "shaders_ng/brightnesscontrast.frag.qsb"
+    "shaders_ng/colorize.frag.qsb"
+    "shaders_ng/coloroverlay.frag.qsb"
+    "shaders_ng/conicalgradient_mask.frag.qsb"
+    "shaders_ng/conicalgradient_nomask.frag.qsb"
+    "shaders_ng/desaturate.frag.qsb"
+    "shaders_ng/displace.frag.qsb"
+    "shaders_ng/fastblur.frag.qsb"
+    "shaders_ng/fastblur_internal.frag.qsb"
+    "shaders_ng/fastblur_internal.vert.qsb"
+    "shaders_ng/fastglow.frag.qsb"
+    "shaders_ng/gammaadjust.frag.qsb"
+    "shaders_ng/huesaturation.frag.qsb"
+    "shaders_ng/leveladjust.frag.qsb"
+    "shaders_ng/lineargradient.vert.qsb"
+    "shaders_ng/lineargradient_mask.frag.qsb"
+    "shaders_ng/lineargradient_nomask.frag.qsb"
+    "shaders_ng/opacitymask.frag.qsb"
+    "shaders_ng/opacitymask_invert.frag.qsb"
+    "shaders_ng/radialgradient.vert.qsb"
+    "shaders_ng/radialgradient_mask.frag.qsb"
+    "shaders_ng/radialgradient_nomask.frag.qsb"
+    "shaders_ng/rectangularglow.frag.qsb"
+    "shaders_ng/thresholdmask.frag.qsb"
 )
 
 add_qt_resource(qtgraphicaleffectsplugin "qtgraphicaleffectsshaders"
@@ -96,38 +58,27 @@ add_qt_resource(qtgraphicaleffectsplugin "qtgraphicaleffectsshaders"
 #### Keys ignored in scope 2:.:.:effects_plugin.pro:<TRUE>:
 # CXX_MODULE = "qml"
 # IMPORT_VERSION = "1.$$QT_MINOR_VERSION"
-# QML_FILES = "Blend.qml" "BrightnessContrast.qml" "ColorOverlay.qml" "Colorize.qml" "ConicalGradient.qml" "Desaturate.qml" "DirectionalBlur.qml" "Displace.qml" "DropShadow.qml" "FastBlur.qml" "GammaAdjust.qml" "GaussianBlur.qml" "Glow.qml" "HueSaturation.qml" "InnerShadow.qml" "LevelAdjust.qml" "LinearGradient.qml" "MaskedBlur.qml" "OpacityMask.qml" "RadialBlur.qml" "RadialGradient.qml" "RectangularGlow.qml" "RecursiveBlur.qml" "ThresholdMask.qml" "ZoomBlur.qml"
+# QML_FILES = "BrightnessContrast.qml" "ColorOverlay.qml" "Colorize.qml" "ConicalGradient.qml" "Desaturate.qml" "Displace.qml" "DropShadow.qml" "FastBlur.qml" "GammaAdjust.qml" "Glow.qml" "HueSaturation.qml" "LevelAdjust.qml" "LinearGradient.qml" "OpacityMask.qml" "RadialGradient.qml" "RectangularGlow.qml" "ThresholdMask.qml"
 # TARGETPATH = "QtGraphicalEffects"
 
 set(qml_files
-    "Blend.qml"
     "BrightnessContrast.qml"
     "ColorOverlay.qml"
     "Colorize.qml"
     "ConicalGradient.qml"
     "Desaturate.qml"
-    "DirectionalBlur.qml"
     "Displace.qml"
     "DropShadow.qml"
     "FastBlur.qml"
     "GammaAdjust.qml"
-    "GaussianBlur.qml"
     "Glow.qml"
     "HueSaturation.qml"
-    "InnerShadow.qml"
     "LevelAdjust.qml"
     "LinearGradient.qml"
-    "MaskedBlur.qml"
     "OpacityMask.qml"
-    "RadialBlur.qml"
     "RadialGradient.qml"
     "RectangularGlow.qml"
-    "RecursiveBlur.qml"
     "ThresholdMask.qml"
-    "ZoomBlur.qml"
-)
-set_source_files_properties(Blend.qml PROPERTIES
-    QT_QML_SOURCE_VERSION "1.0"
 )
 set_source_files_properties(BrightnessContrast.qml PROPERTIES
     QT_QML_SOURCE_VERSION "1.0"
@@ -144,9 +95,6 @@ set_source_files_properties(ConicalGradient.qml PROPERTIES
 set_source_files_properties(Desaturate.qml PROPERTIES
     QT_QML_SOURCE_VERSION "1.0"
 )
-set_source_files_properties(DirectionalBlur.qml PROPERTIES
-    QT_QML_SOURCE_VERSION "1.0"
-)
 set_source_files_properties(Displace.qml PROPERTIES
     QT_QML_SOURCE_VERSION "1.0"
 )
@@ -159,16 +107,10 @@ set_source_files_properties(FastBlur.qml PROPERTIES
 set_source_files_properties(GammaAdjust.qml PROPERTIES
     QT_QML_SOURCE_VERSION "1.0"
 )
-set_source_files_properties(GaussianBlur.qml PROPERTIES
-    QT_QML_SOURCE_VERSION "1.0"
-)
 set_source_files_properties(Glow.qml PROPERTIES
     QT_QML_SOURCE_VERSION "1.0"
 )
 set_source_files_properties(HueSaturation.qml PROPERTIES
-    QT_QML_SOURCE_VERSION "1.0"
-)
-set_source_files_properties(InnerShadow.qml PROPERTIES
     QT_QML_SOURCE_VERSION "1.0"
 )
 set_source_files_properties(LevelAdjust.qml PROPERTIES
@@ -177,13 +119,7 @@ set_source_files_properties(LevelAdjust.qml PROPERTIES
 set_source_files_properties(LinearGradient.qml PROPERTIES
     QT_QML_SOURCE_VERSION "1.0"
 )
-set_source_files_properties(MaskedBlur.qml PROPERTIES
-    QT_QML_SOURCE_VERSION "1.0"
-)
 set_source_files_properties(OpacityMask.qml PROPERTIES
-    QT_QML_SOURCE_VERSION "1.0"
-)
-set_source_files_properties(RadialBlur.qml PROPERTIES
     QT_QML_SOURCE_VERSION "1.0"
 )
 set_source_files_properties(RadialGradient.qml PROPERTIES
@@ -192,13 +128,7 @@ set_source_files_properties(RadialGradient.qml PROPERTIES
 set_source_files_properties(RectangularGlow.qml PROPERTIES
     QT_QML_SOURCE_VERSION "1.0"
 )
-set_source_files_properties(RecursiveBlur.qml PROPERTIES
-    QT_QML_SOURCE_VERSION "1.0"
-)
 set_source_files_properties(ThresholdMask.qml PROPERTIES
-    QT_QML_SOURCE_VERSION "1.0"
-)
-set_source_files_properties(ZoomBlur.qml PROPERTIES
     QT_QML_SOURCE_VERSION "1.0"
 )
 
