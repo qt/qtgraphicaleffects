@@ -56,12 +56,12 @@ The Qt Graphical Effects module provides a set of QML types for adding visually
 impressive and configurable effects to user interfaces. Effects are visual
 items that can be added to Qt Quick user interface as UI components.
 
-The API consists of over 20 effects provided as separate QML types. The effects
-cover functional areas such as blending, masking, blurring, coloring, and many more.
+The API consists of over 15 effects provided as separate QML types. The effects
+cover functional areas such as masking, blurring, coloring, and many more.
 
 \section1 Getting Started
 To load Qt Graphical Effects, add the following import statement to your .qml file:
-\snippet Blend-example.qml import
+\snippet FastBlur-example.qml import
 
 To use the effects, simply add a specific effect declaration to the QML scene and
 configure the effects properties. Effects have one or more source properties for
@@ -75,15 +75,10 @@ Each effect has a set of properties that can be used to configure the effect out
 Properties can be animated just like any other QML properties. The QML type
 documentation contains property descriptions and basic usage examples.
 
-Currently there is no C++ API.
-
-\note Some effects may not be available with all graphics APIs. OpenGL, which is
-used by default in most cases, has full support for all of them.  However, the
-\c software backend for instance does not support effects at all. Therefore,
-when running with graphics APIs other than OpenGL, refer to the documentation of
-the QML types in question to check if the effect is available. For more
-information on the Qt Quick scene graph backends, see
-\l{qtquick-visualcanvas-adaptations.html}{Scene Graph Adaptations}.
+\note Effects are not available when running with the \c software
+backend of Qt Quick.  For more information on Qt Quick scene graph
+backends, see \l{qtquick-visualcanvas-adaptations.html}{Scene Graph
+Adaptations}.
 
 \section1 Reference
 

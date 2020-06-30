@@ -46,11 +46,8 @@
     The following list presents the functional division of types that are part
     of Qt Graphical Effects:
 
-    \section1 Blend
-    \annotatedlist qtgraphicaleffects-blend
-
     \section1 Color
-    \annotatedlist qtgraphicaleffects-color
+        \annotatedlist qtgraphicaleffects-color
 
     \section1 Gradient
         \annotatedlist qtgraphicaleffects-gradient
@@ -63,9 +60,6 @@
 
     \section1 Blur
         \annotatedlist qtgraphicaleffects-blur
-
-    \section1 Motion Blur
-        \annotatedlist qtgraphicaleffects-motion-blur
 
     \section1 Glow
         \annotatedlist qtgraphicaleffects-glow
