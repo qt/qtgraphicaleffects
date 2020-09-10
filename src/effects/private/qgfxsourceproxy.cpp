@@ -166,7 +166,7 @@ void QGfxSourceProxy::updatePolish()
             if (shaderSource->sourceRect() == m_sourceRect || m_sourceRect.isEmpty())
                 direct = true;
 
-        } else if (!padded && ((image && image->fillMode() == QQuickImage::Stretch)
+        } else if (!padded && ((image && image->fillMode() == QQuickImage::Stretch && !m_sourceRect.isNull())
                                 || (!image && m_input->isTextureProvider())
                               )
                   ) {
