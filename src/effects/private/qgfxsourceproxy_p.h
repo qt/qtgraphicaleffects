@@ -104,6 +104,9 @@ signals:
     void activeChanged();
     void interpolationChanged();
 
+private slots:
+    void repolish();
+
 private:
     void setOutput(QQuickItem *output);
     void useProxy();
