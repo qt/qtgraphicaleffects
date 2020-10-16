@@ -1,5 +1,4 @@
 requires(qtHaveModule(quick))
-requires(contains(QT_CONFIG, opengl))
 
 qtHaveModule(quick) {
     QT_FOR_CONFIG += quick-private
