@@ -4,7 +4,7 @@
 ## qtgraphicaleffectsplugin Plugin:
 #####################################################################
 
-add_qml_module(qtgraphicaleffectsplugin
+qt_internal_add_qml_module(qtgraphicaleffectsplugin
     URI "QtGraphicalEffects"
     VERSION "1.${CMAKE_PROJECT_VERSION_MINOR}"
     DESIGNER_SUPPORTED
@@ -47,7 +47,7 @@ set(qtgraphicaleffectsshaders_resource_files
     "shaders_ng/thresholdmask.frag.qsb"
 )
 
-add_qt_resource(qtgraphicaleffectsplugin "qtgraphicaleffectsshaders"
+qt_internal_add_resource(qtgraphicaleffectsplugin "qtgraphicaleffectsshaders"
     PREFIX
         "/qt-project.org/imports/QtGraphicalEffects"
     FILES
@@ -136,7 +136,7 @@ qt6_target_qml_files(qtgraphicaleffectsplugin
     FILES
         ${qml_files}
 )
-add_qt_docs(qtgraphicaleffectsplugin
+qt_internal_add_docs(qtgraphicaleffectsplugin
     doc/qtgraphicaleffects.qdocconf
 )
 

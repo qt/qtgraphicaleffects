@@ -10,7 +10,8 @@ project(QtGraphicalEffects # special case
     LANGUAGES CXX C
 )
 
-find_package(Qt6 ${PROJECT_VERSION} CONFIG REQUIRED COMPONENTS BuildInternals Quick) # special case
+find_package(Qt6 ${PROJECT_VERSION} CONFIG REQUIRED COMPONENTS BuildInternals Core) # special case
+find_package(Qt6 ${PROJECT_VERSION} QUIET CONFIG OPTIONAL_COMPONENTS Quick)
 
 if(NOT TARGET Qt::Quick)
     message(NOTICE "Skipping the build as the condition \"TARGET Qt::Quick\" is not met.")

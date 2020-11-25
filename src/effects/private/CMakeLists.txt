@@ -4,7 +4,7 @@
 ## qtgraphicaleffectsprivate Plugin:
 #####################################################################
 
-qt_add_qml_module(qtgraphicaleffectsprivate
+qt_internal_add_qml_module(qtgraphicaleffectsprivate
     URI "QtGraphicalEffects.private"
     VERSION "${CMAKE_PROJECT_VERSION}"
     CLASSNAME QtGraphicalEffectsPrivatePlugin
