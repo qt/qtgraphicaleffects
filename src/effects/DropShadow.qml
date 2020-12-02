@@ -289,7 +289,7 @@ Item {
 
         \snippet DropShadow-transparentBorder-example.qml example
 
-        \image transparentBorder.png
+        \image DropShadow-transparentBorder.png
     */
     property bool transparentBorder: false
 

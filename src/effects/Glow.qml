@@ -213,7 +213,7 @@ Item {
 
         \snippet Glow-transparentBorder-example.qml example
 
-        \image transparentBorder.png
+        \image Glow-transparentBorder.png
     */
     property bool transparentBorder: false
 
