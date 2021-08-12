@@ -1,4 +1,0 @@
-module QtGraphicalEffects.private
-plugin qtgraphicaleffectsprivate
-classname QtGraphicalEffectsPrivatePlugin
-FastGlow 1.0 FastGlow.qml
